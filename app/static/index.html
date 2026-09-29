@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14233d">
+  <title>Grafo Med · Aprende a decidir</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="#home" aria-label="Grafo Med, inicio"><span class="brand-mark" aria-hidden="true">g<span>m</span></span><span>Grafo Med<small>APRENDE A DECIDIR</small></span></a>
+      <p class="nav-caption">TU ESPACIO DE APRENDIZAJE</p>
+      <nav id="navigation"></nav>
+      <div class="sidebar-bottom">
+        <div class="local-note"><span class="status-dot"></span><span>Tu espacio local<small>Datos guardados en esta computadora</small></span></div>
+        <button class="profile-button" id="profile-button" type="button"><span class="avatar" id="avatar">G</span><span id="profile-name">Cargando perfil…</span><span aria-hidden="true">↗</span></button>
+        <img class="institution-logo" src="/assets/usamedic-logo-horizontal.png" alt="USAMEDIC" width="122">
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div><button class="unit-selector" id="unit-selector" type="button" aria-haspopup="dialog"><span class="topbar-label">ESPECIALIDAD / TEMA</span><strong id="unit-label">ENDOCRINOLOGÍA / EJE TIROIDEO</strong><span class="unit-chevron">⌄</span></button><span class="topbar-divider">/</span><button class="route-selector" id="route-selector" type="button" aria-haspopup="dialog"><span id="route-label">TEMA 01</span><span class="unit-chevron">⌄</span></button><span class="topbar-divider">/</span><span id="view-label">Mi recorrido</span></div><div class="topbar-actions"><span class="duo-stat" id="streak-stat">🔥 0</span><span class="duo-stat" id="xp-stat">⚡ 0</span><a class="mode-link" href="/games-lab.html" style="background: rgba(6,182,212,0.15); color:#38bdf8; border-color:rgba(56,189,248,0.3);">🎮 Lab de Juegos →</a><a class="mode-link" href="/builder.html">Builder / Viewer →</a><span class="candidate-badge">Contenido candidato · revisión pendiente</span></div></header>
+      <div id="notice" role="alert" hidden></div>
+      <main id="main" tabindex="-1"><div class="loading"><span class="spinner"></span><p>Preparando tu recorrido…</p></div></main>
+      <footer class="app-footer">Aprendizaje médico con evidencia de tus intentos. No certifica competencia clínica ni sustituye supervisión profesional.</footer>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="unit-dialog" aria-labelledby="unit-dialog-title">
+    <div class="dialog-heading"><span class="eyebrow">TU UNIVERSO MÉDICO</span><button class="icon-button" id="close-unit" type="button" aria-label="Cerrar">×</button></div>
+    <h2 id="unit-dialog-title">Elige una especialidad</h2>
+    <p>Selecciona el área médica que quieres recorrer.</p>
+    <div id="unit-options" class="unit-options"></div>
+  </dialog>
+  <dialog id="route-dialog" aria-labelledby="route-dialog-title">
+    <div class="dialog-heading"><span class="eyebrow">TEMA / CLUSTER</span><button class="icon-button" id="close-route" type="button" aria-label="Cerrar">×</button></div>
+    <h2 id="route-dialog-title">Elige un tema</h2>
+    <p id="route-dialog-copy">Los temas aparecen en el orden recomendado.</p>
+    <div id="route-options" class="route-options"></div>
+  </dialog>
+  <dialog id="profile-dialog" aria-labelledby="profile-title">
+    <form id="profile-form">
+      <div class="dialog-heading"><span class="eyebrow">PERFILES LOCALES</span><button class="icon-button" id="close-profile" type="button" aria-label="Cerrar">×</button></div>
+      <h2 id="profile-title">Un nuevo comienzo</h2>
+      <p>Se creará un perfil nuevo en esta computadora. El historial anterior se conserva en SQL, pero este navegador pasará al nuevo perfil. Esto no es una cuenta en la nube.</p>
+      <label class="field-label" for="learner-name">Nombre o alias (sin datos de pacientes)</label>
+      <input id="learner-name" name="name" maxlength="60" required autocomplete="off" placeholder="Por ejemplo, Javier">
+      <p class="muted small">Si quieres conservar una copia accesible de tu progreso actual, expórtalo antes de cambiar.</p>
+      <button class="button primary full" type="submit">Crear perfil local</button>
+    </form>
+  </dialog>
+  <noscript><p class="noscript">Esta aplicación necesita JavaScript para registrar tus respuestas de forma segura en la base SQL local.</p></noscript>
+</body>
+</html>

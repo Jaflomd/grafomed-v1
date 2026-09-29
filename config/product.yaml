@@ -1,0 +1,290 @@
+schema_version: "0.3"
+product_id: grafomed-v1
+canonical_name: "Grafo Med v1"
+storage_root: "products/grafomed-v1"
+canonical_language: en
+repository: false
+front_created: false
+legacy_migration_performed: false
+status: first_slice_candidate_structural_pass
+authority: javier
+steward: mia
+
+specification:
+  path: "products/grafomed-v1/PRODUCT_SPEC.md"
+  version: "0.4.2"
+  role: binding_architecture_contract
+  audit: "products/grafomed-v1/reviews/spec-audit-2026-08-26.md"
+  latest_amendment_review: "products/grafomed-v1/reviews/spec-amendment-0.4.2-2026-09-17.md"
+  executable_details_live_under:
+    - "products/grafomed-v1/schemas"
+    - "products/grafomed-v1/tests"
+    - "products/grafomed-v1/config"
+
+custodians:
+  clinical: acai
+  semantic: siris
+  educational: alexei
+  systems: cris
+  independent_audit: ghost
+
+current_build_scope:
+  confirmed_at: "2026-09-17"
+  priority: internal_teaching_first_sql_application
+  implementation_contract: "products/grafomed-v1/app/mini-PRD.md"
+  include:
+    - clusters
+    - knowledge_entities
+    - mastery_atoms
+    - typed_relations
+    - clinical_and_preclinical_tags
+    - transversal_nodes
+    - route_prerequisites
+    - graph_visualization
+    - internal_sql_learner_application
+    - bounded_thyroid_teaching_and_assessment_candidate
+  defer:
+    - full_cross_specialty_microlearning_content
+    - item_bank_expansion
+    - gameplay_system
+    - production_learner_app
+    - deep_unit_expansion_across_nodes
+  existing_deep_unit_role: isolated_design_probe_only
+  delete_existing_prototype: false
+
+legacy_reference_intake:
+  protocol: "products/grafomed-v1/LEGACY_INTAKE_PROTOCOL.md"
+  legacy_project_role: research_reference_only
+  direct_migration_allowed: false
+  cycle_size: one_bounded_cluster_or_subcluster
+  approval_before_candidate_ingest: javier
+  current_cycle:
+    id: gm-intake-upper-limb-osteology-imaging-v0
+    status: candidate_proposal_not_ingested
+    proposal: "products/grafomed-v1/designs/intake-proposals/upper-limb-osteology-imaging-v0.yaml"
+    audit: "products/grafomed-v1/reviews/legacy-intake-upper-limb-osteology-imaging-2026-08-30.md"
+    legacy_records_reviewed: 14
+    candidate_anatomical_entities_to_add: 24
+    candidate_clinical_context_entities_to_add: 9
+    relation_registry_extensions_required: 4
+    tests_passed: 60
+
+v0_1:
+  primary_user: builder_internal
+  first_slice_packet: slice-genital-ulcer-syndrome-initial-management-v0
+  promoted_scope: internal_controlled_use
+  release_status: internal_only
+  packet_format: folder_with_manifest
+  packet_manifest: packet.yaml
+  external_evidence_search_default: true
+  automatic_creation_scope: candidates_only
+  route_engine: deterministic_explainable_graph_traversal
+  learner_state_separate_from_medical_truth: true
+  first_packet_audit_coverage: 1.0
+  horizontal_expansion_before_first_proof: false
+  first_slice_status: graph_drafted
+  first_slice_promotion_eligible: false
+  first_slice_validation: "products/grafomed-v1/slice-packets/slice-genital-ulcer-syndrome-initial-management-v0/reviews/validation-report.json"
+
+layers:
+  - medical_truth
+  - learning_representation
+  - assemblies
+  - learner_state
+  - derived_projections
+
+confirmed_learning_objects:
+  - mastery_atom
+  - learning_objective
+  - resource
+  - activity
+  - case
+  - assessment
+
+first_test:
+  candidate_object_min: 8
+  candidate_object_max: 15
+  candidate_object_count_scope: medical_truth_and_assemblies
+  mastery_atom_max: 2
+  assessment_artifact_max: 1
+  typed_relation_min: 15
+  typed_relation_max: 30
+  original_mcq_min: 3
+  original_mcq_max: 5
+  requires_manual_gold_route: true
+  requires_generated_route: true
+  requires_learner_state_before_after: true
+  requires_remediation_branch: true
+  requires_transfer_case: true
+  required_review_domains: 5
+
+promotion:
+  unresolved_blockers_allowed: 0
+  unresolved_critical_defects_allowed: 0
+  placeholder_required_fields_allowed: false
+  full_provenance_for_material_claims: true
+  full_duplicate_reuse_check: true
+  all_review_domains_required: true
+  ghost_final_recommendation_required: true
+
+deferred:
+  - empirical_mastery_thresholds
+  - psychometric_calibration
+  - advanced_learner_models
+  - post_proof_ghost_sampling
+  - learner_pilot_and_public_release
+  - advanced_recommenders
+
+viewer:
+  root: "products/grafomed-v1/viewer"
+  local_entrypoint: "products/grafomed-v1/viewer/index.html"
+  self_contained_export: "products/grafomed-v1/exports/grafomed-viewer.html"
+  spec: "products/grafomed-v1/viewer/VIEWER_SPEC.md"
+  version: "0.3.0"
+  status: spanish_3d_build_verified
+  latest_verification: "products/grafomed-v1/reviews/viewer-3d-spanish-verification-2026-08-28.md"
+  modes:
+    - graph
+    - route
+    - inspector
+  primary_surface: three_dimensional_node_map
+  presentation_language: es
+  canonical_record_language: en
+  legacy_visual_reference: medico-completo-node-vision
+  legacy_data_migrated: false
+  spatial_model: curriculum_cone
+  node_size_signal: visible_degree_only
+  initial_projection: all_individual_nodes_within_visible_budget
+  selection_inspector: on_demand
+  exploration_model: focal_progressive_expansion
+  snapshot_required: true
+  candidate_overlay_separate: true
+  canonical_write_access: false
+  proposal_output_status: candidate
+  learner_state_included_by_default: false
+  external_runtime_required: false
+  empty_graph_behavior: labeled_architecture_demo
+  current_dataset_mode: candidate_projection
+  candidate_projection_nodes: 18
+  candidate_projection_relations: 29
+  candidate_projection_routes: 2
+  learning_contract_display: always_when_present
+
+learning_prototype:
+  id: grafomed-learner-app-v0
+  path: "products/grafomed-v1/prototypes/learner-app-v0/index.html"
+  status: functional_candidate_demo_not_promoted
+  parent_brand: usamedic
+  brand_layer_version: "1.0"
+  brand_assets:
+    horizontal_lockup: "products/grafomed-v1/prototypes/learner-app-v0/assets/usamedic-logo-horizontal.png"
+    isotipo: "products/grafomed-v1/prototypes/learner-app-v0/assets/usamedic-isotipo.png"
+  branding_changes_learner_state: false
+  branding_changes_pedagogical_logic: false
+  source_cluster: gm-cluster-miembro-superior
+  responsible_agent: alexei
+  product_hypothesis:
+    learner_selects_destination: true
+    mia_proposes_next_mission: true
+    recommendation_is_explainable_and_contestable: true
+    ready_to_learn_frontier_size: 3
+    one_focal_mission_on_home: true
+    full_graph_is_secondary_exploration_surface: true
+  surfaces:
+    - today
+    - journey
+    - mastery_map
+    - learner_state_profile
+  fully_interactive_candidate_missions: 3
+  deep_unit_candidate:
+    node_ref: gm-ma-identify-upper-limb-long-flat-bones
+    source_pack: "products/grafomed-v1/prototypes/learner-app-v0/content-packs/upper-limb-bones.v0.json"
+    schema: "products/grafomed-v1/prototypes/learner-app-v0/contracts/node-learning-pack.v0.schema.json"
+    browser_assignment: "products/grafomed-v1/prototypes/learner-app-v0/node-pack.js"
+    deterministic_builder: "products/grafomed-v1/scripts/build_node_learning_pack.py"
+    status: candidate_demo_not_promoted
+    micro_lessons: 7
+    activities_total: 33
+    activities_scored: 29
+    teaching_interactions: 4
+    estimated_minutes: 51
+    response_formats:
+      - single_choice
+      - multiple_select
+      - sequence
+      - short_answer
+    scheduled_review_days: [1, 3, 7, 21]
+    actual_image_assets_included: false
+    expert_content_review_complete: false
+    completion_confers_mastery: false
+  mission_loop:
+    - orient
+    - diagnose
+    - teach
+    - guided_practice
+    - retrieve
+    - contrast
+    - transfer
+    - bounded_assessment
+    - schedule_review
+  mastery_states:
+    - unknown
+    - exposed
+    - practicing
+    - competent
+    - transferable
+    - consolidated
+  evidence_dimensions: [A1, A2, A3, A4]
+  evidence_event_contract: "products/grafomed-v1/prototypes/learner-app-v0/contracts/evidence-event.v0.schema.json"
+  assessment_use_contract: "products/grafomed-v1/prototypes/learner-app-v0/contracts/assessment-use.v0.json"
+  pedagogical_mechanism_contract: "products/grafomed-v1/prototypes/learner-app-v0/contracts/pedagogical-mechanisms.v0.yaml"
+  governance_contract: "products/grafomed-v1/prototypes/learner-app-v0/contracts/governance.v0.yaml"
+  assistance_is_recorded: true
+  confidence_calibration_is_recorded: true
+  confidence_capture_location: persistent_lesson_footer
+  confidence_visible_without_content_scroll: true
+  answer_and_confidence_required_before_submit: true
+  missingness_is_distinct_from_failure: true
+  delayed_retention_is_distinct_from_acquisition: true
+  transfer_is_distinct_from_retention: true
+  learner_model_is_inspectable: true
+  learner_model_is_contestable: true
+  route_override_is_available: true
+  xp_confers_mastery: false
+  completion_confers_mastery: false
+  canonical_write_access: false
+  demo_state_storage: browser_local_storage_only
+  empirical_thresholds_available: false
+
+learning_contract:
+  applies_to: any_graph_object_declared_learner_facing
+  objective_count_per_node: 1
+  applies_to_all_graph_nodes: false
+  required_fields:
+    - objective
+    - expected_performance
+    - mastery_evidence
+  current_implementation_scope:
+    - gm-condition-primary-syphilis
+    - gm-test-syphilis-evaluation-in-gud
+
+knowledge_entity_layer:
+  canonical_layer: medical_truth
+  entity_objective_required: false
+  learning_bridge_relation: enables_mastery_of
+  learning_target_type: mastery_atom
+  first_anatomical_design:
+    path: "products/grafomed-v1/designs/objective-clusters/vertebral-column-v0.yaml"
+    status: source_locked_candidate_not_promoted
+    anatomical_entities: 11
+    vertebral_morphotypes: 10
+  anatomical_designs:
+    - path: "products/grafomed-v1/designs/objective-clusters/vertebral-column-v0.yaml"
+      status: source_locked_candidate_not_promoted
+      anatomical_entities: 11
+      displayed_knowledge_nodes: 11
+    - path: "products/grafomed-v1/designs/objective-clusters/upper-limb-v0.yaml"
+      status: source_locked_candidate_not_promoted
+      anatomical_entities: 54
+      displayed_knowledge_nodes: 59
+      materialized_relation_view: "products/grafomed-v1/designs/objective-clusters/upper-limb-v0-relations.yaml"

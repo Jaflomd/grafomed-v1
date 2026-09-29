@@ -1,0 +1,20 @@
+schema: grafomed-review.v1
+id: gm-review-gud-clinical-v0
+domain: clinical
+responsible_agent: acai
+review_context_independent_of_producer: false
+status: pending_separate_review
+producer_precheck:
+  status: pass_with_open_review
+  checks:
+    - Peru NTS 240 is the local normative anchor and WHO/CDC claims retain context.
+    - Early negative syphilis serology does not create an exclusion edge.
+    - Exact regimens are not generalized outside the current local protocol.
+    - Pregnancy, immunocompromise, neurologic or ocular disease, and persistent ulcers are escalation boundaries.
+    - The artifact is labeled educational and not patient-specific decision support.
+  open_questions:
+    - Verify every clinical claim and MCQ rationale against the cited page scope.
+    - Confirm that the decision boundaries do not omit a critical first-visit emergency or contraindication.
+approval: null
+promotion_effect: blocking_until_independent_context_passes
+

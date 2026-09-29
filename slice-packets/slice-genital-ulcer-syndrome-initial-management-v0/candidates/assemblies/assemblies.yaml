@@ -1,0 +1,167 @@
+nodes:
+  - schema: grafomed-object.v1
+    id: gm-differential-set-anogenital-ulcer
+    object_type: differential_set
+    layer: assemblies
+    label: Initial differential for an anogenital ulcer
+    definition: A bounded first-visit differential that separates common high-consequence infections from context-dependent infectious and noninfectious alternatives.
+    summary: HSV and primary syphilis are mandatory contrasts; less common infections and non-STI causes remain explicit without being inflated into unsupported nodes.
+    member_refs:
+      - gm-condition-genital-herpes
+      - gm-condition-primary-syphilis
+    deferred_member_labels:
+      infectious:
+        - chancroid
+        - lymphogranuloma venereum
+        - donovanosis
+        - mpox
+        - yeast or other locally relevant infection
+      noninfectious:
+        - trauma
+        - carcinoma
+        - aphthous ulcer or Behcet disease
+        - fixed drug eruption
+        - psoriasis or other inflammatory dermatosis
+    discriminating_principles:
+      - Morphology and pain change probability but do not establish etiology.
+      - Geographic and population epidemiology determine whether rare infections enter initial testing or treatment.
+      - Persistence, atypia, or nonresponse broadens the differential and triggers referral or biopsy consideration.
+    boundaries:
+      - Deferred members are labels in this packet, not canonical condition nodes.
+      - A future slice may promote a deferred member only after its own source and duplicate checks.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02, CLM-GUD-09, CLM-GUD-10]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: organ_system, code: SYS-INTEGUMENTARY, role: primary, weight: 0.85, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-DIFFERENTIAL, role: primary, weight: 0.95, provenance: objective_OBJ-GUD-02}
+    competency_refs: [AAMC-CORE-EPA-02, CANMEDS15-ME-EC-01.06, CANMEDS15-ME-EC-02.02]
+    provenance: &assembly_provenance
+      created_by: mia
+      created_at: "2026-08-26T16:24:00-05:00"
+      packet_id: slice-genital-ulcer-syndrome-initial-management-v0
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: &new_assembly
+      exact_id: no_existing_id_found_in_clean_graph
+      alias_full_text: no_existing_graph_object_found
+      semantic_neighbor: graph_was_empty_before_this_packet
+      reuse_classification: specialization
+      result: new_candidate
+
+  - schema: grafomed-object.v1
+    id: gm-illness-script-genital-herpes
+    object_type: illness_script
+    layer: assemblies
+    label: Illness script - genital herpes in an anogenital-ulcer presentation
+    definition: A condition-centered recognition and discrimination projection for genital herpes; it ends before definitive management.
+    member_refs:
+      - gm-condition-genital-herpes
+      - gm-clinical-finding-anogenital-ulcer
+      - gm-test-hsv-lesion-naat-or-culture
+    enabling_conditions:
+      - sexual exposure and anogenital contact
+      - first recognized episode or recurrence
+      - host and HIV context can alter presentation
+    fault:
+      - HSV infection with mucocutaneous replication, latency, and possible reactivation
+    consequences:
+      manifestations:
+        - vesicles, erosions, or ulcers that may be multiple and painful
+        - dysuria, itching, discharge, tender nodes, or systemic symptoms in a first episode
+        - atypical fissures or late-stage ulcers without classic vesicles
+      course:
+        - first episodes may be more extensive and prolonged than recurrent episodes
+        - recurrence supports HSV but does not replace direct testing when a lesion is available
+    discriminators:
+      raise_plausibility:
+        - recurrent or clustered vesicular-ulcerative lesions
+        - pain, dysuria, and tender lymphadenopathy
+      lower_or_redirect_plausibility:
+        - a solitary indurated painless lesion raises primary syphilis but is not definitive
+        - progressive unusual, bleeding, necrotic, or nonresponsive lesions require a broader differential
+      confirmation:
+        - type-specific lesion NAAT is preferred where available; culture is an alternative
+    boundaries:
+      - Classic morphology is probabilistic because clinical diagnosis alone is inaccurate.
+      - Treatment, suppression, pregnancy management, prognosis, and counseling live in DETcSp or future pathways.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02, CLM-GUD-04, CLM-GUD-12]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.85, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-RECOGNITION, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-01}
+      - {axis: learning_function, code: FUNC-DIFFERENTIAL, role: primary, weight: 0.85, provenance: objective_OBJ-GUD-02}
+    provenance:
+      <<: *assembly_provenance
+      source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    duplicate_reuse_check:
+      <<: *new_assembly
+      reuse_classification: condition_specific
+
+  - schema: grafomed-object.v1
+    id: gm-detcsp-gud-initial-management
+    object_type: detcsp_pathway
+    layer: assemblies
+    label: Mini-DETcSp - anogenital ulcer initial management
+    definition: A bounded workflow assembly that turns illness-script recognition into six observable first-visit management commitments.
+    member_refs:
+      - gm-differential-set-anogenital-ulcer
+      - gm-illness-script-genital-herpes
+      - gm-decision-gud-diagnosis-confirmation
+      - gm-decision-gud-actionable-context
+      - gm-decision-gud-same-day-treatment
+      - gm-decision-gud-complication-escalation
+      - gm-decision-gud-follow-up
+      - gm-decision-gud-prognosis-communication
+    stages:
+      D:
+        decision_ref: gm-decision-gud-diagnosis-confirmation
+        commitment: select a diagnostic bundle and state residual uncertainty
+      E:
+        decision_ref: gm-decision-gud-actionable-context
+        commitment: classify only the resource or risk state that changes conduct
+      T:
+        decision_ref: gm-decision-gud-same-day-treatment
+        commitment: choose same-day etiologic, syndromic, presumptive, or escalation management
+      C:
+        decision_ref: gm-decision-gud-complication-escalation
+        commitment: act on serious, special-population, persistent, or non-STI alternatives
+      S:
+        decision_ref: gm-decision-gud-follow-up
+        commitment: schedule result review, reassessment, and failure handling
+      P:
+        decision_ref: gm-decision-gud-prognosis-communication
+        commitment: communicate course, transmission, prevention, privacy, and uncertainty
+    loops:
+      - S returns to E when response or results change the actionable state.
+      - S returns to D and the illness-script layer when the course no longer fits the working diagnosis.
+    boundaries:
+      - The pathway ends after first-visit decisions and the initial reassessment plan.
+      - It is an educational graph assembly, not a prescribing or bedside tool.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-02, CLM-GUD-03, CLM-GUD-04, CLM-GUD-05, CLM-GUD-07, CLM-GUD-09, CLM-GUD-10]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.8, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-FAMILY-MEDICINE, role: secondary, weight: 0.65, provenance: source_synthesis}
+      - {axis: route_intent, code: ROUTE-CASE-PERFORMANCE, role: primary, weight: 0.9, provenance: route_contract}
+      - {axis: competency_framework, code: COMP-AAMC-CORE-EPA, role: secondary, weight: 0.7, provenance: competency_alignment}
+      - {axis: competency_framework, code: COMP-CANMEDS-2015, role: secondary, weight: 0.7, provenance: competency_alignment}
+    competency_refs: [AAMC-CORE-EPA-01, AAMC-CORE-EPA-02, AAMC-CORE-EPA-03, AAMC-CORE-EPA-04, CANMEDS15-ME-EC-02.02, CANMEDS15-ME-EC-02.04, CANMEDS15-ME-EC-04.01, CANMEDS15-COM-EC-01.01]
+    provenance: *assembly_provenance
+    duplicate_reuse_check:
+      <<: *new_assembly
+      reuse_classification: specialization

@@ -1,0 +1,74 @@
+{
+  "schema": "grafomed-validation-report.v1",
+  "packet_id": "slice-genital-ulcer-syndrome-initial-management-v0",
+  "generated_at": "2026-09-22T22:17:27-05:00",
+  "status": "structural_pass_promotion_blocked",
+  "errors": [],
+  "warnings": [
+    "Promotion remains blocked pending separate reviews: semantic, clinical, educational, systems, independent_audit"
+  ],
+  "checks": [
+    {
+      "name": "json_schema_conformance",
+      "status": "pass"
+    },
+    {
+      "name": "bounded_object_counts",
+      "status": "pass",
+      "medical_and_assemblies": 15,
+      "mastery_atoms": 2,
+      "assessments": 1
+    },
+    {
+      "name": "relation_registry_endpoint_and_cycle_checks",
+      "status": "pass",
+      "relations": 29
+    },
+    {
+      "name": "source_and_claim_closure",
+      "status": "pass",
+      "sources": 8,
+      "claims": 13
+    },
+    {
+      "name": "snapshot_and_route_gold_comparison",
+      "status": "pass",
+      "snapshot_id": "gm-snap-5210a95a8ec45899",
+      "steps": 16
+    },
+    {
+      "name": "assessment_originality_and_mapping",
+      "status": "pass",
+      "mcqs": 5,
+      "transfer_case": true,
+      "remediation_branch": true
+    },
+    {
+      "name": "learner_state_behavior_and_privacy",
+      "status": "pass"
+    },
+    {
+      "name": "review_separation_and_promotion_guard",
+      "status": "pass",
+      "pending_reviews": [
+        "semantic",
+        "clinical",
+        "educational",
+        "systems",
+        "independent_audit"
+      ],
+      "promotion_eligible": false
+    }
+  ],
+  "counts": {
+    "medical_truth_and_assemblies": 15,
+    "learning_support": 3,
+    "relations": 29,
+    "routes": 2,
+    "mcqs": 5,
+    "sources": 8,
+    "claims": 13
+  },
+  "snapshot_id": "gm-snap-5210a95a8ec45899",
+  "promotion_eligible": false
+}

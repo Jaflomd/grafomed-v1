@@ -1,0 +1,18 @@
+schema: grafomed-review.v1
+id: gm-review-gud-systems-v0
+domain: systems
+responsible_agent: cris
+review_context_independent_of_producer: false
+status: pending_separate_review
+producer_precheck:
+  status: structural_pass_promotion_blocked
+  validation_report: validation-report.json
+  checks:
+    - schema conformance
+    - ID and endpoint closure
+    - approved relation semantics and acyclic requires graph
+    - packet count thresholds and snapshot consistency
+    - route milestone and learner-state branch behavior
+    - viewer reconstruction from candidates
+approval: null
+promotion_effect: blocking_until_validator_pass_and_separate_review

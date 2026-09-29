@@ -1,0 +1,46 @@
+{
+  "schema": "grafomed-route.v1",
+  "id": "gm-route-gud-gold-v0",
+  "label": "Manual gold route - anogenital ulcer initial management",
+  "goal": "Evaluate an anogenital ulcer and commit to an evidence-backed first management state in context.",
+  "route_kind": "manual_gold",
+  "status": "candidate",
+  "snapshot_id": "gm-snap-5210a95a8ec45899",
+  "target_refs": [
+    "gm-mastery-gud-evaluation",
+    "gm-mastery-gud-initial-management"
+  ],
+  "steps": [
+    {"order": 1, "node_id": "gm-clinical-finding-anogenital-ulcer", "kind": "orient", "reason": "Anchor the route on the presenting finding without assigning etiology."},
+    {"order": 2, "node_id": "gm-condition-genital-herpes", "kind": "learn", "reason": "Establish one of the two principal etiologic contrasts."},
+    {"order": 3, "node_id": "gm-illness-script-genital-herpes", "kind": "apply", "reason": "Organize enabling conditions, fault, consequences, and discriminators without duplicating management."},
+    {"order": 4, "node_id": "gm-condition-primary-syphilis", "kind": "learn", "reason": "Establish the competing high-consequence cause and early-serology caveat."},
+    {"order": 5, "node_id": "gm-differential-set-anogenital-ulcer", "kind": "apply", "reason": "Prioritize HSV and syphilis while retaining rare infectious and noninfectious alternatives."},
+    {"order": 6, "node_id": "gm-test-syphilis-evaluation-in-gud", "kind": "retrieve", "reason": "Choose and interpret syphilis testing without false early exclusion."},
+    {"order": 7, "node_id": "gm-test-hsv-lesion-naat-or-culture", "kind": "retrieve", "reason": "Use direct lesion testing to replace morphology-only certainty."},
+    {"order": 8, "node_id": "gm-test-hiv-screening-in-gud", "kind": "retrieve", "reason": "Include the required host and prevention test without confusing it with ulcer etiology."},
+    {"order": 9, "node_id": "gm-decision-gud-diagnosis-confirmation", "kind": "decide", "reason": "Commit to the first diagnostic bundle and residual uncertainty."},
+    {"order": 10, "node_id": "gm-decision-gud-actionable-context", "kind": "decide", "reason": "Classify same-day testing, limited testing, or escalation states that alter conduct."},
+    {"order": 11, "node_id": "gm-decision-gud-same-day-treatment", "kind": "decide", "reason": "Choose etiologic, syndromic, presumptive, or escalation management under the applicable protocol."},
+    {"order": 12, "node_id": "gm-decision-gud-complication-escalation", "kind": "decide", "reason": "Act on serious, special-population, persistent, or noninfectious alternatives."},
+    {"order": 13, "node_id": "gm-decision-gud-follow-up", "kind": "decide", "reason": "Define result revision, reassessment, failure, and referral loops."},
+    {"order": 14, "node_id": "gm-decision-gud-prognosis-communication", "kind": "decide", "reason": "Communicate prognosis, prevention, privacy, partner actions, and uncertainty."},
+    {"order": 15, "node_id": "gm-detcsp-gud-initial-management", "kind": "apply", "reason": "Integrate D-E-T-C-S-P as a coherent bounded performance."},
+    {"order": 16, "node_id": "gm-assessment-gud-v0", "kind": "assess", "reason": "Collect evidence, then branch to transfer or targeted remediation."}
+  ],
+  "gold_milestones": [
+    "finding_not_etiology",
+    "hsv_syphilis_mandatory_contrast",
+    "direct_testing_and_early_serology_caveat",
+    "resource_and_jurisdiction_context",
+    "same_day_management_commitment",
+    "failure_reopens_diagnosis",
+    "uncertainty_communication"
+  ],
+  "provenance": {
+    "created_by": "mia",
+    "created_at": "2026-08-26T16:29:00-05:00",
+    "packet_id": "slice-genital-ulcer-syndrome-initial-management-v0",
+    "algorithm": "manual_expert_reference_candidate"
+  }
+}

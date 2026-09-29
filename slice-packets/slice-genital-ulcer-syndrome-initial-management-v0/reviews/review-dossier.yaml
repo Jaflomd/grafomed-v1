@@ -1,0 +1,12 @@
+schema: grafomed-review-dossier.v1
+packet_id: slice-genital-ulcer-syndrome-initial-management-v0
+status: assembled_reviews_pending
+producer: mia
+separation_policy: A producer precheck is not an approval; each named custodian must review in a separate context and Ghost must remain independent.
+reviews:
+  semantic: semantic-review.yaml
+  clinical: clinical-review.yaml
+  educational: educational-review.yaml
+  systems: systems-review.yaml
+  independent_audit: independent-audit.yaml
+promotion_recommendation: not_eligible

@@ -1,0 +1,197 @@
+nodes:
+  - schema: grafomed-object.v1
+    id: gm-mastery-gud-evaluation
+    object_type: mastery_atom
+    layer: learning_representation
+    label: Evaluate and prioritize an anogenital-ulcer presentation
+    definition: Given a first-visit case, the learner recognizes the syndrome, prioritizes the differential, selects the initial test bundle, and states what remains uncertain.
+    observable_performance:
+      - distinguishes the finding from an etiologic diagnosis
+      - includes HSV and primary syphilis while preserving rare and noninfectious branches
+      - selects syphilis, lesion HSV, and HIV testing in the correct resource context
+      - does not use an early negative syphilis serology as a definitive exclusion
+    evidence_object_refs:
+      - gm-clinical-finding-anogenital-ulcer
+      - gm-condition-genital-herpes
+      - gm-illness-script-genital-herpes
+      - gm-condition-primary-syphilis
+      - gm-differential-set-anogenital-ulcer
+      - gm-test-syphilis-evaluation-in-gud
+      - gm-test-hsv-lesion-naat-or-culture
+      - gm-test-hiv-screening-in-gud
+      - gm-decision-gud-diagnosis-confirmation
+      - gm-decision-gud-actionable-context
+    assessment_evidence: [MCQ-GUD-01, MCQ-GUD-02, MCQ-GUD-03]
+    boundaries:
+      - Mastery thresholds are fixture assumptions, not validated cut scores.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-WHO-GUD-SR-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02, CLM-GUD-03, CLM-GUD-04, CLM-GUD-06]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.85, provenance: objective_synthesis}
+      - {axis: learning_function, code: FUNC-DIFFERENTIAL, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-02}
+      - {axis: learning_function, code: FUNC-DIAGNOSIS, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-03}
+      - {axis: route_intent, code: ROUTE-CASE-PERFORMANCE, role: primary, weight: 0.85, provenance: route_contract}
+    competency_refs: [AAMC-CORE-EPA-01, AAMC-CORE-EPA-02, AAMC-CORE-EPA-03, CANMEDS15-ME-EC-02.02]
+    provenance: &learning_provenance
+      created_by: mia
+      created_at: "2026-08-26T16:25:00-05:00"
+      packet_id: slice-genital-ulcer-syndrome-initial-management-v0
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-WHO-GUD-SR-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: &new_learning
+      exact_id: no_existing_id_found_in_clean_graph
+      alias_full_text: no_existing_graph_object_found
+      semantic_neighbor: graph_was_empty_before_this_packet
+      reuse_classification: learning_support
+      result: new_candidate
+
+  - schema: grafomed-object.v1
+    id: gm-mastery-gud-initial-management
+    object_type: mastery_atom
+    layer: learning_representation
+    label: Commit to and communicate the bounded initial management state
+    definition: Given the workup and local context, the learner selects same-day etiologic, syndromic, presumptive, or escalation management and defines follow-up and uncertainty communication.
+    observable_performance:
+      - uses jurisdiction and same-day test availability to select the management branch
+      - recognizes escalation boundaries and does not overextend the general pathway
+      - states result revision and seven-day or earlier failure criteria
+      - communicates prevention, partner, privacy, and uncertainty information
+    evidence_object_refs:
+      - gm-decision-gud-actionable-context
+      - gm-decision-gud-same-day-treatment
+      - gm-decision-gud-complication-escalation
+      - gm-decision-gud-follow-up
+      - gm-decision-gud-prognosis-communication
+      - gm-detcsp-gud-initial-management
+    assessment_evidence: [MCQ-GUD-03, MCQ-GUD-04, MCQ-GUD-05, CASE-GUD-TRANSFER-01]
+    boundaries:
+      - Performance is educational and does not authorize unsupervised prescribing.
+      - Mastery thresholds are fixture assumptions, not validated cut scores.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-04, CLM-GUD-05, CLM-GUD-07, CLM-GUD-08, CLM-GUD-09, CLM-GUD-10]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.8, provenance: objective_synthesis}
+      - {axis: learning_function, code: FUNC-TREATMENT, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-04}
+      - {axis: learning_function, code: FUNC-FOLLOWUP, role: secondary, weight: 0.75, provenance: objective_OBJ-GUD-05}
+      - {axis: learning_function, code: FUNC-COMMUNICATION, role: secondary, weight: 0.7, provenance: objective_OBJ-GUD-05}
+      - {axis: route_intent, code: ROUTE-CASE-PERFORMANCE, role: primary, weight: 0.85, provenance: route_contract}
+    competency_refs: [AAMC-CORE-EPA-04, CANMEDS15-ME-EC-02.04, CANMEDS15-ME-EC-04.01, CANMEDS15-COM-EC-01.01]
+    provenance:
+      <<: *learning_provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: *new_learning
+
+  - schema: grafomed-object.v1
+    id: gm-assessment-gud-v0
+    object_type: assessment
+    layer: learning_representation
+    label: Experimental assessment - anogenital ulcer initial management v0
+    definition: Five original single-best-answer items, one remediation branch, and one transfer case mapped to the two mastery atoms.
+    psychometric_status: experimental_unvalidated
+    copied_external_items: false
+    items:
+      - id: MCQ-GUD-01
+        target_ref: gm-mastery-gud-evaluation
+        stem: A sexually active adult presents with a new painful genital ulcer. Which initial approach best reflects the evidence base?
+        options:
+          A: Diagnose genital herpes from pain and start treatment without further evaluation.
+          B: Diagnose primary syphilis only if the ulcer is painless and indurated.
+          C: Evaluate for syphilis, test the lesion for HSV when available, offer HIV testing, and keep the etiologic differential open.
+          D: Delay all testing until the lesion has persisted for three weeks.
+        correct_answer: C
+        rationale: Clinical appearance alone is frequently inaccurate. Initial evaluation includes syphilis assessment, direct HSV lesion testing when available, and HIV testing while preserving uncertainty.
+        source_map: [CLM-GUD-02, CLM-GUD-03, CLM-GUD-04]
+        status: experimental
+      - id: MCQ-GUD-02
+        target_ref: gm-mastery-gud-evaluation
+        stem: A patient has had a genital ulcer for ten days and an initial syphilis serology is nonreactive. What is the safest interpretation?
+        options:
+          A: Primary syphilis is definitively excluded.
+          B: Early primary syphilis remains possible; management should integrate timing, direct testing when available, local protocol, and follow-up.
+          C: The result proves genital herpes.
+          D: No further evaluation is required unless a rash appears.
+        correct_answer: B
+        rationale: Syphilitic ulceration can precede detectable antibodies, so an early negative serology cannot close the syphilis branch.
+        source_map: [CLM-GUD-06]
+        status: experimental
+      - id: MCQ-GUD-03
+        target_ref: gm-mastery-gud-initial-management
+        stem: Two clinics evaluate otherwise similar confirmed anogenital ulcers. Clinic A has quality-assured lesion NAAT with same-day results. Clinic B has no molecular testing. Which principle best explains why their initial pathways can differ?
+        options:
+          A: Morphology is reliable only in Clinic A.
+          B: Syphilis serology is unnecessary in Clinic B.
+          C: Clinic B should always wait for referral before treating.
+          D: Same-day etiologic treatment is feasible in Clinic A, whereas Clinic B may require same-day syndromic management under the applicable protocol.
+        correct_answer: D
+        rationale: The management branch is resource-sensitive. WHO distinguishes same-day molecular-result pathways from limited or absent molecular capacity, where syndromic treatment prevents delay.
+        source_map: [CLM-GUD-04, CLM-GUD-05]
+        status: experimental
+      - id: MCQ-GUD-04
+        target_ref: gm-mastery-gud-initial-management
+        stem: In a Peruvian first-level facility following NTS 240, a genital ulcer is confirmed. Which management-state description is most accurate for this bounded slice?
+        options:
+          A: Provide immediate syndromic coverage for the frequent HSV and syphilis etiologies under the current national protocol, offer rapid STI testing, counsel, and arrange seven-day review.
+          B: Treat only when the lesion morphology proves one etiology.
+          C: Apply the CDC algorithm as the legal national standard in Peru.
+          D: Defer counseling and partner actions until every laboratory result is final.
+        correct_answer: A
+        rationale: Peru NTS 240 defines a first-level syndromic pathway that covers HSV and syphilis, incorporates rapid testing and counseling, and schedules clinical review. The exact regimen remains protocol- and patient-context dependent.
+        source_map: [CLM-GUD-03, CLM-GUD-07, CLM-GUD-08]
+        status: experimental
+      - id: MCQ-GUD-05
+        target_ref: gm-mastery-gud-initial-management
+        stem: A genital ulcer has not improved at the planned reassessment despite completion of the initial syndrome pathway. What is the best next action?
+        options:
+          A: Repeat the same treatment indefinitely because the initial syndrome label is fixed.
+          B: Close the case if initial rapid tests were nonreactive.
+          C: Reopen the diagnosis, review results and adherence, and refer for broader testing or biopsy when the ulcer is persistent or unusual.
+          D: Diagnose a noninfectious ulcer without further evaluation.
+        correct_answer: C
+        rationale: Nonresponse is a state change. MINSA and WHO direct referral for persistent disease, and CDC notes that unusual or nonresponsive ulcers may require biopsy.
+        source_map: [CLM-GUD-07, CLM-GUD-09, CLM-GUD-10]
+        status: experimental
+    remediation_branch:
+      id: REM-GUD-PATTERN-ONLY-01
+      trigger: The learner chooses an etiology from morphology alone or treats an early negative syphilis test as exclusion.
+      error_pattern: morphology_as_diagnosis
+      steps:
+        - Revisit CLM-GUD-02 and the uncertainty register.
+        - Contrast two cases with identical morphology but different molecular results.
+        - Re-answer MCQ-GUD-01 and MCQ-GUD-02 with a written uncertainty statement.
+      success_evidence: Correct answers plus an explanation that morphology updates probability but does not establish etiology.
+    transfer_case:
+      id: CASE-GUD-TRANSFER-01
+      synthetic: true
+      prompt: A person with recurrent oral aphthae and a new painful vulvar ulcer has negative same-day HSV lesion NAAT and nonreactive initial syphilis serology. The ulcer persists at review. Build the next plan without assuming that the tests prove a single diagnosis.
+      expected_performance:
+        - retains the early-syphilis timing caveat if exposure and timing remain plausible
+        - broadens toward inflammatory, aphthous, traumatic, drug-related, and malignant causes
+        - escalates persistent unusual disease for expert evaluation and possible biopsy
+        - communicates uncertainty and prevention while results and evaluation evolve
+      source_map: [CLM-GUD-06, CLM-GUD-09, CLM-GUD-10]
+    boundaries:
+      - Items are not validated for grading, licensing, or high-stakes decisions.
+      - The transfer case is synthetic and contains no patient-identifiable data.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-WHO-GUD-SR-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    claim_refs: [CLM-GUD-02, CLM-GUD-03, CLM-GUD-04, CLM-GUD-05, CLM-GUD-06, CLM-GUD-07, CLM-GUD-08, CLM-GUD-09, CLM-GUD-10, CLM-GUD-12]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.85, provenance: assessment_blueprint}
+      - {axis: learning_function, code: FUNC-DIFFERENTIAL, role: primary, weight: 0.85, provenance: assessment_blueprint}
+      - {axis: learning_function, code: FUNC-TREATMENT, role: secondary, weight: 0.75, provenance: assessment_blueprint}
+      - {axis: route_intent, code: ROUTE-EXAM-PREP, role: secondary, weight: 0.6, provenance: assessment_blueprint}
+    competency_refs: [AAMC-CORE-EPA-02, AAMC-CORE-EPA-03, AAMC-CORE-EPA-04, CANMEDS15-ME-EC-02.02, CANMEDS15-ME-EC-02.04]
+    provenance:
+      <<: *learning_provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-WHO-GUD-SR-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    duplicate_reuse_check: *new_learning

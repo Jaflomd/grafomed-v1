@@ -1,0 +1,20 @@
+schema: grafomed-review.v1
+id: gm-review-gud-educational-v0
+domain: educational
+responsible_agent: alexei
+review_context_independent_of_producer: false
+status: pending_separate_review
+producer_precheck:
+  status: pass_with_open_review
+  checks:
+    - Two mastery atoms use observable verbs and evidence objects.
+    - The management atom requires the evaluation atom.
+    - Five original MCQs cover recognition, testing, context, management, and failure.
+    - Remediation targets morphology-only closure and the transfer case requires a novel non-STI branch.
+    - AAMC and CanMEDS are many-to-many alignments rather than ontology parents.
+  open_questions:
+    - Review item cueing, distractor plausibility, cognitive level, and answer-key balance.
+    - Review whether a 45-minute route is educationally feasible before pilot use.
+approval: null
+promotion_effect: blocking_until_independent_context_passes
+

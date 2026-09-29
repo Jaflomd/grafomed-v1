@@ -1,0 +1,556 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "gm-pack-upper-limb-bones-v0",
+  "status": "candidate_demo_not_promoted",
+  "nodeRef": "gm-ma-identify-upper-limb-long-flat-bones",
+  "language": "es",
+  "title": "Orientar los cinco huesos principales del miembro superior",
+  "objective": "Identifica y orienta clavícula, escápula, húmero, radio y ulna mediante sus principales accidentes anatómicos.",
+  "description": "Unidad profunda de un solo nodo: construye un mapa espacial, discrimina accidentes anatómicos y transfiere la orientación a descripciones e imágenes nuevas.",
+  "estimatedMinutes": 51,
+  "design": {
+    "scoredActivities": 29,
+    "teachingActivities": 4,
+    "formats": ["single_choice", "multiple_select", "sequence", "short_answer"],
+    "evidenceLevels": ["A1", "A2", "A3", "A4"],
+    "masteryBoundary": "Completion of this pack does not establish competence or transfer.",
+    "variantPolicy": "Prompt direction, distractor order and representation may vary without changing the objective or scoring key."
+  },
+  "lessons": [
+    {
+      "id": "gm-pack-bones-l01",
+      "title": "Mapa inicial",
+      "kind": "diagnostic",
+      "durationMinutes": 6,
+      "focus": ["A1"],
+      "description": "Detecta qué relaciones ya puedes recuperar antes de recibir enseñanza.",
+      "activities": [
+        {
+          "id": "bones-l01-a01",
+          "type": "single_choice",
+          "title": "¿Qué hueso conecta el miembro superior con el esqueleto axial?",
+          "version": "1.0",
+          "phase": "diagnostic",
+          "evidenceLevel": "A1",
+          "instruction": "Responde antes de revisar el mapa anatómico.",
+          "hint": "Busca la articulación directa con el esternón.",
+          "explanation": "La clavícula conecta la cintura pectoral con el esqueleto axial mediante la articulación esternoclavicular.",
+          "errorPattern": "confunde_conexion_axial",
+          "choices": ["Escápula", "Clavícula", "Húmero", "Ulna"],
+          "correctIndex": 1
+        },
+        {
+          "id": "bones-l01-a02",
+          "type": "single_choice",
+          "title": "¿Qué hueso contiene la cavidad glenoidea?",
+          "version": "1.0",
+          "phase": "diagnostic",
+          "evidenceLevel": "A1",
+          "instruction": "Elige el hueso que recibe la cabeza humeral.",
+          "hint": "Piensa en la pared posterior de la cintura pectoral.",
+          "explanation": "La cavidad glenoidea está en el ángulo lateral de la escápula.",
+          "errorPattern": "confunde_glenoides",
+          "choices": ["Escápula", "Clavícula", "Radio", "Ulna"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l01-a03",
+          "type": "multiple_select",
+          "title": "Selecciona los huesos del antebrazo",
+          "version": "1.0",
+          "phase": "diagnostic",
+          "evidenceLevel": "A1",
+          "instruction": "Puede haber más de una respuesta correcta.",
+          "hint": "Se ubican entre el codo y la muñeca.",
+          "explanation": "El radio y la ulna constituyen el esqueleto del antebrazo.",
+          "errorPattern": "mezcla_brazo_antebrazo",
+          "choices": ["Húmero", "Radio", "Ulna", "Escápula"],
+          "correctIndices": [1, 2]
+        },
+        {
+          "id": "bones-l01-a04",
+          "type": "sequence",
+          "title": "Ordena la cadena desde el esqueleto axial hacia distal",
+          "version": "1.0",
+          "phase": "diagnostic",
+          "evidenceLevel": "A1",
+          "instruction": "Toca cada estructura en el orden espacial correcto.",
+          "hint": "La clavícula es el primer puente óseo; el antebrazo queda al final.",
+          "explanation": "La cadena espacial útil es axial → clavícula → escápula → húmero → radio y ulna.",
+          "errorPattern": "pierde_cadena_proximodistal",
+          "choices": ["Radio y ulna", "Escápula", "Clavícula", "Húmero"],
+          "correctOrder": [2, 1, 3, 0]
+        }
+      ]
+    },
+    {
+      "id": "gm-pack-bones-l02",
+      "title": "Clavícula y escápula",
+      "kind": "learn",
+      "durationMinutes": 7,
+      "focus": ["A1", "A2"],
+      "description": "Distingue el puente óseo anterior del hueso plano posterior y orienta sus accidentes.",
+      "activities": [
+        {
+          "id": "bones-l02-a01",
+          "type": "teach",
+          "title": "Dos piezas, funciones espaciales distintas",
+          "version": "1.0",
+          "instruction": "Reconstruye cada hueso desde sus relaciones, no desde una silueta memorizada.",
+          "cards": [
+            { "symbol": "C", "label": "Clavícula", "copy": "Puente anterior; extremo esternal medial y acromial lateral." },
+            { "symbol": "E", "label": "Escápula", "copy": "Hueso plano posterior; espina posterior y glenoides lateral." },
+            { "symbol": "↔", "label": "Relación", "copy": "La clavícula se articula con el acromion de la escápula." }
+          ],
+          "memoryRule": "Esternal = medial; acromial = lateral. Espina = posterior; glenoides = lateral.",
+          "mechanism": "contraste discriminativo"
+        },
+        {
+          "id": "bones-l02-a02",
+          "type": "single_choice",
+          "title": "El extremo medial de la clavícula se articula con…",
+          "version": "1.0",
+          "phase": "guided",
+          "evidenceLevel": "A1",
+          "instruction": "Usa la relación con el esqueleto axial.",
+          "hint": "Medial aproxima el hueso a la línea media.",
+          "explanation": "El extremo esternal de la clavícula se articula con el manubrio del esternón.",
+          "errorPattern": "invierte_extremos_clavicula",
+          "choices": ["Manubrio del esternón", "Cabeza humeral", "Olécranon", "Radio"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l02-a03",
+          "type": "multiple_select",
+          "title": "¿Qué accidentes pertenecen a la escápula?",
+          "version": "1.0",
+          "phase": "retrieval",
+          "evidenceLevel": "A1",
+          "instruction": "Selecciona todas las opciones correctas.",
+          "hint": "Busca accidentes del hueso plano de la cintura pectoral.",
+          "explanation": "La espina, el acromion y la cavidad glenoidea pertenecen a la escápula.",
+          "errorPattern": "mezcla_accidentes_cintura",
+          "choices": ["Espina", "Acromion", "Cavidad glenoidea", "Olécranon", "Tróclea"],
+          "correctIndices": [0, 1, 2]
+        },
+        {
+          "id": "bones-l02-a04",
+          "type": "single_choice",
+          "title": "Si observas la espina escapular, estás mirando principalmente la cara…",
+          "version": "1.0",
+          "phase": "contrast",
+          "evidenceLevel": "A2",
+          "instruction": "La respuesta debe ayudarte a orientar una escápula aislada.",
+          "hint": "La espina divide las fosas supraespinosa e infraespinosa.",
+          "explanation": "La espina escapular es un accidente prominente de la cara posterior.",
+          "errorPattern": "invierte_cara_escapula",
+          "choices": ["Anterior", "Posterior", "Medial", "Inferior"],
+          "correctIndex": 1
+        },
+        {
+          "id": "bones-l02-a05",
+          "type": "sequence",
+          "title": "Ordena la orientación de la clavícula de medial a lateral",
+          "version": "1.0",
+          "phase": "retrieval",
+          "evidenceLevel": "A2",
+          "instruction": "Toca los elementos en secuencia.",
+          "hint": "Comienza junto al esternón y termina junto al hombro.",
+          "explanation": "De medial a lateral: extremo esternal → cuerpo → extremo acromial.",
+          "errorPattern": "invierte_eje_clavicula",
+          "choices": ["Extremo acromial", "Cuerpo", "Extremo esternal"],
+          "correctOrder": [2, 1, 0]
+        }
+      ]
+    },
+    {
+      "id": "gm-pack-bones-l03",
+      "title": "Húmero: proximal y distal",
+      "kind": "learn",
+      "durationMinutes": 7,
+      "focus": ["A1", "A2"],
+      "description": "Orienta el húmero mediante la cabeza, los epicóndilos, el capítulo y la tróclea.",
+      "activities": [
+        {
+          "id": "bones-l03-a01",
+          "type": "teach",
+          "title": "Un hueso largo con dos mapas articulares",
+          "version": "1.0",
+          "instruction": "Separa primero el extremo proximal del distal.",
+          "cards": [
+            { "symbol": "○", "label": "Cabeza", "copy": "Proximal y dirigida medialmente hacia la glenoides." },
+            { "symbol": "C", "label": "Capítulo", "copy": "Distal y lateral; articula con la cabeza del radio." },
+            { "symbol": "T", "label": "Tróclea", "copy": "Distal y medial; articula con la incisura troclear de la ulna." }
+          ],
+          "memoryRule": "Cabeza arriba y medial; capítulo lateral con radio; tróclea medial con ulna.",
+          "mechanism": "organización jerárquica y contraste"
+        },
+        {
+          "id": "bones-l03-a02",
+          "type": "single_choice",
+          "title": "¿Qué accidente identifica el extremo proximal del húmero?",
+          "version": "1.0",
+          "phase": "guided",
+          "evidenceLevel": "A1",
+          "instruction": "Elige la superficie articular que mira hacia la escápula.",
+          "hint": "La glenoides recibe una estructura redondeada.",
+          "explanation": "La cabeza humeral identifica el extremo proximal.",
+          "errorPattern": "confunde_extremos_humero",
+          "choices": ["Cabeza", "Tróclea", "Capítulo", "Fosa olecraniana"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l03-a03",
+          "type": "multiple_select",
+          "title": "Selecciona las relaciones articulares correctas del húmero distal",
+          "version": "1.0",
+          "phase": "contrast",
+          "evidenceLevel": "A2",
+          "instruction": "Puede haber más de una relación correcta.",
+          "hint": "Capítulo es lateral; tróclea es medial.",
+          "explanation": "El capítulo articula con el radio y la tróclea con la ulna.",
+          "errorPattern": "cruza_superficies_codo",
+          "choices": ["Capítulo–radio", "Tróclea–ulna", "Capítulo–ulna", "Tróclea–escápula"],
+          "correctIndices": [0, 1]
+        },
+        {
+          "id": "bones-l03-a04",
+          "type": "single_choice",
+          "title": "Una gran depresión posterior en el húmero distal corresponde a la fosa…",
+          "version": "1.0",
+          "phase": "retrieval",
+          "evidenceLevel": "A1",
+          "instruction": "Usa la relación con la extensión del codo.",
+          "hint": "Recibe una prominencia de la ulna.",
+          "explanation": "La fosa olecraniana posterior recibe el olécranon durante la extensión.",
+          "errorPattern": "confunde_fosas_humerales",
+          "choices": ["Coronoidea", "Radial", "Olecraniana", "Glenoidea"],
+          "correctIndex": 2
+        },
+        {
+          "id": "bones-l03-a05",
+          "type": "short_answer",
+          "title": "Escribe la superficie humeral que articula con la cabeza del radio",
+          "version": "1.0",
+          "phase": "retrieval",
+          "evidenceLevel": "A2",
+          "instruction": "Una palabra es suficiente.",
+          "hint": "Es la superficie distal lateral.",
+          "explanation": "El capítulo humeral articula con la cabeza del radio.",
+          "errorPattern": "no_recupera_capitulo",
+          "acceptedAnswers": ["capítulo", "capitulo", "capitulum"]
+        }
+      ]
+    },
+    {
+      "id": "gm-pack-bones-l04",
+      "title": "Radio frente a ulna",
+      "kind": "learn",
+      "durationMinutes": 7,
+      "focus": ["A1", "A2"],
+      "description": "Distingue los dos huesos del antebrazo sin depender de una imagen fija.",
+      "activities": [
+        {
+          "id": "bones-l04-a01",
+          "type": "teach",
+          "title": "Lateralidad y extremos opuestos",
+          "version": "1.0",
+          "instruction": "Orienta primero la mano y después el antebrazo.",
+          "cards": [
+            { "symbol": "R", "label": "Radio", "copy": "Lateral, lado del pulgar; cabeza pequeña proximal y extremo ancho distal." },
+            { "symbol": "U", "label": "Ulna", "copy": "Medial; olécranon e incisura troclear proximales, cabeza pequeña distal." },
+            { "symbol": "↻", "label": "Pronación", "copy": "El radio cruza sobre la ulna; los nombres no cambian." }
+          ],
+          "memoryRule": "Pulgar = radio. Olécranon = ulna. Radio ancho distal; ulna robusta proximal.",
+          "mechanism": "contraste de rasgos diagnósticos"
+        },
+        {
+          "id": "bones-l04-a02",
+          "type": "single_choice",
+          "title": "En posición anatómica, el radio es…",
+          "version": "1.0",
+          "phase": "guided",
+          "evidenceLevel": "A1",
+          "instruction": "Reconstruye la posición desde el pulgar.",
+          "hint": "El pulgar señala el lado lateral.",
+          "explanation": "El radio ocupa el lado lateral del antebrazo.",
+          "errorPattern": "invierte_radio_ulna",
+          "choices": ["Medial", "Lateral", "Posterior", "Proximal"],
+          "correctIndex": 1
+        },
+        {
+          "id": "bones-l04-a03",
+          "type": "multiple_select",
+          "title": "Selecciona los rasgos del radio",
+          "version": "1.0",
+          "phase": "retrieval",
+          "evidenceLevel": "A1",
+          "instruction": "Selecciona todos los rasgos correctos.",
+          "hint": "Compara sus extremos con los de la ulna.",
+          "explanation": "El radio tiene cabeza proximal pequeña, tuberosidad radial y extremo distal ancho.",
+          "errorPattern": "mezcla_rasgos_antebrazo",
+          "choices": ["Cabeza proximal pequeña", "Tuberosidad radial", "Extremo distal ancho", "Olécranon", "Incisura troclear"],
+          "correctIndices": [0, 1, 2]
+        },
+        {
+          "id": "bones-l04-a04",
+          "type": "sequence",
+          "title": "Ordena las referencias proximodistales de la ulna",
+          "version": "1.0",
+          "phase": "retrieval",
+          "evidenceLevel": "A2",
+          "instruction": "Toca desde el codo hacia la muñeca.",
+          "hint": "El olécranon participa en el codo.",
+          "explanation": "Proximal a distal: olécranon → cuerpo → cabeza de la ulna.",
+          "errorPattern": "invierte_extremos_ulna",
+          "choices": ["Cabeza de la ulna", "Olécranon", "Cuerpo"],
+          "correctOrder": [1, 2, 0]
+        },
+        {
+          "id": "bones-l04-a05",
+          "type": "short_answer",
+          "title": "Escribe el hueso del antebrazo situado del lado del pulgar",
+          "version": "1.0",
+          "phase": "retrieval",
+          "evidenceLevel": "A1",
+          "instruction": "Responde con el nombre del hueso.",
+          "hint": "Su extremo distal es más ancho.",
+          "explanation": "El radio se encuentra en el lado del pulgar.",
+          "errorPattern": "no_recupera_lateralidad_radio",
+          "acceptedAnswers": ["radio", "radius"]
+        }
+      ]
+    },
+    {
+      "id": "gm-pack-bones-l05",
+      "title": "Orientación y representación",
+      "kind": "integrate",
+      "durationMinutes": 7,
+      "focus": ["A2", "A3", "A4"],
+      "description": "Conserva las relaciones anatómicas cuando cambia la vista o la modalidad.",
+      "activities": [
+        {
+          "id": "bones-l05-a01",
+          "type": "teach",
+          "title": "Un algoritmo para orientar cualquier hueso",
+          "version": "1.0",
+          "instruction": "Aplica siempre la misma secuencia antes de nombrar.",
+          "cards": [
+            { "symbol": "1", "label": "Extremos", "copy": "Decide proximal y distal mediante superficies articulares." },
+            { "symbol": "2", "label": "Caras", "copy": "Busca un accidente que distinga anterior de posterior." },
+            { "symbol": "3", "label": "Lado", "copy": "Usa medial–lateral y la articulación vecina." }
+          ],
+          "memoryRule": "Extremos → caras → lado → nombre. No empieces por el nombre.",
+          "mechanism": "procedimiento generativo transferible"
+        },
+        {
+          "id": "bones-l05-a02",
+          "type": "sequence",
+          "title": "Ordena el algoritmo de orientación",
+          "version": "1.0",
+          "phase": "guided",
+          "evidenceLevel": "A2",
+          "instruction": "Toca los pasos desde la primera observación hasta el nombre.",
+          "hint": "Comienza por relaciones espaciales observables.",
+          "explanation": "El procedimiento es: extremos → caras → lateralidad → nombre.",
+          "errorPattern": "nombra_antes_de_orientar",
+          "choices": ["Determinar lateralidad", "Nombrar el hueso", "Distinguir caras", "Identificar extremos"],
+          "correctOrder": [3, 2, 0, 1]
+        },
+        {
+          "id": "bones-l05-a03",
+          "type": "single_choice",
+          "title": "En una radiografía AP del antebrazo, el hueso alineado con el pulgar es…",
+          "version": "1.0",
+          "phase": "near_transfer",
+          "evidenceLevel": "A4",
+          "instruction": "Conserva la orientación anatómica aunque cambie la representación.",
+          "hint": "Reconstruye el lado lateral desde la mano.",
+          "explanation": "El radio se alinea con el pulgar; una imagen aislada aporta una muestra de transferencia, no dominio estable.",
+          "errorPattern": "pierde_orientacion_en_imagen",
+          "choices": ["Radio", "Ulna", "Húmero", "Escápula"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l05-a04",
+          "type": "multiple_select",
+          "title": "¿Qué datos bastan para orientar una escápula aislada?",
+          "version": "1.0",
+          "phase": "application",
+          "evidenceLevel": "A3",
+          "instruction": "Selecciona las relaciones que resuelven cara y lateralidad.",
+          "hint": "Necesitas un accidente posterior y una superficie articular lateral.",
+          "explanation": "La espina orienta la cara posterior y la glenoides el lado lateral.",
+          "errorPattern": "usa_rasgos_no_diagnosticos",
+          "choices": ["Espina escapular", "Cavidad glenoidea", "Color del hueso", "Longitud absoluta"],
+          "correctIndices": [0, 1]
+        },
+        {
+          "id": "bones-l05-a05",
+          "type": "single_choice",
+          "title": "Una pieza tiene cabeza redondeada proximal y capítulo distal. ¿Cuál es?",
+          "version": "1.0",
+          "phase": "application",
+          "evidenceLevel": "A3",
+          "instruction": "Identifica mediante dos accidentes, no por tamaño.",
+          "hint": "El capítulo participa en el codo.",
+          "explanation": "La combinación cabeza proximal–capítulo distal identifica el húmero.",
+          "errorPattern": "depende_de_silueta_global",
+          "choices": ["Húmero", "Radio", "Ulna", "Clavícula"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "gm-pack-bones-l06",
+      "title": "Transferencia clínica",
+      "kind": "transfer",
+      "durationMinutes": 8,
+      "focus": ["A3", "A4"],
+      "description": "Usa la anatomía para interpretar descripciones clínicas y localizar estructuras sin sobreinferir.",
+      "activities": [
+        {
+          "id": "bones-l06-a01",
+          "type": "single_choice",
+          "title": "Una lesión se describe en el cuello quirúrgico. ¿Qué hueso debes localizar?",
+          "version": "1.0",
+          "phase": "application",
+          "evidenceLevel": "A3",
+          "instruction": "La tarea es anatómica; no infieras todavía una lesión nerviosa.",
+          "hint": "La cabeza de este hueso articula con la glenoides.",
+          "explanation": "El cuello quirúrgico pertenece al húmero proximal.",
+          "errorPattern": "confunde_accidente_humero",
+          "choices": ["Húmero", "Escápula", "Radio", "Clavícula"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l06-a02",
+          "type": "multiple_select",
+          "title": "Tras una caída sobre la mano, ¿qué referencias ayudan a distinguir radio de ulna distal?",
+          "version": "1.0",
+          "phase": "application",
+          "evidenceLevel": "A3",
+          "instruction": "Selecciona referencias anatómicas, no diagnósticos.",
+          "hint": "Usa lado del pulgar y diferencias de los extremos distales.",
+          "explanation": "La relación con el pulgar, la estiloides radial y la cabeza distal de la ulna orientan ambos huesos.",
+          "errorPattern": "salta_a_diagnostico_sin_orientar",
+          "choices": ["Lado del pulgar", "Estiloides radial", "Cabeza distal de la ulna", "Coloración cutánea"],
+          "correctIndices": [0, 1, 2]
+        },
+        {
+          "id": "bones-l06-a03",
+          "type": "single_choice",
+          "title": "Si una imagen está invertida horizontalmente, ¿qué estrategia preserva la identificación?",
+          "version": "1.0",
+          "phase": "near_transfer",
+          "evidenceLevel": "A4",
+          "instruction": "Elige una relación anatómica invariante.",
+          "hint": "No dependas de que derecha e izquierda aparezcan siempre igual en pantalla.",
+          "explanation": "Las articulaciones y los accidentes diagnósticos preservan la identidad aunque cambie la orientación de la imagen.",
+          "errorPattern": "depende_de_vista_memorizada",
+          "choices": ["Usar articulaciones y accidentes", "Memorizar la posición en pantalla", "Usar solo el tamaño", "Ignorar lateralidad"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l06-a04",
+          "type": "short_answer",
+          "title": "Escribe el accidente de la ulna que forma la prominencia posterior del codo",
+          "version": "1.0",
+          "phase": "near_transfer",
+          "evidenceLevel": "A4",
+          "instruction": "Responde con el nombre anatómico.",
+          "hint": "Se aloja en una fosa del húmero durante la extensión.",
+          "explanation": "El olécranon forma la prominencia posterior del codo.",
+          "errorPattern": "no_transfiere_olecranon",
+          "acceptedAnswers": ["olécranon", "olecranon"]
+        }
+      ]
+    },
+    {
+      "id": "gm-pack-bones-l07",
+      "title": "Checkpoint del nodo",
+      "kind": "checkpoint",
+      "durationMinutes": 9,
+      "focus": ["A1", "A2", "A3", "A4"],
+      "description": "Muestra qué puedes recuperar y transferir hoy; agenda nuevas observaciones en lugar de certificar dominio.",
+      "activities": [
+        {
+          "id": "bones-l07-a01",
+          "type": "single_choice",
+          "title": "¿Qué pareja articula correctamente en el codo?",
+          "version": "1.0",
+          "phase": "bounded_assessment",
+          "evidenceLevel": "A2",
+          "instruction": "Elige una sola relación correcta.",
+          "hint": "La tróclea es medial.",
+          "explanation": "La tróclea humeral articula con la incisura troclear de la ulna.",
+          "errorPattern": "cruza_articulaciones_codo",
+          "choices": ["Tróclea–ulna", "Capítulo–ulna", "Glenoides–radio", "Acromion–húmero"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l07-a02",
+          "type": "multiple_select",
+          "title": "Selecciona todos los accidentes que permiten orientar una escápula",
+          "version": "1.0",
+          "phase": "bounded_assessment",
+          "evidenceLevel": "A3",
+          "instruction": "Busca rasgos con valor espacial.",
+          "hint": "Necesitas cara posterior y lado lateral.",
+          "explanation": "Espina, glenoides y borde medial aportan relaciones de orientación.",
+          "errorPattern": "selecciona_rasgos_no_orientadores",
+          "choices": ["Espina", "Cavidad glenoidea", "Borde medial", "Color", "Peso"],
+          "correctIndices": [0, 1, 2]
+        },
+        {
+          "id": "bones-l07-a03",
+          "type": "sequence",
+          "title": "Reconstruye el método antes de identificar una pieza desconocida",
+          "version": "1.0",
+          "phase": "bounded_assessment",
+          "evidenceLevel": "A3",
+          "instruction": "Toca los pasos en orden.",
+          "hint": "El nombre es la conclusión, no el primer paso.",
+          "explanation": "Extremos → caras → lateralidad → nombre produce una identificación explicable.",
+          "errorPattern": "omite_orientacion_sistematica",
+          "choices": ["Nombrar", "Extremos", "Lateralidad", "Caras"],
+          "correctOrder": [1, 3, 2, 0]
+        },
+        {
+          "id": "bones-l07-a04",
+          "type": "single_choice",
+          "title": "En una nueva vista, observas una cabeza pequeña proximal y un extremo ancho distal",
+          "version": "1.0",
+          "phase": "near_transfer",
+          "evidenceLevel": "A4",
+          "instruction": "Identifica el hueso por relaciones invariantes.",
+          "hint": "Compáralo con la ulna, que es robusta proximalmente.",
+          "explanation": "La combinación identifica el radio.",
+          "errorPattern": "falla_transferencia_radio",
+          "choices": ["Radio", "Ulna", "Húmero", "Clavícula"],
+          "correctIndex": 0
+        },
+        {
+          "id": "bones-l07-a05",
+          "type": "single_choice",
+          "title": "¿Qué conclusión es válida después de completar este checkpoint?",
+          "version": "1.0",
+          "phase": "metacognitive_boundary",
+          "evidenceLevel": "A2",
+          "instruction": "Distingue evidencia formativa de certificación.",
+          "hint": "Una sesión no demuestra retención ni transferencia estable.",
+          "explanation": "El checkpoint actualiza evidencia formativa y programa nuevas observaciones; no certifica dominio.",
+          "errorPattern": "sobreinterpreta_checkpoint",
+          "choices": ["Hay evidencia formativa hoy", "El nodo está dominado para siempre", "Existe competencia clínica independiente", "No hacen falta repasos"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ],
+  "reviewPlan": [
+    { "id": "bones-review-d1", "delayDays": 1, "purpose": "retención inicial", "activityMix": ["single_choice", "short_answer"] },
+    { "id": "bones-review-d3", "delayDays": 3, "purpose": "discriminación y corrección de errores", "activityMix": ["multiple_select", "sequence"] },
+    { "id": "bones-review-d7", "delayDays": 7, "purpose": "transferencia a nueva representación", "activityMix": ["single_choice", "short_answer"] },
+    { "id": "bones-review-d21", "delayDays": 21, "purpose": "retención y transferencia acumuladas", "activityMix": ["sequence", "multiple_select", "short_answer"] }
+  ]
+}

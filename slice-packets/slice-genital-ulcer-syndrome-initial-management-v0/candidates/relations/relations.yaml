@@ -1,0 +1,309 @@
+edges:
+  - &relation
+    schema: grafomed-relation.v1
+    id: gm-rel-ulcer-supports-hsv
+    source: gm-clinical-finding-anogenital-ulcer
+    target: gm-condition-genital-herpes
+    relation_type: supports_hypothesis
+    family: clinical_reasoning
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    rationale: An anogenital ulcer is compatible with HSV, but this relation raises plausibility without establishing etiology.
+    context: {jurisdiction: global, certainty: probabilistic, morphology_alone_is_diagnostic: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02]
+    provenance: &relation_provenance {created_by: mia, created_at: 2026-08-26T16:27:00-05:00, packet_id: slice-genital-ulcer-syndrome-initial-management-v0}
+
+  - <<: *relation
+    id: gm-rel-ulcer-supports-primary-syphilis
+    target: gm-condition-primary-syphilis
+    rationale: An anogenital ulcer is compatible with primary syphilis even when classic painless induration is absent.
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02, CLM-GUD-06]
+
+  - <<: *relation
+    id: gm-rel-herpes-discriminates-primary-syphilis
+    source: gm-condition-genital-herpes
+    target: gm-condition-primary-syphilis
+    relation_type: discriminates_from
+    rationale: Recurrence, vesicles, pain, dysuria, and clustered shallow lesions can raise HSV relative to syphilis, while direct lesion testing is needed for confirmation.
+    context: {certainty: probabilistic, confirmatory_test_ref: gm-test-hsv-lesion-naat-or-culture}
+    source_refs: [SRC-WHO-STI-2021, SRC-UW-STD-CURRICULUM-2026]
+    claim_refs: [CLM-GUD-02, CLM-GUD-12]
+
+  - <<: *relation
+    id: gm-rel-primary-syphilis-discriminates-herpes
+    source: gm-condition-primary-syphilis
+    target: gm-condition-genital-herpes
+    relation_type: discriminates_from
+    rationale: A papule progressing to a solitary indurated painless ulcer can raise syphilis relative to HSV, but atypical and mixed presentations prevent morphology-only diagnosis.
+    context: {certainty: probabilistic, early_negative_serology_excludes: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-02, CLM-GUD-06]
+
+  - <<: *relation
+    id: gm-rel-syphilis-test-feeds-diagnosis-decision
+    source: gm-test-syphilis-evaluation-in-gud
+    target: gm-decision-gud-diagnosis-confirmation
+    relation_type: feeds_decision
+    rationale: Syphilis testing changes etiologic confidence and management, but timing and prior treatment must be interpreted before closing the branch.
+    context: {jurisdiction: global, early_serology_caveat: true}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-03, CLM-GUD-06]
+
+  - <<: *relation
+    id: gm-rel-hsv-test-feeds-diagnosis-decision
+    source: gm-test-hsv-lesion-naat-or-culture
+    target: gm-decision-gud-diagnosis-confirmation
+    relation_type: feeds_decision
+    rationale: A direct HSV lesion result can confirm or lower the probability of HSV and determine whether etiologic same-day treatment is possible.
+    context: {requires_active_lesion: true, preference: NAAT_when_available}
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-03, CLM-GUD-04]
+
+  - <<: *relation
+    id: gm-rel-hiv-test-feeds-diagnosis-decision
+    source: gm-test-hiv-screening-in-gud
+    target: gm-decision-gud-diagnosis-confirmation
+    relation_type: feeds_decision
+    rationale: HIV testing is part of the first ulcer evaluation and can change counseling, host-risk assessment, and referral even though it does not identify the ulcer etiology.
+    context: {etiology_test: false, preventive_and_host_context: true}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-03]
+
+  - <<: *relation
+    id: gm-rel-ulcer-feeds-diagnosis-decision
+    source: gm-clinical-finding-anogenital-ulcer
+    target: gm-decision-gud-diagnosis-confirmation
+    relation_type: feeds_decision
+    rationale: Confirmation that a lesion is an anogenital ulcer activates the syndrome workup, whereas absence of an ulcer redirects to prevention or another syndrome.
+    context: {trigger_relation: true}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021]
+    claim_refs: [CLM-GUD-01, CLM-GUD-03]
+
+  - <<: *relation
+    id: gm-rel-diagnosis-changes-actionable-context
+    source: gm-decision-gud-diagnosis-confirmation
+    target: gm-decision-gud-actionable-context
+    relation_type: changes_management_state
+    rationale: The selected tests, result timing, and residual uncertainty determine whether the case enters an etiologic, syndromic, or escalation state.
+    context: {workflow_stage: D_to_E}
+    source_refs: [SRC-WHO-STI-2021, SRC-MINSA-NTS240-2026]
+    claim_refs: [CLM-GUD-04, CLM-GUD-05]
+
+  - <<: *relation
+    id: gm-rel-context-changes-treatment
+    source: gm-decision-gud-actionable-context
+    target: gm-decision-gud-same-day-treatment
+    relation_type: changes_management_state
+    rationale: Same-day results, limited laboratory capacity, jurisdiction, and escalation boundaries change the valid initial treatment alternatives.
+    context: {workflow_stage: E_to_T, jurisdiction_required: true}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-04, CLM-GUD-05, CLM-GUD-07]
+
+  - <<: *relation
+    id: gm-rel-treatment-changes-complication-plan
+    source: gm-decision-gud-same-day-treatment
+    target: gm-decision-gud-complication-escalation
+    relation_type: changes_management_state
+    rationale: Once the initial management state is chosen, contraindications, serious alternatives, and treatment or disease complications determine escalation actions.
+    context: {workflow_stage: T_to_C}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-09, CLM-GUD-10]
+
+  - <<: *relation
+    id: gm-rel-complications-change-follow-up
+    source: gm-decision-gud-complication-escalation
+    target: gm-decision-gud-follow-up
+    relation_type: changes_management_state
+    rationale: Complication and escalation risks determine whether follow-up is routine, earlier, result-triggered, or transferred to a higher level of care.
+    context: {workflow_stage: C_to_S}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-07, CLM-GUD-09, CLM-GUD-10]
+
+  - <<: *relation
+    id: gm-rel-follow-up-changes-prognosis-communication
+    source: gm-decision-gud-follow-up
+    target: gm-decision-gud-prognosis-communication
+    relation_type: changes_management_state
+    rationale: Pending results, response criteria, and return timing define the uncertainty and prognosis that must be communicated at the first visit.
+    context: {workflow_stage: S_to_P}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-05, CLM-GUD-07]
+
+  - <<: *relation
+    id: gm-rel-diagnosis-enables-evaluation-mastery
+    source: gm-decision-gud-diagnosis-confirmation
+    target: gm-mastery-gud-evaluation
+    relation_type: enables_mastery_of
+    family: learning
+    rationale: Observable mastery of evaluation requires a defensible diagnostic commitment and an explicit uncertainty statement.
+    context: {learning_role: terminal_evidence_for_mastery}
+    source_refs: [SRC-AAMC-CORE-EPA-2014, SRC-CANMEDS15-LOCAL]
+    claim_refs: [CLM-GUD-13]
+
+  - <<: *relation
+    id: gm-rel-treatment-enables-management-mastery
+    source: gm-decision-gud-same-day-treatment
+    target: gm-mastery-gud-initial-management
+    relation_type: enables_mastery_of
+    family: learning
+    rationale: The learner must commit to the correct context-dependent management state rather than merely recall a list of drugs.
+    context: {learning_role: terminal_evidence_for_mastery}
+    source_refs: [SRC-AAMC-CORE-EPA-2014, SRC-CANMEDS15-LOCAL]
+    claim_refs: [CLM-GUD-13]
+
+  - <<: *relation
+    id: gm-rel-management-mastery-requires-evaluation
+    source: gm-mastery-gud-initial-management
+    target: gm-mastery-gud-evaluation
+    relation_type: requires
+    family: learning
+    rationale: A valid initial management choice requires prior recognition, differential construction, and diagnostic-context selection.
+    context: {hard_prerequisite: true}
+    source_refs: [SRC-WHO-STI-2021, SRC-AAMC-CORE-EPA-2014]
+    claim_refs: [CLM-GUD-04, CLM-GUD-13]
+
+  - <<: *relation
+    id: gm-rel-evaluation-mastery-assessed-by-v0
+    source: gm-mastery-gud-evaluation
+    target: gm-assessment-gud-v0
+    relation_type: assessed_by
+    family: learning
+    rationale: Items 1-3 directly sample syndrome recognition, test selection, early-serology interpretation, and resource-context classification.
+    context: {assessment_status: experimental_unvalidated}
+    source_refs: [SRC-UW-STD-CURRICULUM-2026, SRC-WHO-STI-2021]
+    claim_refs: [CLM-GUD-04, CLM-GUD-12]
+
+  - <<: *relation
+    id: gm-rel-management-mastery-assessed-by-v0
+    source: gm-mastery-gud-initial-management
+    target: gm-assessment-gud-v0
+    relation_type: assessed_by
+    family: learning
+    rationale: Items 3-5 and the transfer case sample context-dependent treatment, follow-up, escalation, and uncertainty communication.
+    context: {assessment_status: experimental_unvalidated}
+    source_refs: [SRC-UW-STD-CURRICULUM-2026, SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021]
+    claim_refs: [CLM-GUD-07, CLM-GUD-09, CLM-GUD-12]
+
+  - <<: *relation
+    id: gm-rel-herpes-assembled-illness-script
+    source: gm-condition-genital-herpes
+    target: gm-illness-script-genital-herpes
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: The disease object is the condition center of the genital-herpes illness script.
+    context: {composition_role: condition_center, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021]
+    claim_refs: [CLM-GUD-01]
+
+  - <<: *relation
+    id: gm-rel-ulcer-assembled-illness-script
+    source: gm-clinical-finding-anogenital-ulcer
+    target: gm-illness-script-genital-herpes
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: The ulcer finding appears as a consequence in the genital-herpes illness script without becoming disease-specific.
+    context: {composition_role: consequence, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021]
+    claim_refs: [CLM-GUD-01]
+
+  - <<: *relation
+    id: gm-rel-herpes-assembled-differential
+    source: gm-condition-genital-herpes
+    target: gm-differential-set-anogenital-ulcer
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: Genital herpes is a mandatory condition member of the initial anogenital-ulcer differential.
+    context: {composition_role: principal_contrast, causal_assertion: false}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01]
+
+  - <<: *relation
+    id: gm-rel-syphilis-assembled-differential
+    source: gm-condition-primary-syphilis
+    target: gm-differential-set-anogenital-ulcer
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: Primary syphilis is a mandatory condition member of the initial anogenital-ulcer differential.
+    context: {composition_role: principal_contrast, causal_assertion: false}
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01]
+
+  - <<: *relation
+    id: gm-rel-differential-assembled-detcsp
+    source: gm-differential-set-anogenital-ulcer
+    target: gm-detcsp-gud-initial-management
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: The initial differential supplies the hypotheses entering the D stage without being duplicated inside each decision.
+    context: {composition_role: hypothesis_input, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02]
+
+  - <<: *relation
+    id: gm-rel-d-stage-assembled-detcsp
+    source: gm-decision-gud-diagnosis-confirmation
+    target: gm-detcsp-gud-initial-management
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: This decision atom implements the D stage of the bounded DETcSp pathway.
+    context: {composition_role: D, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-MINSA-NTS240-2026]
+    claim_refs: [CLM-GUD-03, CLM-GUD-04]
+
+  - <<: *relation
+    id: gm-rel-e-stage-assembled-detcsp
+    source: gm-decision-gud-actionable-context
+    target: gm-detcsp-gud-initial-management
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: This decision atom implements the E stage by classifying only states that alter conduct.
+    context: {composition_role: E, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-MINSA-NTS240-2026]
+    claim_refs: [CLM-GUD-04, CLM-GUD-05]
+
+  - <<: *relation
+    id: gm-rel-t-stage-assembled-detcsp
+    source: gm-decision-gud-same-day-treatment
+    target: gm-detcsp-gud-initial-management
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: This decision atom implements the T stage with an explicit same-day management commitment.
+    context: {composition_role: T, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-MINSA-NTS240-2026, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-05, CLM-GUD-07, CLM-GUD-08]
+
+  - <<: *relation
+    id: gm-rel-c-stage-assembled-detcsp
+    source: gm-decision-gud-complication-escalation
+    target: gm-detcsp-gud-initial-management
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: This decision atom implements the C stage by selecting complication and escalation actions.
+    context: {composition_role: C, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-MINSA-NTS240-2026, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-09, CLM-GUD-10]
+
+  - <<: *relation
+    id: gm-rel-s-stage-assembled-detcsp
+    source: gm-decision-gud-follow-up
+    target: gm-detcsp-gud-initial-management
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: This decision atom implements the S stage with result revision, response, failure, and return loops.
+    context: {composition_role: S, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-MINSA-NTS240-2026, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-06, CLM-GUD-07, CLM-GUD-09]
+
+  - <<: *relation
+    id: gm-rel-p-stage-assembled-detcsp
+    source: gm-decision-gud-prognosis-communication
+    target: gm-detcsp-gud-initial-management
+    relation_type: assembled_into
+    family: assembly_composition
+    rationale: This decision atom implements the P stage through patient-centered prognosis and uncertainty communication.
+    context: {composition_role: P, causal_assertion: false}
+    source_refs: [SRC-WHO-STI-2021, SRC-MINSA-NTS240-2026, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-05, CLM-GUD-07]

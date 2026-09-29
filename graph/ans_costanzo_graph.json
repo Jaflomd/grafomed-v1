@@ -1,0 +1,1265 @@
+{
+  "release": {
+    "id": "ans-costanzo-physio-ch2.v1",
+    "title": "Sistema Nervioso Autónomo: Organización, Receptores e Integración",
+    "source": "Costanzo Physiology, 6th Edition, Chapter 2: Autonomic Nervous System, pp. 45–64. Linda S. Costanzo, PhD. Elsevier.",
+    "version": 1,
+    "universal_coverage": true,
+    "game_catalog_integrated": true,
+    "total_games_in_suite": 20
+  },
+  "clusters": [
+    {
+      "id": "CLU-ANS-ANAT",
+      "title": "Organización Anatómica y Neurotransmisión Somática vs Autonómica",
+      "description": "Diferencias estructurales entre motoneurona única somática y cadena de dos neuronas autonómica, origen toracolumbar vs craneosacro y varicosidades neuroefectoras.",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "CLU-ANS-ADRENAL",
+      "title": "Médula Suprarrenal y Fisiopatología del Feocromocitoma",
+      "description": "Médula adrenal como ganglio simpático modificado, inducción de PNMT por cortisol, secreción 80/20 epinefrina/norepinefrina y manejo preoperatorio de feocromocitoma.",
+      "color": "#ef4444"
+    },
+    {
+      "id": "CLU-ANS-ADRENERGIC",
+      "title": "Receptores Adrenérgicos y Vías de Transducción Celular",
+      "description": "Mecanismos moleculares de receptores α1 (Gq/PLC/IP3/Ca2+), α2 (Gi/cAMP↓), β1 (Gs/cAMP↑ en corazón/riñón) y β2 (Gs/cAMP↑ relajación muscular), con jerarquía de afinidad.",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "CLU-ANS-CHOLINERGIC",
+      "title": "Receptores Colinérgicos (Nicotínicos N1/N2 vs Muscarínicos)",
+      "description": "Canales iónicos nicotínicos (N1 muscular vs N2 ganglionar/adrenal) y receptores muscarínicos (M1/M3/M5 Gq vs M2 Gi con canales K+ cardíacos), intoxicación anticolinérgica.",
+      "color": "#10b981"
+    },
+    {
+      "id": "CLU-ANS-INTEGRATION",
+      "title": "Coordinación de Órganos, Reflejos y Síndromes Autonómicos",
+      "description": "Control recíproco y sinérgico: marcapasos SA, reflejo de llenado y micción vesical, reflejos pupilares (midriasis vs miosis) y diagnóstico del Síndrome de Horner.",
+      "color": "#0ea5e9"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "CON-ANS-SOMATIC-VS-AUTONOMIC",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ANAT",
+      "title": "Organización Eferente: Sistema Somático vs Autonómico",
+      "summary": "Vía somática voluntaria de motoneurona única directa a músculo esquelético vs vía autonómica involuntaria disináptica (pre y postganglionar).",
+      "decision_prompt": "Discriminar la arquitectura de inervación motora voluntaria frente al control visceral autonómico disináptico.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-01",
+          "game_name": "DAG Concept Map Builder",
+          "suitability": "alta",
+          "clinical_mission": "Modelar la vía monosináptica motora frente a la vía disináptica visceral con ganglio periférico."
+        },
+        {
+          "game_id": "game-11",
+          "game_name": "Feature Contrast Duel",
+          "suitability": "alta",
+          "clinical_mission": "Duelo directo: Somático (1 neurona, N1, esquelético) vs Autónomo (2 neuronas, pre/post, visceral)."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-THORACOLUMBAR-SYMP",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ANAT",
+      "title": "División Simpática Toracolumbar (T1–L3)",
+      "summary": "Neuronas preganglionares originadas en segmentos medulares T1-L3 con axones cortos que sinapsan en cadena paravertebral o ganglios prevertebrales.",
+      "decision_prompt": "Reconocer el trayecto anatómico de fibras preganglionares simpáticas cortas y postganglionares largas hacia órganos diana.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-01",
+          "game_name": "DAG Concept Map Builder",
+          "suitability": "alta",
+          "clinical_mission": "Ensamblar el trayecto de axones preganglionares cortos T1-L3 hacia ganglios paravertebrales y prevertebrales."
+        },
+        {
+          "game_id": "game-10",
+          "game_name": "Patient Phenotype Sorter",
+          "suitability": "media",
+          "clinical_mission": "Mapear niveles medulares con sus órganos torácicos, abdominales y pélvicos diana."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-CRANIOSACRAL-PARASYMP",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ANAT",
+      "title": "División Parasimpática Craneosacra (CN III, VII, IX, X y S2–S4)",
+      "summary": "Neuronas preganglionares con axones largos que emergen de tallo encefálico y médula sacra hacia ganglios situados en o muy cerca del efector.",
+      "decision_prompt": "Identificar el origen craneosacro de la inervación parasimpática y la cercanía de sus ganglios terminales a las vísceras.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-01",
+          "game_name": "DAG Concept Map Builder",
+          "suitability": "alta",
+          "clinical_mission": "Mapear los 4 pares craneales (III, VII, IX, X) y las raíces sacras S2-S4 hacia sus ganglios intramurales."
+        },
+        {
+          "game_id": "game-12",
+          "game_name": "Diagnostic Test Sequencer",
+          "suitability": "media",
+          "clinical_mission": "Secuenciar los reflejos autónomos mediados por los pares craneales."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ANAT",
+      "title": "Uniones Neuroefectoras Autonómicas y Varicosidades",
+      "summary": "Red ramificada difusa con varicosidades que liberan neurotransmisores clásicos y cotransmisores (ATP, Neupéptido Y, VIP, NO) sobre receptores ampliamente distribuidos.",
+      "decision_prompt": "Explicar la transmisión no focalizada por varicosidades frente a la placa motora neuromuscular aislada.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-02",
+          "game_name": "Metabolic & Pathway Fault-Detector",
+          "suitability": "alta",
+          "clinical_mission": "Simular la secuencia trifásica de contracción vascular: ATP purinérgico → Noradrenalina → NPY."
+        },
+        {
+          "game_id": "game-05",
+          "game_name": "Molecular Circuit Breaker",
+          "suitability": "alta",
+          "clinical_mission": "Bloquear selectivamente receptores purinérgicos, adrenérgicos o peptidérgicos en el músculo liso."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-ADRENAL-MEDULLA",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ADRENAL",
+      "title": "Médula Suprarrenal como Ganglio Simpático Especializado",
+      "summary": "Células cromafines inervadas directamente por axones simpáticos preganglionares (ACh → N2); la enzima PNMT inducida por cortisol cortical convierte NE en Epinefrina (80%).",
+      "decision_prompt": "Comprender por qué la médula adrenal secreta 80% Epinefrina y 20% Norepinefrina debido a la proximidad del cortisol cortical.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-02",
+          "game_name": "Metabolic & Pathway Fault-Detector",
+          "suitability": "alta",
+          "clinical_mission": "Simular el bloqueo de la síntesis de cortisol cortical y su impacto en la inactivación de la enzima PNMT."
+        },
+        {
+          "game_id": "game-06",
+          "game_name": "Biomarker Dial & Cutoff Slider",
+          "suitability": "alta",
+          "clinical_mission": "Ajustar la proporción de secreción medular (80% Epinefrina / 20% Norepinefrina) según el eje hormonal."
+        }
+      ]
+    },
+    {
+      "id": "DEC-ANS-DIAG-PHEOCHROMOCYTOMA",
+      "type": "decision",
+      "cluster_id": "CLU-ANS-ADRENAL",
+      "title": "Diagnosticar Feocromocitoma ante Paroxismos Hipertensivos",
+      "summary": "Identificar tumor de células cromafines productor de catecolaminas (predominio Norepinefrina) con hipertensión lábil, cefalea, palpitaciones y diaforesis.",
+      "decision_prompt": "Confirmar feocromocitoma mediante niveles elevados de metanefrinas fraccionadas libres y ácido vanililmandélico (VMA) en orina de 24 horas.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-03",
+          "game_name": "Illness Script Matrix",
+          "suitability": "alta",
+          "clinical_mission": "Configurar la matriz de Illness Script del Feocromocitoma: paroxismos, cefalea, metanefrinas y VMA."
+        },
+        {
+          "game_id": "game-09",
+          "game_name": "Red Herring Hunter",
+          "suitability": "alta",
+          "clinical_mission": "Diferenciar ataques de pánico y crisis tiroidea de un tumor hipersecretor de catecolaminas."
+        }
+      ]
+    },
+    {
+      "id": "DEC-ANS-PHEO-BLOCKADE-PREOP",
+      "type": "decision",
+      "cluster_id": "CLU-ANS-ADRENAL",
+      "title": "Prescribir Bloqueo Farmacológico Preoperatorio en Feocromocitoma",
+      "summary": "Indicar bloqueo alfa-adrenérgico estricto (fenoxibenzamina/prazosina) de 10 a 14 días ANTES de iniciar betabloqueantes para prevenir crisis hipertensiva mortal.",
+      "decision_prompt": "Priorizar el bloqueo alfa antes del bloqueo beta para evitar la vasoconstricción desopposed mediada por receptores alfa-1 libres.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-17",
+          "game_name": "Contraindication Minesweeper",
+          "suitability": "alta",
+          "clinical_mission": "Desactivar la administración precoz de betabloqueantes antes del bloqueo alfa en feocromocitoma."
+        },
+        {
+          "game_id": "game-13",
+          "game_name": "Stepwise GINA Ladder",
+          "suitability": "alta",
+          "clinical_mission": "Secuenciar el escalamiento prequirúrgico: Fenoxibenzamina 10 días → Expansión de volumen → Betabloqueante."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-ALPHA1-Gq",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ADRENERGIC",
+      "title": "Receptor α1 Adrenérgico (Vía Gq / PLC / IP3 / Ca2+)",
+      "summary": "Acoplado a proteína Gq; activa fosfolipasa C, hidroliza PIP2 a IP3 y DAG; IP3 libera Ca2+ intracelular causando contracción de músculo liso vascular y esfínteres.",
+      "decision_prompt": "Vincular la activación de receptores alfa-1 con la vasoconstricción periférica, midriasis por músculo radial y cierre de esfínteres visceral.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-02",
+          "game_name": "Metabolic & Pathway Fault-Detector",
+          "suitability": "alta",
+          "clinical_mission": "Rastrear la cascada intracelular Gq → PLC → PIP2 → IP3/DAG → Ca2+ → Contracción muscular lisa."
+        },
+        {
+          "game_id": "game-05",
+          "game_name": "Molecular Circuit Breaker",
+          "suitability": "alta",
+          "clinical_mission": "Bloquear selectivamente receptores α1 con prazosina para provocar vasodilatación periférica."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-ALPHA2-Gi",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ADRENERGIC",
+      "title": "Receptor α2 Adrenérgico (Vía Gi / Adenilil Ciclasa↓ / cAMP↓)",
+      "summary": "Acoplado a proteína Gi; inhibe adenilil ciclasa y disminuye cAMP. Funciona como autorreceptor presináptico de retroalimentación negativa y heterorreceptor en tracto GI.",
+      "decision_prompt": "Reconocer la función inhibidora presináptica del receptor alfa-2 para frenar la liberación de noradrenalina y modular el tono simpático central.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-02",
+          "game_name": "Metabolic & Pathway Fault-Detector",
+          "suitability": "alta",
+          "clinical_mission": "Demostrar el bucle de retroalimentación negativa presináptica: activación de Gi y caída de cAMP."
+        },
+        {
+          "game_id": "game-06",
+          "game_name": "Biomarker Dial & Cutoff Slider",
+          "suitability": "media",
+          "clinical_mission": "Ajustar la dosis de clonidina para modular la eferencia simpática central."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-BETA1-Gs",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ADRENERGIC",
+      "title": "Receptor β1 Adrenérgico (Vía Gs / Adenilil Ciclasa↑ / cAMP↑)",
+      "summary": "Acoplado a proteína Gs; estimula adenilil ciclasa y eleva cAMP/PKA. En corazón: aumenta frecuencia cardíaca (nodo SA), velocidad de conducción (nodo AV) e inotropismo.",
+      "decision_prompt": "Atribuir los efectos cardiotónicos y la secreción renal de renina a la estimulación de receptores beta-1 por catecolaminas.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-02",
+          "game_name": "Metabolic & Pathway Fault-Detector",
+          "suitability": "alta",
+          "clinical_mission": "Modelar la estimulación de adenilil ciclasa por Gs, síntesis de cAMP y fosforilación por PKA en el nodo SA."
+        },
+        {
+          "game_id": "game-06",
+          "game_name": "Biomarker Dial & Cutoff Slider",
+          "suitability": "alta",
+          "clinical_mission": "Desplazar la concentración de dobutamina y calibrar el inotropismo y cronotropismo cardíaco."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-BETA2-Gs",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-ADRENERGIC",
+      "title": "Receptor β2 Adrenérgico (Vía Gs / Relajación de Músculo Liso)",
+      "summary": "Acoplado a Gs con aumento de cAMP; fosforila MLCK produciendo relajación bronquial, vasodilatación en músculo esquelético y relajación de pared vesical/GI.",
+      "decision_prompt": "Explicar la broncodilatación y vasodilatación periférica mediada por receptores beta-2 ante epinefrina circulante o agonistas selectivos.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-02",
+          "game_name": "Metabolic & Pathway Fault-Detector",
+          "suitability": "alta",
+          "clinical_mission": "Explicar por qué el cAMP vía PKA inhibe la MLCK produciendo relajación bronquial y vascular."
+        },
+        {
+          "game_id": "game-05",
+          "game_name": "Molecular Circuit Breaker",
+          "suitability": "alta",
+          "clinical_mission": "Estimular selectivamente β2 con salbutamol para abortar el broncoespasmo."
+        }
+      ]
+    },
+    {
+      "id": "RUL-ANS-CATECHOLAMINE-AFFINITY",
+      "type": "rule",
+      "cluster_id": "CLU-ANS-ADRENERGIC",
+      "title": "Jerarquía de Afinidad de Adrenorreceptores por Catecolaminas",
+      "summary": "Regla farmacodinámica de sensibilidad relativa: β2 (Epi >> NE), β1 (Epi = NE), α1 (Epi ≥ NE pero requiere altas concentraciones locales).",
+      "criteria": "Receptores beta responden a concentraciones plasmáticas bajas de catecolaminas; receptores alfa-1 requieren alta concentración sináptica de noradrenalina neural.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-06",
+          "game_name": "Biomarker Dial & Cutoff Slider",
+          "suitability": "alta",
+          "clinical_mission": "Calibrar la respuesta tisular al mover concentraciones plasmáticas de Epinefrina vs Norepinefrina."
+        },
+        {
+          "game_id": "game-11",
+          "game_name": "Feature Contrast Duel",
+          "suitability": "alta",
+          "clinical_mission": "Enfrentar afinidades: β2 (Epi >> NE) vs β1 (Epi = NE) vs α1 (alta concentración local)."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-NICOTINIC-CHANNELS",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-CHOLINERGIC",
+      "title": "Canales Iónicos Nicotínicos (Subtipos N1 Muscular vs N2 Ganglionar)",
+      "summary": "Canales pentaméricos activados por ACh para Na+ y K+ (despolarización a 0 mV). N1 en placa motora (bloqueado por curare); N2 en ganglios y médula adrenal (bloqueado por hexametonio).",
+      "decision_prompt": "Diferenciar farmacológicamente el receptor nicotínico de la placa motora (N1) del receptor nicotínico ganglionar autonómico (N2).",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-11",
+          "game_name": "Feature Contrast Duel",
+          "suitability": "alta",
+          "clinical_mission": "Duelo farmacológico: N1 (placa motora, curare) vs N2 (ganglios y suprarrenal, hexametonio)."
+        },
+        {
+          "game_id": "game-02",
+          "game_name": "Metabolic & Pathway Fault-Detector",
+          "suitability": "media",
+          "clinical_mission": "Apertura del poro central pentamérico y flujo simultáneo de Na+ y K+."
+        }
+      ]
+    },
+    {
+      "id": "CON-ANS-MUSCARINIC-RECEPTORS",
+      "type": "concept",
+      "cluster_id": "CLU-ANS-CHOLINERGIC",
+      "title": "Receptores Muscarínicos Efectores (M1, M2, M3)",
+      "summary": "Receptores metabotrópicos: M1/M3/M5 acoplados a Gq (secreción glandular, broncoconstricción, miosis); M2 acoplado a Gi con apertura directa de canales de K+ en nodo SA.",
+      "decision_prompt": "Vincular el receptor M2 con la bradicardia parasimpática por hiperpolarización y el receptor M3 con la hipersecreción glandular y motilidad visceral.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-11",
+          "game_name": "Feature Contrast Duel",
+          "suitability": "alta",
+          "clinical_mission": "Duelo de subtipos: M1/M3/M5 (Gq, secreción y contracción) vs M2/M4 (Gi, apertura directa de canales K+)."
+        },
+        {
+          "game_id": "game-05",
+          "game_name": "Molecular Circuit Breaker",
+          "suitability": "alta",
+          "clinical_mission": "Bloquear receptores M2 con atropina para revertir la bradicardia sinusal."
+        }
+      ]
+    },
+    {
+      "id": "DEC-ANS-ANTICHOLINERGIC-TOXICITY",
+      "type": "decision",
+      "cluster_id": "CLU-ANS-CHOLINERGIC",
+      "title": "Diagnosticar y Tratar el Bloqueo Muscarínico por Atropínicos",
+      "summary": "Reconocer toxíndrome anticolinérgico (escopolamina, atropina): midriasis, piel seca caliente, taquicardia, retención urinaria e íleo por antagonismo competitivo M.",
+      "decision_prompt": "Identificar efectos adversos anticolinérgicos típicos tras medicación antimuscarínica (cinetosis, cólicos) e indicar suspensión o antídotos colinérgicos.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-03",
+          "game_name": "Illness Script Matrix",
+          "suitability": "alta",
+          "clinical_mission": "Construir el cuadro clínico de toxicidad por atropínicos: midriasis, anhidrosis, taquicardia y retención."
+        },
+        {
+          "game_id": "game-17",
+          "game_name": "Contraindication Minesweeper",
+          "suitability": "alta",
+          "clinical_mission": "Identificar contraindicaciones de antimuscarínicos (glaucoma de ángulo cerrado, hiperplasia prostática)."
+        }
+      ]
+    },
+    {
+      "id": "DEC-ANS-BLADDER-CONTROL",
+      "type": "decision",
+      "cluster_id": "CLU-ANS-INTEGRATION",
+      "title": "Coordinación Autonómica del Reflejo Vesical (Llenado vs Micción)",
+      "summary": "Llenado simpático (detrusor relajado por β2, esfínter interno cerrado por α1) vs Micción parasimpática (detrusor contraído por M, esfínter interno relajado por M).",
+      "decision_prompt": "Prescribir agonistas o antagonistas autonómicos dirigidos para la retención urinaria o vejiga hiperactiva según el receptor diana.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-15",
+          "game_name": "Traffic Light Action Plan",
+          "suitability": "alta",
+          "clinical_mission": "Semáforo del control vesical: Llenado simpático (β2 relaja, α1 cierra) vs Micción parasimpática (M3 contrae, M3 abre)."
+        },
+        {
+          "game_id": "game-04",
+          "game_name": "Management Script Matrix",
+          "suitability": "alta",
+          "clinical_mission": "Diseñar la conducta farmacológica para vejiga neurogénica espástica vs atónica."
+        }
+      ]
+    },
+    {
+      "id": "DEC-ANS-PUPILLARY-REFLEXES",
+      "type": "decision",
+      "cluster_id": "CLU-ANS-INTEGRATION",
+      "title": "Evaluar Control Pupilar Dual: Midriasis vs Miosis y Acomodación",
+      "summary": "Músculo radial del iris dilatador (simpático α1 → midriasis) vs músculo esfínter constrictor (parasimpático M vía CN III → miosis) y contracción ciliar para visión cercana.",
+      "decision_prompt": "Diferenciar la acción pupilar de simpaticomiméticos tópicos (fenilefrina) frente a parasimpaticolíticos (ciclopentolato, atropina) en exploración oftalmológica.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-11",
+          "game_name": "Feature Contrast Duel",
+          "suitability": "alta",
+          "clinical_mission": "Duelo pupilar: Midriasis activa (radial α1) vs Miosis parasimpática (esfínter M3) y reflejo de acomodación."
+        },
+        {
+          "game_id": "game-07",
+          "game_name": "Loop Detective (Espirometría)",
+          "suitability": "media",
+          "clinical_mission": "Analizar la respuesta de dilatación con fenilefrina vs tropicamida."
+        }
+      ]
+    },
+    {
+      "id": "DEC-ANS-HORNER-SYNDROME",
+      "type": "decision",
+      "cluster_id": "CLU-ANS-INTEGRATION",
+      "title": "Diagnosticar Síndrome de Horner Mediante Prueba Farmacológica",
+      "summary": "Pérdida de inervación simpática oculosimpática unilateral (ptosis, miosis, anhidrosis). Confirmación diagnóstica con colirio de cocaína (bloqueador de recaptura de NE).",
+      "decision_prompt": "Confirmar ausencia de dilatación pupilar con gotas de cocaína al 10% en el ojo afectado para certificar la denervación simpática ipsilateral.",
+      "assessment_recommendations": [
+        {
+          "game_id": "game-03",
+          "game_name": "Illness Script Matrix",
+          "suitability": "alta",
+          "clinical_mission": "Matriz del Síndrome de Horner: Ptosis, Miosis, Anhidrosis y prueba de colirio de cocaína."
+        },
+        {
+          "game_id": "game-18",
+          "game_name": "Longitudinal Serial Case",
+          "suitability": "alta",
+          "clinical_mission": "Investigación etiológica paso a paso: colirio de cocaína → prueba de apraclonidina → TAC de vértice pulmonar."
+        }
+      ]
+    }
+  ],
+  "teaching_units": [
+    {
+      "id": "UNT-ANS-SOMATIC-VS-AUTONOMIC",
+      "target_id": "CON-ANS-SOMATIC-VS-AUTONOMIC",
+      "title": "Arquitectura Eferente: Somática vs Autonómica",
+      "body": "El sistema motor somático es voluntario y monosináptico: el soma de una única motoneurona reside en el SNC (tallo cerebral o asta anterior de médula) y su axón mielinizado viaja sin interrupción hasta la placa motora del músculo esquelético, liberando acetilcolina (ACh) sobre receptores nicotínicos N1. El sistema nervioso autónomo (SNA) es involuntario y disináptico: una neurona preganglionar en el SNC sinapsa en un ganglio periférico sobre una neurona postganglionar, que es la que inerva el músculo liso, cardíaco o glándulas viscerales.",
+      "example": "La contracción voluntaria del bíceps braquial utiliza una motoneurona única con receptor N1; la contracción del músculo liso intestinal requiere una cadena disináptica preganglionar y postganglionar.",
+      "boundary": "La única excepción a la cadena de dos neuronas autonómica es la médula suprarrenal, donde las células cromafines actúan como neuronas postganglionares modificadas.",
+      "pearl": "Somático = 1 neurona + músculo esquelético + N1. Autonómico = 2 neuronas + vísceras + ganglio intermedio.",
+      "pitfall": "Confundir la placa motora esquelética con las uniones neuroefectoras autonómicas difusas con varicosidades.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 45-47, Figure 2-1."
+    },
+    {
+      "id": "UNT-ANS-THORACOLUMBAR-SYMP",
+      "target_id": "CON-ANS-THORACOLUMBAR-SYMP",
+      "title": "Estructura y Trayecto del Simpático Toracolumbar",
+      "body": "Los somas de las neuronas preganglionares simpáticas se localizan exclusivamente en las astas intermediolaterales de la médula espinal entre T1 y L3 (división toracolumbar). Emergen por las raíces ventrales y ramos comunicantes blancos hacia la cadena paravertebral simpática. Como los ganglios están situados cerca de la médula, los axones preganglionares son cortos y los axones postganglionares son largos para alcanzar las vísceras periféricas distantes.",
+      "example": "Las fibras simpáticas que inervan el corazón nacen en segmentos T1-T4 y sinapsan en los ganglios cervicales y torácicos altos antes de descender como nervios cardíacos largos.",
+      "boundary": "Algunas fibras preganglionares no sinapsan en la cadena paravertebral sino que la atraviesan como nervios esplácnicos para alcanzar ganglios prevertebrales (celíaco, mesentérico superior e inferior).",
+      "pearl": "Simpático: Origen T1-L3 (toracolumbar), preganglionar corto, postganglionar largo.",
+      "pitfall": "Creer que el simpático tiene orígenes en el tallo encefálico o en la médula sacra.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 47-49, Figure 2-2."
+    },
+    {
+      "id": "UNT-ANS-CRANIOSACRAL-PARASYMP",
+      "target_id": "CON-ANS-CRANIOSACRAL-PARASYMP",
+      "title": "Estructura del Parasimpático Craneosacro",
+      "body": "Los somas preganglionares parasimpáticos se originan en núcleos de cuatro pares craneales en el tallo cerebral (CN III Edinger-Westphal, CN VII salival superior, CN IX salival inferior, CN X motor dorsal del vago) y en los segmentos sacros S2-S4 (división craneosacra). A diferencia del simpático, sus ganglios autonómicos se ubican dentro o inmediatamente adyacentes a los órganos efectores (ej. ganglios ciliares, óticos, plexos intramurales de Auerbach/Meissner), por lo que las fibras preganglionares son muy largas y las postganglionares sumamente cortas.",
+      "example": "El nervio vago (CN X) lleva axones preganglionares larguísimos desde el bulbo raquídeo hasta ganglios microscópicos intramurales en la pared del estómago y colon proximal.",
+      "boundary": "El parasimpático no inerva extremidades, vasos sanguíneos de piel o músculo esquelético, ni glándulas sudoríparas.",
+      "pearl": "Parasimpático: Origen craneosacro (III, VII, IX, X, S2-S4), preganglionar largo, postganglionar corto.",
+      "pitfall": "Buscar inervación parasimpática en el lecho vascular periférico de los miembros inferiores.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 51-53, Figure 2-3."
+    },
+    {
+      "id": "UNT-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "target_id": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "title": "Varicosidades Neuroefectoras y Cotransmisión",
+      "body": "A diferencia de la hendidura sináptica discreta y aislada de la placa neuromuscular somática, las uniones neuroefectoras autonómicas forman redes ramificadas difusas con engrosamientos en forma de cuentas llamados varicosidades. En las varicosidades simpáticas, el ATP se colocaliza con norepinefrina en vesículas pequeñas para una contracción rápida inicial, la norepinefrina media una contracción prolongada intermedia vía α1, y el neuropéptido Y en vesículas grandes causa una tercera fase tónica lenta.",
+      "example": "La estimulación simpática de alta frecuencia del músculo liso vascular produce tres fases de vasoconstricción: inmediata por ATP purinérgico, sostenida por noradrenalina y duradera por NPY.",
+      "boundary": "En las varicosidades parasimpáticas los cotransmisores son VIP y óxido nítrico (NO), que cooperan con la acetilcolina.",
+      "pearl": "Las varicosidades permiten que una sola neurona autonómica excite o inhiba cientos de células de músculo liso acopladas por gap junctions.",
+      "pitfall": "Pensar que la noradrenalina o la ACh son los únicos mensajeros liberados en las sinapsis autonómicas.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 46-47, 49."
+    },
+    {
+      "id": "UNT-ANS-ADRENAL-MEDULLA",
+      "target_id": "CON-ANS-ADRENAL-MEDULLA",
+      "title": "Fisiología de la Médula Suprarrenal y la Enzima PNMT",
+      "body": "La médula suprarrenal es embriológicamente un ganglio simpático especializado. Las células cromafines son homólogas a neuronas postganglionares que perdieron sus axones y secretan catecolaminas directamente al torrente sanguíneo. A diferencia de las neuronas simpáticas que solo liberan noradrenalina, la médula normal secreta 80% Epinefrina y 20% Norepinefrina. Esto se debe a la presencia de la enzima feniletanolamina-N-metiltransferasa (PNMT), la cual requiere altas concentraciones locales de cortisol que drenan directamente desde la corteza suprarrenal vecina.",
+      "example": "El cortisol cortical transportado por el sistema porta corticosuprarrenal induce la transcripción de PNMT, metilando la noradrenalina para convertirla en epinefrina.",
+      "boundary": "Los feocromocitomas ectópicos (fuera de la glándula suprarrenal) secretan casi exclusivamente noradrenalina porque carecen del microambiente rico en cortisol necesario para activar PNMT.",
+      "pearl": "Corteza da cortisol → activa PNMT en médula → convierte Norepinefrina en 80% Epinefrina.",
+      "pitfall": "Afirmar que las neuronas postganglionares simpáticas periféricas pueden secretar epinefrina: carecen de PNMT.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 49-50."
+    },
+    {
+      "id": "UNT-ANS-DIAG-PHEOCHROMOCYTOMA",
+      "target_id": "DEC-ANS-DIAG-PHEOCHROMOCYTOMA",
+      "title": "Diagnóstico Fisiopatológico del Feocromocitoma",
+      "body": "El feocromocitoma es un tumor de las células cromafines (regla del 10%: 10% bilateral, 10% extrarrenal, 10% maligno). Al estar alejado de la corteza, secreta fundamentalmente norepinefrina. Esto estimula receptores β1 cardíacos (taquicardia, aumento de contractilidad y palpitaciones) y receptores α1 vasculares (vasoconstricción arterial periférica masiva, palidez y extremidades frías con hipertensión arterial severa paroxística). El diagnóstico se confirma midiendo metabolitos urinarios de catecolaminas: metanefrinas, normetanefrinas y ácido vanililmandélico (VMA).",
+      "example": "Mujer de 48 años con cefalea pulsátil, sudoración profusa, palpitaciones y presión de 230/125 mmHg. La orina de 24 horas muestra VMA y metanefrinas triplicadas; el TAC revela masa suprarrenal de 3.5 cm.",
+      "boundary": "Las elevaciones limítrofes pueden deberse a estrés agudo, dolor o fármacos como antidepresivos tricíclicos.",
+      "pearl": "Tríada clásica: Cefalea + Palpitaciones + Diaforesis en paciente con hipertensión paroxística.",
+      "pitfall": "Solicitar catecolaminas plasmáticas basales durante un período asintomático intercrisis, con riesgo de falsos negativos.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, Box 2-1, p. 50."
+    },
+    {
+      "id": "UNT-ANS-PHEO-BLOCKADE-PREOP",
+      "target_id": "DEC-ANS-PHEO-BLOCKADE-PREOP",
+      "title": "Regla Inviolable: Bloqueo Alfa ANTES del Bloqueo Beta en Feocromocitoma",
+      "body": "En la preparación preoperatoria de un feocromocitoma, está formalmente PROHIBIDO iniciar un betabloqueante (ej. propranolol, atenolol) sin haber bloqueado previamente de forma completa los receptores alfa con un antagonista alfa (fenoxibenzamina o prazosina). Si se administra un betabloqueante solo, se bloquea la vasodilatación fisiológica mediada por β2 en el músculo esquelético, dejando a la inmensa cantidad de catecolaminas circulantes actuar libremente sobre los receptores α1 vasculares ('unnopposed alpha stimulation'), detonando una crisis hipertensiva fulminante con edema pulmonar o infarto.",
+      "example": "Paciente con feocromocitoma a quien un médico novato prescribe propranolol por la taquicardia; a los 30 minutos la presión arterial escala a 260/140 mmHg por vasoconstricción alfa pura desinhibida.",
+      "boundary": "El bloqueo alfa debe mantenerse durante 10 a 14 días con expansión de volumen plasmático antes de considerar añadir dosis bajas de betabloqueante.",
+      "pearl": "Regla alfabética: primero la A (Alfa-bloqueo con fenoxibenzamina), luego la B (Beta-bloqueo con propranolol).",
+      "pitfall": "Prescribir betabloqueantes en monoterapia para frenar la taquicardia de un feocromocitoma sin cobertura alfa previa.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, Box 2-1, p. 50."
+    },
+    {
+      "id": "UNT-ANS-ALPHA1-Gq",
+      "target_id": "CON-ANS-ALPHA1-Gq",
+      "title": "Mecanismo Intracelular del Receptor α1 (Vía Gq / IP3 / Ca2+)",
+      "body": "El receptor adrenérgico α1 es un receptor acoplado a proteína G transmembrana de 7 pasos. La unión de noradrenalina o epinefrina produce un cambio conformacional en la subunidad αq, que libera GDP y fija GTP. La subunidad αq-GTP activa la enzima fosfolipasa C (PLC) en la membrana plasmática, la cual escinde el fosfatidilinositol 4,5-bisfosfato (PIP2) en dos segundos mensajeros: diacilglicerol (DAG) e inositol 1,4,5-trisfosfato (IP3). El IP3 se une a canales en el retículo sarcoplásmico liberando Ca2+ al citosol. El Ca2+ junto con DAG activa la Protein Kinasa C (PKC) y desencadena contracción de músculo liso vascular, radial de iris y esfínteres.",
+      "example": "La infusión de noradrenalina activa receptores α1 en arteriolas esplácnicas y cutáneas, produciendo aumento de RVP y extremidades frías por vasoconstricción Gq dependiente.",
+      "boundary": "En músculo liso bronquial y detrusor vesical predominan receptores β2 y M, con escasa presencia de α1.",
+      "pearl": "Receptor α1 = Proteína Gq → Fosfolipasa C → IP3 y DAG → Aumento de Calcio intracelular → Contracción.",
+      "pitfall": "Confundir la vía de α1 (Gq/PLC/IP3) con la vía de los receptores beta (Gs/cAMP).",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 58-59, Figure 2-6, Table 2-4."
+    },
+    {
+      "id": "UNT-ANS-ALPHA2-Gi",
+      "target_id": "CON-ANS-ALPHA2-Gi",
+      "title": "Mecanismo Intracelular del Receptor α2 (Vía Gi / cAMP↓)",
+      "summary": "Mecanismo y función del receptor α2",
+      "body": "El receptor adrenérgico α2 está acoplado a una proteína G inhibitoria (Gi). Cuando se activa por noradrenalina, la subunidad αi se disocia e inhibe directamente a la adenilil ciclasa, reduciendo los niveles intracelulares de cAMP. Funciona principalmente como autorreceptor presináptico en las terminales adrenérgicas: la noradrenalina liberada actúa sobre sus propios receptores α2 para frenar la exocitosis posterior, operando como un termostato de retroalimentación negativa que previene la sobreestimulación simpática.",
+      "example": "La clonidina estimula receptores α2 presinápticos en el tronco del encéfalo, disminuyendo la salida simpática central y reduciendo la presión arterial sistémica.",
+      "boundary": "La médula suprarrenal carece de receptores α2 presinápticos, por lo que no tiene este freno y puede agotar sus reservas durante un estrés extremo.",
+      "pearl": "Receptor α2 = Proteína Gi → Frena la adenilil ciclasa → Baja el cAMP → Freno de mano presináptico.",
+      "pitfall": "Creer que todos los receptores adrenérgicos postsinápticos son excitadores: α2 es predominantemente inhibitorio.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 59-60, Table 2-4."
+    },
+    {
+      "id": "UNT-ANS-BETA1-Gs",
+      "target_id": "CON-ANS-BETA1-Gs",
+      "title": "Mecanismo del Receptor β1 Cardíaco y Renal (Vía Gs / cAMP↑)",
+      "body": "El receptor β1 adrenérgico está acoplado a una proteína G estimuladora (Gs). La unión del agonista provoca disociación de la subunidad αs-GTP, la cual migra y estimula a la enzima adenilil ciclasa, convirtiendo ATP en cAMP (segundo mensajero). El cAMP activa la Protein Kinasa A (PKA). En el nodo SA cardíaco, acelera la despolarización diastólica espontánea (↑ frecuencia cardíaca); en el miocito ventricular, fosforila canales de calcio tipo L y fosfolambano (↑ contractilidad); y en el aparato yuxtaglomerular renal, estimula la secreción de renina.",
+      "example": "La dobutamina (agonista β1) se utiliza en shock cardiogénico para aumentar el volumen sistólico y la contractilidad ventricular sin producir vasoconstricción periférica.",
+      "boundary": "El bloqueo de receptores β1 con metoprolol disminuye el consumo miocárdico de oxígeno en angina pero puede inducir bradicardia o bloqueo AV si se sobredosifica.",
+      "pearl": "1 Corazón (β1 = estimulación cardíaca + renina). 2 Pulmones (β2 = broncodilatación).",
+      "pitfall": "Afirmar que el receptor β1 dilata las arterias: la vasodilatación en músculo esquelético depende de receptores β2.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 60, Figure 2-7, Table 2-4."
+    },
+    {
+      "id": "UNT-ANS-BETA2-Gs",
+      "target_id": "CON-ANS-BETA2-Gs",
+      "title": "Mecanismo del Receptor β2 (Vía Gs / Relajación del Músculo Liso)",
+      "body": "El receptor β2 comparte con el β1 la misma vía de señalización intracelular (Gs → Adenilil ciclasa ↑ → cAMP ↑ → PKA). Sin embargo, en el músculo liso bronquial y vascular de las extremidades, el aumento de cAMP y la fosforilación por PKA inhiben a la kinasa de cadenas ligeras de miosina (MLCK) y estimulan la recaptura de Ca2+, provocando relajación muscular. Esto produce broncodilatación potente, vasodilatación del lecho muscular esquelético y relajación de la pared vesical y uterina.",
+      "example": "El salbutamol inhalado estimula selectivamente receptores β2 en las células musculares lisas de los bronquiolos, abortando el broncoespasmo asmático agudo.",
+      "boundary": "Los receptores β2 tienen muy baja afinidad por la noradrenalina neural; responden fisiológicamente a la epinefrina circulante de la médula suprarrenal.",
+      "pearl": "A pesar de usar una proteína Gs estimuladora, en músculo liso el cAMP causa relajación/dilatación (por inhibir a la MLCK).",
+      "pitfall": "Suponer que por tener proteína Gs el receptor β2 debe contraer el músculo liso: hace exactamente lo opuesto.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 61, Figure 2-7, Table 2-4."
+    },
+    {
+      "id": "UNT-ANS-CATECHOLAMINE-AFFINITY",
+      "target_id": "RUL-ANS-CATECHOLAMINE-AFFINITY",
+      "title": "Regla Cuantitativa de Sensibilidad Adrenérgica por Catecolaminas",
+      "body": "Las catecolaminas tienen una sensibilidad y afinidad diferencial por los receptores: 1) Receptores β2: tienen afinidad preferencial por Epinefrina (Epi >> NE); la noradrenalina a concentraciones fisiológicas no activa β2. 2) Receptores β1: responden con igual potencia a Epinefrina y Norepinefrina (Epi = NE) a concentraciones nanomolares bajas. 3) Receptores α1: son relativamente insensibles a catecolaminas circulantes y requieren concentraciones micromolares altas, alcanzadas únicamente en la brecha sináptica por liberación neural directa de noradrenalina.",
+      "example": "Durante una descarga de la médula adrenal en estrés leve, la epinefrina circulante activa receptores β2 (vasodilatación muscular) y β1 (taquicardia), pero es insuficiente para activar α1.",
+      "boundary": "En dosis farmacológicas muy elevadas (ej. infusión masiva de noradrenalina en shock séptico), se saturan todos los receptores y predomina el efecto vasoconstrictor α1.",
+      "pearl": "Epinefrina ama a los receptores β (especialmente β2); Norepinefrina domina en los receptores α1 neurales locales.",
+      "pitfall": "Pensar que la epinefrina y la noradrenalina son intercambiables en todos los lechos vasculares.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 61, Table 2-2."
+    },
+    {
+      "id": "UNT-ANS-NICOTINIC-CHANNELS",
+      "target_id": "CON-ANS-NICOTINIC-CHANNELS",
+      "title": "Canales Iónicos Nicotínicos: N1 Muscular vs N2 Ganglionar",
+      "body": "El receptor nicotínico es un receptor ionotrópico pentamérico formado por 5 subunidades (2α, 1β, 1δ, 1γ) que rodean un poro central. La unión de dos moléculas de acetilcolina a las subunidades α abre el canal permitiendo el flujo simultáneo de Na+ hacia adentro y K+ hacia afuera, despolarizando la membrana hacia 0 mV. Farmacológicamente se dividen en: N1 (placa motora de músculo esquelético, bloqueado por curare) y N2 (cuerpos de neuronas postganglionares de simpático y parasimpático y médula adrenal, bloqueado por hexametonio).",
+      "example": "El hexametonio bloquea selectivamente N2 ganglionar produciendo bloqueo autonómico generalizado, pero no paraliza el músculo esquelético porque respeta el receptor N1.",
+      "boundary": "El bloqueo de N2 apaga la división autonómica que sea dominante en cada órgano en reposo (ej. taquicardia por apagar el tono vagal M2 cardíaco).",
+      "pearl": "N1 = Placa motora (1 músculo esquelético, curare). N2 = Ganglios (2 neuronas autonómicas, hexametonio).",
+      "pitfall": "Usar hexametonio como relajante muscular quirúrgico: causaría colapso autonómico vascular sin parálisis periférica segura.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 61-62, Figure 2-8."
+    },
+    {
+      "id": "UNT-ANS-MUSCARINIC-RECEPTORS",
+      "target_id": "CON-ANS-MUSCARINIC-RECEPTORS",
+      "title": "Receptores Muscarínicos Metabótropos (M1, M2, M3)",
+      "body": "Los receptores muscarínicos son metabotrópicos acoplados a proteína G. Los subtipos impares (M1, M3, M5) están acoplados a proteína Gq (PLC/IP3/Ca2+): causan secreción gástrica (M1), hipersecreción glandular salival y lagrimal (M3), miosis (M3) y broncoconstricción (M3). Los subtipos pares (M2, M4) se acoplan a proteína Gi: el receptor M2 cardíaco en el nodo SA no utiliza segundos mensajeros solubles, sino que su subunidad βγ/αi abre directamente canales de potasio rectificadores de entrada (K_ACh), hiperpolarizando el marcapasos y causando bradicardia inmediata.",
+      "example": "La estimulación vagal libera ACh sobre receptores M2 del nodo SA, abriendo canales de K+ e induciendo una bradicardia rápida que desaparece al cesar el estímulo.",
+      "boundary": "Las glándulas sudoríparas termorreguladoras de la piel reciben inervación anatómica simpática pero son funcionalmente colinérgicas y operan mediante receptores M3.",
+      "pearl": "M1, M3, M5 = Gq (excitadores secretores/contráctiles). M2, M4 = Gi (inhibidores cardíacos por hiperpolarización).",
+      "pitfall": "Pensar que todas las glándulas sudoríparas usan noradrenalina: las termorreguladoras usan acetilcolina y receptores muscarínicos.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 62-63, Table 2-4."
+    },
+    {
+      "id": "UNT-ANS-ANTICHOLINERGIC-TOXICITY",
+      "target_id": "DEC-ANS-ANTICHOLINERGIC-TOXICITY",
+      "title": "Síndrome Anticolinérgico y Toxicidad por Antimuscarínicos",
+      "body": "El bloqueo competitivo de los receptores muscarínicos por fármacos como atropina o escopolamina (utilizada para la cinetosis o mareo por movimiento) genera una constelación clásica de síntomas: boca seca (bloqueo M3 salival), visión borrosa y midriasis fija (bloqueo M3 esfínter pupilar y ciliar), taquicardia (bloqueo M2 nodo SA desinhibiendo el tono vagal), retención urinaria (bloqueo M3 detrusor) y piel caliente y seca por anhidrosis.",
+      "example": "Mujer que toma escopolamina transdérmica en un crucero para no marearse y consulta al 2º día por boca intensamente seca, palpitaciones, pupilas dilatadas e incapacidad para orinar.",
+      "boundary": "La fisostigmina es un inhibidor de acetilcolinesterasa terciario que cruza la barrera hematoencefálica y sirve como antídoto en toxicidad anticolinérgica severa con delirio.",
+      "pearl": "Mnemotecnia clásica: 'Ciego como un topo (midriasis), rojo como una remolacha (vasodilatación refleja), seco como un hueso (anhidrosis), caliente como una brasa y loco como una cabra'.",
+      "pitfall": "Administrar escopolamina a un paciente anciano con glaucoma de ángulo cerrado, pudiendo desencadenar ceguera aguda por midriasis.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, Box 2-3, p. 63."
+    },
+    {
+      "id": "UNT-ANS-BLADDER-CONTROL",
+      "target_id": "DEC-ANS-BLADDER-CONTROL",
+      "title": "Fisiología y Farmacología del Control Vesical",
+      "body": "La vejiga urinaria es el modelo perfecto de coordinación autonómica: 1) Fase de Llenado (Simpático L1-L3 dominante): el detrusor se relaja vía receptores β2 permitiendo almacenar orina a baja presión, mientras el esfínter interno se contrae tónicamente vía receptores α1. 2) Fase de Micción (Parasimpático S2-S4 dominante): los mecanorreceptores de estiramiento activan el centro midpontino de la micción; las fibras parasimpáticas contraen vigorosamente el detrusor vía receptores M3 y relajan el esfínter interno vía M3/NO, coordinado con la relajación voluntaria del esfínter externo somático.",
+      "example": "Paciente con incontinencia de urgencia por vejiga hiperactiva que se beneficia de un agonista selectivo β3/β2 (mirabegrón) o un antimuscarínico (oxibutinina) para relajar el detrusor.",
+      "boundary": "En retención urinaria por hiperplasia prostática, los antagonistas α1 (tamsulosina) relajan el esfínter interno y el cuello vesical facilitando el flujo.",
+      "pearl": "Llenar = Simpático (relaja pared β2, cierra puerta α1). Vaciar = Parasimpático (aprieta pared M3, abre puerta M3).",
+      "pitfall": "Prescribir anticolinérgicos a un varón anciano con síntomas prostáticos obstructivos sin advertirle que precipitará una retención aguda de orina.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 54-55, Figure 2-4."
+    },
+    {
+      "id": "UNT-ANS-PUPILLARY-REFLEXES",
+      "target_id": "DEC-ANS-PUPILLARY-REFLEXES",
+      "title": "Inervación Recíproca del Iris: Miosis vs Midriasis",
+      "body": "El tamaño de la pupila está gobernado por dos músculos independientes en el iris: 1) Músculo radial o dilatador pupilar: inervado por el simpático mediante receptores α1; su contracción abre la pupila produciendo midriasis. 2) Músculo esfínter o constrictor pupilar: inervado por el parasimpático mediante receptores muscarínicos M3 en el nervio oculomotor (CN III); su contracción cierra la pupila produciendo miosis (reflejo fotomotor a la luz). En la acomodación cercana, el parasimpático contrae además el músculo ciliar (vía M3), relajando la zónula de Zinn para aumentar el poder refractivo del cristalino.",
+      "example": "La instilación tópica de fenilefrina (agonista α1) dilata la pupila por contracción activa del músculo radial sin paralizar la acomodación ciliar.",
+      "boundary": "La atropina dilata la pupila por parálisis pasiva del esfínter constrictor (midriasis pasiva) y causa además cicloplejía (parálisis de acomodación para visión cercana).",
+      "pearl": "Fenilefrina = Midriasis con visión cercana intacta. Tropicamida/Atropina = Midriasis con visión cercana borrosa (cicloplejía).",
+      "pitfall": "Confundir la midriasis simpática activa (músculo radial α1) con la midriasis anticolinérgica por bloqueo parasimpático del constrictor.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, p. 54-55, Table 2-3."
+    },
+    {
+      "id": "UNT-ANS-HORNER-SYNDROME",
+      "target_id": "DEC-ANS-HORNER-SYNDROME",
+      "title": "Síndrome de Horner y Prueba Farmacológica de Cocaína",
+      "body": "El Síndrome de Horner ocurre por lesión de la vía oculosimpática en cualquier punto de su trayecto de tres neuronas (hipotálamo → C8-T2 → ganglio cervical superior → plexo carotídeo → órbita). Se manifiesta por la tríada clásica ipsilateral: ptosis leve (parálisis del músculo tarsal superior de Müller), miosis (predominio parasimpático por parálisis del dilatador radial) y anhidrosis facial. El diagnóstico se confirma instilando colirio de cocaína al 10%, que bloquea la recaptura de noradrenalina: en el ojo normal la pupila se dilata ampliamente; en el ojo con Horner no se dilata porque la terminal nerviosa lesionada no libera noradrenalina.",
+      "example": "Paciente de 66 años con infarto bulbar lateral (Síndrome de Wallenberg) que presenta párpado derecho caído y pupila derecha miótica. Tras gotas de cocaína en ambos ojos, la pupila izquierda se dilata a 7 mm y la derecha permanece en 2.5 mm.",
+      "boundary": "Posteriormente se utiliza colirio de apraclonidina (agonista α2/α1 débil) o hidroxianfetamina para diferenciar si la lesión es preganglionar o postganglionar.",
+      "pearl": "En Horner: el ojo sano se dilata con cocaína; el ojo enfermo no se dilata (anisoncoria empeora en la oscuridad).",
+      "pitfall": "Descartar tumor de Pancoast en el vértice pulmonar cuando un paciente debuta con Síndrome de Horner sin dolor torácico.",
+      "source_lock": "Costanzo Physiology, 6th Ed., Chapter 2, Box 2-2, p. 56."
+    }
+  ],
+  "assessment_units": [
+    {
+      "id": "Q-CON-ANS-SOMATIC-VS-AUTONOMIC",
+      "target_id": "CON-ANS-SOMATIC-VS-AUTONOMIC",
+      "format": "choice",
+      "difficulty": "base",
+      "prompt": "¿Cuál de las siguientes características estructurales distingue de manera fundamental al sistema nervioso motor somático frente al sistema nervioso autónomo?",
+      "options": [
+        {
+          "id": "A",
+          "text": "El sistema somático posee un ganglio autonómico intermedio donde se libera noradrenalina"
+        },
+        {
+          "id": "B",
+          "text": "El sistema somático está compuesto por una sola motoneurona mielinizada que sinapsa directamente en el músculo esquelético"
+        },
+        {
+          "id": "C",
+          "text": "El sistema somático carece de receptores colinérgicos en sus órganos diana"
+        },
+        {
+          "id": "D",
+          "text": "El sistema somático inerva exclusivamente músculo liso vascular y glándulas exocrinas"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: La vía motora somática está constituida por un axón único continuo que emerge del SNC y termina en la placa motora del músculo esquelético liberando ACh sobre receptores N1. El SNA utiliza siempre una cadena de dos neuronas conectadas en un ganglio periférico.",
+      "feedback_remediation": "Revisa la Figura 2-1 y la Tabla 2-1 del capítulo 2 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-THORACOLUMBAR-SYMP",
+      "target_id": "CON-ANS-THORACOLUMBAR-SYMP",
+      "format": "choice",
+      "difficulty": "base",
+      "prompt": "¿De qué segmentos específicos de la médula espinal se originan las neuronas preganglionares de la división simpática del sistema nervioso autónomo?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Segmentos cervicales C1 a C8"
+        },
+        {
+          "id": "B",
+          "text": "Segmentos torácicos y lumbares altos de T1 a L3 (toracolumbar)"
+        },
+        {
+          "id": "C",
+          "text": "Núcleos del tronco encefálico y segmentos sacros S2 a S4"
+        },
+        {
+          "id": "D",
+          "text": "Segmentos sacros y coccígeos exclusivamente"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: La división simpática se denomina anatómicamente toracolumbar porque sus cuerpos celulares preganglionares residen en el asta intermediolateral de la médula espinal entre T1 y L3.",
+      "feedback_remediation": "Consulta el apartado 'Origin of Preganglionic Neurons' en la página 49 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-CRANIOSACRAL-PARASYMP",
+      "target_id": "CON-ANS-CRANIOSACRAL-PARASYMP",
+      "format": "choice",
+      "difficulty": "base",
+      "prompt": "¿Cuáles son los cuatro pares craneales que contienen las fibras preganglionares de la división parasimpática craneal?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Pares craneales I, II, V y VIII"
+        },
+        {
+          "id": "B",
+          "text": "Pares craneales III, VII, IX y X"
+        },
+        {
+          "id": "C",
+          "text": "Pares craneales V, VII, XI y XII"
+        },
+        {
+          "id": "D",
+          "text": "Pares craneales II, IV, VI y X"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Los pares craneales III (oculomotor), VII (facial), IX (glosofaríngeo) y X (vago) transportan la eferencia parasimpática desde los núcleos del tallo hacia los ganglios periféricos.",
+      "feedback_remediation": "Revisa el origen craneosacro en la página 52 y la Figura 2-3 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "target_id": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "En las uniones neuroefectoras simpáticas adrenérgicas, ¿cuál es la secuencia temporal correcta de las tres fases de vasoconstricción inducidas por cotransmisión ante estimulación de alta frecuencia?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1ª fase por Neuropeptido Y → 2ª fase por Noradrenalina → 3ª fase por ATP"
+        },
+        {
+          "id": "B",
+          "text": "1ª fase rápida por ATP → 2ª fase sostenida por Noradrenalina (α1) → 3ª fase lenta por Neuropéptido Y"
+        },
+        {
+          "id": "C",
+          "text": "1ª fase por Acetilcolina → 2ª fase por VIP → 3ª fase por Óxido Nítrico"
+        },
+        {
+          "id": "D",
+          "text": "1ª fase por Histamina → 2ª fase por Prostaglandina E2 → 3ª fase por Serotonina"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: El ATP colocalizado en vesículas pequeñas actúa primero en receptores purinérgicos causando una contracción inmediata; le sigue la noradrenalina vía receptores α1 causando la contracción principal, y finalmente el Neuropéptido Y liberado de vesículas grandes causa una contracción tónica tardía.",
+      "feedback_remediation": "Revisa la sección 'Sympathetic Adrenergic Varicosities' en la página 49 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-ADRENAL-MEDULLA",
+      "target_id": "CON-ANS-ADRENAL-MEDULLA",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "¿Por qué razón fisiológica fundamental la médula suprarrenal normal secreta un 80% de epinefrina y solo un 20% de norepinefrina, a diferencia de las neuronas postganglionares simpáticas?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Porque las neuronas simpáticas carecen de tirosina hidroxilasa"
+        },
+        {
+          "id": "B",
+          "text": "Porque la médula suprarrenal contiene la enzima PNMT, cuya expresión es inducida por el cortisol cortical vecino"
+        },
+        {
+          "id": "C",
+          "text": "Porque la médula suprarrenal recibe inervación directa del nervio vago"
+        },
+        {
+          "id": "D",
+          "text": "Porque la norepinefrina se destruye por la aldosterona circulante"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: La enzima PNMT cataliza la conversión de norepinefrina a epinefrina. Esta enzima solo se expresa activamente en la médula adrenal gracias a las concentraciones altísimas de cortisol provenientes del drenaje venoso de la corteza suprarrenal.",
+      "feedback_remediation": "Revisa la regulación de la médula suprarrenal en las páginas 49-50 de Costanzo."
+    },
+    {
+      "id": "Q-DEC-ANS-DIAG-PHEOCHROMOCYTOMA",
+      "target_id": "DEC-ANS-DIAG-PHEOCHROMOCYTOMA",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "Una mujer de 48 años presenta crisis de palpitaciones, cefaleas intensas pulsátiles, diaforesis profusa y presión arterial de 220/120 mmHg. ¿Cuál de las siguientes pruebas bioquímicas es la más adecuada para confirmar el diagnóstico de feocromocitoma?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Determinación de electrolitos séricos y osmolaridad plasmática"
+        },
+        {
+          "id": "B",
+          "text": "Medición de metanefrinas fraccionadas libres y ácido vanililmandélico (VMA) en orina de 24 horas"
+        },
+        {
+          "id": "C",
+          "text": "Gasometría arterial en reposo"
+        },
+        {
+          "id": "D",
+          "text": "Niveles séricos de hormona paratiroidea y calcitonina"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Los tumores cromafines metabolizan de forma continua las catecolaminas a metanefrinas y VMA, que se eliminan por orina; su detección cuantitativa en orina de 24h confirma el hiperadrenérgismo tumoral.",
+      "feedback_remediation": "Consulta el recuadro clínico Box 2-1 en la página 50 de Costanzo."
+    },
+    {
+      "id": "Q-DEC-ANS-PHEO-BLOCKADE-PREOP",
+      "target_id": "DEC-ANS-PHEO-BLOCKADE-PREOP",
+      "format": "choice",
+      "difficulty": "avanzado",
+      "prompt": "Un paciente con feocromocitoma recién confirmado presenta taquicardia sinusal de 125 lpm e hipertensión de 190/110 mmHg. ¿Por qué es un error médico potencialmente mortal administrar propranolol (betabloqueante no selectivo) antes de haber bloqueado los receptores alfa con fenoxibenzamina?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Porque el propranolol estimula directamente la liberación de aldosterona"
+        },
+        {
+          "id": "B",
+          "text": "Porque al bloquear la vasodilatación β2, la noradrenalina tumoral estimula sin oposición los receptores α1 vasculares desencadenando una crisis hipertensiva letal"
+        },
+        {
+          "id": "C",
+          "text": "Porque el propranolol induce broncodilatación severa irreversible"
+        },
+        {
+          "id": "D",
+          "text": "Porque los betabloqueantes disuelven el tumor liberando embolismos metastásicos"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Los vasos del músculo esquelético tienen receptores β2 vasodilatadores y α1 vasoconstrictores. Bloquear β2 en presencia de niveles masivos de catecolaminas deja la vasoconstricción α1 'desopposed', elevando la resistencia periférica a niveles letales.",
+      "feedback_remediation": "Revisa el tratamiento farmacológico del feocromocitoma en el Box 2-1 (p. 50)."
+    },
+    {
+      "id": "Q-CON-ANS-ALPHA1-Gq",
+      "target_id": "CON-ANS-ALPHA1-Gq",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "¿Cuál es la cascada de segundos mensajeros que se activa tras la unión de noradrenalina a un receptor adrenérgico α1 en el músculo liso vascular?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Proteína Gs → Adenilil ciclasa ↑ → cAMP ↑ → PKA"
+        },
+        {
+          "id": "B",
+          "text": "Proteína Gq → Fosfolipasa C ↑ → Liberación de IP3 y DAG → Elevación de Ca2+ citosólico → Activación de PKC"
+        },
+        {
+          "id": "C",
+          "text": "Proteína Gi → Inhibición de adenilil ciclasa → Descenso de cAMP"
+        },
+        {
+          "id": "D",
+          "text": "Apertura directa de canales de cloro con hiperpolarización de membrana"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Los receptores α1 están acoplados a proteína Gq y utilizan la vía de la fosfolipasa C, generando IP3 (que libera calcio de los depósitos) y DAG (que activa PKC).",
+      "feedback_remediation": "Estudia el diagrama de flujo de la Figura 2-6 en la página 59 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-ALPHA2-Gi",
+      "target_id": "CON-ANS-ALPHA2-Gi",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "¿Qué efecto celular produce la activación de los autorreceptores adrenérgicos α2 ubicados en las terminales presinápticas simpáticas?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Estimulación de la síntesis de tirosina hidroxilasa y mayor liberación de catecolaminas"
+        },
+        {
+          "id": "B",
+          "text": "Inhibición de la adenilil ciclasa mediada por proteína Gi, reduciendo el cAMP y frenando la liberación adicional de noradrenalina"
+        },
+        {
+          "id": "C",
+          "text": "Contracción tónica del músculo liso vascular esquelético"
+        },
+        {
+          "id": "D",
+          "text": "Activación de la secreción de renina en el aparato yuxtaglomerular"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Los receptores α2 presinápticos actúan como freno biológico: la noradrenalina liberada actúa sobre α2 acoplado a Gi, reduciendo el cAMP intracelular y deteniendo la exocitosis de vesículas.",
+      "feedback_remediation": "Revisa el mecanismo de los receptores α2 en la página 59-60 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-BETA1-Gs",
+      "target_id": "CON-ANS-BETA1-Gs",
+      "format": "choice",
+      "difficulty": "base",
+      "prompt": "¿Cuáles son las dos principales acciones fisiológicas resultantes de la estimulación de los receptores β1 adrenérgicos en el corazón y en el riñón, respectivamente?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Disminución del gasto cardíaco y reabsorción tubular de glucosa"
+        },
+        {
+          "id": "B",
+          "text": "Aumento de la frecuencia cardíaca/contractilidad y estimulación de la secreción de renina"
+        },
+        {
+          "id": "C",
+          "text": "Broncoconstricción refleja y filtración glomerular disminuida"
+        },
+        {
+          "id": "D",
+          "text": "Dilatación arteriolar esplácnica y relajación del detrusor vesical"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Los receptores β1 son predominantemente cardíacos (aumentan inotropismo, cronotropismo y dromotropismo) y renales (estimulan a las células yuxtaglomerulares para liberar renina).",
+      "feedback_remediation": "Revisa las funciones de β1 en la Tabla 2-3 y la página 60 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-BETA2-Gs",
+      "target_id": "CON-ANS-BETA2-Gs",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "Aunque los receptores β2 están acoplados a una proteína Gs estimuladora que eleva el cAMP, ¿por qué su activación produce relajación en lugar de contracción en el músculo liso bronquial y vascular?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Porque el receptor β2 destruye los filamentos de actina celular"
+        },
+        {
+          "id": "B",
+          "text": "Porque en el músculo liso, la PKA activada por cAMP fosforila e inhibe a la kinasa de cadenas ligeras de miosina (MLCK) y estimula la recaptura de Ca2+"
+        },
+        {
+          "id": "C",
+          "text": "Porque el receptor β2 despolariza la membrana abriendo canales de sodio masivos"
+        },
+        {
+          "id": "D",
+          "text": "Porque el músculo liso carece de receptores de adenosina trifosfato"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: En el músculo liso, a diferencia del músculo estriado cardíaco, la fosforilación mediada por PKA inactiva a la MLCK e hiperpolariza la membrana, produciendo relajación bronquial y vasodilatación.",
+      "feedback_remediation": "Revisa la acción de los receptores β2 en la página 61 de Costanzo."
+    },
+    {
+      "id": "Q-RUL-ANS-CATECHOLAMINE-AFFINITY",
+      "target_id": "RUL-ANS-CATECHOLAMINE-AFFINITY",
+      "format": "choice",
+      "difficulty": "avanzado",
+      "prompt": "A concentraciones fisiológicas basales de catecolaminas circulantes liberadas por la médula suprarrenal, ¿cuál de los siguientes receptores adrenérgicos muestra la MAYOR sensibilidad y respuesta preferente a la epinefrina sobre la norepinefrina?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Receptores adrenérgicos α1"
+        },
+        {
+          "id": "B",
+          "text": "Receptores adrenérgicos β2"
+        },
+        {
+          "id": "C",
+          "text": "Receptores adrenérgicos α2 exclusivamente"
+        },
+        {
+          "id": "D",
+          "text": "Receptores colinérgicos nicotínicos"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Los receptores β2 tienen una afinidad marcadamente superior por la epinefrina (Epi >> NE), respondiendo a concentraciones hormonales plasmáticas bajas. Los α1 son insensibles a esas dosis y requieren NE sináptica concentrada.",
+      "feedback_remediation": "Revisa la jerarquía de afinidad en la página 61 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-NICOTINIC-CHANNELS",
+      "target_id": "CON-ANS-NICOTINIC-CHANNELS",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "El fármaco experimental hexametonio bloquea selectivamente la transmisión en los ganglios autonómicos simpáticos y parasimpáticos. ¿Qué subtipo de receptor es el blanco directo de este bloqueo?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Receptores nicotínicos N1 de la placa motora esquelética"
+        },
+        {
+          "id": "B",
+          "text": "Receptores nicotínicos N2 presentes en los somas neuronales postganglionares y células cromafines"
+        },
+        {
+          "id": "C",
+          "text": "Receptores muscarínicos M2 del miocardio auricular"
+        },
+        {
+          "id": "D",
+          "text": "Receptores adrenérgicos beta-1 del nodo auriculoventricular"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: El hexametonio es un bloqueador gangliopléjico específico para los receptores nicotínicos N2 (ganglionares), sin bloquear los receptores N1 de la unión neuromuscular voluntaria.",
+      "feedback_remediation": "Revisa la distinción entre N1 y N2 en las páginas 61-62 de Costanzo."
+    },
+    {
+      "id": "Q-CON-ANS-MUSCARINIC-RECEPTORS",
+      "target_id": "CON-ANS-MUSCARINIC-RECEPTORS",
+      "format": "choice",
+      "difficulty": "avanzado",
+      "prompt": "¿Cuál es el mecanismo intracelular específico mediante el cual la activación de receptores muscarínicos M2 por el nervio vago produce bradicardia en el nodo sinoauricular?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Activación de Gs y aumento desmedido de calcio intracelular"
+        },
+        {
+          "id": "B",
+          "text": "Activación de Gi con liberación de subunidades que abren directamente canales de potasio (K_ACh), hiperpolarizando el marcapasos sin usar segundos mensajeros solubles"
+        },
+        {
+          "id": "C",
+          "text": "Bloqueo mecánico irreversible de los canales de sodio rápidos de la fase 0"
+        },
+        {
+          "id": "D",
+          "text": "Activación de fosfolipasa C y generación masiva de IP3"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: En el nodo SA, la subunidad del complejo Gi activada por M2 actúa directamente sobre los canales de K+ acoplados a ACh, aumentando la conductancia al potasio e hiperpolarizando la célula marcapasos.",
+      "feedback_remediation": "Revisa el mecanismo directo de Gi en el nodo SA en las páginas 62-63 de Costanzo."
+    },
+    {
+      "id": "Q-DEC-ANS-ANTICHOLINERGIC-TOXICITY",
+      "target_id": "DEC-ANS-ANTICHOLINERGIC-TOXICITY",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "Un paciente que utilizó un parche de escopolamina para prevenir mareos en un viaje en barco consulta por visión borrosa para objetos cercanos, sequedad bucal extrema, frecuencia cardíaca de 115 lpm y dificultad para orinar. ¿Cuál es el mecanismo farmacológico de estos hallazgos?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Estimulación masiva de receptores alfa-1 adrenérgicos en todo el organismo"
+        },
+        {
+          "id": "B",
+          "text": "Antagonismo competitivo de los receptores colinérgicos muscarínicos en los órganos efectores periféricos"
+        },
+        {
+          "id": "C",
+          "text": "Activación de la recaptura neuronal de acetilcolina en los ganglios simpáticos"
+        },
+        {
+          "id": "D",
+          "text": "Parálisis selectiva de los canales de sodio nicotínicos N1 de la placa motora"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: La escopolamina es un alcaloide anticolinérgico que bloquea competitivamente los receptores muscarínicos M en glándulas salivales (boca seca), ciliar/pupila (cicloplejía/midriasis), nodo SA (taquicardia) y vejiga (retención).",
+      "feedback_remediation": "Consulta el caso clínico de escopolamina en el Box 2-3 de la página 63 de Costanzo."
+    },
+    {
+      "id": "Q-DEC-ANS-BLADDER-CONTROL",
+      "target_id": "DEC-ANS-BLADDER-CONTROL",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "Durante la fase fisiológica de LLENADO de la vejiga urinaria, ¿cuál es el estado y la mediación autonómica del músculo detrusor y del esfínter interno, respectivamente?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Detrusor contraído (Parasimpático M) y esfínter interno relajado (Parasimpático M)"
+        },
+        {
+          "id": "B",
+          "text": "Detrusor relajado (Simpático β2) y esfínter interno contraído (Simpático α1)"
+        },
+        {
+          "id": "C",
+          "text": "Detrusor contraído (Simpático α1) y esfínter interno relajado (Simpático β2)"
+        },
+        {
+          "id": "D",
+          "text": "Ambos músculos relajados de forma voluntaria por el nervio pudendo somático"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: Para permitir el almacenamiento a baja presión, la eferencia simpática relaja el músculo detrusor vía β2 y mantiene cerrado el esfínter liso interno vía α1.",
+      "feedback_remediation": "Estudia el diagrama de llenado vs vaciado vesical de la Figura 2-4 en la página 55 de Costanzo."
+    },
+    {
+      "id": "Q-DEC-ANS-PUPILLARY-REFLEXES",
+      "target_id": "DEC-ANS-PUPILLARY-REFLEXES",
+      "format": "choice",
+      "difficulty": "intermedio",
+      "prompt": "En la exploración oftalmológica, la aplicación tópica de gotas de fenilefrina produce midriasis activa mediante estimulación de receptores α1 en el músculo radial del iris. ¿Cómo se comporta la capacidad del paciente para enfocar objetos cercanos (acomodación) tras este fármaco?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sufre parálisis total de la acomodación (cicloplejía severa)"
+        },
+        {
+          "id": "B",
+          "text": "La acomodación permanece intacta porque el músculo ciliar está gobernado por receptores muscarínicos parasimpáticos, no por α1"
+        },
+        {
+          "id": "C",
+          "text": "Se produce miosis refleja inmediata e involuntaria en el ojo contralateral"
+        },
+        {
+          "id": "D",
+          "text": "Pierde la visión lejana de forma permanente"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: La fenilefrina contrae el músculo radial (α1) dilatando la pupila, pero no bloquea el músculo ciliar (gobernado por receptores M3 parasimpáticos), preservando el reflejo de acomodación cercana.",
+      "feedback_remediation": "Revisa el control pupilar y ciliar en la página 54 de Costanzo."
+    },
+    {
+      "id": "Q-DEC-ANS-HORNER-SYNDROME",
+      "target_id": "DEC-ANS-HORNER-SYNDROME",
+      "format": "choice",
+      "difficulty": "avanzado",
+      "prompt": "Un paciente con ptosis y miosis unilateral derecha es evaluado con colirio de cocaína al 10% en ambos ojos. A los 40 minutos, la pupila izquierda se dilata ampliamente a 8 mm, pero la pupila derecha permanece constreñida en 2.5 mm. ¿Cómo confirma este hallazgo el diagnóstico de Síndrome de Horner?",
+      "options": [
+        {
+          "id": "A",
+          "text": "La cocaína es un agonista colinérgico que contrae exclusivamente el ojo enfermo"
+        },
+        {
+          "id": "B",
+          "text": "La cocaína bloquea la recaptura de noradrenalina; en el ojo sano acumula noradrenalina dilatando la pupila, pero en el ojo con denervación simpática no hay noradrenalina liberada que recapturar"
+        },
+        {
+          "id": "C",
+          "text": "La cocaína destruye el receptor muscarínico del esfínter pupilar izquierdo"
+        },
+        {
+          "id": "D",
+          "text": "El resultado indica una intoxicación sistémica por anestésicos locales"
+        }
+      ],
+      "correct_answer": "B",
+      "explanation": "La opción B es la correcta: La cocaína requiere la presencia de noradrenalina endógena liberada para dilatar el iris. Al estar interrumpida la vía simpática en el ojo con Horner, no hay noradrenalina en la sinapsis y la cocaína no produce ningún efecto dilatador.",
+      "feedback_remediation": "Consulta la explicación fisiológica del Box 2-2 en la página 56 de Costanzo."
+    }
+  ],
+  "edges": [
+    {
+      "source": "CON-ANS-SOMATIC-VS-AUTONOMIC",
+      "target": "CON-ANS-THORACOLUMBAR-SYMP",
+      "kind": "requires"
+    },
+    {
+      "source": "CON-ANS-SOMATIC-VS-AUTONOMIC",
+      "target": "CON-ANS-CRANIOSACRAL-PARASYMP",
+      "kind": "requires"
+    },
+    {
+      "source": "CON-ANS-THORACOLUMBAR-SYMP",
+      "target": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-CRANIOSACRAL-PARASYMP",
+      "target": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-THORACOLUMBAR-SYMP",
+      "target": "CON-ANS-ADRENAL-MEDULLA",
+      "kind": "requires"
+    },
+    {
+      "source": "CON-ANS-ADRENAL-MEDULLA",
+      "target": "DEC-ANS-DIAG-PHEOCHROMOCYTOMA",
+      "kind": "requires"
+    },
+    {
+      "source": "DEC-ANS-DIAG-PHEOCHROMOCYTOMA",
+      "target": "DEC-ANS-PHEO-BLOCKADE-PREOP",
+      "kind": "requires"
+    },
+    {
+      "source": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "target": "CON-ANS-ALPHA1-Gq",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "target": "CON-ANS-ALPHA2-Gi",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "target": "CON-ANS-BETA1-Gs",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-NEUROEFFECTOR-VARICOSITIES",
+      "target": "CON-ANS-BETA2-Gs",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-ALPHA1-Gq",
+      "target": "RUL-ANS-CATECHOLAMINE-AFFINITY",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-BETA2-Gs",
+      "target": "RUL-ANS-CATECHOLAMINE-AFFINITY",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-SOMATIC-VS-AUTONOMIC",
+      "target": "CON-ANS-NICOTINIC-CHANNELS",
+      "kind": "requires"
+    },
+    {
+      "source": "CON-ANS-CRANIOSACRAL-PARASYMP",
+      "target": "CON-ANS-MUSCARINIC-RECEPTORS",
+      "kind": "requires"
+    },
+    {
+      "source": "CON-ANS-MUSCARINIC-RECEPTORS",
+      "target": "DEC-ANS-ANTICHOLINERGIC-TOXICITY",
+      "kind": "requires"
+    },
+    {
+      "source": "CON-ANS-ALPHA1-Gq",
+      "target": "DEC-ANS-BLADDER-CONTROL",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-BETA2-Gs",
+      "target": "DEC-ANS-BLADDER-CONTROL",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-MUSCARINIC-RECEPTORS",
+      "target": "DEC-ANS-BLADDER-CONTROL",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-ALPHA1-Gq",
+      "target": "DEC-ANS-PUPILLARY-REFLEXES",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-MUSCARINIC-RECEPTORS",
+      "target": "DEC-ANS-PUPILLARY-REFLEXES",
+      "kind": "supports"
+    },
+    {
+      "source": "CON-ANS-THORACOLUMBAR-SYMP",
+      "target": "DEC-ANS-HORNER-SYNDROME",
+      "kind": "requires"
+    },
+    {
+      "source": "DEC-ANS-PUPILLARY-REFLEXES",
+      "target": "DEC-ANS-HORNER-SYNDROME",
+      "kind": "supports"
+    }
+  ]
+}

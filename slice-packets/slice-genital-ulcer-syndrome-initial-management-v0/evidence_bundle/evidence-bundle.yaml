@@ -1,0 +1,125 @@
+schema: grafomed-evidence-bundle.v1
+packet_id: slice-genital-ulcer-syndrome-initial-management-v0
+status: complete_candidate
+created_at: 2026-08-26T16:14:00-05:00
+source_lock_ref: ../source_lock/sources.yaml
+core_sources:
+  local_normative: SRC-MINSA-NTS240-2026
+  global_guideline: SRC-WHO-STI-2021
+  diagnostic_accuracy: SRC-WHO-GUD-SR-2021
+  external_contrast: SRC-CDC-GUD-2021
+  local_research_context: SRC-SANCHEZ-PERU-GUD-2002
+  learning_pattern: SRC-UW-STD-CURRICULUM-2026
+
+objective_synthesis:
+  evidence_status: proposed_from_sources
+  objectives:
+    - id: OBJ-GUD-01
+      statement: Recognize a genital, anal, or perianal ulcer as a syndrome requiring structured evaluation rather than morphology-only diagnosis.
+      observable_action: identifies the syndrome and rejects unsupported etiologic certainty
+      source_claims: [CLM-GUD-01, CLM-GUD-02]
+    - id: OBJ-GUD-02
+      statement: Construct and prioritize an infectious and noninfectious differential with HSV and primary syphilis as mandatory initial contrasts.
+      observable_action: produces a prioritized differential with context-dependent alternatives
+      source_claims: [CLM-GUD-01, CLM-GUD-09]
+    - id: OBJ-GUD-03
+      statement: Select the initial history, examination, syphilis testing, lesion HSV testing when available, and HIV testing needed to change management.
+      observable_action: orders and explains the first diagnostic bundle
+      source_claims: [CLM-GUD-03, CLM-GUD-04, CLM-GUD-06]
+    - id: OBJ-GUD-04
+      statement: Choose between same-day etiologic and syndromic management according to jurisdiction, test availability, timing, and public-health consequences.
+      observable_action: commits to and justifies an initial management state
+      source_claims: [CLM-GUD-04, CLM-GUD-05, CLM-GUD-07, CLM-GUD-08]
+    - id: OBJ-GUD-05
+      statement: Provide prevention, partner-service, follow-up, and escalation instructions without exceeding the bounded first-visit scope.
+      observable_action: states the seven-day or earlier safety-net and referral trigger
+      source_claims: [CLM-GUD-07, CLM-GUD-09, CLM-GUD-10]
+
+assessment_evidence:
+  discovered_patterns:
+    - source: SRC-UW-STD-CURRICULUM-2026
+      pattern: single-best-answer items on lesion testing, serology use, treatment, and counseling
+      reuse_policy: abstract_pattern_only
+    - source: SRC-WHO-STI-2021
+      pattern: branch decisions comparing same-day molecular results with limited or delayed laboratory capacity
+      reuse_policy: convert_to_original_case_reasoning_items
+    - source: SRC-MINSA-NTS240-2026
+      pattern: national flowchart with rapid testing, immediate syndromic treatment, and seven-day reassessment
+      reuse_policy: source-map_original_items_without_copying_prose
+  commercial_or_external_items_copied: false
+  generated_item_status: experimental_unvalidated
+
+search_log:
+  executed_at: 2026-08-26
+  databases_and_sites: [MINSA, WHO-IRIS, CDC, PubMed, AAMC, National-STD-Curriculum]
+  queries:
+    - query: site:gob.pe NTS 240 MINSA DGIESP 2026 infecciones transmision sexual
+      result: included current Peru national norm
+    - query: WHO genital ulcer disease syndrome guideline molecular syndromic management
+      result: included 2021 guideline and Web Annex E systematic review
+    - query: CDC genital anal perianal ulcers diagnostic considerations presumptive treatment
+      result: included US guideline as contrast, not local authority
+    - query: PubMed genital ulcer disease Peru HSV syphilis etiology
+      result: included PMID 12370522 as historical local evidence with major limitations
+    - query: National STD Curriculum genital herpes syphilis learning objectives question bank
+      result: included objective and item-pattern evidence; no questions copied
+    - query: AAMC Core EPA 1 2 3 4 official guide
+      result: included official activity titles for alignment
+  exclusions:
+    - source: MINSA 1998 and 2009 STI guidance
+      reason: superseded by NTS 240-MINSA/DGIESP-2026
+    - source: proprietary and commercial MCQ banks
+      reason: rights and leakage risk
+    - source: search snippets without stable primary sources
+      reason: insufficient source lock
+    - source: sub-Saharan Africa 2024 etiologic meta-regression
+      reason: informative but not necessary for this Peru-bounded proof and risks geographic overgeneralization
+  retrieval_limits:
+    - No current, representative Peru etiologic prevalence study was found in the bounded search.
+    - The current Peru norm is image-only and required visual page verification.
+
+contradiction_and_uncertainty_register:
+  - id: UNC-GUD-01
+    issue: etiologic_vs_syndromic_treatment
+    status: context_resolved_not_collapsed
+    detail: WHO prefers quality-assured same-day lesion molecular testing where operational, while Peru NTS 240 directs first-level syndromic treatment; CDC uses a suspicion-based presumptive approach.
+    graph_rule: treatment assertions must carry jurisdiction and laboratory-capacity context
+  - id: UNC-GUD-02
+    issue: early_negative_syphilis_serology
+    status: retained_uncertainty
+    detail: Early primary syphilis can precede seroconversion; a negative early test cannot close the branch.
+    graph_rule: negative early serology cannot be encoded as excludes_primary_syphilis
+  - id: UNC-GUD-03
+    issue: morphology_and_classic_presentations
+    status: retained_uncertainty
+    detail: Classic morphology can alter probability but does not establish etiology because overlap and atypical presentations are common.
+    graph_rule: morphology supports_hypothesis only; it never causes a diagnosis edge
+  - id: UNC-GUD-04
+    issue: current_peru_etiologic_prevalence
+    status: unknown
+    detail: The available Peru study is small and old; current national etiologic proportions remain unknown.
+    graph_rule: no current prevalence percentage is stored as canonical truth
+
+competency_alignment:
+  aamc:
+    - {code: AAMC-CORE-EPA-01, title: Gather a history and perform a physical examination}
+    - {code: AAMC-CORE-EPA-02, title: Prioritize a differential diagnosis following a clinical encounter}
+    - {code: AAMC-CORE-EPA-03, title: Recommend and interpret common diagnostic and screening tests}
+    - {code: AAMC-CORE-EPA-04, title: Enter and discuss orders and prescriptions}
+  canmeds:
+    - CANMEDS15-ME-EC-01.03
+    - CANMEDS15-ME-EC-01.04
+    - CANMEDS15-ME-EC-01.06
+    - CANMEDS15-ME-EC-02.02
+    - CANMEDS15-ME-EC-02.04
+    - CANMEDS15-ME-EC-03.01
+    - CANMEDS15-ME-EC-04.01
+    - CANMEDS15-COM-EC-01.01
+    - CANMEDS15-COM-EC-01.02
+
+promotion_limit:
+  state: not_promoted
+  reasons:
+    - Separate Acai, Siris, Alexei, and Ghost review contexts have not yet signed off.
+    - MCQs are original but not psychometrically validated.
+    - Learning efficacy is untested.

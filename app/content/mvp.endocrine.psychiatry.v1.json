@@ -1,0 +1,2569 @@
+{
+  "release": {
+    "id": "mvp.endocrine.psychiatry.v1",
+    "title": "GrafoMed MVP · Endocrinología + ruta TEPT",
+    "status": "candidate",
+    "version": 6
+  },
+  "sources": [
+    {
+      "id": "ata-tests",
+      "title": "American Thyroid Association · Thyroid Function Tests",
+      "url": "https://www.thyroid.org/thyroid-function-tests/",
+      "accessed": "2026-09-17",
+      "scope": "Interpretación conjunta de TSH/T4 libre, transporte y límites del eje intacto.",
+      "rights": "Fuente enlazada; textos e ítems originales, sin imágenes ni pasajes reproducidos."
+    },
+    {
+      "id": "endotext-synthesis",
+      "title": "Rousset et al. · Thyroid Hormone Synthesis And Secretion · Endotext",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK285550/",
+      "accessed": "2026-09-17",
+      "scope": "Secuencia de síntesis, almacenamiento y liberación; capítulo actualizado en 2015.",
+      "rights": "Fuente enlazada; síntesis educativa original, sin reproducción de figuras."
+    },
+    {
+      "id": "physiology-hormone",
+      "title": "Physiology, Thyroid Hormone · NCBI Bookshelf",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK500006/",
+      "accessed": "2026-09-17",
+      "scope": "Eje hipotálamo-hipófisis-tiroides y conversión de hormonas.",
+      "rights": "Fuente enlazada; no se reproduce texto del capítulo."
+    },
+    {
+      "id": "signaling-review",
+      "title": "Paradigms of Dynamic Control of Thyroid Hormone Signaling",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31033998/",
+      "accessed": "2026-09-17",
+      "scope": "Resumen: activación e inactivación tisular por desyodasas; no se consultó texto completo.",
+      "rights": "Resumen consultado; explicación original, sin citas literales."
+    },
+    {
+      "id": "src-ptsd-va-2023",
+      "title": "VA/DoD · Management of PTSD and Acute Stress Disorder CPG 2023",
+      "url": "https://healthquality.va.gov/HEALTHQUALITY/guidelines/mh/ptsd/",
+      "accessed": "2026-09-22",
+      "scope": "Algoritmos de reacción/estrés agudo, evaluación diagnóstica y manejo del TEPT.",
+      "rights": "Fuente enlazada; contenido candidato, sin reproducción de texto."
+    },
+    {
+      "id": "src-ptsd-nice-ng116",
+      "title": "NICE NG116 · Post-traumatic stress disorder",
+      "url": "https://www.nice.org.uk/guidance/ng116/chapter/recommendations",
+      "accessed": "2026-09-22",
+      "scope": "Reconocimiento, evaluación, seguridad, tratamiento focalizado en trauma y seguimiento.",
+      "rights": "Fuente enlazada; contenido candidato, sin reproducción de texto."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "thyroid",
+      "type": "cluster",
+      "title": "Fisiología tiroidea",
+      "description": "Modelo educativo simplificado para interpretar señales, síntesis y disponibilidad hormonal. Candidato: no validado para atención clínica."
+    },
+    {
+      "id": "m-axis",
+      "type": "mastery",
+      "title": "Integra la regulación del eje tiroideo",
+      "description": "Relaciona retroalimentación y disponibilidad hormonal en escenarios educativos distintos."
+    },
+    {
+      "id": "m-production",
+      "type": "mastery",
+      "title": "Integra producción y destino hormonal",
+      "description": "Localiza un paso de síntesis y distingue producción, transporte y conversión."
+    },
+    {
+      "id": "d-feedback",
+      "type": "decision",
+      "title": "Elige la respuesta del eje",
+      "description": "Selecciona la dirección esperada de TSH bajo supuestos explícitos; no indica tratamiento."
+    },
+    {
+      "id": "d-availability",
+      "type": "decision",
+      "title": "Elige cómo interpretar la disponibilidad hormonal",
+      "description": "Decide si un dato de hormona total permite concluir exceso funcional o necesita contexto."
+    },
+    {
+      "id": "d-synthesis",
+      "type": "decision",
+      "title": "Localiza el paso de producción alterado",
+      "description": "Selecciona qué paso explica un resultado de un experimento didáctico."
+    },
+    {
+      "id": "d-conversion",
+      "type": "decision",
+      "title": "Elige la interpretación de la conversión",
+      "description": "Distingue activación periférica de T4 y síntesis tiroidea en un modelo controlado."
+    },
+    {
+      "id": "c-axis",
+      "type": "concept",
+      "title": "Una señal que regula otra señal",
+      "description": "Entrada de aprendizaje: explicación breve del eje y su retroalimentación."
+    },
+    {
+      "id": "c-follicle",
+      "type": "concept",
+      "title": "El folículo como unidad productora",
+      "description": "Entrada de aprendizaje: secuencia simplificada desde yoduro hasta liberación."
+    },
+    {
+      "id": "c-transport",
+      "type": "concept",
+      "title": "Total no equivale a libre",
+      "description": "Entrada de aprendizaje: distingue hormona transportada y fracción no unida."
+    },
+    {
+      "id": "c-tissue",
+      "type": "concept",
+      "title": "El tejido también transforma la señal",
+      "description": "Entrada de aprendizaje: conversión local, no solo secreción de la glándula."
+    },
+    {
+      "id": "r-feedback",
+      "type": "rule",
+      "title": "Menor señal hormonal libera el freno",
+      "description": "Con eje intacto y tiempo de ajuste suficiente, una caída persistente de T4 libre tiende a elevar TSH. No aplicar mecánicamente en enfermedad hipofisaria ni situaciones no estacionarias."
+    },
+    {
+      "id": "r-total",
+      "type": "rule",
+      "title": "No concluir exceso por T4 total aislada",
+      "description": "Las proteínas transportadoras modifican hormona total. Interpretar contexto, TSH y T4 libre; los ensayos tienen limitaciones."
+    },
+    {
+      "id": "r-conversion",
+      "type": "rule",
+      "title": "La conversión modifica la señal local",
+      "description": "T4 puede convertirse en T3 o en rT3 por vías distintas; una medición aislada no localiza la causa."
+    },
+    {
+      "id": "p-synthesis",
+      "type": "procedure",
+      "title": "Reconstruye la secuencia productora",
+      "description": "Orden didáctico reducido: captar yoduro, organificar/acoplar en tiroglobulina, recuperar y degradar tiroglobulina para liberar hormonas. No es un protocolo clínico."
+    },
+    {
+      "id": "psychiatry",
+      "type": "cluster-maj",
+      "title": "Psiquiatría",
+      "description": "Cluster mayor: especialidad clínica que contiene temas y rutas de razonamiento psiquiátrico."
+    },
+    {
+      "id": "ptsd",
+      "type": "cluster-min",
+      "title": "TEPT",
+      "description": "Cluster menor: tema candidato para formular, asegurar, tratar y monitorizar el trastorno de estrés postraumático."
+    },
+    {
+      "id": "psychiatric-assessment",
+      "type": "cluster-min",
+      "title": "Evaluación y entrevista psiquiátrica",
+      "description": "Tema base para entrevista, examen mental, formulación y evaluación inicial."
+    },
+    {
+      "id": "depression-suicide",
+      "type": "cluster-min",
+      "title": "Depresión y riesgo suicida",
+      "description": "Tema candidato para reconocer depresión, priorizar seguridad y organizar seguimiento."
+    },
+    {
+      "id": "bipolar-disorder",
+      "type": "cluster-min",
+      "title": "Trastorno bipolar",
+      "description": "Tema candidato para distinguir episodios afectivos y decisiones de seguridad y tratamiento."
+    },
+    {
+      "id": "anxiety-ocd",
+      "type": "cluster-min",
+      "title": "Ansiedad, pánico y TOC",
+      "description": "Tema candidato para formular ansiedad, pánico, obsesiones, compulsiones y deterioro."
+    },
+    {
+      "id": "psychosis-first-episode",
+      "type": "cluster-min",
+      "title": "Psicosis y primer episodio psicótico",
+      "description": "Tema candidato para reconocer psicosis, descartar urgencias y coordinar atención."
+    },
+    {
+      "id": "substance-use",
+      "type": "cluster-min",
+      "title": "Trastornos por consumo de sustancias",
+      "description": "Tema candidato para evaluar consumo, riesgo, abstinencia, intoxicación y tratamiento."
+    },
+    {
+      "id": "psychiatric-emergencies",
+      "type": "cluster-min",
+      "title": "Urgencias psiquiátricas",
+      "description": "Tema candidato para estabilización, seguridad, contención y derivación."
+    },
+    {
+      "id": "neurocognition-delirium",
+      "type": "cluster-min",
+      "title": "Neurocognición y delirium",
+      "description": "Tema candidato para diferenciar delirium, trastornos neurocognitivos y causas médicas."
+    },
+    {
+      "id": "neurodevelopment",
+      "type": "cluster-min",
+      "title": "Neurodesarrollo: TDAH y autismo",
+      "description": "Tema candidato para evaluación del neurodesarrollo y coordinación longitudinal."
+    },
+    {
+      "id": "personality-crisis",
+      "type": "cluster-min",
+      "title": "Trastornos de personalidad y crisis",
+      "description": "Tema candidato para patrones persistentes, crisis, límites terapéuticos y seguridad."
+    },
+    {
+      "id": "m-ptsd-formulate",
+      "type": "mastery",
+      "title": "Reconocer y formular TEPT",
+      "description": "Distinguir TEPT de otras respuestas postraumáticas usando síntomas, tiempo, deterioro y contexto."
+    },
+    {
+      "id": "m-ptsd-safety",
+      "type": "mastery",
+      "title": "Evaluar seguridad y gravedad",
+      "description": "Priorizar riesgo, comorbilidad, nivel de atención y plan de seguridad."
+    },
+    {
+      "id": "m-ptsd-treatment",
+      "type": "mastery",
+      "title": "Elegir tratamiento inicial",
+      "description": "Seleccionar una intervención proporcional al diagnóstico, fase, gravedad, evidencia y preferencias."
+    },
+    {
+      "id": "m-ptsd-monitor",
+      "type": "mastery",
+      "title": "Monitorizar y ajustar",
+      "description": "Valorar respuesta, funcionamiento, seguridad, tolerabilidad y necesidad de escalar o coordinar."
+    },
+    {
+      "id": "d-ptsd-exposure",
+      "type": "decision",
+      "title": "¿Existe una exposición traumática relevante?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-domains",
+      "type": "decision",
+      "title": "¿Qué dominios sintomáticos están presentes?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-impairment",
+      "type": "decision",
+      "title": "¿Hay duración, deterioro funcional y contexto suficientes?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-differential",
+      "type": "decision",
+      "title": "¿Qué diagnóstico o respuesta explica mejor el cuadro?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-immediate-risk",
+      "type": "decision",
+      "title": "¿Hay riesgo inmediato que cambie la prioridad?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-safety-plan",
+      "type": "decision",
+      "title": "¿Cuándo debe activarse un plan de seguridad?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-level-care",
+      "type": "decision",
+      "title": "¿Qué nivel de atención y coordinación requiere?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-comorbidity",
+      "type": "decision",
+      "title": "¿Qué comorbilidades modifican la evaluación?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-phase",
+      "type": "decision",
+      "title": "¿Es reacción reciente, cuadro subumbral o TEPT establecido?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-first-line",
+      "type": "decision",
+      "title": "¿Qué intervención inicial debe ofrecerse?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-preferences",
+      "type": "decision",
+      "title": "¿Cómo incorporar preferencias y disponibilidad?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-medication",
+      "type": "decision",
+      "title": "¿Qué lugar ocupa la farmacoterapia en este plan?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-response",
+      "type": "decision",
+      "title": "¿Cómo se reconoce una respuesta clínicamente útil?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-persistent",
+      "type": "decision",
+      "title": "¿Qué revisar si persisten los síntomas?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "d-ptsd-followup",
+      "type": "decision",
+      "title": "¿Cómo planificar seguimiento y prevención de recaídas?",
+      "description": "Decisión candidata de la ruta TEPT; requiere revisión clínica y educativa antes de promoción."
+    },
+    {
+      "id": "c-ptsd-trauma",
+      "type": "concept",
+      "title": "Evento traumático",
+      "description": "Exposición traumática y contexto de amenaza, pérdida o daño."
+    },
+    {
+      "id": "c-ptsd-intrusion",
+      "type": "concept",
+      "title": "Intrusión y reexperimentación",
+      "description": "Recuerdos, sueños o reacciones intrusivas vinculadas al trauma."
+    },
+    {
+      "id": "c-ptsd-avoidance",
+      "type": "concept",
+      "title": "Evitación",
+      "description": "Evitación de recuerdos, emociones, personas, lugares o señales relacionadas."
+    },
+    {
+      "id": "c-ptsd-arousal",
+      "type": "concept",
+      "title": "Activación y reactividad",
+      "description": "Alteraciones de sueño, vigilancia, irritabilidad, concentración o respuesta de sobresalto."
+    },
+    {
+      "id": "r-ptsd-screening",
+      "type": "rule",
+      "title": "Cribado no equivale a diagnóstico",
+      "description": "Las escalas apoyan la detección y el seguimiento; no sustituyen la evaluación clínica."
+    },
+    {
+      "id": "p-ptsd-interview",
+      "type": "procedure",
+      "title": "Entrevista diagnóstica y funcional",
+      "description": "Explorar trauma, dominios, duración, deterioro, contexto y diagnósticos alternativos."
+    },
+    {
+      "id": "c-ptsd-suicide",
+      "type": "concept",
+      "title": "Riesgo suicida y autolesión",
+      "description": "El riesgo puede cambiar la urgencia y el nivel de protección requerido."
+    },
+    {
+      "id": "c-ptsd-dissociation",
+      "type": "concept",
+      "title": "Disociación y desorganización",
+      "description": "La disociación intensa o la desorganización pueden limitar una intervención ambulatoria simple."
+    },
+    {
+      "id": "c-ptsd-comorbidity",
+      "type": "concept",
+      "title": "Comorbilidad física y psiquiátrica",
+      "description": "Depresión, sustancias, TCE, dolor y otros problemas pueden modificar prioridades."
+    },
+    {
+      "id": "r-ptsd-safety",
+      "type": "rule",
+      "title": "La seguridad se evalúa desde el inicio",
+      "description": "La evaluación inicial debe incluir riesgo y necesidades físicas, psicológicas y sociales."
+    },
+    {
+      "id": "p-ptsd-safety-plan",
+      "type": "procedure",
+      "title": "Plan de seguridad y derivación",
+      "description": "Documentar señales de alarma, apoyos, recursos y responsable del seguimiento."
+    },
+    {
+      "id": "c-ptsd-acute",
+      "type": "concept",
+      "title": "Reacción aguda, subumbral y TEPT",
+      "description": "El tiempo desde el trauma y la persistencia de síntomas cambian la ruta."
+    },
+    {
+      "id": "c-ptsd-trauma-focused",
+      "type": "concept",
+      "title": "Psicoterapia focalizada en trauma",
+      "description": "Intervenciones estructuradas que procesan recuerdos y significados relacionados con el trauma."
+    },
+    {
+      "id": "r-ptsd-first-line",
+      "type": "rule",
+      "title": "Ofrecer tratamiento focalizado en trauma",
+      "description": "En adultos con TEPT, las guías recomiendan considerar psicoterapia individual focalizada en trauma."
+    },
+    {
+      "id": "r-ptsd-shared",
+      "type": "rule",
+      "title": "Decisión compartida",
+      "description": "La elección debe integrar evidencia, preferencias, recursos, seguridad y disponibilidad."
+    },
+    {
+      "id": "p-ptsd-treatment-plan",
+      "type": "procedure",
+      "title": "Plan terapéutico inicial",
+      "description": "Acordar objetivos, intervención, apoyos, medición y fecha de revisión."
+    },
+    {
+      "id": "c-ptsd-response",
+      "type": "concept",
+      "title": "Respuesta y funcionamiento",
+      "description": "La evolución incluye síntomas, seguridad, funcionamiento y participación en la vida diaria."
+    },
+    {
+      "id": "c-ptsd-barriers",
+      "type": "concept",
+      "title": "Barreras y adherencia",
+      "description": "Acceso, alianza, evitación, efectos adversos y contexto pueden limitar la respuesta."
+    },
+    {
+      "id": "r-ptsd-adjust",
+      "type": "rule",
+      "title": "Persistencia exige reevaluación",
+      "description": "Antes de escalar, revisar diagnóstico, comorbilidad, seguridad, adherencia y tratamiento recibido."
+    },
+    {
+      "id": "p-ptsd-followup",
+      "type": "procedure",
+      "title": "Seguimiento y prevención de recaídas",
+      "description": "Definir medidas, contactos, señales de alarma, refuerzos y coordinación."
+    }
+  ],
+  "edges": [
+    {
+      "source": "thyroid",
+      "target": "m-axis",
+      "kind": "contains"
+    },
+    {
+      "source": "thyroid",
+      "target": "m-production",
+      "kind": "contains"
+    },
+    {
+      "source": "m-axis",
+      "target": "d-feedback",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-axis",
+      "target": "d-availability",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-production",
+      "target": "d-synthesis",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-production",
+      "target": "d-conversion",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-production",
+      "target": "d-availability",
+      "kind": "integrates"
+    },
+    {
+      "source": "c-axis",
+      "target": "d-feedback",
+      "kind": "supports"
+    },
+    {
+      "source": "r-feedback",
+      "target": "d-feedback",
+      "kind": "supports"
+    },
+    {
+      "source": "r-feedback",
+      "target": "d-conversion",
+      "kind": "supports"
+    },
+    {
+      "source": "c-transport",
+      "target": "d-availability",
+      "kind": "supports"
+    },
+    {
+      "source": "r-total",
+      "target": "d-availability",
+      "kind": "supports"
+    },
+    {
+      "source": "r-total",
+      "target": "d-feedback",
+      "kind": "supports"
+    },
+    {
+      "source": "c-follicle",
+      "target": "d-synthesis",
+      "kind": "supports"
+    },
+    {
+      "source": "p-synthesis",
+      "target": "d-synthesis",
+      "kind": "supports"
+    },
+    {
+      "source": "c-tissue",
+      "target": "d-conversion",
+      "kind": "supports"
+    },
+    {
+      "source": "r-conversion",
+      "target": "d-conversion",
+      "kind": "supports"
+    },
+    {
+      "source": "d-availability",
+      "target": "d-feedback",
+      "kind": "requires"
+    },
+    {
+      "source": "psychiatry",
+      "target": "ptsd",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "psychiatric-assessment",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "depression-suicide",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "bipolar-disorder",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "anxiety-ocd",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "psychosis-first-episode",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "substance-use",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "psychiatric-emergencies",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "neurocognition-delirium",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "neurodevelopment",
+      "kind": "contains"
+    },
+    {
+      "source": "psychiatry",
+      "target": "personality-crisis",
+      "kind": "contains"
+    },
+    {
+      "source": "ptsd",
+      "target": "m-ptsd-formulate",
+      "kind": "contains"
+    },
+    {
+      "source": "ptsd",
+      "target": "m-ptsd-safety",
+      "kind": "contains"
+    },
+    {
+      "source": "ptsd",
+      "target": "m-ptsd-treatment",
+      "kind": "contains"
+    },
+    {
+      "source": "ptsd",
+      "target": "m-ptsd-monitor",
+      "kind": "contains"
+    },
+    {
+      "source": "m-ptsd-formulate",
+      "target": "d-ptsd-exposure",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-formulate",
+      "target": "d-ptsd-domains",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-formulate",
+      "target": "d-ptsd-impairment",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-formulate",
+      "target": "d-ptsd-differential",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-safety",
+      "target": "d-ptsd-immediate-risk",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-safety",
+      "target": "d-ptsd-safety-plan",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-safety",
+      "target": "d-ptsd-level-care",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-safety",
+      "target": "d-ptsd-comorbidity",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-treatment",
+      "target": "d-ptsd-phase",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-treatment",
+      "target": "d-ptsd-first-line",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-treatment",
+      "target": "d-ptsd-preferences",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-treatment",
+      "target": "d-ptsd-medication",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-monitor",
+      "target": "d-ptsd-response",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-monitor",
+      "target": "d-ptsd-persistent",
+      "kind": "integrates"
+    },
+    {
+      "source": "m-ptsd-monitor",
+      "target": "d-ptsd-followup",
+      "kind": "integrates"
+    },
+    {
+      "source": "c-ptsd-trauma",
+      "target": "d-ptsd-exposure",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-interview",
+      "target": "d-ptsd-exposure",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-intrusion",
+      "target": "d-ptsd-domains",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-avoidance",
+      "target": "d-ptsd-domains",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-arousal",
+      "target": "d-ptsd-domains",
+      "kind": "supports"
+    },
+    {
+      "source": "r-ptsd-screening",
+      "target": "d-ptsd-impairment",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-interview",
+      "target": "d-ptsd-impairment",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-interview",
+      "target": "d-ptsd-differential",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-comorbidity",
+      "target": "d-ptsd-differential",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-suicide",
+      "target": "d-ptsd-immediate-risk",
+      "kind": "supports"
+    },
+    {
+      "source": "r-ptsd-safety",
+      "target": "d-ptsd-immediate-risk",
+      "kind": "supports"
+    },
+    {
+      "source": "r-ptsd-safety",
+      "target": "d-ptsd-safety-plan",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-safety-plan",
+      "target": "d-ptsd-safety-plan",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-dissociation",
+      "target": "d-ptsd-level-care",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-safety-plan",
+      "target": "d-ptsd-level-care",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-comorbidity",
+      "target": "d-ptsd-comorbidity",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-interview",
+      "target": "d-ptsd-comorbidity",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-acute",
+      "target": "d-ptsd-phase",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-interview",
+      "target": "d-ptsd-phase",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-trauma-focused",
+      "target": "d-ptsd-first-line",
+      "kind": "supports"
+    },
+    {
+      "source": "r-ptsd-first-line",
+      "target": "d-ptsd-first-line",
+      "kind": "supports"
+    },
+    {
+      "source": "r-ptsd-shared",
+      "target": "d-ptsd-preferences",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-treatment-plan",
+      "target": "d-ptsd-preferences",
+      "kind": "supports"
+    },
+    {
+      "source": "r-ptsd-shared",
+      "target": "d-ptsd-medication",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-treatment-plan",
+      "target": "d-ptsd-medication",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-response",
+      "target": "d-ptsd-response",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-followup",
+      "target": "d-ptsd-response",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-barriers",
+      "target": "d-ptsd-persistent",
+      "kind": "supports"
+    },
+    {
+      "source": "r-ptsd-adjust",
+      "target": "d-ptsd-persistent",
+      "kind": "supports"
+    },
+    {
+      "source": "p-ptsd-followup",
+      "target": "d-ptsd-followup",
+      "kind": "supports"
+    },
+    {
+      "source": "c-ptsd-response",
+      "target": "d-ptsd-followup",
+      "kind": "supports"
+    }
+  ],
+  "units": [
+    {
+      "id": "u-feedback",
+      "title": "Lee la dirección del freno",
+      "target_id": "d-feedback",
+      "body": "La TRH hipotalámica estimula la TSH hipofisaria; la TSH estimula la tiroides. Las hormonas tiroideas ejercen retroalimentación negativa. Antes de predecir una respuesta, pregunta si el eje está intacto y si hubo tiempo para ajustarse.",
+      "example": "Modelo estable: disminuye T4 libre y la hipófisis funciona. La predicción es que TSH aumente, no que siga la misma dirección.",
+      "alternative": "Separa señal y respuesta: menos retroalimentación permite más estímulo hipofisario.",
+      "boundary": "Modelo simplificado, no diagnóstico. Daño hipofisario, enfermedad aguda, interferencias analíticas y cambios recientes requieren otra interpretación.",
+      "source_ids": [
+        "physiology-hormone",
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "u-availability",
+      "title": "Pregunta qué está midiendo el dato",
+      "target_id": "d-availability",
+      "body": "T4 total incluye hormona unida y libre. Cambiar las proteínas transportadoras puede cambiar el total sin producir exceso funcional. Una cifra aislada no reemplaza el contexto ni la lectura conjunta de TSH y T4 libre.",
+      "example": "En un modelo estable con más proteína transportadora, T4 total alta y TSH/T4 libre normales no bastan para afirmar hipertiroidismo.",
+      "alternative": "Clasifica primero el dato: ¿total o libre? Después comprueba qué otras señales apoyan la conclusión.",
+      "boundary": "El ejercicio fija condiciones ideales; no representa el embarazo ni interpreta ensayos discordantes en una persona real.",
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "u-synthesis",
+      "title": "Ubica el paso, no memorices una lista suelta",
+      "target_id": "d-synthesis",
+      "body": "El folículo capta yoduro; después lo incorpora a residuos de tiroglobulina y acopla precursores. Las hormonas permanecen almacenadas en esa proteína hasta que su recuperación y degradación permiten liberarlas.",
+      "example": "Si entra yoduro pero no se incorpora a tiroglobulina, el defecto del modelo no está en la captación: está después.",
+      "alternative": "Usa tres estaciones: entrada → elaboración y almacenamiento → liberación. La lista resume, no representa todos los pasos moleculares.",
+      "boundary": "Experimento didáctico. No permite diagnosticar una alteración genética ni escoger un medicamento.",
+      "source_ids": [
+        "endotext-synthesis"
+      ]
+    },
+    {
+      "id": "u-conversion",
+      "title": "La glándula no decide sola la señal tisular",
+      "target_id": "d-conversion",
+      "body": "Las desyodasas pueden activar T4 hacia T3 o dirigirla hacia rT3, una vía de inactivación. Por eso secreción glandular y transformación periférica son procesos distintos.",
+      "example": "En un sistema aislado, reducir solo la conversión T4→T3 reduce la T3 generada por esa vía. No demuestra menor captación de yoduro.",
+      "alternative": "Sigue una molécula: ¿se está fabricando en el folículo o transformando después? Cambiar una etapa no prueba que todas fallen.",
+      "boundary": "Mantener constantes las otras vías es un supuesto del ejercicio. No extrapolar a enfermedad aguda ni usar rT3 como prueba diagnóstica rutinaria.",
+      "source_ids": [
+        "signaling-review",
+        "physiology-hormone",
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-trauma",
+      "target_id": "c-ptsd-trauma",
+      "title": "Evento traumático",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-intrusion",
+      "target_id": "c-ptsd-intrusion",
+      "title": "Intrusión y reexperimentación",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-avoidance",
+      "target_id": "c-ptsd-avoidance",
+      "title": "Evitación",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-arousal",
+      "target_id": "c-ptsd-arousal",
+      "title": "Activación y reactividad",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-r-ptsd-screening",
+      "target_id": "r-ptsd-screening",
+      "title": "Cribado no equivale a diagnóstico",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-p-ptsd-interview",
+      "target_id": "p-ptsd-interview",
+      "title": "Entrevista diagnóstica y funcional",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-suicide",
+      "target_id": "c-ptsd-suicide",
+      "title": "Riesgo suicida y autolesión",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-dissociation",
+      "target_id": "c-ptsd-dissociation",
+      "title": "Disociación y desorganización",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-comorbidity",
+      "target_id": "c-ptsd-comorbidity",
+      "title": "Comorbilidad física y psiquiátrica",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-r-ptsd-safety",
+      "target_id": "r-ptsd-safety",
+      "title": "La seguridad se evalúa desde el inicio",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-p-ptsd-safety-plan",
+      "target_id": "p-ptsd-safety-plan",
+      "title": "Plan de seguridad y derivación",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-acute",
+      "target_id": "c-ptsd-acute",
+      "title": "Reacción aguda, subumbral y TEPT",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-trauma-focused",
+      "target_id": "c-ptsd-trauma-focused",
+      "title": "Psicoterapia focalizada en trauma",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-r-ptsd-first-line",
+      "target_id": "r-ptsd-first-line",
+      "title": "Ofrecer tratamiento focalizado en trauma",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-r-ptsd-shared",
+      "target_id": "r-ptsd-shared",
+      "title": "Decisión compartida",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-p-ptsd-treatment-plan",
+      "target_id": "p-ptsd-treatment-plan",
+      "title": "Plan terapéutico inicial",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-response",
+      "target_id": "c-ptsd-response",
+      "title": "Respuesta y funcionamiento",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-c-ptsd-barriers",
+      "target_id": "c-ptsd-barriers",
+      "title": "Barreras y adherencia",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-r-ptsd-adjust",
+      "target_id": "r-ptsd-adjust",
+      "title": "Persistencia exige reevaluación",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "u-p-ptsd-followup",
+      "target_id": "p-ptsd-followup",
+      "title": "Seguimiento y prevención de recaídas",
+      "body": "Material educativo candidato para la ruta TEPT. Debe leerse junto con la fuente y el contexto clínico.",
+      "example": "Ejemplo de uso: conecta esta idea con una decisión concreta de la ruta, sin convertirla por sí sola en un diagnóstico.",
+      "alternative": "Primero identifica el problema; después elige la acción y su límite.",
+      "boundary": "No es una instrucción para atención de pacientes ni reemplaza una guía local, supervisión o evaluación clínica.",
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "rule-feedback-i",
+      "title": "Regla · el freno y su alcance",
+      "target_id": "r-feedback",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Recuperación directa de una regla; no evalúa una decisión clínica completa.",
+      "prompt": "Completa la regla: con eje intacto y ajuste suficiente, menos T4 libre tiende a producir…",
+      "options": [
+        {
+          "id": "more",
+          "text": "Más TSH"
+        },
+        {
+          "id": "less",
+          "text": "Menos TSH"
+        },
+        {
+          "id": "always",
+          "text": "La misma TSH en todos los contextos"
+        }
+      ],
+      "answer": "more",
+      "hint": "Menos retroalimentación permite más estímulo.",
+      "feedback": "La regla predice más TSH, pero depende de un eje capaz de responder y tiempo suficiente.",
+      "critical": false,
+      "source_ids": [
+        "physiology-hormone",
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "rule-total-i",
+      "title": "Regla · un dato no basta",
+      "target_id": "r-total",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Recuperación directa de la regla sobre hormona total.",
+      "prompt": "¿Qué afirmación conserva el límite de la regla?",
+      "options": [
+        {
+          "id": "bounded",
+          "text": "T4 total aislada no demuestra exceso funcional"
+        },
+        {
+          "id": "absolute",
+          "text": "T4 total elevada siempre demuestra exceso funcional"
+        },
+        {
+          "id": "irrelevant",
+          "text": "Las proteínas transportadoras nunca afectan T4 total"
+        }
+      ],
+      "answer": "bounded",
+      "hint": "Recuerda qué fracciones reúne la medida total.",
+      "feedback": "El total aislado no basta: el transporte también modifica esa medición.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "rule-conversion-i",
+      "title": "Regla · no toda conversión activa",
+      "target_id": "r-conversion",
+      "format": "multi",
+      "phase": "independent",
+      "context": "Recuperación directa de dos destinos de T4, sin inferir diagnóstico.",
+      "prompt": "Selecciona las DOS asociaciones válidas.",
+      "options": [
+        {
+          "id": "active",
+          "text": "T4→T3: activación"
+        },
+        {
+          "id": "inactive",
+          "text": "T4→rT3: inactivación"
+        },
+        {
+          "id": "same",
+          "text": "Toda desyodación produce la misma señal"
+        },
+        {
+          "id": "diagnosis",
+          "text": "Una conversión aislada identifica la causa de una enfermedad"
+        }
+      ],
+      "answer": [
+        "active",
+        "inactive"
+      ],
+      "hint": "Distingue el producto de cada vía.",
+      "feedback": "Los productos difieren: T3 y rT3 no representan el mismo destino funcional. La regla no localiza por sí sola una causa clínica.",
+      "critical": false,
+      "source_ids": [
+        "signaling-review",
+        "physiology-hormone"
+      ]
+    },
+    {
+      "id": "procedure-synthesis-i",
+      "title": "Procedimiento · ordena las estaciones",
+      "target_id": "p-synthesis",
+      "format": "order",
+      "phase": "independent",
+      "context": "Evaluación directa de una secuencia didáctica reducida; no es un protocolo asistencial.",
+      "prompt": "Ordena las tres estaciones desde el sustrato hasta la liberación hormonal.",
+      "options": [
+        {
+          "id": "build",
+          "text": "Organificar y acoplar en tiroglobulina"
+        },
+        {
+          "id": "release",
+          "text": "Recuperar y degradar tiroglobulina para liberar hormonas"
+        },
+        {
+          "id": "uptake",
+          "text": "Captar yoduro"
+        }
+      ],
+      "answer": [
+        "uptake",
+        "build",
+        "release"
+      ],
+      "hint": "Entrada antes de elaboración; liberación después.",
+      "feedback": "Captación → organificación/acoplamiento → recuperación y liberación. Esta lista omite pasos intermedios.",
+      "critical": false,
+      "source_ids": [
+        "endotext-synthesis"
+      ]
+    },
+    {
+      "id": "feedback-g",
+      "title": "Señal y respuesta",
+      "target_id": "d-feedback",
+      "format": "choice",
+      "phase": "guided",
+      "context": "Modelo estable, eje intacto.",
+      "prompt": "Baja T4 libre de forma persistente. ¿Qué dirección de TSH elegirías?",
+      "options": [
+        {
+          "id": "up",
+          "text": "Aumenta"
+        },
+        {
+          "id": "down",
+          "text": "Disminuye"
+        },
+        {
+          "id": "zero",
+          "text": "Desaparece"
+        }
+      ],
+      "answer": "up",
+      "hint": "Menos hormona reduce la retroalimentación negativa.",
+      "feedback": "La respuesta esperada es aumento de TSH bajo estos supuestos.",
+      "critical": false,
+      "source_ids": [
+        "physiology-hormone"
+      ]
+    },
+    {
+      "id": "feedback-i",
+      "title": "Predice sin apoyo",
+      "target_id": "d-feedback",
+      "format": "short",
+      "phase": "independent",
+      "context": "Modelo estable, hipófisis intacta.",
+      "prompt": "Aumenta persistentemente T4 libre. Escribe solo la dirección esperada de TSH: aumenta o disminuye.",
+      "options": [],
+      "answer": "disminuye",
+      "accepted": [
+        "disminuye",
+        "baja",
+        "desciende"
+      ],
+      "hint": "Piensa en la dirección de la retroalimentación.",
+      "feedback": "Se espera que TSH disminuya. Este ítem evalúa una dirección, no razonamiento clínico completo.",
+      "critical": false,
+      "source_ids": [
+        "physiology-hormone"
+      ]
+    },
+    {
+      "id": "feedback-r",
+      "title": "Recupera la condición de la regla",
+      "target_id": "d-feedback",
+      "format": "choice",
+      "phase": "review",
+      "context": "Repaso del modelo de retroalimentación.",
+      "prompt": "¿En qué situación dejarías de aplicar automáticamente la regla T4 baja→TSH alta?",
+      "options": [
+        {
+          "id": "pit",
+          "text": "Función hipofisaria alterada"
+        },
+        {
+          "id": "intact",
+          "text": "Eje intacto en estado estable"
+        },
+        {
+          "id": "repeat",
+          "text": "Repetición del mismo ejercicio"
+        }
+      ],
+      "answer": "pit",
+      "hint": "La regla necesita una hipófisis capaz de responder.",
+      "feedback": "Una alteración hipofisaria rompe ese supuesto; TSH aislada puede resultar engañosa.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "availability-g",
+      "title": "Reconoce el tipo de medición",
+      "target_id": "d-availability",
+      "format": "choice",
+      "phase": "guided",
+      "context": "Modelo con proteínas transportadoras aumentadas.",
+      "prompt": "T4 total alta, T4 libre y TSH normales. ¿Qué conclusión está mejor sustentada?",
+      "options": [
+        {
+          "id": "context",
+          "text": "El total aislado no demuestra exceso funcional"
+        },
+        {
+          "id": "excess",
+          "text": "Exceso funcional demostrado"
+        },
+        {
+          "id": "absent",
+          "text": "Ausencia de producción tiroidea"
+        }
+      ],
+      "answer": "context",
+      "hint": "El total incluye la fracción unida.",
+      "feedback": "El cambio del transporte puede explicar el total. No hay aquí prueba suficiente de exceso funcional.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "availability-i",
+      "title": "Selecciona la información relevante",
+      "target_id": "d-availability",
+      "format": "multi",
+      "phase": "independent",
+      "context": "Lectura fisiológica inicial; adulto estable, eje intacto; no embarazo ni enfermedad aguda.",
+      "prompt": "Para contextualizar T4 total aislada, selecciona las DOS medidas del par trabajado en la unidad.",
+      "options": [
+        {
+          "id": "tsh",
+          "text": "TSH"
+        },
+        {
+          "id": "ft4",
+          "text": "T4 libre"
+        },
+        {
+          "id": "rt3",
+          "text": "rT3"
+        },
+        {
+          "id": "tg",
+          "text": "Tiroglobulina sérica"
+        }
+      ],
+      "answer": [
+        "tsh",
+        "ft4"
+      ],
+      "hint": "Busca la señal hipofisaria y la fracción no unida.",
+      "feedback": "El par es TSH y T4 libre. El contexto sigue siendo necesario.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "availability-r",
+      "title": "Recuerda la distinción",
+      "target_id": "d-availability",
+      "format": "short",
+      "phase": "review",
+      "context": "Dos informes: uno mide T4 total y otro T4 libre.",
+      "prompt": "¿Cuál incluye hormona unida a proteínas? Escribe total o libre.",
+      "options": [],
+      "answer": "total",
+      "accepted": [
+        "total",
+        "t4 total"
+      ],
+      "hint": "Una de las medidas reúne dos fracciones.",
+      "feedback": "T4 total reúne hormona unida y libre.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "synthesis-g",
+      "title": "Reconstruye la ruta",
+      "target_id": "d-synthesis",
+      "format": "order",
+      "phase": "guided",
+      "context": "Modelo de tres etapas; se omiten pasos intermedios.",
+      "prompt": "Ordena desde la entrada de sustrato hasta la liberación.",
+      "options": [
+        {
+          "id": "release",
+          "text": "Recuperar y degradar tiroglobulina para liberar hormonas"
+        },
+        {
+          "id": "uptake",
+          "text": "Captar yoduro"
+        },
+        {
+          "id": "build",
+          "text": "Organificar y acoplar en tiroglobulina"
+        }
+      ],
+      "answer": [
+        "uptake",
+        "build",
+        "release"
+      ],
+      "hint": "Primero entra el sustrato; después se utiliza.",
+      "feedback": "Captación → elaboración en tiroglobulina → recuperación y liberación.",
+      "critical": false,
+      "source_ids": [
+        "endotext-synthesis"
+      ]
+    },
+    {
+      "id": "synthesis-i",
+      "title": "Localiza el fallo experimental",
+      "target_id": "d-synthesis",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Experimento hipotético: entra yoduro, pero no se incorpora a residuos de tiroglobulina.",
+      "prompt": "¿Qué etapa está directamente implicada por el hallazgo?",
+      "options": [
+        {
+          "id": "org",
+          "text": "Organificación"
+        },
+        {
+          "id": "entry",
+          "text": "Entrada de yoduro"
+        },
+        {
+          "id": "periph",
+          "text": "Conversión periférica T4→T3"
+        }
+      ],
+      "answer": "org",
+      "hint": "Distingue entrada de incorporación química.",
+      "feedback": "El hallazgo apunta a organificación. No identifica por sí solo una etiología.",
+      "critical": false,
+      "source_ids": [
+        "endotext-synthesis"
+      ]
+    },
+    {
+      "id": "synthesis-r",
+      "title": "Recupera dónde queda la reserva",
+      "target_id": "d-synthesis",
+      "format": "choice",
+      "phase": "review",
+      "context": "Ruta folicular antes de la liberación.",
+      "prompt": "¿Dónde están las hormonas almacenadas en este modelo?",
+      "options": [
+        {
+          "id": "tg",
+          "text": "Formando parte de tiroglobulina"
+        },
+        {
+          "id": "tsh",
+          "text": "Dentro de la molécula de TSH"
+        },
+        {
+          "id": "trh",
+          "text": "Dentro de la molécula de TRH"
+        }
+      ],
+      "answer": "tg",
+      "hint": "Recuerda qué proteína se recupera y degrada.",
+      "feedback": "La reserva está en tiroglobulina, no en las señales reguladoras.",
+      "critical": false,
+      "source_ids": [
+        "endotext-synthesis"
+      ]
+    },
+    {
+      "id": "conversion-g",
+      "title": "Sigue la transformación",
+      "target_id": "d-conversion",
+      "format": "choice",
+      "phase": "guided",
+      "context": "Se observa conversión periférica T4→T3.",
+      "prompt": "¿Cómo clasificarías ese proceso?",
+      "options": [
+        {
+          "id": "act",
+          "text": "Activación por desyodación"
+        },
+        {
+          "id": "uptake",
+          "text": "Captación folicular de yoduro"
+        },
+        {
+          "id": "bind",
+          "text": "Solo unión a transportadores"
+        }
+      ],
+      "answer": "act",
+      "hint": "Cambió la molécula, no solo su transporte.",
+      "feedback": "Es una vía de activación; no equivale a síntesis folicular.",
+      "critical": false,
+      "source_ids": [
+        "signaling-review"
+      ]
+    },
+    {
+      "id": "conversion-i",
+      "title": "Predice una vía aislada",
+      "target_id": "d-conversion",
+      "format": "short",
+      "phase": "independent",
+      "context": "Sistema aislado: se reduce solo la conversión T4→T3; todo lo demás permanece constante.",
+      "prompt": "La T3 generada por esa vía, ¿aumenta o disminuye?",
+      "options": [],
+      "answer": "disminuye",
+      "accepted": [
+        "disminuye",
+        "baja",
+        "desciende"
+      ],
+      "hint": "Considera únicamente la producción de esa vía.",
+      "feedback": "Disminuye la T3 de esa vía. No se está prediciendo toda la T3 circulante de una persona.",
+      "critical": false,
+      "source_ids": [
+        "signaling-review"
+      ]
+    },
+    {
+      "id": "conversion-r",
+      "title": "Distingue los destinos",
+      "target_id": "d-conversion",
+      "format": "choice",
+      "phase": "review",
+      "context": "Repaso de transformación hormonal.",
+      "prompt": "¿Qué destino representa inactivación de T4?",
+      "options": [
+        {
+          "id": "rt3",
+          "text": "Conversión a rT3"
+        },
+        {
+          "id": "t3",
+          "text": "Conversión a T3"
+        },
+        {
+          "id": "same",
+          "text": "Ambos son equivalentes"
+        }
+      ],
+      "answer": "rt3",
+      "hint": "No toda pérdida de yodo activa la señal.",
+      "feedback": "T4→rT3 es una vía de inactivación. No justifica pedir rT3 de rutina.",
+      "critical": false,
+      "source_ids": [
+        "signaling-review",
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "case-axis-p1",
+      "title": "Paso 1 · Señal reguladora",
+      "target_id": "d-feedback",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Laboratorio docente: eje intacto, cambio persistente y tiempo de ajuste suficiente.",
+      "prompt": "T4 libre cae. ¿Qué predicción eliges para TSH?",
+      "options": [
+        {
+          "id": "up",
+          "text": "Sube"
+        },
+        {
+          "id": "down",
+          "text": "Baja"
+        }
+      ],
+      "answer": "up",
+      "hint": "Recupera el sentido de la retroalimentación.",
+      "feedback": "En este modelo, TSH aumenta.",
+      "critical": false,
+      "source_ids": [
+        "physiology-hormone"
+      ]
+    },
+    {
+      "id": "case-axis-p2",
+      "title": "Paso 2 · Cuestiona una conclusión",
+      "target_id": "d-availability",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Otro tubo del mismo laboratorio tiene T4 total alta y T4 libre normal; se propone que cambió el transporte.",
+      "prompt": "¿Es válido afirmar exceso funcional solo por ese total?",
+      "options": [
+        {
+          "id": "no",
+          "text": "No; falta integrar la información"
+        },
+        {
+          "id": "yes",
+          "text": "Sí; el total siempre basta"
+        }
+      ],
+      "answer": "no",
+      "hint": "No confundas total con libre.",
+      "feedback": "El total aislado no basta; se debe integrar contexto y señales.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "case-axis-e1",
+      "title": "Paso 1 · Contraste de dirección",
+      "target_id": "d-feedback",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Modelo independiente: eje intacto y T4 libre persistentemente elevada.",
+      "prompt": "Selecciona la respuesta esperada de TSH.",
+      "options": [
+        {
+          "id": "down",
+          "text": "Disminuye"
+        },
+        {
+          "id": "up",
+          "text": "Aumenta"
+        }
+      ],
+      "answer": "down",
+      "hint": "No disponible en evaluación.",
+      "feedback": "El modelo predice disminución por retroalimentación negativa.",
+      "critical": false,
+      "source_ids": [
+        "physiology-hormone"
+      ]
+    },
+    {
+      "id": "case-axis-e2",
+      "title": "Paso 2 · Alcance de un dato",
+      "target_id": "d-availability",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Una segunda muestra del ejercicio informa solo T4 total alta; no hay otros datos.",
+      "prompt": "¿Qué conclusión está justificada?",
+      "options": [
+        {
+          "id": "uncertain",
+          "text": "No alcanza para concluir exceso funcional"
+        },
+        {
+          "id": "confirmed",
+          "text": "Exceso funcional confirmado"
+        }
+      ],
+      "answer": "uncertain",
+      "hint": "No disponible en evaluación.",
+      "feedback": "El dato aislado no distingue disponibilidad funcional y cambios de transporte.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "case-production-p1",
+      "title": "Paso 1 · Ensambla el proceso",
+      "target_id": "d-synthesis",
+      "format": "order",
+      "phase": "independent",
+      "context": "Simulación de un folículo sin alteraciones.",
+      "prompt": "Reconstruye las tres estaciones.",
+      "options": [
+        {
+          "id": "release",
+          "text": "Liberar tras recuperar y degradar tiroglobulina"
+        },
+        {
+          "id": "build",
+          "text": "Organificar/acoplar"
+        },
+        {
+          "id": "uptake",
+          "text": "Captar yoduro"
+        }
+      ],
+      "answer": [
+        "uptake",
+        "build",
+        "release"
+      ],
+      "hint": "Ubica la entrada antes de la elaboración.",
+      "feedback": "La secuencia reducida empieza en captación y termina en liberación.",
+      "critical": false,
+      "source_ids": [
+        "endotext-synthesis"
+      ]
+    },
+    {
+      "id": "case-production-p2",
+      "title": "Paso 2 · Cambia de compartimento",
+      "target_id": "d-conversion",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Continuación: se da por realizada la liberación. Ahora una molécula de T4 se transforma en T3 en un tejido.",
+      "prompt": "¿Estás observando captación de yoduro o activación periférica?",
+      "options": [
+        {
+          "id": "activation",
+          "text": "Activación periférica"
+        },
+        {
+          "id": "uptake",
+          "text": "Captación de yoduro"
+        }
+      ],
+      "answer": "activation",
+      "hint": "El proceso ocurre después de la liberación.",
+      "feedback": "Es activación periférica; la continuación aportó el paso previo y cuenta como apoyo.",
+      "critical": false,
+      "source_ids": [
+        "signaling-review"
+      ]
+    },
+    {
+      "id": "case-production-e1",
+      "title": "Paso 1 · Interpreta una intervención",
+      "target_id": "d-synthesis",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Modelo nuevo: la captación funciona, pero se impide la incorporación de yodo a tiroglobulina.",
+      "prompt": "Selecciona el proceso directamente bloqueado.",
+      "options": [
+        {
+          "id": "org",
+          "text": "Organificación"
+        },
+        {
+          "id": "conv",
+          "text": "Conversión periférica"
+        },
+        {
+          "id": "transport",
+          "text": "Transporte plasmático"
+        }
+      ],
+      "answer": "org",
+      "hint": "No disponible en evaluación.",
+      "feedback": "La incorporación descrita corresponde a organificación.",
+      "critical": false,
+      "source_ids": [
+        "endotext-synthesis"
+      ]
+    },
+    {
+      "id": "case-production-e2",
+      "title": "Paso 2 · Interpreta otra vía",
+      "target_id": "d-conversion",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Experimento separado dentro de la misma sesión: T4 pasa a rT3.",
+      "prompt": "¿Qué interpretación eliges?",
+      "options": [
+        {
+          "id": "inactive",
+          "text": "Vía de inactivación"
+        },
+        {
+          "id": "active",
+          "text": "Misma activación que T4→T3"
+        }
+      ],
+      "answer": "inactive",
+      "hint": "No disponible en evaluación.",
+      "feedback": "La vía hacia rT3 es de inactivación; no es equivalente a producir T3.",
+      "critical": false,
+      "source_ids": [
+        "signaling-review"
+      ]
+    },
+    {
+      "id": "case-production-p3",
+      "title": "Paso 3 · Distingue transporte",
+      "target_id": "d-availability",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Tercer experimento: cambia una proteína transportadora; solo se informa un cambio de T4 total.",
+      "prompt": "¿Ese dato demuestra un fallo de síntesis?",
+      "options": [
+        {
+          "id": "no",
+          "text": "No; el total también depende del transporte"
+        },
+        {
+          "id": "yes",
+          "text": "Sí; cualquier cambio total demuestra fallo de síntesis"
+        }
+      ],
+      "answer": "no",
+      "hint": "Distingue cuánta hormona está unida de cómo se produce.",
+      "feedback": "El cambio de total no localiza por sí solo un fallo de síntesis.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "case-production-e3",
+      "title": "Paso 3 · Delimita una inferencia",
+      "target_id": "d-availability",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Muestra independiente: T4 total elevada. No se midieron TSH ni T4 libre y se desconoce el transporte.",
+      "prompt": "¿Qué decisión interpretativa es defendible?",
+      "options": [
+        {
+          "id": "reserve",
+          "text": "Reservar la conclusión sobre exceso funcional"
+        },
+        {
+          "id": "conclude",
+          "text": "Afirmar exceso funcional solo con ese total"
+        }
+      ],
+      "answer": "reserve",
+      "hint": "No disponible en evaluación.",
+      "feedback": "Reservar la conclusión evita convertir una medida aislada en una afirmación no sustentada.",
+      "critical": false,
+      "source_ids": [
+        "ata-tests"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-exposure",
+      "target_id": "d-ptsd-exposure",
+      "title": "¿Existe una exposición traumática relevante?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué dato debe confirmarse antes de formular TEPT?",
+      "options": [
+        {
+          "id": "trauma",
+          "text": "La existencia y naturaleza de una exposición traumática"
+        },
+        {
+          "id": "score",
+          "text": "Un puntaje aislado de una escala"
+        },
+        {
+          "id": "drug",
+          "text": "La medicación que la persona prefiere"
+        }
+      ],
+      "answer": "trauma",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-domains",
+      "target_id": "d-ptsd-domains",
+      "title": "¿Qué dominios sintomáticos están presentes?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué enfoque describe mejor la evaluación sintomática?",
+      "options": [
+        {
+          "id": "domains",
+          "text": "Explorar intrusión, evitación, cognición/ánimo y activación/reactividad"
+        },
+        {
+          "id": "sleep",
+          "text": "Preguntar únicamente por sueño"
+        },
+        {
+          "id": "event",
+          "text": "Preguntar solo por el evento"
+        }
+      ],
+      "answer": "domains",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-impairment",
+      "target_id": "d-ptsd-impairment",
+      "title": "¿Hay duración, deterioro funcional y contexto suficientes?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué completa la valoración además de identificar síntomas?",
+      "options": [
+        {
+          "id": "function",
+          "text": "Duración, deterioro funcional y contexto"
+        },
+        {
+          "id": "label",
+          "text": "Una etiqueta sin entrevista"
+        },
+        {
+          "id": "scan",
+          "text": "Una imagen como requisito universal"
+        }
+      ],
+      "answer": "function",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-differential",
+      "target_id": "d-ptsd-differential",
+      "title": "¿Qué diagnóstico o respuesta explica mejor el cuadro?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "Ante síntomas postraumáticos, ¿qué acción es más segura?",
+      "options": [
+        {
+          "id": "interview",
+          "text": "Contrastar TEPT con estrés agudo, depresión, sustancias, TCE y otras condiciones"
+        },
+        {
+          "id": "assume",
+          "text": "Asumir TEPT por el antecedente traumático"
+        },
+        {
+          "id": "ignore",
+          "text": "Ignorar comorbilidades"
+        }
+      ],
+      "answer": "interview",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-immediate-risk",
+      "target_id": "d-ptsd-immediate-risk",
+      "title": "¿Hay riesgo inmediato que cambie la prioridad?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué hallazgo cambia primero la prioridad?",
+      "options": [
+        {
+          "id": "risk",
+          "text": "Riesgo inmediato de suicidio, violencia o incapacidad para mantenerse seguro"
+        },
+        {
+          "id": "mild",
+          "text": "Síntomas leves sin deterioro"
+        },
+        {
+          "id": "preference",
+          "text": "Preferencia por una escala"
+        }
+      ],
+      "answer": "risk",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-safety-plan",
+      "target_id": "d-ptsd-safety-plan",
+      "title": "¿Cuándo debe activarse un plan de seguridad?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "Si se identifica riesgo significativo, ¿qué debe incorporarse al plan?",
+      "options": [
+        {
+          "id": "plan",
+          "text": "Un plan de seguridad y manejo del riesgo"
+        },
+        {
+          "id": "wait",
+          "text": "Esperar sin contacto"
+        },
+        {
+          "id": "screen",
+          "text": "Repetir solo el cribado"
+        }
+      ],
+      "answer": "plan",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-level-care",
+      "target_id": "d-ptsd-level-care",
+      "title": "¿Qué nivel de atención y coordinación requiere?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué orienta el nivel de atención?",
+      "options": [
+        {
+          "id": "level",
+          "text": "Riesgo, estabilidad, necesidades y apoyos disponibles"
+        },
+        {
+          "id": "score",
+          "text": "Solo el puntaje de síntomas"
+        },
+        {
+          "id": "age",
+          "text": "Solo la edad"
+        }
+      ],
+      "answer": "level",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-comorbidity",
+      "target_id": "d-ptsd-comorbidity",
+      "title": "¿Qué comorbilidades modifican la evaluación?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Por qué evaluar comorbilidades?",
+      "options": [
+        {
+          "id": "modify",
+          "text": "Pueden modificar seguridad, diagnóstico, prioridad y tratamiento"
+        },
+        {
+          "id": "exclude",
+          "text": "Porque excluyen automáticamente TEPT"
+        },
+        {
+          "id": "none",
+          "text": "Porque no tienen relación con el plan"
+        }
+      ],
+      "answer": "modify",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-phase",
+      "target_id": "d-ptsd-phase",
+      "title": "¿Es reacción reciente, cuadro subumbral o TEPT establecido?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué variable ayuda a separar reacción reciente de TEPT establecido?",
+      "options": [
+        {
+          "id": "time",
+          "text": "Tiempo desde el trauma y persistencia de síntomas clínicamente importantes"
+        },
+        {
+          "id": "score",
+          "text": "Un puntaje sin fecha"
+        },
+        {
+          "id": "cause",
+          "text": "La causa por sí sola"
+        }
+      ],
+      "answer": "time",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-first-line",
+      "target_id": "d-ptsd-first-line",
+      "title": "¿Qué intervención inicial debe ofrecerse?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "En un adulto con TEPT, ¿qué intervención debe considerarse como eje inicial?",
+      "options": [
+        {
+          "id": "tfcbt",
+          "text": "Psicoterapia individual focalizada en trauma"
+        },
+        {
+          "id": "avoid",
+          "text": "Evitar hablar del trauma indefinidamente"
+        },
+        {
+          "id": "routine",
+          "text": "Una intervención no específica para todos"
+        }
+      ],
+      "answer": "tfcbt",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-preferences",
+      "target_id": "d-ptsd-preferences",
+      "title": "¿Cómo incorporar preferencias y disponibilidad?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué debe integrar la elección de tratamiento?",
+      "options": [
+        {
+          "id": "shared",
+          "text": "Evidencia, preferencias, disponibilidad, seguridad y contexto"
+        },
+        {
+          "id": "single",
+          "text": "Una única opción para todas las personas"
+        },
+        {
+          "id": "speed",
+          "text": "Solo la opción más rápida"
+        }
+      ],
+      "answer": "shared",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-medication",
+      "target_id": "d-ptsd-medication",
+      "title": "¿Qué lugar ocupa la farmacoterapia en este plan?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Cómo debe plantearse la farmacoterapia en el plan?",
+      "options": [
+        {
+          "id": "context",
+          "text": "Como una decisión contextual y compartida, no como sustituto automático de la psicoterapia indicada"
+        },
+        {
+          "id": "always",
+          "text": "Como requisito para todo TEPT"
+        },
+        {
+          "id": "never",
+          "text": "Como prohibida en cualquier contexto"
+        }
+      ],
+      "answer": "context",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-response",
+      "target_id": "d-ptsd-response",
+      "title": "¿Cómo se reconoce una respuesta clínicamente útil?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué indica mejor una respuesta útil?",
+      "options": [
+        {
+          "id": "function",
+          "text": "Mejoría sintomática junto con seguridad y funcionamiento"
+        },
+        {
+          "id": "score",
+          "text": "Solo bajar un puntaje"
+        },
+        {
+          "id": "session",
+          "text": "Asistir a una sesión sin evaluar cambios"
+        }
+      ],
+      "answer": "function",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-persistent",
+      "target_id": "d-ptsd-persistent",
+      "title": "¿Qué revisar si persisten los síntomas?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "Si persisten síntomas, ¿qué debe hacerse primero?",
+      "options": [
+        {
+          "id": "reassess",
+          "text": "Revisar diagnóstico, comorbilidades, seguridad, barreras y tratamiento recibido"
+        },
+        {
+          "id": "repeat",
+          "text": "Repetir lo mismo sin revisar nada"
+        },
+        {
+          "id": "stop",
+          "text": "Suspender todo automáticamente"
+        }
+      ],
+      "answer": "reassess",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    },
+    {
+      "id": "a-d-ptsd-followup",
+      "target_id": "d-ptsd-followup",
+      "title": "¿Cómo planificar seguimiento y prevención de recaídas?",
+      "format": "choice",
+      "phase": "independent",
+      "context": "Actividad educativa candidata sobre TEPT; no sustituye juicio clínico.",
+      "prompt": "¿Qué debe contener el seguimiento?",
+      "options": [
+        {
+          "id": "follow",
+          "text": "Medidas, objetivos, señales de alarma, apoyos y fecha de revisión"
+        },
+        {
+          "id": "none",
+          "text": "Ningún plan posterior"
+        },
+        {
+          "id": "score",
+          "text": "Solo una escala sin conversación"
+        }
+      ],
+      "answer": "follow",
+      "hint": "Busca la opción que conserva evaluación de riesgo, contexto y seguimiento.",
+      "feedback": "La respuesta debe interpretarse junto con la evaluación clínica completa y la guía local.",
+      "critical": false,
+      "source_ids": [
+        "src-ptsd-va-2023",
+        "src-ptsd-nice-ng116"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "case-axis-practice",
+      "title": "Taller del eje · práctica",
+      "mastery_id": "m-axis",
+      "mode": "practice",
+      "description": "Dos decisiones con feedback inmediato. Simulación educativa sin paciente real.",
+      "steps": [
+        {
+          "activity_id": "case-axis-p1",
+          "context": "Eje intacto en equilibrio; observa el cambio en señal libre.",
+          "supplied": false
+        },
+        {
+          "activity_id": "case-axis-p2",
+          "context": "Ahora contrasta una medida total de otro tubo; no se aporta la respuesta anterior.",
+          "supplied": false
+        }
+      ]
+    },
+    {
+      "id": "case-axis-evaluation",
+      "title": "Taller del eje · comprobación",
+      "mastery_id": "m-axis",
+      "mode": "evaluation",
+      "description": "Dos decisiones sin pistas ni feedback hasta cerrar. No acredita competencia clínica.",
+      "steps": [
+        {
+          "activity_id": "case-axis-e1",
+          "context": "Modelo independiente con T4 libre elevada persistentemente.",
+          "supplied": false
+        },
+        {
+          "activity_id": "case-axis-e2",
+          "context": "Una segunda muestra solo ofrece hormona total; decide el alcance del dato.",
+          "supplied": false
+        }
+      ]
+    },
+    {
+      "id": "case-production-practice",
+      "title": "Del folículo al tejido · práctica",
+      "mastery_id": "m-production",
+      "mode": "practice",
+      "description": "Síntesis, conversión y transporte. El segundo paso recibe una continuación canónica y registra apoyo.",
+      "steps": [
+        {
+          "activity_id": "case-production-p1",
+          "context": "Construye la ruta folicular simplificada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "case-production-p2",
+          "context": "Continuación canónica: la ruta termina liberando hormonas. Ese dato se aporta aunque tu respuesta anterior fuera distinta.",
+          "supplied": true
+        },
+        {
+          "activity_id": "case-production-p3",
+          "context": "Un experimento independiente introduce una variación del transporte.",
+          "supplied": false
+        }
+      ]
+    },
+    {
+      "id": "case-production-evaluation",
+      "title": "Del folículo al tejido · comprobación",
+      "mastery_id": "m-production",
+      "mode": "evaluation",
+      "description": "Tres experimentos conectados por el objetivo de distinguir síntesis, destino y transporte. Feedback solo al final.",
+      "steps": [
+        {
+          "activity_id": "case-production-e1",
+          "context": "Interpreta una intervención folicular sin diagnosticar una enfermedad.",
+          "supplied": false
+        },
+        {
+          "activity_id": "case-production-e2",
+          "context": "Interpreta una transformación periférica independiente del primer experimento.",
+          "supplied": false
+        },
+        {
+          "activity_id": "case-production-e3",
+          "context": "Delimita lo que puede concluirse de una muestra independiente.",
+          "supplied": false
+        }
+      ]
+    },
+    {
+      "id": "case-ptsd-formulate",
+      "title": "TEPT · taller de Reconocer y formular TEPT",
+      "mastery_id": "m-ptsd-formulate",
+      "mode": "practice",
+      "description": "Caso educativo candidato: integra tres decisiones sin representar a un paciente real.",
+      "steps": [
+        {
+          "activity_id": "a-d-ptsd-exposure",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-domains",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-differential",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        }
+      ]
+    },
+    {
+      "id": "case-ptsd-safety",
+      "title": "TEPT · taller de Evaluar seguridad y gravedad",
+      "mastery_id": "m-ptsd-safety",
+      "mode": "practice",
+      "description": "Caso educativo candidato: integra tres decisiones sin representar a un paciente real.",
+      "steps": [
+        {
+          "activity_id": "a-d-ptsd-immediate-risk",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-safety-plan",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-level-care",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        }
+      ]
+    },
+    {
+      "id": "case-ptsd-treatment",
+      "title": "TEPT · taller de Elegir tratamiento inicial",
+      "mastery_id": "m-ptsd-treatment",
+      "mode": "practice",
+      "description": "Caso educativo candidato: integra tres decisiones sin representar a un paciente real.",
+      "steps": [
+        {
+          "activity_id": "a-d-ptsd-phase",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-first-line",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-preferences",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        }
+      ]
+    },
+    {
+      "id": "case-ptsd-monitor",
+      "title": "TEPT · taller de Monitorizar y ajustar",
+      "mastery_id": "m-ptsd-monitor",
+      "mode": "practice",
+      "description": "Caso educativo candidato: integra tres decisiones sin representar a un paciente real.",
+      "steps": [
+        {
+          "activity_id": "a-d-ptsd-response",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-persistent",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        },
+        {
+          "activity_id": "a-d-ptsd-followup",
+          "context": "Escenario educativo de TEPT; la información es deliberadamente acotada.",
+          "supplied": false
+        }
+      ]
+    }
+  ]
+}

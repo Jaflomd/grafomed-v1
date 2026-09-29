@@ -1,0 +1,850 @@
+schema: grafomed-objective-cluster-draft.v0
+id: gm-cluster-columna-vertebral
+title: "Columna vertebral: anatomía funcional, evaluación, imagen y procedimientos"
+canonical_language: es
+status: candidate_design_not_promoted
+created_at: "2026-08-28T11:04:48-05:00"
+created_by: mia
+authorized_by: javier
+product_id: grafomed-v1
+repository: false
+legacy_migration_performed: false
+
+design_status:
+  executable_schema_available: false
+  knowledge_entity_contract_available: true
+  objective_hierarchy_contract_available: false
+  reason: >-
+    Grafo Med v0.4.0 todavía no formaliza presentation_cluster, key_objective
+    y enabling_objective como tipos ejecutables. Este artefacto es el primer
+    borrador operativo para informar la futura especificación v0.5 sin
+    promover contenido ni modificar el primer slice activo.
+  promotion_allowed: false
+  next_gate:
+    - incorporar la jerarquía de objetivos al contrato de arquitectura
+    - crear schemas y validadores
+    - completar source lock y revisión anatómica independiente
+    - crear tareas de evaluación y evidencia de dominio
+
+source_lock:
+  id: gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  citation: >-
+    Smith CF, Finn GM, Stewart J, et al. The Anatomical Society core regional
+    anatomy syllabus for undergraduate medicine. Journal of Anatomy.
+    2016;228(1):15-23.
+  doi: "10.1111/joa.12405"
+  pmid: "26612592"
+  pmcid: "PMC4694160"
+  stable_locator: "https://doi.org/10.1111/joa.12405"
+  section_used: "Vertebral column: overview and outcomes 43-49"
+  evidence_role: external_consensus_curriculum_anchor
+  acquisition:
+    - user_provided_excerpt
+    - independently_identified_by_exact_phrase_search
+  access_date: "2026-08-28"
+  rights_status: remote_only_transformed_synthesis
+  rights_note: >-
+    Bibliographic metadata, identifiers, source-outcome numbers, and a
+    transformed educational synthesis are stored. The full article is not
+    reproduced in this cluster draft.
+  evidence_status: source_locked_candidate
+  consensus_basis: modified_delphi
+  limitations:
+    - Es un syllabus de consenso para egresados, no una secuencia instruccional.
+    - Los resultados fuente son amplios y varios contienen acciones evaluables independientes.
+    - No define por sí mismo estándares de aprobación ni cantidad de observaciones.
+    - Requiere contextualización curricular, clínica y procedimental local antes de promoverse.
+
+cluster_contract:
+  level: presentation_cluster
+  objective: >-
+    Integra la anatomía estructural, funcional, neuroanatómica e imagenológica
+    de la columna vertebral para examinar la espalda, explicar lesiones
+    frecuentes y planificar procedimientos neuraxiales con seguridad.
+  expected_performance: >-
+    El estudiante reconoce estructuras y regiones, explica estabilidad y
+    movimiento, localiza relaciones entre disco, canal, meninges, raíces y
+    nervios, interpreta imágenes estándar y aplica esa anatomía a la
+    exploración de la espalda, la compresión neural y la planificación de una
+    punción lumbar o inyección neuraxial. El cluster no certifica por sí solo
+    competencia clínica independiente en dichos procedimientos.
+  mastery_evidence: >-
+    La conclusión de dominio requiere evidencia agregada de los mastery atoms
+    relevantes y desempeño integrador en modelos anatómicos, imágenes y
+    escenarios clínicos o procedimentales nuevos. Ningún MCQ, modalidad de
+    imagen o demostración aislada certifica el cluster completo.
+  threshold_status: empirical_threshold_not_set
+
+boundaries:
+  included:
+    - osteología vertebral regional y vertebras atípicas
+    - curvaturas, articulaciones, discos, ligamentos, músculos y movimiento
+    - anatomía de superficie necesaria para examinar la espalda
+    - canal vertebral, meninges, médula, cauda equina, raíces y nervios espinales
+    - bases anatómicas de lesión discal, compresión neural y lesiones vertebrales frecuentes
+    - anatomía aplicada a punción lumbar e inyecciones epidurales o intratecales
+    - interpretación anatómica en radiografía, CT, MRI y ultrasonido relevante
+  excluded:
+    - diagnóstico y tratamiento completo de dolor lumbar
+    - clasificación clínica completa de trauma raquimedular
+    - farmacología y técnica completa de anestesia neuraxial
+    - indicaciones, contraindicaciones y manejo de complicaciones de punción lumbar
+    - rehabilitación, cirugía espinal y tratamiento longitudinal
+    - certificación de ejecución independiente sobre pacientes
+
+tag_assignments:
+  - axis: preclinical_discipline
+    code: PRECLIN-ANATOMY
+    role: primary
+    weight: 1.0
+    provenance: source_outcomes_43_49
+  - axis: preclinical_discipline
+    code: PRECLIN-NEUROSCIENCE
+    role: secondary
+    weight: 0.68
+    provenance: source_outcomes_44_47_48
+  - axis: organ_system
+    code: SYS-MUSCULOSKELETAL
+    role: primary
+    weight: 0.95
+    provenance: cluster_scope
+  - axis: organ_system
+    code: SYS-NERVOUS
+    role: secondary
+    weight: 0.76
+    provenance: roots_nerves_meninges_and_compression
+  - axis: learning_function
+    code: FUNC-STRUCTURE
+    role: primary
+    weight: 0.95
+    provenance: cluster_scope
+  - axis: learning_function
+    code: FUNC-MECHANISM
+    role: secondary
+    weight: 0.72
+    provenance: movement_load_injury_and_compression
+  - axis: learning_function
+    code: FUNC-RECOGNITION
+    role: secondary
+    weight: 0.72
+    provenance: models_surface_and_imaging
+  - axis: learning_function
+    code: FUNC-SAFETY
+    role: bridge
+    weight: 0.48
+    provenance: neuraxial_procedure_planning
+  - axis: clinical_area
+    code: CLIN-ORTHOPEDICS
+    role: bridge
+    weight: 0.5
+    provenance: injury_stability_and_back_examination
+  - axis: clinical_area
+    code: CLIN-NEUROLOGY
+    role: bridge
+    weight: 0.48
+    provenance: root_and_spinal_nerve_localization
+  - axis: clinical_area
+    code: CLIN-RADIOLOGY
+    role: bridge
+    weight: 0.52
+    provenance: source_outcome_49
+  - axis: clinical_area
+    code: CLIN-ANESTHESIOLOGY
+    role: bridge
+    weight: 0.5
+    provenance: source_outcome_47
+  - axis: clinical_area
+    code: CLIN-EMERGENCY-MEDICINE
+    role: context
+    weight: 0.28
+    provenance: common_spinal_injury_bridge
+
+assessment_model:
+  levels:
+    - code: A1
+      label: Reconocimiento anatómico
+      meaning: Identifica, orienta o clasifica estructuras en modelos, piezas, diagramas o imágenes.
+    - code: A2
+      label: Explicación funcional
+      meaning: Explica relaciones entre estructura, carga, estabilidad, movimiento o función neural.
+    - code: A3
+      label: Aplicación clínica o procedimental
+      meaning: Usa la anatomía para resolver un caso, localizar una lesión o planificar un procedimiento simulado.
+    - code: A4
+      label: Transferencia multimodal
+      meaning: Resuelve un caso nuevo integrando anatomía, imagen y desempeño simulado sin depender del ejemplo enseñado.
+  rules:
+    - Cada mastery atom declara un único objetivo observable.
+    - Los niveles de assessment son tipos de evidencia, no cuatro objetivos dentro del nodo.
+    - La asistencia recibida debe registrarse; desempeño con pistas no equivale a desempeño independiente.
+    - La aprobación del cluster exige muestreo entre modalidades y casos, no repetición del mismo ítem.
+    - Los umbrales numéricos permanecen propuestos hasta contar con validación.
+
+knowledge_entity_layer:
+  status: source_locked_candidate_not_promoted
+  layer: medical_truth
+  object_type: anatomical_entity
+  contract:
+    purpose: >-
+      Representar las entidades anatómicas sobre las que actúan los objetivos
+      sin convertir cada estructura en un objetivo de aprendizaje independiente.
+    objective_policy: >-
+      Una entidad de conocimiento no requiere objetivo propio. Solo una unidad
+      declarada learner-facing mediante learning_contract tiene exactamente un
+      objetivo observable.
+    granularity_policy: >-
+      Comenzar con morfotipos regionales y vértebras individualmente distintivas.
+      Crear una vértebra individual adicional solo cuando posea una diferencia
+      reutilizable, clínicamente relevante o evaluable de forma independiente.
+    feature_promotion_rule: >-
+      Los rasgos discriminadores permanecen como propiedades de la entidad hasta
+      que se reutilicen entre varios clusters, tengan relaciones propias o se
+      conviertan en un blanco evaluable independiente.
+  supporting_sources:
+    - id: gm-source-statpearls-cervical-vertebrae-2026
+      citation: >-
+        Waxenbaum JA, Reddy V, Margetis K. Anatomy, Back, Cervical Vertebrae.
+        StatPearls. Updated January 31, 2026.
+      stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK459200/"
+      evidence_role: regional_morphology_reference
+      access_date: "2026-08-28"
+      rights_status: remote_only_transformed_synthesis
+    - id: gm-source-statpearls-thoracic-vertebrae-2026
+      citation: >-
+        Waxenbaum JA, Reddy V, Margetis K. Anatomy, Back, Thoracic Vertebrae.
+        StatPearls. Updated January 31, 2026.
+      stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK459153/"
+      evidence_role: regional_morphology_reference
+      access_date: "2026-08-28"
+      rights_status: remote_only_transformed_synthesis
+    - id: gm-source-statpearls-lumbar-vertebrae-2026
+      citation: >-
+        Waxenbaum JA, Reddy V, Williams C, et al. Anatomy, Back, Lumbar
+        Vertebrae. StatPearls. Updated January 31, 2026.
+      stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK459278/"
+      evidence_role: regional_morphology_reference
+      access_date: "2026-08-28"
+      rights_status: remote_only_transformed_synthesis
+    - id: gm-source-statpearls-sacral-vertebrae-2023
+      citation: >-
+        Sattar MH, Guthrie ST. Anatomy, Back, Sacral Vertebrae. StatPearls.
+        Updated July 30, 2023.
+      stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK551653/"
+      evidence_role: regional_morphology_reference
+      access_date: "2026-08-28"
+      rights_status: remote_only_transformed_synthesis
+    - id: gm-source-statpearls-coccygeal-vertebrae-2023
+      citation: >-
+        Mostafa E, Varacallo MA. Anatomy, Back, Coccygeal Vertebrae.
+        StatPearls. Updated June 5, 2023.
+      stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK549870/"
+      evidence_role: regional_morphology_reference
+      access_date: "2026-08-28"
+      rights_status: remote_only_transformed_synthesis
+  entities:
+    - id: gm-anatomy-vertebra-general
+      label: "Vértebra: patrón estructural general"
+      granularity: structural_archetype
+      region: transregional
+      definition: >-
+        Unidad ósea del eje vertebral representada por un cuerpo y un arco
+        vertebral con procesos, sujeta a modificaciones regionales y excepciones.
+      discriminating_features:
+        - cuerpo vertebral y arco que delimitan el foramen vertebral
+        - procesos articulares, transversos y espinoso en el patrón general
+        - variación regional según carga, movilidad y articulaciones asociadas
+      aliases: [vértebra típica general, patrón vertebral]
+      source_refs:
+        - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+        - gm-source-statpearls-cervical-vertebrae-2026
+    - id: gm-anatomy-atlas-c1
+      label: "Atlas (C1)"
+      granularity: individual_distinctive_vertebra
+      region: cervical
+      definition: >-
+        Primera vértebra cervical, formada principalmente por arcos y masas
+        laterales y sin cuerpo ni proceso espinoso en el patrón adulto habitual.
+      discriminating_features:
+        - ausencia de cuerpo vertebral
+        - ausencia de proceso espinoso
+        - masas laterales que articulan con cóndilos occipitales y axis
+      aliases: [C1, primera vértebra cervical]
+      source_refs: [gm-source-statpearls-cervical-vertebrae-2026]
+    - id: gm-anatomy-axis-c2
+      label: "Axis (C2)"
+      granularity: individual_distinctive_vertebra
+      region: cervical
+      definition: >-
+        Segunda vértebra cervical, distinguida por el proceso odontoides o dens
+        que se proyecta superiormente y participa en la rotación atlantoaxial.
+      discriminating_features:
+        - dens o proceso odontoides
+        - cuerpo vertebral que transmite carga hacia C3
+        - superficies articulares especializadas para el atlas
+      aliases: [C2, segunda vértebra cervical, epistrofeo]
+      source_refs: [gm-source-statpearls-cervical-vertebrae-2026]
+    - id: gm-anatomy-cervical-typical-c3-c6
+      label: "Vértebras cervicales típicas (C3–C6)"
+      granularity: regional_morphotype
+      region: cervical
+      definition: >-
+        Morfotipo cervical subaxial usado para reconocer C3 a C6 por su conjunto
+        de rasgos regionales, admitiendo variación entre niveles e individuos.
+      discriminating_features:
+        - forámenes transversos
+        - cuerpo relativamente pequeño y foramen vertebral amplio
+        - procesos unciformes y proceso espinoso frecuentemente bífido
+      aliases: [cervical típica, C3-C6]
+      source_refs: [gm-source-statpearls-cervical-vertebrae-2026]
+    - id: gm-anatomy-cervical-c7
+      label: "C7 o vértebra prominente"
+      granularity: individual_transitional_vertebra
+      region: cervical
+      definition: >-
+        Séptima vértebra cervical con rasgos transicionales; puede clasificarse
+        como típica o atípica según la convención anatómica utilizada.
+      discriminating_features:
+        - proceso espinoso largo y habitualmente no bífido
+        - foramen transverso pequeño con trayecto arterial variable
+        - transición morfológica hacia la región torácica
+      aliases: [C7, vertebra prominens, séptima vértebra cervical]
+      source_refs: [gm-source-statpearls-cervical-vertebrae-2026]
+      epistemic_note: La clasificación típica versus atípica de C7 no es universal; el nodo conserva explícitamente esa variación.
+    - id: gm-anatomy-thoracic-typical
+      label: "Patrón torácico típico (T5–T8 representativas)"
+      granularity: regional_morphotype
+      region: thoracic
+      definition: >-
+        Morfotipo torácico típico representado con mayor claridad por T5 a T8
+        y caracterizado por superficies articulares para las costillas.
+      discriminating_features:
+        - facetas o hemifacetas costales
+        - cuerpo de contorno aproximadamente cardíaco y foramen relativamente circular
+        - proceso espinoso largo con dirección posteroinferior
+      aliases: [torácica típica, patrón torácico medio]
+      source_refs: [gm-source-statpearls-thoracic-vertebrae-2026]
+    - id: gm-anatomy-thoracic-atypical
+      label: "Vértebras torácicas atípicas"
+      granularity: regional_exception_set
+      region: thoracic
+      definition: >-
+        Conjunto de vértebras torácicas cuyo patrón de facetas costales o su
+        morfología transicional difiere del patrón torácico medio.
+      members:
+        fixed: [T1, T11, T12]
+        variable_or_transitional: [T9, T10]
+      discriminating_features:
+        - T1 posee una faceta costal superior completa y hemifaceta inferior
+        - T11 y T12 poseen facetas costales completas y carecen de facetas costales transversas
+        - T10 y el patrón de T9 pueden variar; T12 es transicional hacia lumbar
+      aliases: [torácicas especiales, torácicas transicionales]
+      source_refs: [gm-source-statpearls-thoracic-vertebrae-2026]
+      epistemic_note: T9 y T10 se conservan como patrón variable, no como una lista rígida universal.
+    - id: gm-anatomy-lumbar-typical-l1-l4
+      label: "Vértebras lumbares típicas (L1–L4)"
+      granularity: regional_morphotype
+      region: lumbar
+      definition: >-
+        Morfotipo lumbar de L1 a L4, adaptado a carga axial y a flexión-extensión
+        con restricción relativa de la rotación axial.
+      discriminating_features:
+        - cuerpo vertebral grande
+        - proceso espinoso corto, grueso y casi horizontal
+        - facetas con orientación predominantemente sagital y procesos mamilares
+      aliases: [lumbar típica, L1-L4]
+      source_refs: [gm-source-statpearls-lumbar-vertebrae-2026]
+    - id: gm-anatomy-lumbar-l5
+      label: "L5"
+      granularity: individual_transitional_vertebra
+      region: lumbar
+      definition: >-
+        Quinta vértebra lumbar, de morfología adaptada a la transición
+        lumbosacra y considerada la principal vértebra lumbar atípica.
+      discriminating_features:
+        - cuerpo y procesos transversos de gran tamaño
+        - altura anterior del cuerpo mayor que la posterior
+        - contribución al ángulo lumbosacro
+      aliases: [quinta vértebra lumbar]
+      source_refs: [gm-source-statpearls-lumbar-vertebrae-2026]
+    - id: gm-anatomy-sacrum
+      label: "Sacro"
+      granularity: fused_vertebral_complex
+      region: sacral
+      definition: >-
+        Complejo óseo triangular formado habitualmente por cinco vértebras
+        sacras fusionadas y atravesado por el canal y los forámenes sacros.
+      discriminating_features:
+        - cinco segmentos fusionados en el patrón habitual
+        - canal sacro y hiato sacro
+        - cuatro pares de forámenes sacros anteriores y posteriores
+      aliases: [vértebras sacras fusionadas, S1-S5]
+      source_refs: [gm-source-statpearls-sacral-vertebrae-2023]
+    - id: gm-anatomy-coccyx
+      label: "Cóccix"
+      granularity: fused_or_partly_fused_vertebral_complex
+      region: coccygeal
+      definition: >-
+        Porción terminal de la columna formada habitualmente por tres a cinco
+        segmentos coccygeales, con cuatro como patrón frecuente y fusión variable.
+      discriminating_features:
+        - tres a cinco segmentos con frecuencia cuatro
+        - reducción progresiva de tamaño hacia caudal
+        - ausencia del patrón completo de pedículos, láminas y proceso espinoso
+      aliases: [vértebras coccygeales, Co1-Co4]
+      source_refs: [gm-source-statpearls-coccygeal-vertebrae-2023]
+  relations:
+    - {id: gm-rel-atlas-subtype-vertebra, source: gm-anatomy-atlas-c1, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-axis-subtype-vertebra, source: gm-anatomy-axis-c2, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-cervical-typical-subtype-vertebra, source: gm-anatomy-cervical-typical-c3-c6, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-c7-subtype-vertebra, source: gm-anatomy-cervical-c7, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-thoracic-typical-subtype-vertebra, source: gm-anatomy-thoracic-typical, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-thoracic-vertebrae-2026]}
+    - {id: gm-rel-thoracic-atypical-subtype-vertebra, source: gm-anatomy-thoracic-atypical, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-thoracic-vertebrae-2026]}
+    - {id: gm-rel-lumbar-typical-subtype-vertebra, source: gm-anatomy-lumbar-typical-l1-l4, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-lumbar-vertebrae-2026]}
+    - {id: gm-rel-l5-subtype-vertebra, source: gm-anatomy-lumbar-l5, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-lumbar-vertebrae-2026]}
+    - {id: gm-rel-sacrum-subtype-vertebra, source: gm-anatomy-sacrum, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-sacral-vertebrae-2023]}
+    - {id: gm-rel-coccyx-subtype-vertebra, source: gm-anatomy-coccyx, target: gm-anatomy-vertebra-general, relation_type: anatomical_subtype_of, source_refs: [gm-source-statpearls-coccygeal-vertebrae-2023]}
+    - {id: gm-rel-atlas-enables-regional-classification, source: gm-anatomy-atlas-c1, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-axis-enables-regional-classification, source: gm-anatomy-axis-c2, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-cervical-typical-enables-regional-classification, source: gm-anatomy-cervical-typical-c3-c6, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-c7-enables-regional-classification, source: gm-anatomy-cervical-c7, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-thoracic-typical-enables-regional-classification, source: gm-anatomy-thoracic-typical, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-thoracic-vertebrae-2026]}
+    - {id: gm-rel-thoracic-atypical-enables-regional-classification, source: gm-anatomy-thoracic-atypical, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-thoracic-vertebrae-2026]}
+    - {id: gm-rel-lumbar-typical-enables-regional-classification, source: gm-anatomy-lumbar-typical-l1-l4, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-lumbar-vertebrae-2026]}
+    - {id: gm-rel-l5-enables-regional-classification, source: gm-anatomy-lumbar-l5, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-lumbar-vertebrae-2026]}
+    - {id: gm-rel-sacrum-enables-regional-classification, source: gm-anatomy-sacrum, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-sacral-vertebrae-2023]}
+    - {id: gm-rel-coccyx-enables-regional-classification, source: gm-anatomy-coccyx, target: gm-ma-clasificar-vertebra-por-region, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-coccygeal-vertebrae-2023]}
+    - {id: gm-rel-atlas-enables-atypical-recognition, source: gm-anatomy-atlas-c1, target: gm-ma-reconocer-vertebras-atipicas, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-axis-enables-atypical-recognition, source: gm-anatomy-axis-c2, target: gm-ma-reconocer-vertebras-atipicas, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-c7-enables-atypical-recognition, source: gm-anatomy-cervical-c7, target: gm-ma-reconocer-vertebras-atipicas, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-cervical-vertebrae-2026]}
+    - {id: gm-rel-thoracic-atypical-enables-atypical-recognition, source: gm-anatomy-thoracic-atypical, target: gm-ma-reconocer-vertebras-atipicas, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-thoracic-vertebrae-2026]}
+    - {id: gm-rel-l5-enables-atypical-recognition, source: gm-anatomy-lumbar-l5, target: gm-ma-reconocer-vertebras-atipicas, relation_type: enables_mastery_of, source_refs: [gm-source-anatomical-society-regional-anatomy-syllabus-2016, gm-source-statpearls-lumbar-vertebrae-2026]}
+
+objective_hierarchy:
+  - id: gm-ko-columna-vertebral-morfologia-regional
+    level: key_objective
+    source_outcomes: [43]
+    title: "Morfología regional de las vértebras"
+    objective: >-
+      Analiza la morfología de una vértebra para determinar su región y su
+      carácter típico o atípico.
+    rationale_for_split: >-
+      El resultado 43 combina clasificación regional e identificación de
+      vértebras atípicas; ambas requieren muestreo diferente.
+    mastery_atoms:
+      - id: gm-ma-clasificar-vertebra-por-region
+        title: "Clasificar una vértebra por región"
+        learning_contract:
+          objective: >-
+            Clasifica una vértebra aislada como cervical, torácica, lumbar,
+            sacra o coccígea utilizando sus rasgos anatómicos discriminadores.
+          expected_performance: >-
+            El estudiante orienta el espécimen o imagen, identifica rasgos
+            regionales pertinentes y justifica una sola clasificación sin
+            depender de la memorización de una vista idéntica.
+          mastery_evidence: >-
+            Clasificación razonada de especímenes o imágenes representativos y
+            nuevos de las cinco regiones, con registro separado de errores de
+            orientación y discriminación.
+        evidence_levels: [A1, A2, A4]
+        evidence_object_refs:
+          - gm-anatomy-atlas-c1
+          - gm-anatomy-axis-c2
+          - gm-anatomy-cervical-typical-c3-c6
+          - gm-anatomy-cervical-c7
+          - gm-anatomy-thoracic-typical
+          - gm-anatomy-thoracic-atypical
+          - gm-anatomy-lumbar-typical-l1-l4
+          - gm-anatomy-lumbar-l5
+          - gm-anatomy-sacrum
+          - gm-anatomy-coccyx
+      - id: gm-ma-reconocer-vertebras-atipicas
+        title: "Reconocer atlas, axis y otras vértebras atípicas"
+        learning_contract:
+          objective: >-
+            Reconoce atlas, axis y otras vértebras atípicas relevantes a partir
+            de sus características distintivas.
+          expected_performance: >-
+            El estudiante identifica la pieza o imagen y señala los rasgos que
+            explican su clasificación y función regional.
+          mastery_evidence: >-
+            Identificación justificada en modelos o imágenes no idénticos a los
+            usados durante la enseñanza, incluyendo atlas y axis como muestras obligatorias.
+        evidence_levels: [A1, A2, A4]
+        evidence_object_refs:
+          - gm-anatomy-atlas-c1
+          - gm-anatomy-axis-c2
+          - gm-anatomy-cervical-c7
+          - gm-anatomy-thoracic-atypical
+          - gm-anatomy-lumbar-l5
+
+  - id: gm-ko-columna-vertebral-articulaciones-discos
+    level: key_objective
+    source_outcomes: [44]
+    title: "Articulaciones intervertebrales, discos y compresión neural"
+    objective: >-
+      Relaciona la estructura de las articulaciones y discos intervertebrales
+      con la transmisión de cargas, el movimiento y la compresión neurológica.
+    rationale_for_split: >-
+      Explicar biomecánica normal y predecir la consecuencia de una lesión
+      discal son desempeños que pueden aprobarse o fallarse por separado.
+    mastery_atoms:
+      - id: gm-ma-explicar-biomecanica-intervertebral
+        title: "Explicar la biomecánica intervertebral"
+        learning_contract:
+          objective: >-
+            Explica cómo los cuerpos vertebrales, discos y articulaciones
+            cigapofisarias distribuyen carga y guían el movimiento.
+          expected_performance: >-
+            El estudiante integra estructura y función sin convertir el disco
+            en el único elemento de estabilidad ni confundir articulaciones intercorporales y posteriores.
+          mastery_evidence: >-
+            Explicación causal aplicada a un segmento vertebral y predicción de
+            cómo cambia la carga o el movimiento al alterar uno de sus componentes.
+        evidence_levels: [A2, A3, A4]
+      - id: gm-ma-predecir-compresion-por-lesion-discal
+        title: "Predecir la compresión neural por una lesión discal"
+        learning_contract:
+          objective: >-
+            Predice la estructura neurológica susceptible de compresión a
+            partir del nivel y la dirección de una lesión discal.
+          expected_performance: >-
+            El estudiante usa las relaciones entre disco, canal, foramen y
+            raíces; no diagnostica una radiculopatía únicamente por dolor inespecífico.
+          mastery_evidence: >-
+            Localización razonada en casos anatómicos e imágenes con variación
+            de nivel, región y dirección de la lesión.
+        evidence_levels: [A2, A3, A4]
+
+  - id: gm-ko-columna-vertebral-curvaturas-movimiento-lesion
+    level: key_objective
+    source_outcomes: [45]
+    title: "Curvaturas, movimiento regional y lesiones"
+    objective: >-
+      Explica cómo la organización regional de la columna determina sus
+      curvaturas, movimientos y patrones de lesión.
+    rationale_for_split: >-
+      El resultado 45 reúne función global, movilidad regional y lesión; cada
+      componente necesita una tarea de transferencia diferente.
+    mastery_atoms:
+      - id: gm-ma-relacionar-curvaturas-con-funcion
+        title: "Relacionar las curvaturas con la función vertebral"
+        learning_contract:
+          objective: >-
+            Relaciona las curvaturas fisiológicas de la columna con soporte,
+            distribución de carga y equilibrio postural.
+          expected_performance: >-
+            El estudiante reconoce curvaturas regionales normales y explica su
+            contribución funcional sin confundir variación postural con deformidad estructural.
+          mastery_evidence: >-
+            Interpretación de modelos o imágenes sagitales y explicación de
+            las consecuencias funcionales de una alteración propuesta.
+        evidence_levels: [A1, A2, A3]
+      - id: gm-ma-predecir-movimiento-vertebral-regional
+        title: "Predecir el movimiento vertebral regional"
+        learning_contract:
+          objective: >-
+            Predice el movimiento predominante y sus limitaciones en una región
+            vertebral a partir de su anatomía articular y ligamentaria.
+          expected_performance: >-
+            El estudiante diferencia flexión, extensión, inclinación y rotación
+            regionales y justifica el patrón desde la geometría anatómica.
+          mastery_evidence: >-
+            Predicción razonada en regiones distintas y transferencia a una
+            postura o mecanismo de lesión nuevo.
+        evidence_levels: [A2, A3, A4]
+      - id: gm-ma-explicar-base-anatomica-lesion-vertebral
+        title: "Explicar la base anatómica de una lesión vertebral"
+        learning_contract:
+          objective: >-
+            Explica la base anatómica y la consecuencia estructural probable de
+            un mecanismo frecuente de lesión vertebral.
+          expected_performance: >-
+            El estudiante conecta fuerza, región, estructuras vulnerables y
+            posible inestabilidad sin pretender realizar una clasificación traumatológica completa.
+          mastery_evidence: >-
+            Resolución de escenarios variados, incluyendo al menos un mecanismo
+            cervical y uno toracolumbar, con justificación anatómica.
+        evidence_levels: [A2, A3, A4]
+
+  - id: gm-ko-columna-vertebral-superficie-estabilidad-examen
+    level: key_objective
+    source_outcomes: [46]
+    title: "Anatomía de superficie, estabilidad y examen de la espalda"
+    objective: >-
+      Aplica músculos, ligamentos y referencias superficiales para explicar la
+      estabilidad y realizar una exploración anatómica de la espalda.
+    rationale_for_split: >-
+      Identificar referencias, explicar función y ejecutar un examen son
+      desempeños diferentes y requieren modalidades de evaluación distintas.
+    mastery_atoms:
+      - id: gm-ma-identificar-referencias-superficiales-espalda
+        title: "Identificar referencias superficiales de la espalda"
+        learning_contract:
+          objective: >-
+            Identifica las referencias superficiales principales necesarias
+            para orientar un examen de la espalda.
+          expected_performance: >-
+            El estudiante localiza referencias en modelo o persona simulada y
+            reconoce la incertidumbre propia de la palpación y la variación corporal.
+          mastery_evidence: >-
+            Identificación observada en más de un cuerpo o simulador y
+            correlación con una representación anatómica subyacente.
+        evidence_levels: [A1, A3, A4]
+      - id: gm-ma-explicar-estabilidad-musculoligamentaria
+        title: "Explicar la estabilidad musculoligamentaria"
+        learning_contract:
+          objective: >-
+            Explica cómo los principales grupos musculares y ligamentos
+            contribuyen al movimiento y la estabilidad vertebral.
+          expected_performance: >-
+            El estudiante relaciona estructura, tensión y acción regional y
+            distingue estabilización activa de restricción ligamentaria pasiva.
+          mastery_evidence: >-
+            Explicación funcional aplicada a un movimiento y a una alteración
+            anatómica o lesión propuesta.
+        evidence_levels: [A2, A3, A4]
+      - id: gm-ma-realizar-examen-anatomico-espalda
+        title: "Realizar un examen anatómico estructurado de la espalda"
+        learning_contract:
+          objective: >-
+            Realiza una exploración anatómica estructurada de la espalda
+            utilizando referencias superficiales, alineación y movimiento.
+          expected_performance: >-
+            El estudiante inspecciona, orienta, palpa cuando corresponda y
+            evalúa movimientos de manera sistemática en una persona simulada;
+            este nodo no certifica diagnóstico musculoesquelético completo.
+          mastery_evidence: >-
+            Observación directa con checklist y transferencia a una persona o
+            simulador con anatomía superficial diferente.
+        evidence_levels: [A3, A4]
+
+  - id: gm-ko-columna-vertebral-meninges-procedimientos
+    level: key_objective
+    source_outcomes: [47]
+    title: "Meninges, raíces y procedimientos neuraxiales"
+    objective: >-
+      Aplica las relaciones entre canal vertebral, meninges, médula y raíces
+      para localizar compresión y planificar accesos neuraxiales seguros.
+    rationale_for_split: >-
+      Reconstruir compartimentos, planificar punción lumbar y diferenciar
+      accesos epidural e intratecal son decisiones evaluables independientes.
+    mastery_atoms:
+      - id: gm-ma-mapear-contenido-canal-vertebral
+        title: "Mapear el contenido del canal vertebral"
+        learning_contract:
+          objective: >-
+            Reconstruye las relaciones espaciales entre canal vertebral,
+            meninges, médula, cauda equina y raíces espinales.
+          expected_performance: >-
+            El estudiante orienta cortes y niveles y distingue espacios
+            epidural, subdural potencial y subaracnoideo sin tratarlos como equivalentes.
+          mastery_evidence: >-
+            Reconstrucción correcta en diagramas y cortes de distinta
+            orientación, seguida de aplicación a un escenario clínico o procedimental.
+        evidence_levels: [A1, A2, A3, A4]
+      - id: gm-ma-planificar-acceso-puncion-lumbar
+        title: "Planificar anatómicamente una punción lumbar"
+        learning_contract:
+          objective: >-
+            Selecciona un nivel y trayecto anatómico apropiados para una punción
+            lumbar simulada y justifica las estructuras atravesadas y evitadas.
+          expected_performance: >-
+            El estudiante usa referencias superficiales y la terminación
+            relativa de la médula y el saco dural; no ejecuta ni indica el
+            procedimiento sobre un paciente real dentro de este nodo.
+          mastery_evidence: >-
+            Planificación verbal y demostrada en simulador o imagen, incluyendo
+            una variante anatómica o dificultad de palpación.
+        evidence_levels: [A2, A3, A4]
+      - id: gm-ma-diferenciar-acceso-epidural-intratecal
+        title: "Diferenciar accesos epidural e intratecal"
+        learning_contract:
+          objective: >-
+            Diferencia el objetivo anatómico, los límites y las estructuras
+            relevantes de un acceso epidural frente a uno intratecal.
+          expected_performance: >-
+            El estudiante localiza ambos espacios en cortes o simuladores y
+            predice la consecuencia de una profundidad o trayectoria incorrecta.
+          mastery_evidence: >-
+            Comparación aplicada en representaciones multimodales y resolución
+            de un escenario de colocación errónea.
+        evidence_levels: [A1, A2, A3, A4]
+
+  - id: gm-ko-columna-vertebral-nervio-espinal
+    level: key_objective
+    source_outcomes: [48]
+    title: "Formación y distribución de un nervio espinal"
+    objective: >-
+      Reconstruye un nervio espinal típico y relaciona sus componentes con la
+      distribución motora, cutánea y autonómica.
+    rationale_for_split: >-
+      Trazar la arquitectura del nervio y usarla para inferir un déficit son
+      desempeños diferentes.
+    mastery_atoms:
+      - id: gm-ma-trazar-nervio-espinal-tipico
+        title: "Trazar un nervio espinal típico"
+        learning_contract:
+          objective: >-
+            Traza la formación de un nervio espinal típico desde las raíces
+            dorsal y ventral hasta sus principales ramos.
+          expected_performance: >-
+            El estudiante mantiene la distinción entre raíz, ganglio, nervio
+            espinal y ramos y asigna correctamente componentes funcionales básicos.
+          mastery_evidence: >-
+            Reconstrucción en diagrama y corte anatómico, seguida de
+            identificación de un punto de lesión propuesto.
+        evidence_levels: [A1, A2, A3]
+      - id: gm-ma-inferir-deficit-nervio-espinal
+        title: "Inferir un déficit desde la anatomía del nervio espinal"
+        learning_contract:
+          objective: >-
+            Infiere el patrón funcional esperado de una lesión localizada en
+            una raíz, nervio espinal o ramo principal.
+          expected_performance: >-
+            El estudiante diferencia componentes motores, sensitivos y
+            autonómicos y evita equiparar automáticamente raíz con nervio periférico.
+          mastery_evidence: >-
+            Localización razonada en casos nuevos que varían el sitio de lesión
+            y la información clínica disponible.
+        evidence_levels: [A2, A3, A4]
+
+  - id: gm-ko-columna-vertebral-imagen
+    level: key_objective
+    source_outcomes: [49]
+    title: "Imagen anatómica de la columna vertebral"
+    objective: >-
+      Interpreta la anatomía de la columna vertebral en modalidades de imagen
+      estándar y la aplica a orientación, alineación y procedimientos.
+    rationale_for_split: >-
+      El desempeño en radiografía no garantiza desempeño en imagen seccional o
+      ultrasonido; las modalidades se muestrean por separado.
+    mastery_atoms:
+      - id: gm-ma-interpretar-radiografia-columna
+        title: "Interpretar la anatomía vertebral en radiografía"
+        learning_contract:
+          objective: >-
+            Orienta una radiografía de columna e identifica región, alineación
+            y estructuras óseas principales.
+          expected_performance: >-
+            El estudiante reconoce proyección y nivel y distingue variación de
+            una alteración anatómica evidente sin realizar un informe radiológico completo.
+          mastery_evidence: >-
+            Lectura estructurada de proyecciones y regiones diferentes,
+            incluyendo una imagen nueva con alteración de alineación.
+        evidence_levels: [A1, A3, A4]
+      - id: gm-ma-interpretar-ct-mri-columna
+        title: "Interpretar la anatomía vertebral en CT y MRI"
+        learning_contract:
+          objective: >-
+            Localiza estructuras óseas, discales, del canal y neurales en cortes
+            de CT y MRI de la columna vertebral.
+          expected_performance: >-
+            El estudiante orienta plano y nivel, reconoce qué estructuras
+            muestra mejor cada modalidad y correlaciona hallazgos anatómicos básicos.
+          mastery_evidence: >-
+            Identificación y localización en cortes axiales y sagitales nuevos
+            de más de una región vertebral.
+        evidence_levels: [A1, A2, A3, A4]
+      - id: gm-ma-identificar-ultrasonido-neuraxial
+        title: "Identificar referencias neuraxiales en ultrasonido"
+        learning_contract:
+          objective: >-
+            Identifica referencias vertebrales y neuraxiales principales en un
+            ultrasonido orientado a la planificación de acceso lumbar.
+          expected_performance: >-
+            El estudiante reconoce orientación, línea media, interespacio y
+            profundidad aproximada en imágenes o simulador; no certifica adquisición autónoma en pacientes.
+          mastery_evidence: >-
+            Interpretación de imágenes estáticas y demostración guiada en
+            simulador con variación de ventana acústica.
+        evidence_levels: [A1, A3, A4]
+
+integrating_assemblies:
+  - id: gm-pa-examinar-espalda
+    type: professional_activity_candidate
+    title: "Realizar una exploración anatómica de la espalda"
+    member_refs:
+      - gm-ma-relacionar-curvaturas-con-funcion
+      - gm-ma-predecir-movimiento-vertebral-regional
+      - gm-ma-identificar-referencias-superficiales-espalda
+      - gm-ma-explicar-estabilidad-musculoligamentaria
+      - gm-ma-realizar-examen-anatomico-espalda
+      - gm-ma-interpretar-radiografia-columna
+    boundary: Desempeño simulado; no constituye diagnóstico clínico completo.
+  - id: gm-dp-localizar-compresion-raiz
+    type: decision_pattern_candidate
+    title: "Localizar anatómicamente una compresión radicular"
+    member_refs:
+      - gm-ma-predecir-compresion-por-lesion-discal
+      - gm-ma-mapear-contenido-canal-vertebral
+      - gm-ma-trazar-nervio-espinal-tipico
+      - gm-ma-inferir-deficit-nervio-espinal
+      - gm-ma-interpretar-ct-mri-columna
+    boundary: Localización anatómica; no cubre diagnóstico diferencial ni tratamiento completo.
+  - id: gm-pa-planificar-puncion-lumbar
+    type: professional_activity_candidate
+    title: "Planificar anatómicamente una punción lumbar"
+    member_refs:
+      - gm-ma-identificar-referencias-superficiales-espalda
+      - gm-ma-mapear-contenido-canal-vertebral
+      - gm-ma-planificar-acceso-puncion-lumbar
+      - gm-ma-diferenciar-acceso-epidural-intratecal
+      - gm-ma-identificar-ultrasonido-neuraxial
+    boundary: Planificación y simulación; indicación, consentimiento, asepsia, ejecución y complicaciones pertenecen a otros clusters.
+
+route_templates:
+  - id: gm-route-columna-vertebral-preclinica
+    title: "Dominar la anatomía de la columna vertebral"
+    target: gm-cluster-columna-vertebral
+    tag: ROUTE-PRECLINICAL-MASTERY
+    suggested_sequence:
+      - gm-ma-clasificar-vertebra-por-region
+      - gm-ma-reconocer-vertebras-atipicas
+      - gm-ma-explicar-biomecanica-intervertebral
+      - gm-ma-relacionar-curvaturas-con-funcion
+      - gm-ma-predecir-movimiento-vertebral-regional
+      - gm-ma-explicar-estabilidad-musculoligamentaria
+      - gm-ma-mapear-contenido-canal-vertebral
+      - gm-ma-trazar-nervio-espinal-tipico
+      - gm-ma-interpretar-radiografia-columna
+      - gm-ma-interpretar-ct-mri-columna
+  - id: gm-route-columna-vertebral-procedimientos
+    title: "Anatomía aplicada a punción lumbar y acceso neuraxial"
+    target: gm-pa-planificar-puncion-lumbar
+    tag: ROUTE-CASE-PERFORMANCE
+    suggested_sequence:
+      - gm-ma-clasificar-vertebra-por-region
+      - gm-ma-identificar-referencias-superficiales-espalda
+      - gm-ma-mapear-contenido-canal-vertebral
+      - gm-ma-planificar-acceso-puncion-lumbar
+      - gm-ma-diferenciar-acceso-epidural-intratecal
+      - gm-ma-identificar-ultrasonido-neuraxial
+  - id: gm-route-columna-vertebral-compresion
+    title: "Disco, raíz y localización neurológica"
+    target: gm-dp-localizar-compresion-raiz
+    tag: ROUTE-CASE-PERFORMANCE
+    suggested_sequence:
+      - gm-ma-explicar-biomecanica-intervertebral
+      - gm-ma-mapear-contenido-canal-vertebral
+      - gm-ma-trazar-nervio-espinal-tipico
+      - gm-ma-predecir-compresion-por-lesion-discal
+      - gm-ma-inferir-deficit-nervio-espinal
+      - gm-ma-interpretar-ct-mri-columna
+
+quality_counts:
+  source_outcomes: 7
+  key_objectives: 7
+  mastery_atoms: 18
+  integrating_assemblies: 3
+  route_templates: 3
+  knowledge_entities: 11
+  vertebral_morphotypes: 10
+  knowledge_relations: 25
+
+open_questions:
+  - Definir si ultrasonido neuraxial permanece en este cluster o en un cluster procedimental separado.
+  - Definir el conjunto mínimo de vértebras atípicas más allá de atlas y axis.
+  - Separar CT y MRI si la evaluación demuestra independencia material entre ambas modalidades.
+  - Conectar las entidades vertebrales con nodos de imagen solo después de source-lockear ejemplos radiográficos, CT y MRI concretos.
+  - Establecer estándares de muestreo y errores críticos mediante revisión anatómica y piloto.
+  - Mapear las actividades integradoras a códigos AAMC Core EPA y CanMEDS específicos cuando exista el registro source-locked correspondiente.

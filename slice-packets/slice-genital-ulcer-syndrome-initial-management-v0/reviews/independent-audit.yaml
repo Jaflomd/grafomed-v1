@@ -1,0 +1,19 @@
+schema: grafomed-review.v1
+id: gm-review-gud-ghost-v0
+domain: independent_audit
+responsible_agent: ghost
+review_context_independent_of_producer: false
+status: pending_separate_review
+producer_precheck:
+  status: not_an_independent_audit
+  requested_checks:
+    - contradictions across MINSA, WHO, CDC, and the historic Peru study
+    - source rights and prohibited reproduction
+    - provenance completeness and hidden placeholder fields
+    - medical safety, false certainty, and jurisdiction leakage
+    - route Goodhart risks and learner-state overclaiming
+    - confirmation that no legacy project, graph, or front was migrated
+approval: null
+final_internal_promotion_recommendation: null
+promotion_effect: blocking_until_true_independent_context_passes
+

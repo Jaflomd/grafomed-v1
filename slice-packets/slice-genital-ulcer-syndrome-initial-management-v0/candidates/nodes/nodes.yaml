@@ -1,0 +1,482 @@
+nodes:
+  - schema: grafomed-object.v1
+    id: gm-clinical-finding-anogenital-ulcer
+    object_type: clinical_finding
+    layer: medical_truth
+    label: Anogenital ulcer presentation
+    definition: A break in genital, anal, or perianal skin or mucosa that may present as an ulcer, sore, erosion, or vesicular lesion and may be painful or painless.
+    aliases: [genital ulcer, genital sore, perianal ulcer, anogenital ulcer disease presentation]
+    boundaries:
+      - This object names the presenting finding, not its etiology.
+      - Oral ulcers and isolated anorectal discharge are outside this first slice unless an anogenital ulcer is also present.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.85, provenance: source_synthesis}
+      - {axis: organ_system, code: SYS-INTEGUMENTARY, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: organ_system, code: SYS-REPRODUCTIVE, role: secondary, weight: 0.7, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-RECOGNITION, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-01}
+    provenance: &provenance
+      created_by: mia
+      created_at: "2026-08-26T16:20:00-05:00"
+      packet_id: slice-genital-ulcer-syndrome-initial-management-v0
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: &new_global
+      exact_id: no_existing_id_found_in_clean_graph
+      alias_full_text: no_existing_graph_object_found
+      semantic_neighbor: graph_was_empty_before_this_packet
+      reuse_classification: global
+      result: new_candidate
+
+  - schema: grafomed-object.v1
+    id: gm-condition-genital-herpes
+    object_type: condition
+    layer: medical_truth
+    label: Genital herpes
+    definition: An anogenital HSV infection that may cause vesicular, ulcerative, painful, recurrent, atypical, or clinically unrecognized disease.
+    aliases: [anogenital herpes, genital HSV infection]
+    boundaries:
+      - HSV-1 and HSV-2 typing may affect prognosis and counseling but are not separate nodes in this slice.
+      - Recurrent and suppressive management are outside the first-visit pathway.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02, CLM-GUD-12]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.85, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: preclinical_discipline, code: PRECLIN-MICROBIOLOGY, role: bridge, weight: 0.45, provenance: source_synthesis}
+      - {axis: organ_system, code: SYS-INTEGUMENTARY, role: primary, weight: 0.8, provenance: source_synthesis}
+      - {axis: organ_system, code: SYS-REPRODUCTIVE, role: secondary, weight: 0.7, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-DIFFERENTIAL, role: primary, weight: 0.85, provenance: objective_OBJ-GUD-02}
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    duplicate_reuse_check:
+      <<: *new_global
+      reuse_classification: global
+
+  - schema: grafomed-object.v1
+    id: gm-condition-primary-syphilis
+    object_type: condition
+    layer: medical_truth
+    label: Primary syphilis
+    definition: The early stage of acquired syphilis in which an inoculation-site lesion may be present before serologic tests become reactive.
+    learning_contract:
+      objective: Prioritize primary syphilis within the differential diagnosis of an anogenital ulcer using presentation, exposure, and timing data while preserving diagnostic uncertainty.
+      expected_performance: The learner recognizes classic and atypical primary-syphilis presentations, treats morphology as suggestive rather than definitive, and keeps very early infection plausible after a nonreactive early serology. This node is limited to the genital-ulcer branch at the first visit and does not include staging or definitive treatment.
+      mastery_evidence: In a first-visit vignette, the learner places primary syphilis at an appropriate differential priority and explicitly avoids ruling it in or out solely from classic morphology or an early nonreactive serology.
+    aliases: [primary Treponema pallidum infection, syphilitic chancre]
+    boundaries:
+      - This slice addresses primary syphilis only as a genital-ulcer cause and first-visit management branch.
+      - Secondary, latent, congenital, ocular, otic, and neurosyphilis require separate pathways.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    claim_refs: [CLM-GUD-01, CLM-GUD-02, CLM-GUD-06, CLM-GUD-12]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.8, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: preclinical_discipline, code: PRECLIN-MICROBIOLOGY, role: bridge, weight: 0.45, provenance: source_synthesis}
+      - {axis: organ_system, code: SYS-MULTISYSTEM, role: secondary, weight: 0.7, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-DIFFERENTIAL, role: primary, weight: 0.85, provenance: objective_OBJ-GUD-02}
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    duplicate_reuse_check:
+      <<: *new_global
+      reuse_classification: global
+
+  - schema: grafomed-object.v1
+    id: gm-test-syphilis-evaluation-in-gud
+    object_type: test
+    layer: medical_truth
+    label: Syphilis evaluation in anogenital ulcer disease
+    definition: Contextual use of treponemal and nontreponemal serology, and lesion direct testing when available, to evaluate syphilis without falsely excluding very early infection.
+    learning_contract:
+      objective: Formulate an initial syphilis-testing plan for a person with an anogenital ulcer that accounts for timing, prior treatment, available methods, and residual uncertainty.
+      expected_performance: The learner selects the appropriate treponemal and nontreponemal serologic evaluation, considers direct lesion testing when available, and interprets results in relation to exposure and lesion timing. This node excludes complete staging and post-treatment serologic monitoring.
+      mastery_evidence: Given a first-visit case and available tests, the learner proposes an appropriate evaluation, interprets an early nonreactive result without closing the syphilis branch, and defines the required repeat testing or follow-up.
+    aliases: [syphilis testing in genital ulcer, treponemal and RPR evaluation]
+    boundaries:
+      - A single early negative serology is not an exclusion edge.
+      - Full staging and post-treatment serologic monitoring are outside this slice.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-03, CLM-GUD-04, CLM-GUD-06]
+    tags:
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-CLINICAL-PATHOLOGY, role: secondary, weight: 0.7, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-DIAGNOSIS, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-03}
+    competency_refs: [AAMC-CORE-EPA-03, CANMEDS15-ME-EC-02.02]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check:
+      <<: *new_global
+      reuse_classification: transversal
+
+  - schema: grafomed-object.v1
+    id: gm-test-hsv-lesion-naat-or-culture
+    object_type: test
+    layer: medical_truth
+    label: HSV lesion NAAT or culture
+    definition: Direct virologic testing of an active anogenital lesion, preferably by type-specific NAAT when available and by culture when appropriate, to confirm HSV infection.
+    aliases: [HSV lesion PCR, genital herpes lesion test, HSV culture]
+    boundaries:
+      - A negative result from an older or healing lesion does not always exclude HSV.
+      - Type-specific serology is a separate contextual tool and is not a substitute for direct lesion testing when lesions are present.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    claim_refs: [CLM-GUD-03, CLM-GUD-04, CLM-GUD-12]
+    tags:
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-CLINICAL-PATHOLOGY, role: secondary, weight: 0.75, provenance: source_synthesis}
+      - {axis: preclinical_discipline, code: PRECLIN-MICROBIOLOGY, role: bridge, weight: 0.45, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-DIAGNOSIS, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-03}
+    competency_refs: [AAMC-CORE-EPA-03, CANMEDS15-ME-EC-02.02]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-WHO-STI-2021, SRC-CDC-GUD-2021, SRC-UW-STD-CURRICULUM-2026]
+    duplicate_reuse_check:
+      <<: *new_global
+      reuse_classification: transversal
+
+  - schema: grafomed-object.v1
+    id: gm-test-hiv-screening-in-gud
+    object_type: test
+    layer: medical_truth
+    label: HIV screening in anogenital ulcer disease
+    definition: Offering HIV testing as part of the first evaluation of a person with an anogenital ulcer when infection is not already known.
+    aliases: [HIV testing in genital ulcer, rapid HIV test in STI evaluation]
+    boundaries:
+      - This node does not encode the complete HIV diagnostic algorithm.
+      - Consent, confidentiality, and local testing procedures remain mandatory.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-03]
+    tags:
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.85, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-PUBLIC-HEALTH, role: secondary, weight: 0.7, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-PREVENTION, role: primary, weight: 0.8, provenance: objective_OBJ-GUD-03}
+    competency_refs: [AAMC-CORE-EPA-03, CANMEDS15-ME-EC-02.02]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check:
+      <<: *new_global
+      reuse_classification: transversal
+
+  - schema: grafomed-object.v1
+    id: gm-decision-gud-diagnosis-confirmation
+    object_type: decision_atom
+    layer: medical_truth
+    label: D - Select the initial genital-ulcer diagnostic workup
+    definition: Commit to the first evaluation bundle that can distinguish etiologies and alter same-day management without treating morphology as diagnosis.
+    trigger: A genital, anal, or perianal ulcer is confirmed on examination.
+    actor: clinician or supervised learner
+    inputs:
+      - medical and sexual history, including timing, recurrence, exposures, prior syphilis treatment, and pregnancy or immunocompromise context
+      - genital and anal examination with lesion morphology and distribution
+      - local availability and turnaround of quality-assured lesion molecular testing
+      - availability and interpretation of syphilis and HIV testing
+    alternatives:
+      - same-day lesion molecular testing plus syphilis serology and HIV testing
+      - delayed lesion testing with same-day syndromic management and later revision
+      - no lesion molecular capacity with syndromic management and targeted referral
+      - immediate escalation for unusual, persistent, severe, or special-population presentation
+    discriminators:
+      - confirmed ulcer versus no ulcer
+      - same-day actionable result versus delayed or unavailable result
+      - early negative syphilis serology with ongoing clinical possibility
+      - recurrent or vesicular lesion pattern without assuming certainty
+    output: A documented initial diagnostic bundle and explicit residual uncertainty.
+    downstream_consequence: The result and resource state determine the actionable context and same-day treatment branch.
+    error_costs:
+      - missed infectious syphilis or delayed HSV treatment
+      - false etiologic certainty from morphology
+      - avoidable testing or failure to test for HIV
+      - failure to recognize a non-STI or escalation condition
+    assessment_evidence: [MCQ-GUD-01, MCQ-GUD-02, MCQ-GUD-03]
+    boundaries:
+      - This is an educational decision atom, not patient-specific decision support.
+      - Exact tests depend on jurisdiction and operational laboratory quality.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-02, CLM-GUD-03, CLM-GUD-04, CLM-GUD-06]
+    tags: &decision_tags
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.8, provenance: source_synthesis}
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-DIAGNOSIS, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-03}
+      - {axis: learning_function, code: FUNC-SAFETY, role: secondary, weight: 0.7, provenance: uncertainty_register}
+      - {axis: competency_framework, code: COMP-AAMC-CORE-EPA, role: secondary, weight: 0.7, provenance: competency_alignment}
+      - {axis: competency_framework, code: COMP-CANMEDS-2015, role: secondary, weight: 0.7, provenance: competency_alignment}
+    competency_refs: [AAMC-CORE-EPA-01, AAMC-CORE-EPA-02, AAMC-CORE-EPA-03, CANMEDS15-ME-EC-01.04, CANMEDS15-ME-EC-01.06, CANMEDS15-ME-EC-02.02]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: &new_decision
+      exact_id: no_existing_id_found_in_clean_graph
+      alias_full_text: no_existing_graph_object_found
+      semantic_neighbor: graph_was_empty_before_this_packet
+      reuse_classification: decision_pattern_instantiation
+      result: new_candidate
+
+  - schema: grafomed-object.v1
+    id: gm-decision-gud-actionable-context
+    object_type: decision_atom
+    layer: medical_truth
+    label: E - Classify the actionable genital-ulcer context
+    definition: Classify only the resource and clinical states that change initial conduct.
+    trigger: The initial ulcer evaluation bundle has been selected or results are available.
+    actor: clinician or supervised learner
+    inputs:
+      - same-day molecular and serologic result availability
+      - recurrence or vesicular pattern and recent syphilis-treatment history
+      - persistence, atypia, severity, pregnancy, immunocompromise, neurologic or ocular symptoms, and local epidemiology
+    alternatives:
+      - same-day etiologic-result state
+      - limited, delayed, or no molecular-testing state
+      - persistent, unusual, severe, or special-population escalation state
+      - no confirmed ulcer state
+    discriminators:
+      - whether a result can change treatment during the visit
+      - whether the course or host context exceeds a first-level syndrome pathway
+      - whether an ulcer is actually present
+    output: One actionable state with the context that justifies it.
+    downstream_consequence: The state controls treatment, referral, and follow-up choices.
+    error_costs:
+      - applying a high-resource algorithm where testing is unavailable
+      - treating a special population with an unqualified general pathway
+      - failing to escalate a persistent or unusual ulcer
+    assessment_evidence: [MCQ-GUD-03, MCQ-GUD-05]
+    boundaries:
+      - This is not a severity scale and does not invent cutoffs unsupported by the sources.
+      - Pregnancy and immunocompromise are escalation contexts, not fully modeled subroutes.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-04, CLM-GUD-05, CLM-GUD-09, CLM-GUD-10]
+    tags:
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-STRATIFICATION, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-04}
+      - {axis: learning_function, code: FUNC-SAFETY, role: secondary, weight: 0.75, provenance: uncertainty_register}
+      - {axis: competency_framework, code: COMP-CANMEDS-2015, role: secondary, weight: 0.65, provenance: competency_alignment}
+    competency_refs: [AAMC-CORE-EPA-02, CANMEDS15-ME-EC-01.06, CANMEDS15-ME-EC-03.03]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: *new_decision
+
+  - schema: grafomed-object.v1
+    id: gm-decision-gud-same-day-treatment
+    object_type: decision_atom
+    layer: medical_truth
+    label: T - Commit to same-day etiologic, syndromic, or escalation management
+    definition: Select the first management state using the actionable context rather than waiting reflexively or applying one protocol universally.
+    trigger: An actionable context has been classified.
+    actor: licensed clinician or supervised learner under local policy
+    inputs:
+      - same-day actionable test results
+      - jurisdiction-specific protocol
+      - molecular-test availability and turnaround
+      - lesion pattern, prior syphilis treatment, allergies, contraindications, pregnancy, and immune status
+    alternatives:
+      - treat according to same-day etiologic results and revise when new results arrive
+      - provide same-day syndromic coverage for syphilis and HSV under the applicable protocol
+      - provide suspicion-based presumptive treatment while testing under the applicable protocol
+      - escalate before routine first-level treatment when a boundary is crossed
+    discriminators:
+      - Peru NTS 240 first-level syndromic pathway versus WHO or CDC contexts
+      - same-day quality-assured molecular results versus delayed or absent results
+      - recent syphilis treatment and recurrent or vesicular presentation
+      - allergy, pregnancy, immunocompromise, or atypical disease
+    output: A documented treatment or escalation commitment with rationale and uncertainty.
+    downstream_consequence: The person receives timely care, counseling, and a defined reassessment plan.
+    error_costs:
+      - delayed treatment and ongoing transmission
+      - inappropriate regimen from jurisdiction collapse
+      - avoidable adverse effects or contraindicated treatment
+      - failure to revisit management when delayed results arrive
+    assessment_evidence: [MCQ-GUD-03, MCQ-GUD-04]
+    boundaries:
+      - Exact drug and dose selection must be read from the current local protocol and patient context.
+      - This object does not encode recurrent suppression, neurosyphilis, pregnancy treatment, or complex allergy management.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-04, CLM-GUD-05, CLM-GUD-07, CLM-GUD-08]
+    tags:
+      - {axis: clinical_area, code: CLIN-INFECTIOUS-DISEASES, role: primary, weight: 0.9, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-TREATMENT, role: primary, weight: 0.95, provenance: objective_OBJ-GUD-04}
+      - {axis: learning_function, code: FUNC-SAFETY, role: secondary, weight: 0.75, provenance: uncertainty_register}
+      - {axis: competency_framework, code: COMP-AAMC-CORE-EPA, role: secondary, weight: 0.7, provenance: competency_alignment}
+      - {axis: competency_framework, code: COMP-CANMEDS-2015, role: secondary, weight: 0.7, provenance: competency_alignment}
+    competency_refs: [AAMC-CORE-EPA-04, CANMEDS15-ME-EC-02.04, CANMEDS15-ME-EC-03.01, CANMEDS15-ME-EC-03.03]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: *new_decision
+
+  - schema: grafomed-object.v1
+    id: gm-decision-gud-complication-escalation
+    object_type: decision_atom
+    layer: medical_truth
+    label: C - Identify complication and escalation actions
+    definition: Select which complications, host factors, and alternative causes require action during or after the first visit.
+    trigger: Initial treatment or escalation has been selected.
+    actor: clinician or supervised learner
+    inputs:
+      - severe pain, urinary retention, systemic illness, neurologic or ocular symptoms
+      - pregnancy, immunocompromise, HIV status, and medication safety context
+      - unusual morphology, persistent disease, trauma, carcinoma, aphthous or inflammatory disease, or drug eruption possibility
+    alternatives:
+      - routine safety-net within the bounded syndrome pathway
+      - urgent or specialty assessment
+      - biopsy or broader etiologic evaluation for unusual or nonresponsive ulcer
+    discriminators:
+      - instability or organ-threatening features
+      - high-risk host or pregnancy context
+      - failure of the course to fit or respond to the initial syndrome pathway
+    output: A documented escalation or complication-prevention plan.
+    downstream_consequence: Follow-up timing and destination match the risk rather than the presumed etiology alone.
+    error_costs:
+      - missed neurologic, ocular, malignant, inflammatory, or severe infectious disease
+      - delayed referral after nonresponse
+      - unsafe treatment in a special population
+    assessment_evidence: [MCQ-GUD-05, CASE-GUD-TRANSFER-01]
+    boundaries:
+      - Detailed management of each complication is outside this packet.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-09, CLM-GUD-10]
+    tags:
+      - {axis: clinical_area, code: CLIN-DERMATOLOGY, role: primary, weight: 0.8, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-COMPLICATIONS, role: primary, weight: 0.9, provenance: objective_OBJ-GUD-05}
+      - {axis: learning_function, code: FUNC-SAFETY, role: primary, weight: 0.85, provenance: uncertainty_register}
+    competency_refs: [CANMEDS15-ME-EC-01.06, CANMEDS15-ME-EC-04.01]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: *new_decision
+
+  - schema: grafomed-object.v1
+    id: gm-decision-gud-follow-up
+    object_type: decision_atom
+    layer: medical_truth
+    label: S - Set follow-up, result revision, and failure criteria
+    definition: Define when and how delayed results, symptom persistence, response, recurrence, and partner actions will change the plan.
+    trigger: Initial management and escalation actions have been selected.
+    actor: clinician or supervised learner
+    inputs:
+      - Peru seven-day reassessment requirement or applicable local follow-up interval
+      - pending laboratory results and mechanism for result review
+      - expected symptom course and treatment response
+      - partner-service and prevention needs
+    alternatives:
+      - planned seven-day clinical reassessment
+      - earlier reassessment for worsening or safety triggers
+      - result-triggered treatment revision
+      - specialist referral for persistence or nonresponse
+    discriminators:
+      - improvement or remission versus persistence or worsening
+      - actionable delayed result
+      - recurrence or course inconsistent with the working diagnosis
+    output: A time-bound follow-up and contingency plan understood by the patient.
+    downstream_consequence: Failure and new evidence return the pathway to D or E instead of leaving a closed diagnosis.
+    error_costs:
+      - lost results and untreated infection
+      - false reassurance after early negative testing
+      - prolonged transmission or delayed alternative diagnosis
+    assessment_evidence: [MCQ-GUD-05, CASE-GUD-TRANSFER-01]
+    boundaries:
+      - Longitudinal recurrent-HSV and syphilis-monitoring pathways are separate future slices.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-06, CLM-GUD-07, CLM-GUD-09, CLM-GUD-10]
+    tags:
+      - {axis: clinical_area, code: CLIN-FAMILY-MEDICINE, role: secondary, weight: 0.7, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-FOLLOWUP, role: primary, weight: 0.95, provenance: objective_OBJ-GUD-05}
+      - {axis: learning_function, code: FUNC-SAFETY, role: secondary, weight: 0.75, provenance: uncertainty_register}
+    competency_refs: [CANMEDS15-ME-EC-04.01]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: *new_decision
+
+  - schema: grafomed-object.v1
+    id: gm-decision-gud-prognosis-communication
+    object_type: decision_atom
+    layer: medical_truth
+    label: P - Communicate prognosis and uncertainty
+    definition: Decide what prognosis, prevention, uncertainty, confidentiality, and partner information must be communicated at the first visit.
+    trigger: A treatment and follow-up plan exists.
+    actor: clinician or supervised learner
+    inputs:
+      - confirmed versus presumed etiology
+      - possibility of absent laboratory confirmation or later result revision
+      - transmission, recurrence, symptom course, partner, and prevention implications
+      - patient preferences, privacy, stigma, and emotional response
+    alternatives:
+      - condition-specific counseling when etiology is confirmed
+      - uncertainty-centered counseling when treatment is syndromic or presumptive
+      - escalation counseling when serious or noninfectious alternatives remain
+    discriminators:
+      - certainty level and source of uncertainty
+      - immediate transmission or partner implications
+      - patient comprehension, values, privacy, and distress
+    output: A documented, patient-centered explanation with prevention and return instructions.
+    downstream_consequence: The person can act safely while the diagnosis and course evolve.
+    error_costs:
+      - stigma, breach of privacy, or unsupported certainty
+      - missed prevention and partner actions
+      - poor adherence or loss to follow-up
+    assessment_evidence: [MCQ-GUD-04, CASE-GUD-TRANSFER-01]
+    boundaries:
+      - This does not replace complete disease-specific counseling modules.
+    lifecycle: graph_drafted
+    evidence_status: source_locked_candidate
+    validation_status: structural_pass
+    review_status: pending
+    source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    claim_refs: [CLM-GUD-03, CLM-GUD-05, CLM-GUD-07, CLM-GUD-09]
+    tags:
+      - {axis: clinical_area, code: CLIN-FAMILY-MEDICINE, role: secondary, weight: 0.65, provenance: source_synthesis}
+      - {axis: learning_function, code: FUNC-COMMUNICATION, role: primary, weight: 0.95, provenance: objective_OBJ-GUD-05}
+      - {axis: learning_function, code: FUNC-PREVENTION, role: secondary, weight: 0.75, provenance: source_synthesis}
+    competency_refs: [CANMEDS15-COM-EC-01.01, CANMEDS15-COM-EC-01.02, CANMEDS15-ME-EC-02.04]
+    provenance:
+      <<: *provenance
+      source_refs: [SRC-MINSA-NTS240-2026, SRC-WHO-STI-2021, SRC-CDC-GUD-2021]
+    duplicate_reuse_check: *new_decision

@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>GrafoMed · Miembro superior</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="GrafoMed · Miembro superior" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;GrafoMed · Miembro superior&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;mia-miembro-superior-graph&quot;&gt;
+  &lt;style&gt;
+    #mia-miembro-superior-graph {
+      width: 100%;
+      color: var(--foreground);
+    }
+    #mia-miembro-superior-graph .graph-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    #mia-miembro-superior-graph .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted-foreground);
+    }
+    #mia-miembro-superior-graph .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+    #mia-miembro-superior-graph .graph-stage {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      min-height: 440px;
+    }
+    #mia-miembro-superior-graph .graph-stage canvas {
+      display: block;
+    }
+    #mia-miembro-superior-graph .graph-hint {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      color: var(--muted-foreground);
+      pointer-events: none;
+    }
+    #mia-miembro-superior-graph .node-detail {
+      margin-top: 12px;
+    }
+    #mia-miembro-superior-graph .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    #mia-miembro-superior-graph .detail-grid p {
+      margin: 4px 0 0;
+    }
+    #mia-miembro-superior-graph .detail-meta {
+      margin-top: 10px;
+    }
+    @media (max-width: 520px) {
+      #mia-miembro-superior-graph .graph-stage {
+        height: 480px;
+      }
+      #mia-miembro-superior-graph .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  &lt;/style&gt;
+
+  &lt;div class=&quot;graph-heading&quot;&gt;
+    &lt;h1&gt;Miembro superior · 108 nodos&lt;/h1&gt;
+    &lt;span class=&quot;text-small text-muted&quot;&gt;Borrador curricular&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;viz-row text-small&quot; aria-label=&quot;Leyenda del grafo&quot;&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-1)&quot;&gt;&lt;/span&gt;Cluster&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-2)&quot;&gt;&lt;/span&gt;Objetivo clave&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-3)&quot;&gt;&lt;/span&gt;Unidad evaluable&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-4)&quot;&gt;&lt;/span&gt;Actividad integradora&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-5)&quot;&gt;&lt;/span&gt;Anatomía&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div id=&quot;mia-miembro-superior-graph-stage&quot; class=&quot;graph-stage&quot; role=&quot;img&quot; aria-label=&quot;Grafo tridimensional de Miembro superior con 108 nodos y 293 relaciones.&quot;&gt;
+    &lt;div class=&quot;graph-hint text-small&quot;&gt;Arrastra para rotar · rueda para acercar · selecciona un nodo&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;section class=&quot;card node-detail&quot; aria-live=&quot;polite&quot; aria-labelledby=&quot;mia-miembro-superior-graph-detail-title&quot;&gt;
+    &lt;div class=&quot;text-small text-muted&quot; id=&quot;mia-miembro-superior-graph-detail-type&quot;&gt;Cluster&lt;/div&gt;
+    &lt;h2 id=&quot;mia-miembro-superior-graph-detail-title&quot;&gt;Miembro superior&lt;/h2&gt;
+    &lt;div class=&quot;detail-grid&quot;&gt;
+      &lt;div&gt;
+        &lt;strong id=&quot;mia-miembro-superior-graph-detail-objective-label&quot;&gt;Objetivo&lt;/strong&gt;
+        &lt;p id=&quot;mia-miembro-superior-graph-detail-objective&quot;&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;strong id=&quot;mia-miembro-superior-graph-detail-description-label&quot;&gt;Qué se espera&lt;/strong&gt;
+        &lt;p id=&quot;mia-miembro-superior-graph-detail-description&quot;&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;mia-miembro-superior-graph-detail-meta&quot; class=&quot;detail-meta text-small text-muted&quot;&gt;&lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/3d-force-graph@1.79.0/dist/3d-force-graph.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/three-spritetext@1.10.0/dist/three-spritetext.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;mia-miembro-superior-graph&#x27;);
+      const stage = document.getElementById(&#x27;mia-miembro-superior-graph-stage&#x27;);
+      const detailType = document.getElementById(&#x27;mia-miembro-superior-graph-detail-type&#x27;);
+      const detailTitle = document.getElementById(&#x27;mia-miembro-superior-graph-detail-title&#x27;);
+      const detailObjectiveLabel = document.getElementById(&#x27;mia-miembro-superior-graph-detail-objective-label&#x27;);
+      const detailDescriptionLabel = document.getElementById(&#x27;mia-miembro-superior-graph-detail-description-label&#x27;);
+      const detailObjective = document.getElementById(&#x27;mia-miembro-superior-graph-detail-objective&#x27;);
+      const detailDescription = document.getElementById(&#x27;mia-miembro-superior-graph-detail-description&#x27;);
+      const detailMeta = document.getElementById(&#x27;mia-miembro-superior-graph-detail-meta&#x27;);
+      const graphData = {&quot;nodes&quot;:[{&quot;id&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;type&quot;:&quot;cluster&quot;,&quot;title&quot;:&quot;Miembro superior&quot;,&quot;objective&quot;:&quot;Integra osteología, articulaciones, músculos, fascia, vasos, linfáticos y nervios del miembro superior para interpretar imágenes, explorar función y localizar consecuencias de lesiones frecuentes.&quot;,&quot;description&quot;:&quot;El estudiante identifica estructuras y relaciones, explica movimiento y estabilidad, reconstruye trayectos neurovasculares, localiza pulsos y acceso venoso, examina función motora y sensitiva, y aplica la anatomía a trauma, atrapamiento nervioso, infección y síndrome compartimental en simulación.&quot;,&quot;meta&quot;:&quot;10 objetivos clave · 33 unidades evaluables · 5 actividades integradoras · 59 nodos anatómicos&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-osteology-imaging&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Osteología e imagen del miembro superior&quot;,&quot;objective&quot;:&quot;Reconoce huesos, relaciones y lesiones frecuentes del miembro superior en especímenes e imágenes estándar.&quot;,&quot;description&quot;:&quot;Agrupa 3 unidades evaluables derivadas de los resultados fuente 50, 70.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 3 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-trauma-neurovascular&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Relaciones neurovasculares vulnerables en trauma&quot;,&quot;objective&quot;:&quot;Localiza estructuras neurovasculares en riesgo por fractura o luxación y predice sus consecuencias funcionales.&quot;,&quot;description&quot;:&quot;Agrupa 2 unidades evaluables derivadas de los resultados fuente 51.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 2 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-arterial-supply-pulses&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Irrigación arterial, anastomosis y pulsos&quot;,&quot;objective&quot;:&quot;Reconstruye la irrigación del miembro superior y la aplica a perfusión, lesión y palpación de pulsos.&quot;,&quot;description&quot;:&quot;Agrupa 3 unidades evaluables derivadas de los resultados fuente 52, 53.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 3 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-venous-lymphatic&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Drenaje venoso, acceso vascular y linfáticos axilares&quot;,&quot;objective&quot;:&quot;Aplica venas superficiales y profundas y ganglios axilares a drenaje, acceso venoso y propagación tumoral.&quot;,&quot;description&quot;:&quot;Agrupa 3 unidades evaluables derivadas de los resultados fuente 54, 61.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 3 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-plexus-nerves-exam&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Plexo braquial, nervios terminales y examen neurológico&quot;,&quot;objective&quot;:&quot;Reconstruye la inervación del miembro superior y localiza lesiones mediante territorios y exploración funcional.&quot;,&quot;description&quot;:&quot;Agrupa 5 unidades evaluables derivadas de los resultados fuente 55, 56, 57, 68.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 5 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-shoulder-axilla&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Cintura pectoral, hombro y axila&quot;,&quot;objective&quot;:&quot;Explica movimiento y estabilidad del complejo del hombro y orienta las relaciones de la axila.&quot;,&quot;description&quot;:&quot;Agrupa 4 unidades evaluables derivadas de los resultados fuente 58, 59, 60.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 4 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-elbow-forearm&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Codo y rotación del antebrazo&quot;,&quot;objective&quot;:&quot;Relaciona articulaciones, músculos e inervación con flexión-extensión y pronación-supinación.&quot;,&quot;description&quot;:&quot;Agrupa 4 unidades evaluables derivadas de los resultados fuente 62, 63.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 4 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-wrist-hand-grip&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Muñeca, mano y agarres&quot;,&quot;objective&quot;:&quot;Integra articulaciones, tendones, músculos y nervios para explicar movimientos de muñeca, dedos, pulgar y agarre.&quot;,&quot;description&quot;:&quot;Agrupa 4 unidades evaluables derivadas de los resultados fuente 64, 65, 66.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 4 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-retinacula-sheaths&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Retináculos, vainas y túnel carpiano&quot;,&quot;objective&quot;:&quot;Aplica retináculos y vainas tendinosas a atrapamiento nervioso y propagación de infección.&quot;,&quot;description&quot;:&quot;Agrupa 3 unidades evaluables derivadas de los resultados fuente 67.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 3 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ko-upper-limb-fascial-compartments&quot;,&quot;type&quot;:&quot;key&quot;,&quot;title&quot;:&quot;Compartimentos fasciales y síndrome compartimental&quot;,&quot;objective&quot;:&quot;Reconstruye compartimentos del miembro superior y aplica sus contenidos y límites al síndrome compartimental.&quot;,&quot;description&quot;:&quot;Agrupa 2 unidades evaluables derivadas de los resultados fuente 69.&quot;,&quot;meta&quot;:&quot;Objetivo clave · 2 unidades evaluables&quot;},{&quot;id&quot;:&quot;gm-ma-identify-upper-limb-long-flat-bones&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Identificar clavícula, escápula, húmero, radio y ulna&quot;,&quot;objective&quot;:&quot;Identifica y orienta clavícula, escápula, húmero, radio y ulna mediante sus principales accidentes anatómicos.&quot;,&quot;description&quot;:&quot;Justifica lateralidad, orientación y región sin depender de una vista idéntica a la enseñada.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Identificar huesos de muñeca y mano&quot;,&quot;objective&quot;:&quot;Identifica los ocho carpianos, metacarpianos y falanges y establece sus posiciones relativas.&quot;,&quot;description&quot;:&quot;Reconstruye filas del carpo y orientación radial-ulnar, incluyendo el escafoides como lesión frecuente.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Interpretar imagen anatómica del miembro superior&quot;,&quot;objective&quot;:&quot;Orienta radiografía, CT, MRI o ultrasonido del miembro superior e identifica anatomía y anomalías frecuentes.&quot;,&quot;description&quot;:&quot;Reconoce modalidad, proyección o plano y localiza región y lesión sin emitir un informe radiológico completo.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Mapear riesgo neurovascular por sitio de lesión&quot;,&quot;objective&quot;:&quot;Identifica el nervio o vaso especialmente vulnerable ante una fractura o luxación del miembro superior.&quot;,&quot;description&quot;:&quot;Usa relaciones anatómicas y nivel de lesión, no asociaciones memorizadas sin justificación.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Predecir el efecto de una lesión neurovascular&quot;,&quot;objective&quot;:&quot;Predice el déficit motor, sensitivo o perfusional esperado desde la estructura y nivel lesionados.&quot;,&quot;description&quot;:&quot;Distingue lesión nerviosa, arterial y combinada y declara límites cuando el patrón no localiza por sí solo.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Trazar el árbol arterial del miembro superior&quot;,&quot;objective&quot;:&quot;Traza la continuidad subclavia-axilar-braquial-radial-ulnar y sus ramas principales hasta la mano.&quot;,&quot;description&quot;:&quot;Usa límites regionales y relaciones anatómicas y reconoce que existen variantes.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3&quot;},{&quot;id&quot;:&quot;gm-ma-explain-upper-limb-anastomoses&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar anastomosis y circulación colateral&quot;,&quot;objective&quot;:&quot;Explica cómo las anastomosis relevantes mantienen o modifican la perfusión alrededor de articulaciones y mano.&quot;,&quot;description&quot;:&quot;Relaciona continuidad vascular, nivel de obstrucción y límites de la circulación colateral.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-locate-upper-limb-pulses&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Localizar pulsos braquial, radial y ulnar&quot;,&quot;objective&quot;:&quot;Localiza y palpa en simulación los pulsos braquial, radial y ulnar usando referencias superficiales.&quot;,&quot;description&quot;:&quot;Posiciona el miembro, identifica el trayecto esperado y comunica ausencia o dificultad sin inventar un hallazgo.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Contrastar venas superficiales y profundas&quot;,&quot;objective&quot;:&quot;Traza el drenaje venoso superficial y profundo y contrasta sus relaciones y funciones.&quot;,&quot;description&quot;:&quot;Distingue red subcutánea de venas acompañantes y conecta cefálica y basílica con el drenaje proximal.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3&quot;},{&quot;id&quot;:&quot;gm-ma-plan-upper-limb-venous-access&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Planificar un acceso venoso periférico&quot;,&quot;objective&quot;:&quot;Selecciona un sitio superficial de acceso venoso y justifica sus relaciones anatómicas y riesgos.&quot;,&quot;description&quot;:&quot;Identifica referencias y estructuras vecinas en simulación; no certifica canulación independiente.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-map-axillary-lymphatic-drainage&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Mapear drenaje linfático axilar&quot;,&quot;objective&quot;:&quot;Explica la organización de los ganglios axilares y predice rutas de drenaje y propagación desde miembro, tronco o mama.&quot;,&quot;description&quot;:&quot;Usa territorio de drenaje y grupos ganglionares sin convertir anatomía en estadificación oncológica completa.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-reconstruct-brachial-plexus&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Reconstruir el plexo braquial&quot;,&quot;objective&quot;:&quot;Reconstruye el plexo braquial desde C5–T1 hasta sus cinco ramas terminales.&quot;,&quot;description&quot;:&quot;Mantiene raíces, troncos, divisiones, fascículos y ramas en orden y relación con la arteria axilar.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-localize-brachial-plexus-injury&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Localizar una lesión del plexo braquial&quot;,&quot;objective&quot;:&quot;Localiza el nivel probable de una lesión plexual a partir de su patrón motor y sensitivo.&quot;,&quot;description&quot;:&quot;Diferencia raíz, plexo y nervio terminal y reconoce patrones que requieren datos adicionales.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-trace-five-terminal-nerves&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Trazar los cinco nervios terminales&quot;,&quot;objective&quot;:&quot;Traza origen, curso y puntos de vulnerabilidad de los nervios axilar, radial, musculocutáneo, mediano y ulnar.&quot;,&quot;description&quot;:&quot;Relaciona cada trayecto con huesos, articulaciones y compartimentos sin reducirlo a una lista de músculos.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Mapear territorios motores y sensitivos&quot;,&quot;objective&quot;:&quot;Asigna grupos musculares y territorios cutáneos principales a cada nervio terminal del miembro superior.&quot;,&quot;description&quot;:&quot;Usa patrones funcionales y puntos sensitivos autónomos y reconoce solapamiento entre territorios.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Realizar examen neurológico del miembro superior&quot;,&quot;objective&quot;:&quot;Evalúa de forma estructurada sensibilidad, función motora, reflejos y fuerza del miembro superior en simulación.&quot;,&quot;description&quot;:&quot;Selecciona movimientos y territorios discriminadores, compara lados y documenta asistencia y limitaciones.&quot;,&quot;meta&quot;:&quot;Evidencia: A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-analyze-pectoral-girdle-movement&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Analizar movimiento de la cintura pectoral&quot;,&quot;objective&quot;:&quot;Explica los movimientos de la cintura pectoral y asigna articulaciones, músculos e inervación responsables.&quot;,&quot;description&quot;:&quot;Integra clavícula, escápula y tórax y diferencia movimiento escapular de glenohumeral.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-explain-glenohumeral-stability&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar movimiento y estabilidad glenohumeral&quot;,&quot;objective&quot;:&quot;Explica cómo superficies, cápsula, ligamentos y músculos permiten movimiento y estabilidad glenohumeral.&quot;,&quot;description&quot;:&quot;Reconoce el intercambio movilidad-estabilidad y el papel del manguito rotador.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-predict-shoulder-dislocation-consequences&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Predecir consecuencias de luxación glenohumeral&quot;,&quot;objective&quot;:&quot;Predice estructuras vulnerables y déficits funcionales desde la dirección y relaciones de una luxación glenohumeral.&quot;,&quot;description&quot;:&quot;Conecta cápsula, cabeza humeral, nervio axilar y perfusión sin realizar manejo completo.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-map-axilla-boundaries-contents&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Mapear límites y contenido de la axila&quot;,&quot;objective&quot;:&quot;Reconstruye paredes, vértice, base y contenido principal de la axila.&quot;,&quot;description&quot;:&quot;Orienta vasos, fascículos plexuales y ganglios en relación con las paredes y espacios vecinos.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-analyze-elbow-joint&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Analizar la anatomía del codo&quot;,&quot;objective&quot;:&quot;Explica superficies, cápsula y estabilizadores del complejo articular del codo.&quot;,&quot;description&quot;:&quot;Distingue componentes humeroulnar, humerorradial y radioulnar proximal y su contribución.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3&quot;},{&quot;id&quot;:&quot;gm-ma-explain-elbow-flexion-extension&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar flexión y extensión del codo&quot;,&quot;objective&quot;:&quot;Asigna músculos, inserciones e inervación a flexión y extensión del codo y demuestra ambos movimientos.&quot;,&quot;description&quot;:&quot;Diferencia motor principal, sinergistas y efecto de posición del antebrazo.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-analyze-radioulnar-joints&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Analizar articulaciones radioulnares&quot;,&quot;objective&quot;:&quot;Explica cómo las articulaciones radioulnares proximal y distal permiten rotación coordinada del radio.&quot;,&quot;description&quot;:&quot;Orienta eje, cabeza radial y extremo distal y diferencia rotación de movimiento de muñeca.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar pronación y supinación&quot;,&quot;objective&quot;:&quot;Asigna músculos, inserciones e inervación a pronación y supinación y demuestra ambos movimientos.&quot;,&quot;description&quot;:&quot;Reconoce el papel de bíceps, supinador, pronadores y nervios musculocutáneo, radial y mediano.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Analizar anatomía y relaciones de la muñeca&quot;,&quot;objective&quot;:&quot;Reconstruye articulaciones y posiciones relativas de tendones, vasos y nervios en la muñeca.&quot;,&quot;description&quot;:&quot;Orienta caras palmar y dorsal y usa las relaciones para anticipar estructuras expuestas a lesión.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar movimientos de la muñeca&quot;,&quot;objective&quot;:&quot;Asigna grupos musculares e inervación a flexión, extensión y desviaciones radial y ulnar de la muñeca.&quot;,&quot;description&quot;:&quot;Usa vectores de acción y coactivación, no una correspondencia de un músculo por movimiento.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar movimientos de dedos y pulgar&quot;,&quot;objective&quot;:&quot;Explica movimientos de dedos y pulgar diferenciando músculos extrínsecos, intrínsecos e inervación.&quot;,&quot;description&quot;:&quot;Integra articulaciones y tendones y distingue oposición, abducción, aducción, flexión y extensión.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Analizar agarres de potencia, precisión y gancho&quot;,&quot;objective&quot;:&quot;Compara agarres de potencia, precisión y gancho y asigna músculos y nervios indispensables para ejecutarlos.&quot;,&quot;description&quot;:&quot;Usa demandas mecánicas reales y predice cómo una lesión altera cada agarre de forma distinta.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-map-wrist-retinacula-sheaths&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Mapear retináculos y vainas de muñeca y mano&quot;,&quot;objective&quot;:&quot;Identifica retináculos flexor y extensor y traza las vainas tendinosas relevantes de muñeca y mano.&quot;,&quot;description&quot;:&quot;Diferencia compartimentos dorsales, túnel carpiano y continuidad de vainas sinoviales.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-explain-carpal-tunnel-syndrome&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar el túnel carpiano&quot;,&quot;objective&quot;:&quot;Explica la base anatómica del síndrome del túnel carpiano y predice su patrón funcional.&quot;,&quot;description&quot;:&quot;Relaciona contenido, techo, presión y territorio mediano sin asumir que todo dolor de mano proviene del túnel.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-predict-tendon-sheath-infection-spread&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Predecir propagación por vainas tendinosas&quot;,&quot;objective&quot;:&quot;Predice la ruta anatómica probable de propagación de una infección dentro de vainas flexoras de la mano.&quot;,&quot;description&quot;:&quot;Usa continuidad espacial y límites fasciales sin convertir el nodo en manejo infeccioso completo.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Mapear compartimentos fasciales&quot;,&quot;objective&quot;:&quot;Delimita los principales compartimentos musculares del brazo, antebrazo y mano y asigna sus contenidos.&quot;,&quot;description&quot;:&quot;Relaciona fascia, tabiques, grupos musculares, vasos y nervios en cortes y modelos.&quot;,&quot;meta&quot;:&quot;Evidencia: A1 · A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;type&quot;:&quot;atom&quot;,&quot;title&quot;:&quot;Explicar síndrome compartimental del miembro superior&quot;,&quot;objective&quot;:&quot;Explica cómo el aumento de presión en un compartimento compromete perfusión, nervios y función.&quot;,&quot;description&quot;:&quot;Conecta espacio limitado, contenido y consecuencias y reconoce que la conducta clínica completa pertenece a otro cluster.&quot;,&quot;meta&quot;:&quot;Evidencia: A2 · A3 · A4&quot;},{&quot;id&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;type&quot;:&quot;assembly&quot;,&quot;title&quot;:&quot;Realizar una exploración anatómica del miembro superior&quot;,&quot;objective&quot;:&quot;Integra unidades de aprendizaje para realizar una exploración anatómica del miembro superior.&quot;,&quot;description&quot;:&quot;Desempeño simulado; no constituye diagnóstico musculoesquelético o neurológico completo.&quot;,&quot;meta&quot;:&quot;Actividad integradora · 7 unidades conectadas&quot;},{&quot;id&quot;:&quot;gm-dp-localize-upper-limb-trauma-deficit&quot;,&quot;type&quot;:&quot;assembly&quot;,&quot;title&quot;:&quot;Localizar un déficit neurovascular después de trauma&quot;,&quot;objective&quot;:&quot;Integra unidades de aprendizaje para localizar un déficit neurovascular después de trauma.&quot;,&quot;description&quot;:&quot;Localización anatómica; no incluye tratamiento completo del trauma.&quot;,&quot;meta&quot;:&quot;Actividad integradora · 5 unidades conectadas&quot;},{&quot;id&quot;:&quot;gm-pa-assess-hand-function&quot;,&quot;type&quot;:&quot;assembly&quot;,&quot;title&quot;:&quot;Evaluar anatómicamente muñeca, mano y agarre&quot;,&quot;objective&quot;:&quot;Integra unidades de aprendizaje para evaluar anatómicamente muñeca, mano y agarre.&quot;,&quot;description&quot;:&quot;Evaluación simulada; no certifica manejo clínico independiente.&quot;,&quot;meta&quot;:&quot;Actividad integradora · 5 unidades conectadas&quot;},{&quot;id&quot;:&quot;gm-pa-plan-venous-access-assess-perfusion&quot;,&quot;type&quot;:&quot;assembly&quot;,&quot;title&quot;:&quot;Planificar acceso venoso y evaluar perfusión distal&quot;,&quot;objective&quot;:&quot;Integra unidades de aprendizaje para planificar acceso venoso y evaluar perfusión distal.&quot;,&quot;description&quot;:&quot;Planificación y examen simulado; no certifica canulación.&quot;,&quot;meta&quot;:&quot;Actividad integradora · 4 unidades conectadas&quot;},{&quot;id&quot;:&quot;gm-dp-recognize-compartment-threat&quot;,&quot;type&quot;:&quot;assembly&quot;,&quot;title&quot;:&quot;Reconocer anatómicamente una amenaza compartimental&quot;,&quot;objective&quot;:&quot;Integra unidades de aprendizaje para reconocer anatómicamente una amenaza compartimental.&quot;,&quot;description&quot;:&quot;Explicación y reconocimiento; manejo urgente pertenece a un cluster clínico.&quot;,&quot;meta&quot;:&quot;Actividad integradora · 3 unidades conectadas&quot;},{&quot;id&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;type&quot;:&quot;anatomyFamily&quot;,&quot;title&quot;:&quot;Esqueleto del miembro superior&quot;,&quot;objective&quot;:&quot;Familia que organiza entidades de esqueleto del miembro superior.&quot;,&quot;description&quot;:&quot;Contiene 15 entidades y conecta directamente con 0 unidades evaluables. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Familia anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;type&quot;:&quot;anatomyFamily&quot;,&quot;title&quot;:&quot;Organización neural del miembro superior&quot;,&quot;objective&quot;:&quot;Familia que organiza entidades de organización neural del miembro superior.&quot;,&quot;description&quot;:&quot;Contiene 7 entidades y conecta directamente con 0 unidades evaluables. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Familia anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;type&quot;:&quot;anatomyFamily&quot;,&quot;title&quot;:&quot;Vasos y linfáticos del miembro superior&quot;,&quot;objective&quot;:&quot;Familia que organiza entidades de vasos y linfáticos del miembro superior.&quot;,&quot;description&quot;:&quot;Contiene 12 entidades y conecta directamente con 0 unidades evaluables. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Familia anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;type&quot;:&quot;anatomyFamily&quot;,&quot;title&quot;:&quot;Articulaciones y regiones del miembro superior&quot;,&quot;objective&quot;:&quot;Familia que organiza entidades de articulaciones y regiones del miembro superior.&quot;,&quot;description&quot;:&quot;Contiene 8 entidades y conecta directamente con 0 unidades evaluables. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Familia anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;type&quot;:&quot;anatomyFamily&quot;,&quot;title&quot;:&quot;Músculos&quot;,&quot;objective&quot;:&quot;Familia que organiza entidades de músculos.&quot;,&quot;description&quot;:&quot;Contiene 12 entidades y conecta directamente con 0 unidades evaluables. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Familia anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-clavicle&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Clavícula&quot;,&quot;objective&quot;:&quot;Hueso de la cintura pectoral que conecta el miembro superior con el esqueleto axial.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-scapula&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Escápula&quot;,&quot;objective&quot;:&quot;Hueso plano de la cintura pectoral que contiene la cavidad glenoidea y múltiples inserciones musculares.&quot;,&quot;description&quot;:&quot;Habilita 4 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-humerus&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Húmero&quot;,&quot;objective&quot;:&quot;Hueso del brazo relacionado con hombro&quot;,&quot;description&quot;:&quot;Habilita 6 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-radius&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Radio&quot;,&quot;objective&quot;:&quot;Hueso lateral del antebrazo que participa de manera principal en la articulación de la muñeca.&quot;,&quot;description&quot;:&quot;Habilita 5 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-ulna&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Ulna o cúbito&quot;,&quot;objective&quot;:&quot;Hueso medial del antebrazo que forma la articulación principal con la tróclea humeral.&quot;,&quot;description&quot;:&quot;Habilita 5 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-scaphoid&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Escafoides&quot;,&quot;objective&quot;:&quot;Hueso carpiano proximal radial frecuentemente fracturado y con irrigación clínicamente vulnerable.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-lunate&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Semilunar&quot;,&quot;objective&quot;:&quot;Hueso central de la fila proximal del carpo relacionado con el radio.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-triquetrum&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Piramidal&quot;,&quot;objective&quot;:&quot;Hueso carpiano proximal ulnar situado profundo al pisiforme.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-pisiform&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Pisiforme&quot;,&quot;objective&quot;:&quot;Hueso sesamoideo de la fila proximal dentro del tendón del flexor cubital del carpo.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-trapezium&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Trapecio&quot;,&quot;objective&quot;:&quot;Hueso carpiano distal radial que se articula con el primer metacarpiano.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-trapezoid&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Trapezoide&quot;,&quot;objective&quot;:&quot;Hueso carpiano distal relacionado principalmente con el segundo metacarpiano.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-capitate&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Grande&quot;,&quot;objective&quot;:&quot;Hueso central y de mayor tamaño de la fila distal del carpo.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-hamate&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Ganchoso&quot;,&quot;objective&quot;:&quot;Hueso carpiano distal ulnar distinguido por su gancho palmar.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-metacarpals&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Metacarpianos I–V&quot;,&quot;objective&quot;:&quot;Cinco huesos que conectan el carpo con las falanges y estructuran la palma.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-phalanges-hand&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Falanges de la mano&quot;,&quot;objective&quot;:&quot;Huesos digitales; el pulgar posee dos y los otros dedos tres falanges.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-brachial-plexus&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Plexo braquial&quot;,&quot;objective&quot;:&quot;Red de ramos ventrales C5–T1 organizada en raíces&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Nervio axilar&quot;,&quot;objective&quot;:&quot;Rama terminal del fascículo posterior relacionada con el cuello quirúrgico del húmero.&quot;,&quot;description&quot;:&quot;Habilita 6 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Nervio radial&quot;,&quot;objective&quot;:&quot;Rama terminal posterior que recorre el surco radial y domina la función extensora.&quot;,&quot;description&quot;:&quot;Habilita 11 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Nervio musculocutáneo&quot;,&quot;objective&quot;:&quot;Rama terminal lateral que inerva el compartimento anterior del brazo y continúa como nervio cutáneo lateral del antebrazo.&quot;,&quot;description&quot;:&quot;Habilita 6 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Nervio mediano&quot;,&quot;objective&quot;:&quot;Nervio terminal que recorre brazo y antebrazo y atraviesa el túnel carpiano.&quot;,&quot;description&quot;:&quot;Habilita 12 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Nervio ulnar o cubital&quot;,&quot;objective&quot;:&quot;Nervio terminal medial vulnerable detrás del epicóndilo medial y relevante para musculatura intrínseca de la mano.&quot;,&quot;description&quot;:&quot;Habilita 9 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-upper-limb-dermatomes-myotomes&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Dermatomos&quot;,&quot;objective&quot;:&quot;Mapa segmentario utilizado para diferenciar lesión radicular&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-subclavian-artery-upper-limb&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Arteria subclavia&quot;,&quot;objective&quot;:&quot;Segmento arterial proximal que continúa como arteria axilar al cruzar el borde lateral de la primera costilla.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-axillary-artery&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Arteria axilar&quot;,&quot;objective&quot;:&quot;Arteria de la axila relacionada con los fascículos del plexo braquial.&quot;,&quot;description&quot;:&quot;Habilita 4 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Arteria braquial&quot;,&quot;objective&quot;:&quot;Continuación de la axilar en el brazo y principal arteria palpable en la fosa cubital.&quot;,&quot;description&quot;:&quot;Habilita 6 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Arteria radial&quot;,&quot;objective&quot;:&quot;Rama terminal lateral de la braquial y sitio habitual de pulso en la muñeca.&quot;,&quot;description&quot;:&quot;Habilita 6 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Arteria ulnar o cubital&quot;,&quot;objective&quot;:&quot;Rama terminal medial que contribuye principalmente al arco palmar superficial.&quot;,&quot;description&quot;:&quot;Habilita 6 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-palmar-arches&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Arcos palmares superficial y profundo&quot;,&quot;objective&quot;:&quot;Anastomosis radial-ulnar que distribuye sangre a palma y dedos.&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-superficial-veins-upper-limb&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Sistema venoso superficial&quot;,&quot;objective&quot;:&quot;Red subcutánea que drena hacia venas cefálica y basílica y ofrece sitios de acceso.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-cephalic-vein&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Vena cefálica&quot;,&quot;objective&quot;:&quot;Vena superficial lateral que asciende hacia el surco deltopectoral.&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-basilic-vein&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Vena basílica&quot;,&quot;objective&quot;:&quot;Vena superficial medial que perfora fascia y contribuye a la vena axilar.&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-median-cubital-vein&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Vena mediana cubital&quot;,&quot;objective&quot;:&quot;Comunicación superficial frecuente en la fosa cubital usada para venopunción.&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-deep-veins-upper-limb&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Sistema venoso profundo&quot;,&quot;objective&quot;:&quot;Venas acompañantes de arterias profundas que drenan músculos y estructuras profundas.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-axillary-lymph-nodes&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Ganglios linfáticos axilares&quot;,&quot;objective&quot;:&quot;Grupos ganglionares que reciben linfa del miembro superior&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-pectoral-girdle&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Cintura pectoral&quot;,&quot;objective&quot;:&quot;Complejo clavícula-escápula y articulaciones que posiciona el miembro superior respecto al tronco.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-glenohumeral-joint&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Articulación glenohumeral&quot;,&quot;objective&quot;:&quot;Articulación sinovial entre cabeza humeral y cavidad glenoidea con gran movilidad y estabilidad dependiente de tejidos blandos.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-axilla&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Axila&quot;,&quot;objective&quot;:&quot;Espacio piramidal de transición entre cuello&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-elbow-joint&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Complejo articular del codo&quot;,&quot;objective&quot;:&quot;Complejo humeroulnar&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-proximal-radioulnar-joint&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Articulación radioulnar proximal&quot;,&quot;objective&quot;:&quot;Articulación trocoide que permite rotación de la cabeza radial durante pronación y supinación.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-distal-radioulnar-joint&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Articulación radioulnar distal&quot;,&quot;objective&quot;:&quot;Articulación trocoide distal que coopera con la proximal en la rotación del antebrazo.&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-wrist-joint&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Complejo articular de la muñeca&quot;,&quot;objective&quot;:&quot;Articulaciones radiocarpiana y mediocarpiana que permiten flexión&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-finger-thumb-joints&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Articulaciones de dedos y pulgar&quot;,&quot;objective&quot;:&quot;Complejo carpometacarpiano&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-rotator-cuff&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Manguito rotador&quot;,&quot;objective&quot;:&quot;Grupo supraespinoso&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-pectoral-girdle-movers&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Músculos motores de la cintura pectoral&quot;,&quot;objective&quot;:&quot;Grupos que elevan&quot;,&quot;description&quot;:&quot;Habilita 1 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-anterior-arm-compartment&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Compartimento anterior del brazo&quot;,&quot;objective&quot;:&quot;Grupo flexor del brazo dominado por inervación musculocutánea.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-posterior-arm-compartment&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Compartimento posterior del brazo&quot;,&quot;objective&quot;:&quot;Grupo extensor del brazo dominado por inervación radial.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-forearm-flexor-pronator&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Grupo flexor-pronador del antebrazo&quot;,&quot;objective&quot;:&quot;Compartimento anterior que flexiona muñeca y dedos y participa en pronación.&quot;,&quot;description&quot;:&quot;Habilita 4 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-forearm-extensor-supinator&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Grupo extensor-supinador del antebrazo&quot;,&quot;objective&quot;:&quot;Compartimento posterior que extiende muñeca y dedos y participa en supinación.&quot;,&quot;description&quot;:&quot;Habilita 4 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-intrinsic-hand-muscles&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Músculos intrínsecos de la mano&quot;,&quot;objective&quot;:&quot;Músculos tenares&quot;,&quot;description&quot;:&quot;Habilita 4 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-extrinsic-digital-tendons&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Tendones extrínsecos de dedos y pulgar&quot;,&quot;objective&quot;:&quot;Tendones provenientes del antebrazo que producen gran parte de la flexión y extensión digital.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-flexor-retinaculum&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Retináculo flexor&quot;,&quot;objective&quot;:&quot;Banda fibrosa palmar que forma el techo del túnel carpiano.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-extensor-retinaculum&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Retináculo extensor&quot;,&quot;objective&quot;:&quot;Banda dorsal que estabiliza tendones extensores en compartimentos.&quot;,&quot;description&quot;:&quot;Habilita 2 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-flexor-tendon-sheaths&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Vainas sinoviales flexoras&quot;,&quot;objective&quot;:&quot;Vainas que facilitan deslizamiento tendinoso y pueden conducir propagación de infección.&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;},{&quot;id&quot;:&quot;gm-anatomy-upper-limb-fascial-compartments&quot;,&quot;type&quot;:&quot;anatomy&quot;,&quot;title&quot;:&quot;Fascia profunda y compartimentos del miembro superior&quot;,&quot;objective&quot;:&quot;Tabiques y envolturas fasciales que delimitan grupos musculares&quot;,&quot;description&quot;:&quot;Habilita 3 unidades evaluables mediante relaciones enables_mastery_of. No posee objetivo de aprendizaje propio.&quot;,&quot;meta&quot;:&quot;Entidad anatómica · sin objetivo propio&quot;}],&quot;links&quot;:[{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-osteology-imaging&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-trauma-neurovascular&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-arterial-supply-pulses&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-venous-lymphatic&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-plexus-nerves-exam&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-shoulder-axilla&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-elbow-forearm&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-wrist-hand-grip&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-retinacula-sheaths&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-ko-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-osteology-imaging&quot;,&quot;target&quot;:&quot;gm-ma-identify-upper-limb-long-flat-bones&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-osteology-imaging&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-osteology-imaging&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-trauma-neurovascular&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-trauma-neurovascular&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-arterial-supply-pulses&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-arterial-supply-pulses&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-anastomoses&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-arterial-supply-pulses&quot;,&quot;target&quot;:&quot;gm-ma-locate-upper-limb-pulses&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-venous-lymphatic&quot;,&quot;target&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-venous-lymphatic&quot;,&quot;target&quot;:&quot;gm-ma-plan-upper-limb-venous-access&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-venous-lymphatic&quot;,&quot;target&quot;:&quot;gm-ma-map-axillary-lymphatic-drainage&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-plexus-nerves-exam&quot;,&quot;target&quot;:&quot;gm-ma-reconstruct-brachial-plexus&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-plexus-nerves-exam&quot;,&quot;target&quot;:&quot;gm-ma-localize-brachial-plexus-injury&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-plexus-nerves-exam&quot;,&quot;target&quot;:&quot;gm-ma-trace-five-terminal-nerves&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-plexus-nerves-exam&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-plexus-nerves-exam&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-shoulder-axilla&quot;,&quot;target&quot;:&quot;gm-ma-analyze-pectoral-girdle-movement&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-shoulder-axilla&quot;,&quot;target&quot;:&quot;gm-ma-explain-glenohumeral-stability&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-shoulder-axilla&quot;,&quot;target&quot;:&quot;gm-ma-predict-shoulder-dislocation-consequences&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-shoulder-axilla&quot;,&quot;target&quot;:&quot;gm-ma-map-axilla-boundaries-contents&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-elbow-forearm&quot;,&quot;target&quot;:&quot;gm-ma-analyze-elbow-joint&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-elbow-forearm&quot;,&quot;target&quot;:&quot;gm-ma-explain-elbow-flexion-extension&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-elbow-forearm&quot;,&quot;target&quot;:&quot;gm-ma-analyze-radioulnar-joints&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-elbow-forearm&quot;,&quot;target&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-wrist-hand-grip&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-wrist-hand-grip&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-wrist-hand-grip&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-wrist-hand-grip&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-retinacula-sheaths&quot;,&quot;target&quot;:&quot;gm-ma-map-wrist-retinacula-sheaths&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-retinacula-sheaths&quot;,&quot;target&quot;:&quot;gm-ma-explain-carpal-tunnel-syndrome&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-retinacula-sheaths&quot;,&quot;target&quot;:&quot;gm-ma-predict-tendon-sheath-infection-spread&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-fascial-compartments&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-ko-upper-limb-fascial-compartments&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-dp-localize-upper-limb-trauma-deficit&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-pa-assess-hand-function&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-pa-plan-venous-access-assess-perfusion&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-cluster-miembro-superior&quot;,&quot;target&quot;:&quot;gm-dp-recognize-compartment-threat&quot;,&quot;kind&quot;:&quot;hierarchy&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-clavicle&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-scapula&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-humerus&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-radius&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-ulna&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-scaphoid&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-lunate&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-triquetrum&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-pisiform&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-trapezium&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-trapezoid&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-capitate&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-hamate&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-metacarpals&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-skeleton&quot;,&quot;target&quot;:&quot;gm-anatomy-phalanges-hand&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;target&quot;:&quot;gm-anatomy-brachial-plexus&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;target&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;target&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;target&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;target&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;target&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-neural&quot;,&quot;target&quot;:&quot;gm-anatomy-upper-limb-dermatomes-myotomes&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-subclavian-artery-upper-limb&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-axillary-artery&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-palmar-arches&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-superficial-veins-upper-limb&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-cephalic-vein&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-basilic-vein&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-median-cubital-vein&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-deep-veins-upper-limb&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-vascular-lymphatic&quot;,&quot;target&quot;:&quot;gm-anatomy-axillary-lymph-nodes&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-pectoral-girdle&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-glenohumeral-joint&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-axilla&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-elbow-joint&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-proximal-radioulnar-joint&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-distal-radioulnar-joint&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-wrist-joint&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-joints-regions&quot;,&quot;target&quot;:&quot;gm-anatomy-finger-thumb-joints&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-rotator-cuff&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-pectoral-girdle-movers&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-anterior-arm-compartment&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-posterior-arm-compartment&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-forearm-flexor-pronator&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-forearm-extensor-supinator&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-intrinsic-hand-muscles&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-extrinsic-digital-tendons&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-flexor-retinaculum&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-extensor-retinaculum&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-flexor-tendon-sheaths&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-soft-tissue&quot;,&quot;target&quot;:&quot;gm-anatomy-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;knowledge-structure&quot;},{&quot;source&quot;:&quot;gm-anatomy-clavicle&quot;,&quot;target&quot;:&quot;gm-ma-identify-upper-limb-long-flat-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-scapula&quot;,&quot;target&quot;:&quot;gm-ma-identify-upper-limb-long-flat-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-humerus&quot;,&quot;target&quot;:&quot;gm-ma-identify-upper-limb-long-flat-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radius&quot;,&quot;target&quot;:&quot;gm-ma-identify-upper-limb-long-flat-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulna&quot;,&quot;target&quot;:&quot;gm-ma-identify-upper-limb-long-flat-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-scaphoid&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-lunate&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-triquetrum&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-pisiform&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-trapezium&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-trapezoid&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-capitate&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-hamate&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-metacarpals&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-phalanges-hand&quot;,&quot;target&quot;:&quot;gm-ma-identify-wrist-hand-bones&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-clavicle&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-scapula&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-humerus&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radius&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulna&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-scaphoid&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-glenohumeral-joint&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-elbow-joint&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-wrist-joint&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-humerus&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radius&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulna&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-scaphoid&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-subclavian-artery-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-artery&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-palmar-arches&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-anastomoses&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-anastomoses&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-anastomoses&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-palmar-arches&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-anastomoses&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;target&quot;:&quot;gm-ma-locate-upper-limb-pulses&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;target&quot;:&quot;gm-ma-locate-upper-limb-pulses&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;target&quot;:&quot;gm-ma-locate-upper-limb-pulses&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-superficial-veins-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-cephalic-vein&quot;,&quot;target&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-basilic-vein&quot;,&quot;target&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-cubital-vein&quot;,&quot;target&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-deep-veins-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-cephalic-vein&quot;,&quot;target&quot;:&quot;gm-ma-plan-upper-limb-venous-access&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-basilic-vein&quot;,&quot;target&quot;:&quot;gm-ma-plan-upper-limb-venous-access&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-cubital-vein&quot;,&quot;target&quot;:&quot;gm-ma-plan-upper-limb-venous-access&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-lymph-nodes&quot;,&quot;target&quot;:&quot;gm-ma-map-axillary-lymphatic-drainage&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axilla&quot;,&quot;target&quot;:&quot;gm-ma-map-axillary-lymphatic-drainage&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-plexus&quot;,&quot;target&quot;:&quot;gm-ma-reconstruct-brachial-plexus&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-artery&quot;,&quot;target&quot;:&quot;gm-ma-reconstruct-brachial-plexus&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-plexus&quot;,&quot;target&quot;:&quot;gm-ma-localize-brachial-plexus-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-dermatomes-myotomes&quot;,&quot;target&quot;:&quot;gm-ma-localize-brachial-plexus-injury&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;target&quot;:&quot;gm-ma-trace-five-terminal-nerves&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-trace-five-terminal-nerves&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;target&quot;:&quot;gm-ma-trace-five-terminal-nerves&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-trace-five-terminal-nerves&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-trace-five-terminal-nerves&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-anterior-arm-compartment&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-posterior-arm-compartment&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-flexor-pronator&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-extensor-supinator&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-intrinsic-hand-muscles&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-dermatomes-myotomes&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-pectoral-girdle&quot;,&quot;target&quot;:&quot;gm-ma-analyze-pectoral-girdle-movement&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-clavicle&quot;,&quot;target&quot;:&quot;gm-ma-analyze-pectoral-girdle-movement&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-scapula&quot;,&quot;target&quot;:&quot;gm-ma-analyze-pectoral-girdle-movement&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-pectoral-girdle-movers&quot;,&quot;target&quot;:&quot;gm-ma-analyze-pectoral-girdle-movement&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-glenohumeral-joint&quot;,&quot;target&quot;:&quot;gm-ma-explain-glenohumeral-stability&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-scapula&quot;,&quot;target&quot;:&quot;gm-ma-explain-glenohumeral-stability&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-humerus&quot;,&quot;target&quot;:&quot;gm-ma-explain-glenohumeral-stability&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-rotator-cuff&quot;,&quot;target&quot;:&quot;gm-ma-explain-glenohumeral-stability&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-glenohumeral-joint&quot;,&quot;target&quot;:&quot;gm-ma-predict-shoulder-dislocation-consequences&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-humerus&quot;,&quot;target&quot;:&quot;gm-ma-predict-shoulder-dislocation-consequences&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-nerve&quot;,&quot;target&quot;:&quot;gm-ma-predict-shoulder-dislocation-consequences&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-artery&quot;,&quot;target&quot;:&quot;gm-ma-predict-shoulder-dislocation-consequences&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axilla&quot;,&quot;target&quot;:&quot;gm-ma-map-axilla-boundaries-contents&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-artery&quot;,&quot;target&quot;:&quot;gm-ma-map-axilla-boundaries-contents&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-plexus&quot;,&quot;target&quot;:&quot;gm-ma-map-axilla-boundaries-contents&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-axillary-lymph-nodes&quot;,&quot;target&quot;:&quot;gm-ma-map-axilla-boundaries-contents&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-elbow-joint&quot;,&quot;target&quot;:&quot;gm-ma-analyze-elbow-joint&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-humerus&quot;,&quot;target&quot;:&quot;gm-ma-analyze-elbow-joint&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radius&quot;,&quot;target&quot;:&quot;gm-ma-analyze-elbow-joint&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulna&quot;,&quot;target&quot;:&quot;gm-ma-analyze-elbow-joint&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-anterior-arm-compartment&quot;,&quot;target&quot;:&quot;gm-ma-explain-elbow-flexion-extension&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-posterior-arm-compartment&quot;,&quot;target&quot;:&quot;gm-ma-explain-elbow-flexion-extension&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-elbow-flexion-extension&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-elbow-flexion-extension&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-proximal-radioulnar-joint&quot;,&quot;target&quot;:&quot;gm-ma-analyze-radioulnar-joints&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-distal-radioulnar-joint&quot;,&quot;target&quot;:&quot;gm-ma-analyze-radioulnar-joints&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radius&quot;,&quot;target&quot;:&quot;gm-ma-analyze-radioulnar-joints&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulna&quot;,&quot;target&quot;:&quot;gm-ma-analyze-radioulnar-joints&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-flexor-pronator&quot;,&quot;target&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-extensor-supinator&quot;,&quot;target&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-musculocutaneous-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-wrist-joint&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-flexor-retinaculum&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-extensor-retinaculum&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-wrist-joint&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-flexor-pronator&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-extensor-supinator&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-finger-thumb-joints&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-intrinsic-hand-muscles&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-extrinsic-digital-tendons&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-intrinsic-hand-muscles&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-extrinsic-digital-tendons&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-flexor-retinaculum&quot;,&quot;target&quot;:&quot;gm-ma-map-wrist-retinacula-sheaths&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-extensor-retinaculum&quot;,&quot;target&quot;:&quot;gm-ma-map-wrist-retinacula-sheaths&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-flexor-tendon-sheaths&quot;,&quot;target&quot;:&quot;gm-ma-map-wrist-retinacula-sheaths&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-extrinsic-digital-tendons&quot;,&quot;target&quot;:&quot;gm-ma-map-wrist-retinacula-sheaths&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-flexor-retinaculum&quot;,&quot;target&quot;:&quot;gm-ma-explain-carpal-tunnel-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-carpal-tunnel-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-flexor-tendon-sheaths&quot;,&quot;target&quot;:&quot;gm-ma-explain-carpal-tunnel-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-flexor-tendon-sheaths&quot;,&quot;target&quot;:&quot;gm-ma-predict-tendon-sheath-infection-spread&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-fascial-compartments&quot;,&quot;target&quot;:&quot;gm-ma-predict-tendon-sheath-infection-spread&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-fascial-compartments&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-anterior-arm-compartment&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-posterior-arm-compartment&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-flexor-pronator&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-forearm-extensor-supinator&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-intrinsic-hand-muscles&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-upper-limb-fascial-compartments&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-brachial-artery&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-artery&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-artery&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-median-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-ulnar-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-anatomy-radial-nerve&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;knowledge-learning&quot;},{&quot;source&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-locate-upper-limb-pulses&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-explain-elbow-flexion-extension&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-explain-pronation-supination&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-examine-upper-limb&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-localize-upper-limb-trauma-deficit&quot;,&quot;target&quot;:&quot;gm-ma-map-neurovascular-risk-by-injury&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-localize-upper-limb-trauma-deficit&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-localize-upper-limb-trauma-deficit&quot;,&quot;target&quot;:&quot;gm-ma-map-terminal-nerve-territories&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-localize-upper-limb-trauma-deficit&quot;,&quot;target&quot;:&quot;gm-ma-perform-upper-limb-neurologic-exam&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-localize-upper-limb-trauma-deficit&quot;,&quot;target&quot;:&quot;gm-ma-interpret-upper-limb-imaging&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-assess-hand-function&quot;,&quot;target&quot;:&quot;gm-ma-analyze-wrist-anatomy-relations&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-assess-hand-function&quot;,&quot;target&quot;:&quot;gm-ma-explain-wrist-movements&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-assess-hand-function&quot;,&quot;target&quot;:&quot;gm-ma-explain-finger-thumb-movements&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-assess-hand-function&quot;,&quot;target&quot;:&quot;gm-ma-analyze-power-precision-hook-grips&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-assess-hand-function&quot;,&quot;target&quot;:&quot;gm-ma-explain-carpal-tunnel-syndrome&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-plan-venous-access-assess-perfusion&quot;,&quot;target&quot;:&quot;gm-ma-trace-upper-limb-arterial-tree&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-plan-venous-access-assess-perfusion&quot;,&quot;target&quot;:&quot;gm-ma-locate-upper-limb-pulses&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-plan-venous-access-assess-perfusion&quot;,&quot;target&quot;:&quot;gm-ma-contrast-superficial-deep-veins&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-pa-plan-venous-access-assess-perfusion&quot;,&quot;target&quot;:&quot;gm-ma-plan-upper-limb-venous-access&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-recognize-compartment-threat&quot;,&quot;target&quot;:&quot;gm-ma-map-upper-limb-fascial-compartments&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-recognize-compartment-threat&quot;,&quot;target&quot;:&quot;gm-ma-explain-upper-limb-compartment-syndrome&quot;,&quot;kind&quot;:&quot;integration&quot;},{&quot;source&quot;:&quot;gm-dp-recognize-compartment-threat&quot;,&quot;target&quot;:&quot;gm-ma-predict-functional-effect-neurovascular-injury&quot;,&quot;kind&quot;:&quot;integration&quot;}]};
+      const nodes = graphData.nodes;
+      const links = graphData.links;
+
+      const typeLabels = {
+        cluster: &#x27;Cluster&#x27;,
+        key: &#x27;Objetivo clave&#x27;,
+        atom: &#x27;Unidad de aprendizaje y evaluación&#x27;,
+        assembly: &#x27;Actividad integradora&#x27;,
+        anatomyFamily: &#x27;Familia anatómica&#x27;,
+        anatomy: &#x27;Entidad anatómica&#x27;
+      };
+
+      const colorProbe = document.createElement(&#x27;span&#x27;);
+      colorProbe.style.position = &#x27;absolute&#x27;;
+      colorProbe.style.visibility = &#x27;hidden&#x27;;
+      root.appendChild(colorProbe);
+      const resolveColor = token =&gt; {
+        colorProbe.style.color = `var(${token})`;
+        return getComputedStyle(colorProbe).color;
+      };
+      const palette = {};
+      const refreshPalette = () =&gt; {
+        palette.cluster = resolveColor(&#x27;--viz-series-1&#x27;);
+        palette.key = resolveColor(&#x27;--viz-series-2&#x27;);
+        palette.atom = resolveColor(&#x27;--viz-series-3&#x27;);
+        palette.assembly = resolveColor(&#x27;--viz-series-4&#x27;);
+        palette.anatomyFamily = resolveColor(&#x27;--viz-series-5&#x27;);
+        palette.anatomy = resolveColor(&#x27;--viz-series-5&#x27;);
+        palette.neutral = resolveColor(&#x27;--border&#x27;);
+        palette.text = resolveColor(&#x27;--foreground&#x27;);
+      };
+      refreshPalette();
+
+      const showDetail = node =&gt; {
+        const isKnowledge = node.type === &#x27;anatomy&#x27; || node.type === &#x27;anatomyFamily&#x27;;
+        detailType.textContent = typeLabels[node.type];
+        detailTitle.textContent = node.title;
+        detailObjectiveLabel.textContent = isKnowledge ? &#x27;Definición&#x27; : &#x27;Objetivo&#x27;;
+        detailDescriptionLabel.textContent = isKnowledge ? &#x27;Conexión educativa&#x27; : &#x27;Qué se espera&#x27;;
+        detailObjective.textContent = node.objective;
+        detailDescription.textContent = node.description;
+        detailMeta.textContent = node.meta;
+      };
+      showDetail(nodes[0]);
+
+      if (typeof ForceGraph3D !== &#x27;function&#x27; || typeof SpriteText !== &#x27;function&#x27; || typeof THREE !== &#x27;object&#x27;) {
+        stage.textContent = &#x27;No se pudo cargar la vista tridimensional.&#x27;;
+        return;
+      }
+
+      const radiusFor = node =&gt; {
+        if (node.type === &#x27;cluster&#x27;) return 5.2;
+        if (node.type === &#x27;anatomyFamily&#x27;) return 4.2;
+        if (node.type === &#x27;assembly&#x27;) return 4;
+        if (node.type === &#x27;key&#x27;) return 3.8;
+        if (node.type === &#x27;atom&#x27;) return 2.1;
+        return 1.8;
+      };
+      const shouldLabel = node =&gt; [&#x27;cluster&#x27;, &#x27;key&#x27;, &#x27;assembly&#x27;, &#x27;anatomyFamily&#x27;].includes(node.type);
+      const makeNodeObject = node =&gt; {
+        const radius = radiusFor(node);
+        const group = new THREE.Group();
+        const sphere = new THREE.Mesh(
+          new THREE.SphereGeometry(radius, 18, 14),
+          new THREE.MeshLambertMaterial({ color: palette[node.type] })
+        );
+        group.add(sphere);
+        if (shouldLabel(node)) {
+          const label = new SpriteText(node.title);
+          label.color = palette.text;
+          label.textHeight = node.type === &#x27;cluster&#x27; ? 4 : 2.7;
+          label.position.y = radius + 2.2;
+          label.material.depthWrite = false;
+          group.add(label);
+        }
+        return group;
+      };
+      const linkColor = link =&gt; {
+        if (link.kind === &#x27;integration&#x27;) return palette.assembly;
+        if (link.kind === &#x27;knowledge-structure&#x27; || link.kind === &#x27;knowledge-learning&#x27;) return palette.anatomy;
+        return palette.neutral;
+      };
+      const linkWidth = link =&gt; {
+        if (link.kind === &#x27;hierarchy&#x27;) return 1.05;
+        if (link.kind === &#x27;integration&#x27;) return 0.9;
+        if (link.kind === &#x27;knowledge-structure&#x27;) return 0.7;
+        return 0.35;
+      };
+
+      const graph = ForceGraph3D({ controlType: &#x27;orbit&#x27; })(stage)
+        .graphData({ nodes, links })
+        .backgroundColor(&#x27;rgba(0,0,0,0)&#x27;)
+        .showNavInfo(false)
+        .nodeLabel(node =&gt; `${typeLabels[node.type]}: ${node.title}`)
+        .nodeThreeObject(makeNodeObject)
+        .linkColor(linkColor)
+        .linkOpacity(0.3)
+        .linkWidth(linkWidth)
+        .onNodeClick(node =&gt; {
+          showDetail(node);
+          const distance = 90;
+          const length = Math.hypot(node.x || 0, node.y || 0, node.z || 0) || 1;
+          const ratio = 1 + distance / length;
+          graph.cameraPosition(
+            { x: (node.x || 0) * ratio, y: (node.y || 0) * ratio, z: (node.z || 0) * ratio },
+            node,
+            650
+          );
+        });
+
+      graph.d3Force(&#x27;charge&#x27;).strength(-95);
+      graph.d3Force(&#x27;link&#x27;).distance(link =&gt; link.kind === &#x27;knowledge-learning&#x27; ? 46 : 34);
+
+      const resize = () =&gt; {
+        graph.width(stage.clientWidth);
+        graph.height(stage.clientHeight);
+      };
+      resize();
+      const observer = new ResizeObserver(resize);
+      observer.observe(stage);
+      setTimeout(() =&gt; graph.zoomToFit(700, 38), 450);
+
+      const themeObserver = new MutationObserver(() =&gt; {
+        refreshPalette();
+        graph.nodeThreeObject(makeNodeObject).linkColor(linkColor);
+      });
+      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: [&#x27;class&#x27;, &#x27;style&#x27;, &#x27;data-theme&#x27;] });
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>

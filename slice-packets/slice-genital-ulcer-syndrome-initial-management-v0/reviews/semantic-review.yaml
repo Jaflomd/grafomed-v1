@@ -1,0 +1,20 @@
+schema: grafomed-review.v1
+id: gm-review-gud-semantic-v0
+domain: semantic
+responsible_agent: siris
+review_context_independent_of_producer: false
+status: pending_separate_review
+producer_precheck:
+  status: pass_with_open_review
+  checks:
+    - The presenting ulcer remains a finding rather than a diagnosis.
+    - Medical truth, mastery atoms, and assemblies are separate.
+    - Morphology uses supports_hypothesis and discriminates_from, never proves or excludes.
+    - Deferred differentials are labels, not premature canonical nodes.
+    - assembled_into is explicitly noncausal composition metadata.
+  open_questions:
+    - Confirm that the two condition nodes and six decision atoms have nonoverlapping identity boundaries.
+    - Confirm whether syphilis testing should later split into treponemal, nontreponemal, and lesion-direct objects.
+approval: null
+promotion_effect: blocking_until_independent_context_passes
+

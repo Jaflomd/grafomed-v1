@@ -1,0 +1,39 @@
+{
+  "id": "upper-limb-formative-v0",
+  "status": "candidate_demo_not_validated",
+  "construct": "Objective-specific anatomical recognition, explanation, application, or near transfer in the upper-limb candidate cluster.",
+  "intended_interpretation": "Low-stakes evidence for choosing the next learning or remediation action.",
+  "permitted_decisions": [
+    "recommend a practice activity",
+    "schedule delayed retrieval",
+    "suggest a different modality",
+    "surface uncertainty or an error pattern"
+  ],
+  "prohibited_decisions": [
+    "certify competence",
+    "make an entrustment decision",
+    "authorize independent clinical practice",
+    "make a high-stakes progression decision",
+    "infer failure from missing activity"
+  ],
+  "inference_chain": {
+    "scoring": "Deterministic answer keys for the current MCQ demo; assistance and calibration are retained.",
+    "generalization": "Not established; requires multiple items, contexts, modalities, and occasions.",
+    "extrapolation": "Not established to clinical performance.",
+    "consequences": "False reassurance and inappropriate blocking are the principal anticipated harms."
+  },
+  "minimum_observation_policy": {
+    "status": "not_empirically_set",
+    "rule": "No single item, event, score, lesson, or game signal is sufficient.",
+    "required_dimensions": ["independent retrieval", "delayed retention", "new modality", "near or far transfer"]
+  },
+  "fairness_and_accessibility": {
+    "required_review_axes": ["language", "disability", "device and bandwidth", "prior gaming familiarity", "training background", "local health-system context"],
+    "current_status": "not_audited"
+  },
+  "limitations": [
+    "All current thresholds and route weights are synthetic.",
+    "The prototype does not establish predictive validity.",
+    "The prototype does not include observed workplace performance."
+  ]
+}

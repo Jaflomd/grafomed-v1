@@ -1,0 +1,229 @@
+schema: grafomed-legacy-reference-intake.v0
+id: gm-intake-upper-limb-osteology-imaging-v0
+title: "Miembro superior: osteología, superficie, trauma e imagen"
+status: candidate_proposal_not_ingested
+created_at: "2026-08-30T14:08:33-05:00"
+created_by: mia
+responsible_agent: siris
+product_id: grafomed-v1
+canonical_write_performed: false
+legacy_migration_performed: false
+
+scope:
+  parent_cluster_ref: gm-cluster-miembro-superior
+  primary_source_outcomes: [50, 51, 70]
+  source_anchor_ref: gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  included_functions:
+    - identify_and_orient_bones
+    - localize_surface_landmarks
+    - map_injury_to_neurovascular_risk
+    - identify_anatomy_and_common_osseous_injury_on_standard_images
+  excluded_functions:
+    - fracture_management
+    - reduction_technique
+    - operative_anatomy
+    - rehabilitation
+
+legacy_reference:
+  project: medico-completo-v1
+  role: research_reference_only
+  source_file: >-
+    ../Archive/3-usamedic-alexei/medico-completo-v1/sources/
+    usmle-msk-dermatology-before-2026-07-13.json
+  records_reviewed:
+    - ANA-177
+    - ANA-178
+    - ANA-179
+    - ANA-180
+    - ANA-181
+    - ANA-182
+    - ANA-183
+    - ANA-184
+    - ANA-185
+    - ANA-185A
+    - ANA-185B
+    - ANA-185C
+    - ANA-186
+    - ANA-248
+  direct_import_allowed: false
+  reasons:
+    - all_records_have_pending_source_lock
+    - all_records_share_the_nonsemantic_type_habilitador
+    - knowledge_entities_objectives_practice_and_clinical_applications_are_mixed
+    - prerequisite_unlock_and_connected_edges_are_untyped_and_lack_rationale
+
+legacy_dispositions:
+  - legacy_refs: [ANA-177, ANA-178, ANA-179, ANA-180]
+    disposition: split_and_rebuild
+    preserve: [orientation_logic, high_value_landmarks, common_pitfalls]
+    replace_with: [anatomical_entities, landmark_entities, scalar_mastery_atoms]
+  - legacy_refs: [ANA-181, ANA-182]
+    disposition: split_and_rebuild
+    preserve: [carpal_rows, bone_identity, relative_position]
+    replace_with: [existing_hand_bone_entities, two_scalar_mastery_atoms]
+  - legacy_refs: [ANA-183]
+    disposition: rebuild_as_mastery_atom
+    preserve: [surface_localization_goal]
+    reject: [bundled_theory_as_entity]
+  - legacy_refs: [ANA-184, ANA-185A, ANA-185B, ANA-185C, ANA-186]
+    disposition: disaggregate_clinical_context
+    preserve: [injury_location, structure_at_risk, functional_consequence]
+    replace_with: [condition_entities, typed_places_at_risk_relations, downstream_mastery_atom]
+  - legacy_refs: [ANA-185]
+    disposition: reject_as_graph_node
+    preserve: [container_label_only]
+    reason: duplicates_its_more_specific_children_and_has_no_single_object_boundary
+  - legacy_refs: [ANA-248]
+    disposition: split_and_rebuild
+    preserve: [structured_image_orientation, anatomy_localization, osseous_injury_recognition]
+    replace_with: [two_region_specific_mastery_atoms, transversal_imaging_prerequisites]
+
+existing_objects_to_reuse:
+  anatomical_entities:
+    - gm-anatomy-clavicle
+    - gm-anatomy-scapula
+    - gm-anatomy-humerus
+    - gm-anatomy-radius
+    - gm-anatomy-ulna
+    - gm-anatomy-scaphoid
+    - gm-anatomy-lunate
+    - gm-anatomy-triquetrum
+    - gm-anatomy-pisiform
+    - gm-anatomy-trapezium
+    - gm-anatomy-trapezoid
+    - gm-anatomy-capitate
+    - gm-anatomy-hamate
+    - gm-anatomy-metacarpals
+    - gm-anatomy-phalanges-hand
+  mastery_atoms:
+    - gm-ma-map-neurovascular-risk-by-injury
+    - gm-ma-predict-functional-effect-neurovascular-injury
+
+candidate_anatomical_entities_to_add:
+  - {id: gm-anatomy-clavicle-sternal-end, label: Extremo esternal de la clavícula, parent_ref: gm-anatomy-clavicle}
+  - {id: gm-anatomy-clavicle-acromial-end, label: Extremo acromial de la clavícula, parent_ref: gm-anatomy-clavicle}
+  - {id: gm-anatomy-clavicle-conoid-tubercle, label: Tubérculo conoideo, parent_ref: gm-anatomy-clavicle}
+  - {id: gm-anatomy-scapular-spine, label: Espina de la escápula, parent_ref: gm-anatomy-scapula}
+  - {id: gm-anatomy-acromion, label: Acromion, parent_ref: gm-anatomy-scapula}
+  - {id: gm-anatomy-coracoid-process, label: Proceso coracoides, parent_ref: gm-anatomy-scapula}
+  - {id: gm-anatomy-glenoid-cavity, label: Cavidad glenoidea, parent_ref: gm-anatomy-scapula}
+  - {id: gm-anatomy-humeral-head, label: Cabeza del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-surgical-neck, label: Cuello quirúrgico del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-greater-tubercle, label: Tubérculo mayor del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-radial-groove, label: Surco radial del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-medial-epicondyle, label: Epicóndilo medial del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-lateral-epicondyle, label: Epicóndilo lateral del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-capitulum, label: Capítulo del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-trochlea, label: Tróclea del húmero, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-humeral-olecranon-fossa, label: Fosa olecraniana, parent_ref: gm-anatomy-humerus}
+  - {id: gm-anatomy-radial-head, label: Cabeza del radio, parent_ref: gm-anatomy-radius}
+  - {id: gm-anatomy-radial-tuberosity, label: Tuberosidad radial, parent_ref: gm-anatomy-radius}
+  - {id: gm-anatomy-radial-styloid, label: Proceso estiloides del radio, parent_ref: gm-anatomy-radius}
+  - {id: gm-anatomy-olecranon, label: Olécranon, parent_ref: gm-anatomy-ulna}
+  - {id: gm-anatomy-ulnar-coronoid-process, label: Proceso coronoides de la ulna, parent_ref: gm-anatomy-ulna}
+  - {id: gm-anatomy-ulnar-trochlear-notch, label: Incisura troclear de la ulna, parent_ref: gm-anatomy-ulna}
+  - {id: gm-anatomy-ulnar-head, label: Cabeza de la ulna, parent_ref: gm-anatomy-ulna}
+  - {id: gm-anatomy-ulnar-styloid, label: Proceso estiloides de la ulna, parent_ref: gm-anatomy-ulna}
+
+candidate_clinical_context_entities_to_add:
+  - {id: gm-condition-clavicle-fracture, label: Fractura de clavícula, type: condition}
+  - {id: gm-condition-humeral-surgical-neck-fracture, label: Fractura del cuello quirúrgico del húmero, type: condition}
+  - {id: gm-condition-humeral-shaft-fracture, label: Fractura diafisaria del húmero, type: condition}
+  - {id: gm-condition-supracondylar-humerus-fracture, label: Fractura supracondílea del húmero, type: condition}
+  - {id: gm-condition-radial-head-neck-fracture, label: Fractura de cabeza o cuello del radio, type: condition}
+  - {id: gm-condition-elbow-dislocation, label: Luxación del codo, type: condition}
+  - {id: gm-condition-distal-radius-fracture, label: Fractura distal del radio, type: condition}
+  - {id: gm-condition-both-bone-forearm-fracture, label: Fractura de ambos huesos del antebrazo, type: condition}
+  - {id: gm-condition-scaphoid-fracture, label: Fractura de escafoides, type: condition}
+
+mastery_atom_changes:
+  retire_as_atom_and_replace_with_cluster:
+    - gm-ma-identify-upper-limb-long-flat-bones
+  replace_with:
+    - id: gm-ma-orient-clavicle
+      objective: Orienta una clavícula aislada y justifica lado y posición mediante reparos definidos.
+      evidence_object_refs: [gm-anatomy-clavicle, gm-anatomy-clavicle-sternal-end, gm-anatomy-clavicle-acromial-end, gm-anatomy-clavicle-conoid-tubercle]
+    - id: gm-ma-orient-scapula
+      objective: Orienta una escápula aislada y justifica lado y posición mediante reparos definidos.
+      evidence_object_refs: [gm-anatomy-scapula, gm-anatomy-scapular-spine, gm-anatomy-acromion, gm-anatomy-coracoid-process, gm-anatomy-glenoid-cavity]
+    - id: gm-ma-orient-humerus
+      objective: Orienta un húmero aislado y justifica lado, extremo y cara mediante reparos definidos.
+      evidence_object_refs: [gm-anatomy-humerus, gm-anatomy-humeral-head, gm-anatomy-humeral-surgical-neck, gm-anatomy-humeral-radial-groove, gm-anatomy-humeral-capitulum, gm-anatomy-humeral-trochlea, gm-anatomy-humeral-olecranon-fossa]
+    - id: gm-ma-distinguish-orient-radius-ulna
+      objective: Distingue y orienta radio y ulna mediante sus extremos, reparos y relación en posición anatómica.
+      evidence_object_refs: [gm-anatomy-radius, gm-anatomy-ulna, gm-anatomy-radial-head, gm-anatomy-radial-tuberosity, gm-anatomy-radial-styloid, gm-anatomy-olecranon, gm-anatomy-ulnar-trochlear-notch, gm-anatomy-ulnar-head, gm-anatomy-ulnar-styloid]
+  split_existing:
+    - from: gm-ma-identify-wrist-hand-bones
+      into:
+        - id: gm-ma-map-carpal-bones
+          objective: Identifica los ocho carpianos y reconstruye sus filas y relaciones radial-ulnar.
+        - id: gm-ma-map-metacarpals-phalanges
+          objective: Identifica metacarpianos y falanges y determina número, orientación y posición relativa.
+    - from: gm-ma-interpret-upper-limb-imaging
+      into:
+        - id: gm-ma-identify-upper-limb-anatomy-on-standard-images
+          objective: Identifica anatomía del miembro superior en imágenes estándar nuevas después de orientar modalidad, plano o proyección.
+        - id: gm-ma-recognize-common-upper-limb-osseous-injury-patterns
+          objective: Localiza una lesión ósea frecuente del miembro superior y describe hueso, segmento, alineación y articulación vecina.
+  add:
+    - id: gm-ma-localize-upper-limb-surface-landmarks
+      objective: Localiza en superficie reparos óseos definidos de hombro, codo, muñeca y mano y los vincula con la estructura subyacente.
+  retain_and_rewire:
+    - gm-ma-map-neurovascular-risk-by-injury
+    - gm-ma-predict-functional-effect-neurovascular-injury
+
+transversal_dependencies_to_design_separately:
+  - id: gm-xma-identify-imaging-modality-plane-projection
+    reason: modality_and_orientation_are_reusable_across_all_body_regions
+  - id: gm-xma-apply-systematic-osseous-image-read
+    reason: the_reading_sequence_should_not_be_duplicated_per_regional_cluster
+
+relation_registry_extensions_required_before_ingest:
+  - type: articulates_with
+    family: anatomical
+    directionality: symmetric
+    domain: [anatomical_entity]
+    range: [anatomical_entity]
+  - type: affects_anatomical_entity
+    family: clinical_context
+    directionality: condition_to_anatomical_entity
+    domain: [condition]
+    range: [anatomical_entity]
+  - type: places_at_risk
+    family: clinical_context
+    directionality: injury_condition_to_vulnerable_structure
+    domain: [condition]
+    range: [anatomical_entity]
+  - type: surface_projection_of
+    family: anatomical
+    directionality: palpable_landmark_to_underlying_structure
+    domain: [anatomical_entity]
+    range: [anatomical_entity]
+
+candidate_learning_dependencies:
+  - {downstream: gm-ma-localize-upper-limb-surface-landmarks, requires: [gm-ma-orient-clavicle, gm-ma-orient-scapula, gm-ma-orient-humerus, gm-ma-distinguish-orient-radius-ulna, gm-ma-map-carpal-bones, gm-ma-map-metacarpals-phalanges]}
+  - {downstream: gm-ma-map-neurovascular-risk-by-injury, requires: [gm-ma-orient-clavicle, gm-ma-orient-humerus, gm-ma-distinguish-orient-radius-ulna, gm-ma-map-carpal-bones]}
+  - {downstream: gm-ma-identify-upper-limb-anatomy-on-standard-images, requires: [gm-xma-identify-imaging-modality-plane-projection]}
+  - {downstream: gm-ma-recognize-common-upper-limb-osseous-injury-patterns, requires: [gm-ma-identify-upper-limb-anatomy-on-standard-images, gm-xma-apply-systematic-osseous-image-read]}
+
+defer_or_reject:
+  - item: metacarpal_fracture_subtypes_from_ANA_186
+    disposition: defer
+    reason: not_required_by_the_primary_cluster_outcome_and_needs_a_hand_trauma_source
+  - item: named_colles_and_smith_patterns_from_ANA_185B
+    disposition: defer
+    reason: requires_source_lock_and_clinical_granularity_review
+  - item: pre_post_reduction_management_language_from_ANA_185C
+    disposition: exclude_from_this_anatomy_slice
+    reason: belongs_to_procedural_and_clinical_management_layers
+  - item: legacy_prerequisite_unlock_connected_edges
+    disposition: reject
+    reason: no_semantic_type_rationale_or_edge_level_provenance
+
+ingestion_gate:
+  javier_approval_required: true
+  relation_registry_amendment_required: true
+  primary_source_claim_mapping_required: true
+  anatomy_review_required: true
+  educational_granularity_review_required: true
+  current_recommendation: approve_for_candidate_build_after_relation_contract

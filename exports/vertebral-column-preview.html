@@ -1,0 +1,1576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>GrafoMed · Columna vertebral</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="GrafoMed · Columna vertebral" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;GrafoMed · Columna vertebral&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;mia-vertebral-graph&quot;&gt;
+  &lt;style&gt;
+    #mia-vertebral-graph {
+      width: 100%;
+      color: var(--foreground);
+    }
+    #mia-vertebral-graph .graph-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    #mia-vertebral-graph .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted-foreground);
+    }
+    #mia-vertebral-graph .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+    #mia-vertebral-graph .graph-stage {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      min-height: 420px;
+    }
+    #mia-vertebral-graph .graph-stage canvas {
+      display: block;
+    }
+    #mia-vertebral-graph .graph-hint {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      color: var(--muted-foreground);
+      pointer-events: none;
+    }
+    #mia-vertebral-graph .node-detail {
+      margin-top: 12px;
+    }
+    #mia-vertebral-graph .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    #mia-vertebral-graph .detail-grid p {
+      margin: 4px 0 0;
+    }
+    #mia-vertebral-graph .detail-meta {
+      margin-top: 10px;
+    }
+    @media (max-width: 520px) {
+      #mia-vertebral-graph .graph-stage {
+        height: 460px;
+      }
+      #mia-vertebral-graph .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  &lt;/style&gt;
+
+  &lt;div class=&quot;graph-heading&quot;&gt;
+    &lt;h1&gt;Columna vertebral · 40 nodos&lt;/h1&gt;
+    &lt;span class=&quot;text-small text-muted&quot;&gt;Borrador curricular&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;viz-row text-small&quot; aria-label=&quot;Leyenda del grafo&quot;&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-1)&quot;&gt;&lt;/span&gt;Cluster&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-2)&quot;&gt;&lt;/span&gt;Objetivo clave&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-3)&quot;&gt;&lt;/span&gt;Unidad evaluable&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-4)&quot;&gt;&lt;/span&gt;Actividad integradora&lt;/span&gt;
+    &lt;span class=&quot;legend-item&quot;&gt;&lt;span class=&quot;legend-dot&quot; style=&quot;background:var(--viz-series-5)&quot;&gt;&lt;/span&gt;Entidad anatómica&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div id=&quot;mia-vertebral-stage&quot; class=&quot;graph-stage&quot; role=&quot;img&quot; aria-label=&quot;Grafo tridimensional del cluster Columna vertebral con siete objetivos clave, dieciocho unidades evaluables, tres actividades integradoras y once entidades anatómicas.&quot;&gt;
+    &lt;div class=&quot;graph-hint text-small&quot;&gt;Arrastra para rotar · rueda para acercar · selecciona un nodo&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;section class=&quot;card node-detail&quot; aria-live=&quot;polite&quot; aria-labelledby=&quot;mia-vertebral-detail-title&quot;&gt;
+    &lt;div class=&quot;text-small text-muted&quot; id=&quot;mia-vertebral-detail-type&quot;&gt;Cluster&lt;/div&gt;
+    &lt;h2 id=&quot;mia-vertebral-detail-title&quot;&gt;Columna vertebral&lt;/h2&gt;
+    &lt;div class=&quot;detail-grid&quot;&gt;
+      &lt;div&gt;
+        &lt;strong id=&quot;mia-vertebral-detail-objective-label&quot;&gt;Objetivo&lt;/strong&gt;
+        &lt;p id=&quot;mia-vertebral-detail-objective&quot;&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;strong id=&quot;mia-vertebral-detail-description-label&quot;&gt;Qué se espera&lt;/strong&gt;
+        &lt;p id=&quot;mia-vertebral-detail-description&quot;&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;mia-vertebral-detail-meta&quot; class=&quot;detail-meta text-small text-muted&quot;&gt;&lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/3d-force-graph@1.79.0/dist/3d-force-graph.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/three-spritetext@1.10.0/dist/three-spritetext.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;mia-vertebral-graph&#x27;);
+      const stage = document.getElementById(&#x27;mia-vertebral-stage&#x27;);
+      const detailType = document.getElementById(&#x27;mia-vertebral-detail-type&#x27;);
+      const detailTitle = document.getElementById(&#x27;mia-vertebral-detail-title&#x27;);
+      const detailObjectiveLabel = document.getElementById(&#x27;mia-vertebral-detail-objective-label&#x27;);
+      const detailDescriptionLabel = document.getElementById(&#x27;mia-vertebral-detail-description-label&#x27;);
+      const detailObjective = document.getElementById(&#x27;mia-vertebral-detail-objective&#x27;);
+      const detailDescription = document.getElementById(&#x27;mia-vertebral-detail-description&#x27;);
+      const detailMeta = document.getElementById(&#x27;mia-vertebral-detail-meta&#x27;);
+
+      const nodes = [
+        {
+          id: &#x27;cluster&#x27;, type: &#x27;cluster&#x27;, title: &#x27;Columna vertebral&#x27;,
+          objective: &#x27;Integra la anatomía estructural, funcional, neuroanatómica e imagenológica de la columna vertebral para examinar la espalda, explicar lesiones frecuentes y planificar procedimientos neuraxiales con seguridad.&#x27;,
+          description: &#x27;Reconoce estructuras y regiones, explica estabilidad y movimiento, localiza disco, canal, meninges, raíces y nervios, interpreta imágenes y aplica la anatomía a exploración, compresión neural y procedimientos simulados.&#x27;,
+          meta: &#x27;7 objetivos clave · 18 unidades evaluables · 3 actividades integradoras · 11 entidades anatómicas&#x27;
+        },
+        {
+          id: &#x27;ko-morfologia&#x27;, type: &#x27;key&#x27;, title: &#x27;Morfología regional de las vértebras&#x27;,
+          objective: &#x27;Analiza la morfología de una vértebra para determinar su región y su carácter típico o atípico.&#x27;,
+          description: &#x27;Distingue los rasgos regionales y justifica la identificación de atlas, axis y otras vértebras atípicas.&#x27;, meta: &#x27;Objetivo clave · 2 unidades evaluables&#x27;
+        },
+        {
+          id: &#x27;ko-discos&#x27;, type: &#x27;key&#x27;, title: &#x27;Articulaciones, discos y compresión neural&#x27;,
+          objective: &#x27;Relaciona la estructura de las articulaciones y discos intervertebrales con la transmisión de cargas, el movimiento y la compresión neurológica.&#x27;,
+          description: &#x27;Explica la biomecánica normal y usa las relaciones entre disco, canal, foramen y raíces para predecir una compresión.&#x27;, meta: &#x27;Objetivo clave · 2 unidades evaluables&#x27;
+        },
+        {
+          id: &#x27;ko-movimiento&#x27;, type: &#x27;key&#x27;, title: &#x27;Curvaturas, movimiento regional y lesiones&#x27;,
+          objective: &#x27;Explica cómo la organización regional de la columna determina sus curvaturas, movimientos y patrones de lesión.&#x27;,
+          description: &#x27;Relaciona curvaturas con función, predice movilidad regional y explica las consecuencias anatómicas de mecanismos frecuentes de lesión.&#x27;, meta: &#x27;Objetivo clave · 3 unidades evaluables&#x27;
+        },
+        {
+          id: &#x27;ko-examen&#x27;, type: &#x27;key&#x27;, title: &#x27;Superficie, estabilidad y examen de espalda&#x27;,
+          objective: &#x27;Aplica músculos, ligamentos y referencias superficiales para explicar la estabilidad y realizar una exploración anatómica de la espalda.&#x27;,
+          description: &#x27;Localiza referencias, diferencia estabilización activa y pasiva y ejecuta una exploración estructurada en simulación.&#x27;, meta: &#x27;Objetivo clave · 3 unidades evaluables&#x27;
+        },
+        {
+          id: &#x27;ko-meninges&#x27;, type: &#x27;key&#x27;, title: &#x27;Meninges, raíces y procedimientos neuraxiales&#x27;,
+          objective: &#x27;Aplica las relaciones entre canal vertebral, meninges, médula y raíces para localizar compresión y planificar accesos neuraxiales seguros.&#x27;,
+          description: &#x27;Reconstruye compartimentos y trayectos para planificar punción lumbar y diferenciar accesos epidural e intratecal.&#x27;, meta: &#x27;Objetivo clave · 3 unidades evaluables&#x27;
+        },
+        {
+          id: &#x27;ko-nervio&#x27;, type: &#x27;key&#x27;, title: &#x27;Formación y distribución del nervio espinal&#x27;,
+          objective: &#x27;Reconstruye un nervio espinal típico y relaciona sus componentes con la distribución motora, cutánea y autonómica.&#x27;,
+          description: &#x27;Distingue raíz, ganglio, nervio y ramos, y usa esa arquitectura para inferir déficits según el sitio de lesión.&#x27;, meta: &#x27;Objetivo clave · 2 unidades evaluables&#x27;
+        },
+        {
+          id: &#x27;ko-imagen&#x27;, type: &#x27;key&#x27;, title: &#x27;Imagen anatómica de la columna vertebral&#x27;,
+          objective: &#x27;Interpreta la anatomía de la columna vertebral en modalidades de imagen estándar y la aplica a orientación, alineación y procedimientos.&#x27;,
+          description: &#x27;Orienta e identifica estructuras en radiografía, CT, MRI y ultrasonido neuraxial con casos e imágenes nuevas.&#x27;, meta: &#x27;Objetivo clave · 3 unidades evaluables&#x27;
+        },
+
+        { id: &#x27;ma-clasificar&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-morfologia&#x27;, title: &#x27;Clasificar una vértebra por región&#x27;, objective: &#x27;Clasifica una vértebra aislada como cervical, torácica, lumbar, sacra o coccígea utilizando sus rasgos anatómicos discriminadores.&#x27;, description: &#x27;Orienta el espécimen o imagen, identifica rasgos regionales y justifica una sola clasificación sin depender de una vista memorizada.&#x27;, meta: &#x27;Evidencia: A1 · A2 · A4&#x27; },
+        { id: &#x27;ma-atipicas&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-morfologia&#x27;, title: &#x27;Reconocer atlas, axis y vértebras atípicas&#x27;, objective: &#x27;Reconoce atlas, axis y otras vértebras atípicas relevantes a partir de sus características distintivas.&#x27;, description: &#x27;Identifica la pieza o imagen y señala los rasgos que explican su clasificación y función regional.&#x27;, meta: &#x27;Evidencia: A1 · A2 · A4&#x27; },
+        { id: &#x27;ma-biomecanica&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-discos&#x27;, title: &#x27;Explicar la biomecánica intervertebral&#x27;, objective: &#x27;Explica cómo los cuerpos vertebrales, discos y articulaciones cigapofisarias distribuyen carga y guían el movimiento.&#x27;, description: &#x27;Integra estructura y función sin convertir el disco en el único elemento de estabilidad ni confundir articulaciones anteriores y posteriores.&#x27;, meta: &#x27;Evidencia: A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-compresion&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-discos&#x27;, title: &#x27;Predecir compresión por lesión discal&#x27;, objective: &#x27;Predice la estructura neurológica susceptible de compresión a partir del nivel y la dirección de una lesión discal.&#x27;, description: &#x27;Usa las relaciones entre disco, canal, foramen y raíces; no diagnostica radiculopatía únicamente por dolor inespecífico.&#x27;, meta: &#x27;Evidencia: A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-curvaturas&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-movimiento&#x27;, title: &#x27;Relacionar curvaturas con función&#x27;, objective: &#x27;Relaciona las curvaturas fisiológicas de la columna con soporte, distribución de carga y equilibrio postural.&#x27;, description: &#x27;Reconoce curvaturas regionales normales y explica su función sin confundir variación postural con deformidad estructural.&#x27;, meta: &#x27;Evidencia: A1 · A2 · A3&#x27; },
+        { id: &#x27;ma-movimiento&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-movimiento&#x27;, title: &#x27;Predecir el movimiento vertebral regional&#x27;, objective: &#x27;Predice el movimiento predominante y sus limitaciones en una región vertebral a partir de su anatomía articular y ligamentaria.&#x27;, description: &#x27;Diferencia flexión, extensión, inclinación y rotación regionales y justifica el patrón desde la geometría anatómica.&#x27;, meta: &#x27;Evidencia: A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-lesion&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-movimiento&#x27;, title: &#x27;Explicar la base anatómica de una lesión&#x27;, objective: &#x27;Explica la base anatómica y la consecuencia estructural probable de un mecanismo frecuente de lesión vertebral.&#x27;, description: &#x27;Conecta fuerza, región, estructuras vulnerables y posible inestabilidad sin realizar una clasificación traumatológica completa.&#x27;, meta: &#x27;Evidencia: A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-superficie&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-examen&#x27;, title: &#x27;Identificar referencias de superficie&#x27;, objective: &#x27;Identifica las referencias superficiales principales necesarias para orientar un examen de la espalda.&#x27;, description: &#x27;Localiza referencias en modelo o persona simulada y reconoce la incertidumbre de la palpación y la variación corporal.&#x27;, meta: &#x27;Evidencia: A1 · A3 · A4&#x27; },
+        { id: &#x27;ma-estabilidad&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-examen&#x27;, title: &#x27;Explicar la estabilidad musculoligamentaria&#x27;, objective: &#x27;Explica cómo los principales grupos musculares y ligamentos contribuyen al movimiento y la estabilidad vertebral.&#x27;, description: &#x27;Relaciona estructura, tensión y acción regional y distingue estabilización activa de restricción ligamentaria pasiva.&#x27;, meta: &#x27;Evidencia: A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-examen&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-examen&#x27;, title: &#x27;Realizar un examen anatómico de espalda&#x27;, objective: &#x27;Realiza una exploración anatómica estructurada de la espalda utilizando referencias superficiales, alineación y movimiento.&#x27;, description: &#x27;Inspecciona, orienta, palpa cuando corresponde y evalúa movimientos sistemáticamente en una persona simulada.&#x27;, meta: &#x27;Evidencia: A3 · A4&#x27; },
+        { id: &#x27;ma-canal&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-meninges&#x27;, title: &#x27;Mapear el contenido del canal vertebral&#x27;, objective: &#x27;Reconstruye las relaciones espaciales entre canal vertebral, meninges, médula, cauda equina y raíces espinales.&#x27;, description: &#x27;Orienta cortes y niveles y distingue espacios epidural, subdural potencial y subaracnoideo.&#x27;, meta: &#x27;Evidencia: A1 · A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-puncion&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-meninges&#x27;, title: &#x27;Planificar una punción lumbar&#x27;, objective: &#x27;Selecciona un nivel y trayecto anatómico apropiados para una punción lumbar simulada y justifica las estructuras atravesadas y evitadas.&#x27;, description: &#x27;Usa referencias superficiales y la terminación relativa de la médula y el saco dural; planifica y demuestra en simulación.&#x27;, meta: &#x27;Evidencia: A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-epidural&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-meninges&#x27;, title: &#x27;Diferenciar acceso epidural e intratecal&#x27;, objective: &#x27;Diferencia el objetivo anatómico, los límites y las estructuras relevantes de un acceso epidural frente a uno intratecal.&#x27;, description: &#x27;Localiza ambos espacios y predice la consecuencia de una profundidad o trayectoria incorrecta.&#x27;, meta: &#x27;Evidencia: A1 · A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-trazar-nervio&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-nervio&#x27;, title: &#x27;Trazar un nervio espinal típico&#x27;, objective: &#x27;Traza la formación de un nervio espinal típico desde las raíces dorsal y ventral hasta sus principales ramos.&#x27;, description: &#x27;Mantiene la distinción entre raíz, ganglio, nervio espinal y ramos y asigna correctamente sus componentes funcionales básicos.&#x27;, meta: &#x27;Evidencia: A1 · A2 · A3&#x27; },
+        { id: &#x27;ma-deficit&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-nervio&#x27;, title: &#x27;Inferir un déficit del nervio espinal&#x27;, objective: &#x27;Infiere el patrón funcional esperado de una lesión localizada en una raíz, nervio espinal o ramo principal.&#x27;, description: &#x27;Diferencia componentes motores, sensitivos y autonómicos y evita equiparar automáticamente raíz con nervio periférico.&#x27;, meta: &#x27;Evidencia: A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-rx&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-imagen&#x27;, title: &#x27;Interpretar radiografía de columna&#x27;, objective: &#x27;Orienta una radiografía de columna e identifica región, alineación y estructuras óseas principales.&#x27;, description: &#x27;Reconoce proyección y nivel y distingue variación de una alteración anatómica evidente sin emitir un informe radiológico completo.&#x27;, meta: &#x27;Evidencia: A1 · A3 · A4&#x27; },
+        { id: &#x27;ma-ct-mri&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-imagen&#x27;, title: &#x27;Interpretar CT y MRI de columna&#x27;, objective: &#x27;Localiza estructuras óseas, discales, del canal y neurales en cortes de CT y MRI de la columna vertebral.&#x27;, description: &#x27;Orienta plano y nivel, reconoce qué estructuras muestra mejor cada modalidad y correlaciona hallazgos anatómicos básicos.&#x27;, meta: &#x27;Evidencia: A1 · A2 · A3 · A4&#x27; },
+        { id: &#x27;ma-us&#x27;, type: &#x27;atom&#x27;, parent: &#x27;ko-imagen&#x27;, title: &#x27;Identificar ultrasonido neuraxial&#x27;, objective: &#x27;Identifica referencias vertebrales y neuraxiales principales en un ultrasonido orientado a la planificación de acceso lumbar.&#x27;, description: &#x27;Reconoce orientación, línea media, interespacio y profundidad aproximada en imágenes o simulador.&#x27;, meta: &#x27;Evidencia: A1 · A3 · A4&#x27; },
+
+        { id: &#x27;anatomy-vertebra&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Vértebra: patrón general&#x27;, objective: &#x27;Unidad ósea del eje vertebral representada por un cuerpo y un arco vertebral con procesos, sujeta a modificaciones regionales y excepciones.&#x27;, description: &#x27;Organiza los diez morfotipos y entidades distintivas que sirven como evidencia para clasificar y reconocer vértebras.&#x27;, meta: &#x27;Entidad anatómica general · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-atlas&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Atlas (C1)&#x27;, objective: &#x27;Primera vértebra cervical, formada principalmente por arcos y masas laterales y sin cuerpo ni proceso espinoso en el patrón adulto habitual.&#x27;, description: &#x27;Se utiliza para clasificar la región cervical y reconocer una vértebra atípica por sus masas laterales y articulaciones.&#x27;, meta: &#x27;Entidad anatómica distintiva · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-axis&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Axis (C2)&#x27;, objective: &#x27;Segunda vértebra cervical, distinguida por el proceso odontoides o dens que se proyecta superiormente y participa en la rotación atlantoaxial.&#x27;, description: &#x27;Se utiliza para clasificar la región cervical y reconocer una vértebra atípica mediante el dens y sus superficies articulares.&#x27;, meta: &#x27;Entidad anatómica distintiva · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-cervical-typical&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Cervicales típicas (C3–C6)&#x27;, objective: &#x27;Morfotipo cervical subaxial usado para reconocer C3 a C6 por sus forámenes transversos, cuerpo relativamente pequeño y procesos unciformes.&#x27;, description: &#x27;Proporciona muestras representativas para la clasificación regional y el contraste con Atlas, Axis y C7.&#x27;, meta: &#x27;Morfotipo anatómico · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-c7&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;C7 o vértebra prominente&#x27;, objective: &#x27;Séptima vértebra cervical con proceso espinoso largo y rasgos transicionales hacia la región torácica.&#x27;, description: &#x27;Se utiliza para clasificación regional y reconocimiento de excepciones; su clasificación como típica o atípica varía según la convención.&#x27;, meta: &#x27;Entidad transicional · variabilidad explícita · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-thoracic-typical&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Torácica típica (T5–T8)&#x27;, objective: &#x27;Morfotipo torácico medio caracterizado por superficies articulares para costillas, cuerpo aproximadamente cardíaco y proceso espinoso posteroinferior.&#x27;, description: &#x27;Sirve como patrón de comparación para clasificar vértebras torácicas y distinguir sus excepciones regionales.&#x27;, meta: &#x27;Morfotipo anatómico representativo · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-thoracic-atypical&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Torácicas atípicas&#x27;, objective: &#x27;Conjunto con T1, T11 y T12 como miembros fijos y T9–T10 como patrón variable o transicional según la configuración de las facetas costales.&#x27;, description: &#x27;Se utiliza para reconocer configuraciones costales atípicas sin imponer una lista rígida a variantes anatómicas.&#x27;, meta: &#x27;Conjunto anatómico · T9–T10 variables · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-lumbar-typical&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Lumbares típicas (L1–L4)&#x27;, objective: &#x27;Morfotipo lumbar con cuerpo grande, proceso espinoso corto y grueso, facetas predominantemente sagitales y procesos mamilares.&#x27;, description: &#x27;Proporciona el patrón regional para clasificar vértebras lumbares y contrastarlas con L5.&#x27;, meta: &#x27;Morfotipo anatómico · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-l5&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;L5&#x27;, objective: &#x27;Quinta vértebra lumbar, adaptada a la transición lumbosacra, con cuerpo y procesos transversos grandes y mayor altura corporal anterior.&#x27;, description: &#x27;Se utiliza para clasificación lumbar y reconocimiento de la principal vértebra lumbar atípica.&#x27;, meta: &#x27;Entidad transicional · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-sacrum&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Sacro&#x27;, objective: &#x27;Complejo óseo triangular formado habitualmente por cinco vértebras sacras fusionadas y atravesado por el canal y los forámenes sacros.&#x27;, description: &#x27;Permite clasificar la región sacra como complejo vertebral fusionado y diferenciarla de vértebras móviles.&#x27;, meta: &#x27;Complejo vertebral fusionado · sin objetivo propio&#x27; },
+        { id: &#x27;anatomy-coccyx&#x27;, type: &#x27;anatomy&#x27;, title: &#x27;Cóccix&#x27;, objective: &#x27;Porción terminal formada habitualmente por tres a cinco segmentos coccygeales, con cuatro como patrón frecuente y fusión variable.&#x27;, description: &#x27;Permite clasificar la región coccígea conservando la variabilidad en número y fusión de sus segmentos.&#x27;, meta: &#x27;Complejo vertebral variable · sin objetivo propio&#x27; },
+
+        { id: &#x27;assembly-examen&#x27;, type: &#x27;assembly&#x27;, title: &#x27;Explorar anatómicamente la espalda&#x27;, objective: &#x27;Integra anatomía de superficie, curvaturas, movimiento, estabilidad e imagen para realizar una exploración anatómica de la espalda.&#x27;, description: &#x27;Desempeño integrador simulado; no constituye diagnóstico clínico musculoesquelético completo.&#x27;, meta: &#x27;Actividad integradora · 6 unidades conectadas&#x27; },
+        { id: &#x27;assembly-raiz&#x27;, type: &#x27;assembly&#x27;, title: &#x27;Localizar una compresión radicular&#x27;, objective: &#x27;Integra disco, canal, raíz, nervio e imagen para localizar anatómicamente una compresión radicular.&#x27;, description: &#x27;Resuelve la localización anatómica; no cubre el diagnóstico diferencial ni el tratamiento completo.&#x27;, meta: &#x27;Patrón de decisión · 5 unidades conectadas&#x27; },
+        { id: &#x27;assembly-puncion&#x27;, type: &#x27;assembly&#x27;, title: &#x27;Planificar una punción lumbar&#x27;, objective: &#x27;Integra referencias superficiales, canal, meninges y ultrasonido para planificar anatómicamente una punción lumbar.&#x27;, description: &#x27;Planificación y simulación; indicación, consentimiento, asepsia, ejecución y complicaciones pertenecen a otros clusters.&#x27;, meta: &#x27;Actividad integradora · 5 unidades conectadas&#x27; }
+      ];
+
+      const links = [
+        ...nodes.filter(node =&gt; node.type === &#x27;key&#x27;).map(node =&gt; ({ source: &#x27;cluster&#x27;, target: node.id, kind: &#x27;hierarchy&#x27; })),
+        ...nodes.filter(node =&gt; node.type === &#x27;atom&#x27;).map(node =&gt; ({ source: node.parent, target: node.id, kind: &#x27;hierarchy&#x27; })),
+        { source: &#x27;cluster&#x27;, target: &#x27;assembly-examen&#x27;, kind: &#x27;hierarchy&#x27; },
+        { source: &#x27;cluster&#x27;, target: &#x27;assembly-raiz&#x27;, kind: &#x27;hierarchy&#x27; },
+        { source: &#x27;cluster&#x27;, target: &#x27;assembly-puncion&#x27;, kind: &#x27;hierarchy&#x27; },
+        ...[&#x27;anatomy-atlas&#x27;, &#x27;anatomy-axis&#x27;, &#x27;anatomy-cervical-typical&#x27;, &#x27;anatomy-c7&#x27;, &#x27;anatomy-thoracic-typical&#x27;, &#x27;anatomy-thoracic-atypical&#x27;, &#x27;anatomy-lumbar-typical&#x27;, &#x27;anatomy-l5&#x27;, &#x27;anatomy-sacrum&#x27;, &#x27;anatomy-coccyx&#x27;].map(id =&gt; ({ source: id, target: &#x27;anatomy-vertebra&#x27;, kind: &#x27;knowledge-structure&#x27; })),
+        ...[&#x27;anatomy-atlas&#x27;, &#x27;anatomy-axis&#x27;, &#x27;anatomy-cervical-typical&#x27;, &#x27;anatomy-c7&#x27;, &#x27;anatomy-thoracic-typical&#x27;, &#x27;anatomy-thoracic-atypical&#x27;, &#x27;anatomy-lumbar-typical&#x27;, &#x27;anatomy-l5&#x27;, &#x27;anatomy-sacrum&#x27;, &#x27;anatomy-coccyx&#x27;].map(id =&gt; ({ source: id, target: &#x27;ma-clasificar&#x27;, kind: &#x27;knowledge-learning&#x27; })),
+        ...[&#x27;anatomy-atlas&#x27;, &#x27;anatomy-axis&#x27;, &#x27;anatomy-c7&#x27;, &#x27;anatomy-thoracic-atypical&#x27;, &#x27;anatomy-l5&#x27;].map(id =&gt; ({ source: id, target: &#x27;ma-atipicas&#x27;, kind: &#x27;knowledge-learning&#x27; })),
+        ...[&#x27;ma-curvaturas&#x27;, &#x27;ma-movimiento&#x27;, &#x27;ma-superficie&#x27;, &#x27;ma-estabilidad&#x27;, &#x27;ma-examen&#x27;, &#x27;ma-rx&#x27;].map(id =&gt; ({ source: &#x27;assembly-examen&#x27;, target: id, kind: &#x27;integration&#x27; })),
+        ...[&#x27;ma-compresion&#x27;, &#x27;ma-canal&#x27;, &#x27;ma-trazar-nervio&#x27;, &#x27;ma-deficit&#x27;, &#x27;ma-ct-mri&#x27;].map(id =&gt; ({ source: &#x27;assembly-raiz&#x27;, target: id, kind: &#x27;integration&#x27; })),
+        ...[&#x27;ma-superficie&#x27;, &#x27;ma-canal&#x27;, &#x27;ma-puncion&#x27;, &#x27;ma-epidural&#x27;, &#x27;ma-us&#x27;].map(id =&gt; ({ source: &#x27;assembly-puncion&#x27;, target: id, kind: &#x27;integration&#x27; }))
+      ];
+
+      const typeLabels = {
+        cluster: &#x27;Cluster&#x27;, key: &#x27;Objetivo clave&#x27;, atom: &#x27;Unidad de aprendizaje y evaluación&#x27;, assembly: &#x27;Actividad integradora&#x27;, anatomy: &#x27;Entidad anatómica&#x27;
+      };
+
+      const colorProbe = document.createElement(&#x27;span&#x27;);
+      colorProbe.style.position = &#x27;absolute&#x27;;
+      colorProbe.style.visibility = &#x27;hidden&#x27;;
+      root.appendChild(colorProbe);
+      const resolveColor = token =&gt; {
+        colorProbe.style.color = `var(${token})`;
+        return getComputedStyle(colorProbe).color;
+      };
+      const palette = {
+        cluster: resolveColor(&#x27;--viz-series-1&#x27;),
+        key: resolveColor(&#x27;--viz-series-2&#x27;),
+        atom: resolveColor(&#x27;--viz-series-3&#x27;),
+        assembly: resolveColor(&#x27;--viz-series-4&#x27;),
+        anatomy: resolveColor(&#x27;--viz-series-5&#x27;),
+        neutral: resolveColor(&#x27;--border&#x27;),
+        text: resolveColor(&#x27;--foreground&#x27;)
+      };
+
+      const showDetail = node =&gt; {
+        detailType.textContent = typeLabels[node.type];
+        detailTitle.textContent = node.title;
+        detailObjectiveLabel.textContent = node.type === &#x27;anatomy&#x27; ? &#x27;Definición&#x27; : &#x27;Objetivo&#x27;;
+        detailDescriptionLabel.textContent = node.type === &#x27;anatomy&#x27; ? &#x27;Conexión educativa&#x27; : &#x27;Qué se espera&#x27;;
+        detailObjective.textContent = node.objective;
+        detailDescription.textContent = node.description;
+        detailMeta.textContent = node.meta;
+      };
+
+      showDetail(nodes[0]);
+
+      if (typeof ForceGraph3D !== &#x27;function&#x27; || typeof SpriteText !== &#x27;function&#x27;) {
+        stage.textContent = &#x27;No se pudo cargar la vista tridimensional.&#x27;;
+        return;
+      }
+
+      const graph = ForceGraph3D({ controlType: &#x27;orbit&#x27; })(stage)
+        .graphData({ nodes, links })
+        .backgroundColor(&#x27;rgba(0,0,0,0)&#x27;)
+        .showNavInfo(false)
+        .nodeLabel(node =&gt; `${typeLabels[node.type]}: ${node.title}`)
+        .nodeColor(node =&gt; palette[node.type])
+        .nodeVal(node =&gt; node.type === &#x27;cluster&#x27; ? 18 : node.type === &#x27;key&#x27; ? 10 : node.type === &#x27;assembly&#x27; ? 12 : node.id === &#x27;anatomy-vertebra&#x27; ? 11 : node.type === &#x27;anatomy&#x27; ? 6 : 5)
+        .nodeResolution(16)
+        .linkColor(link =&gt; link.kind === &#x27;integration&#x27; ? palette.assembly : link.kind.startsWith(&#x27;knowledge&#x27;) ? palette.anatomy : palette.neutral)
+        .linkOpacity(0.42)
+        .linkWidth(link =&gt; link.kind === &#x27;integration&#x27; ? 1.15 : link.kind === &#x27;knowledge-learning&#x27; ? 1 : 0.65)
+        .nodeThreeObject(node =&gt; {
+          const label = new SpriteText(node.title);
+          label.color = palette.text;
+          label.textHeight = node.type === &#x27;cluster&#x27; ? 4.8 : node.type === &#x27;key&#x27; || node.type === &#x27;assembly&#x27; || node.id === &#x27;anatomy-vertebra&#x27; ? 3.6 : node.type === &#x27;anatomy&#x27; ? 2.85 : 2.65;
+          label.backgroundColor = &#x27;rgba(0,0,0,0)&#x27;;
+          label.position.set(0, node.type === &#x27;atom&#x27; ? 5 : 7, 0);
+          return label;
+        })
+        .nodeThreeObjectExtend(true)
+        .onNodeClick(node =&gt; {
+          showDetail(node);
+          const length = Math.hypot(node.x || 0, node.y || 0, node.z || 0);
+          const distance = 72;
+          const ratio = length ? 1 + distance / length : 1;
+          graph.cameraPosition(
+            length ? { x: node.x * ratio, y: node.y * ratio, z: node.z * ratio } : { x: 0, y: 0, z: distance },
+            node,
+            650
+          );
+        })
+        .onEngineStop(() =&gt; graph.zoomToFit(450, 54));
+
+      graph.d3Force(&#x27;charge&#x27;).strength(-145);
+      graph.d3Force(&#x27;link&#x27;).distance(link =&gt; link.kind === &#x27;integration&#x27; ? 82 : link.kind === &#x27;knowledge-learning&#x27; ? 64 : link.kind === &#x27;knowledge-structure&#x27; ? 44 : link.target.type === &#x27;atom&#x27; ? 48 : 72);
+
+      const resize = () =&gt; {
+        const width = Math.max(300, stage.clientWidth);
+        const height = Math.max(420, stage.clientHeight);
+        graph.width(width).height(height);
+      };
+      resize();
+      const observer = new ResizeObserver(resize);
+      observer.observe(stage);
+
+      const canvas = stage.querySelector(&#x27;canvas&#x27;);
+      if (canvas) {
+        canvas.setAttribute(&#x27;aria-label&#x27;, &#x27;Grafo tridimensional interactivo del cluster Columna vertebral.&#x27;);
+      }
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>

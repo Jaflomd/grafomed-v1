@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grafomed.local/schemas/node-learning-pack.v0.schema.json",
+  "title": "GrafoMed node learning pack candidate contract",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "status",
+    "nodeRef",
+    "language",
+    "title",
+    "objective",
+    "lessons",
+    "reviewPlan"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "0.1.0" },
+    "id": { "type": "string", "minLength": 1 },
+    "status": { "const": "candidate_demo_not_promoted" },
+    "nodeRef": { "type": "string", "minLength": 1 },
+    "language": { "const": "es" },
+    "title": { "type": "string", "minLength": 1 },
+    "objective": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "estimatedMinutes": { "type": "integer", "minimum": 1 },
+    "design": { "type": "object" },
+    "lessons": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/lesson" }
+    },
+    "reviewPlan": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "delayDays", "purpose", "activityMix"],
+        "properties": {
+          "id": { "type": "string" },
+          "delayDays": { "type": "integer", "minimum": 1 },
+          "purpose": { "type": "string" },
+          "activityMix": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "lesson": {
+      "type": "object",
+      "required": ["id", "title", "kind", "durationMinutes", "focus", "description", "activities"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "kind": { "enum": ["diagnostic", "learn", "integrate", "transfer", "checkpoint"] },
+        "durationMinutes": { "type": "integer", "minimum": 1 },
+        "focus": { "type": "array", "items": { "enum": ["A1", "A2", "A3", "A4"] } },
+        "description": { "type": "string" },
+        "activities": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/activity" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "activity": {
+      "type": "object",
+      "required": ["id", "type", "title", "version"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["teach", "single_choice", "multiple_select", "sequence", "short_answer"] },
+        "title": { "type": "string" },
+        "version": { "type": "string" },
+        "phase": { "type": "string" },
+        "evidenceLevel": { "enum": ["A1", "A2", "A3", "A4"] },
+        "instruction": { "type": "string" },
+        "hint": { "type": "string" },
+        "explanation": { "type": "string" },
+        "errorPattern": { "type": "string" },
+        "choices": { "type": "array", "items": { "type": "string" } },
+        "correctIndex": { "type": "integer", "minimum": 0 },
+        "correctIndices": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "uniqueItems": true },
+        "correctOrder": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "uniqueItems": true },
+        "acceptedAnswers": { "type": "array", "items": { "type": "string" } },
+        "cards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["symbol", "label", "copy"],
+            "properties": {
+              "symbol": { "type": "string" },
+              "label": { "type": "string" },
+              "copy": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "memoryRule": { "type": "string" },
+        "mechanism": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

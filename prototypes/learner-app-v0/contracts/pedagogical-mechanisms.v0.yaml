@@ -1,0 +1,53 @@
+schema: grafomed-pedagogical-mechanisms.v0
+status: candidate_demo_not_validated
+mechanisms:
+  - id: retrieval_before_teaching
+    construct: accessible prior knowledge
+    hypothesis: an initial independent attempt improves diagnosis of the learner state and later retention
+    required_data: [first_response, assistance, confidence, latency, objective_version]
+    trigger: start_of_mission
+    intervention: present one objective-aligned item before explanation
+    expected_behavior: effortful retrieval followed by targeted instruction
+    outcome: delayed_retention
+    harms: [test_anxiety, mistaking one error for incapacity]
+    falsification_or_retirement: retire if delayed retention is not better than an equivalent explanation-first condition or harms exceed benefit
+  - id: confidence_calibration
+    construct: metacognitive calibration
+    hypothesis: comparing confidence with performance improves self-monitoring and help-seeking
+    required_data: [confidence, correctness, assistance]
+    trigger: every scored formative response
+    intervention: require a confidence judgment before feedback
+    expected_behavior: better distinction between known, uncertain, and guessed answers
+    outcome: calibration_error_over_time
+    harms: [false precision, shame from overconfidence]
+    falsification_or_retirement: retire if it increases burden without improving calibration or learning choices
+  - id: productive_error_remediation
+    construct: discrimination between confusable alternatives
+    hypothesis: explicit contrast after an error improves the next independent attempt
+    required_data: [selected_distractor, correct_answer, error_pattern, next_attempt]
+    trigger: incorrect formative response
+    intervention: contrast the chosen and correct alternatives using the discriminating relation
+    expected_behavior: reconstruction rather than answer copying
+    outcome: next_independent_retrieval
+    harms: [overlong feedback, cue dependence]
+    falsification_or_retirement: retire if retries improve but delayed independent retrieval does not
+  - id: explainable_frontier_route
+    construct: readiness for the next learning action
+    hypothesis: an explainable set of viable choices improves agency and route coherence without reducing learning
+    required_data: [mastery_gap, uncertainty, spacing_need, time_budget, modality, fatigue, override]
+    trigger: session_start_or_context_change
+    intervention: rank a small ready-to-learn frontier and expose reasons and alternatives
+    expected_behavior: informed acceptance or bounded override
+    outcome: [route_coherence, learning_gain, override_quality]
+    harms: [automation_bias, false precision, inequitable ranking]
+    falsification_or_retirement: retire or revise weights if explanations do not match observed benefit or subgroup audit shows harm
+  - id: delayed_retention_and_transfer
+    construct: durable and flexible learning
+    hypothesis: delayed retrieval plus a new modality distinguishes acquisition from durable mastery
+    required_data: [immediate_event, delayed_event, transfer_event, exact_versions]
+    trigger: mission_completion
+    intervention: schedule delayed retrieval and near transfer in a different modality
+    expected_behavior: return after spacing and apply in a new representation
+    outcome: [delayed_retention, near_transfer]
+    harms: [notification burden, penalizing absence]
+    falsification_or_retirement: revise schedule if return burden rises without durable benefit; never score non-return as failure

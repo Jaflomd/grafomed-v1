@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jaflo.local/grafomed/packet.schema.json",
+  "title": "Grafo Med slice packet manifest",
+  "type": "object",
+  "required": ["schema", "id", "version", "title", "lifecycle", "release_status", "authority", "owners", "scope", "object_refs", "relation_refs", "route_refs", "source_lock_ref", "evidence_bundle_ref", "review_refs", "canonical_snapshot", "timestamps"],
+  "properties": {
+    "schema": {"const": "grafomed-slice-packet.v1"},
+    "id": {"type": "string", "pattern": "^slice-[a-z0-9-]+-v[0-9]+$"},
+    "version": {"type": "string"},
+    "title": {"type": "string"},
+    "lifecycle": {"enum": ["captured", "source_locked", "evidence_bundled", "graph_drafted", "reviewed", "route_tested", "promoted", "maintained", "blocked", "contested", "deprecated", "superseded", "archived"]},
+    "release_status": {"const": "internal_only"},
+    "authority": {"const": "javier"},
+    "owners": {"type": "object"},
+    "scope": {"type": "object", "required": ["included", "excluded"]},
+    "object_refs": {"type": "array", "minItems": 8, "items": {"type": "string"}, "uniqueItems": true},
+    "relation_refs": {"type": "array", "minItems": 15, "items": {"type": "string"}, "uniqueItems": true},
+    "route_refs": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+    "source_lock_ref": {"type": "string"},
+    "evidence_bundle_ref": {"type": "string"},
+    "review_refs": {"type": "array", "minItems": 5, "items": {"type": "string"}},
+    "canonical_snapshot": {"type": "object", "required": ["snapshot_id", "hash_algorithm", "input_manifest"]},
+    "timestamps": {"type": "object", "required": ["created_at", "updated_at"]}
+  },
+  "additionalProperties": true
+}
+

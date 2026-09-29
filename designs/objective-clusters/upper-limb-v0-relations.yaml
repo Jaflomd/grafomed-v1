@@ -1,0 +1,5098 @@
+schema: grafomed-derived-relations.v0
+id: gm-cluster-miembro-superior-relations-v0
+status: candidate_derived_view_not_promoted
+source_cluster_ref: gm-cluster-miembro-superior
+generated_at: '2026-08-28T12:00:00-05:00'
+generation_contract:
+  part_of_source: knowledge_entity_layer.entities[].parent_ref
+  enables_mastery_of_source: objective_hierarchy[].mastery_atoms[].evidence_object_refs[]
+  canonical_truth: false
+  regenerate_instead_of_manual_edit: true
+quality_counts:
+  part_of: 54
+  enables_mastery_of: 167
+  total: 221
+edges:
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-607c4572b9c0
+  source: gm-anatomy-clavicle
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Clavícula pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-a8e2871627b4
+  source: gm-anatomy-scapula
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Escápula pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea un
+    objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-dd9d44831036
+  source: gm-anatomy-humerus
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Húmero pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea un
+    objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-38c21c32e330
+  source: gm-anatomy-radius
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Radio pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea un objetivo
+    de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-c563c97a94db
+  source: gm-anatomy-ulna
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Ulna o cúbito pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-3fe40c368cd9
+  source: gm-anatomy-scaphoid
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Escafoides pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-36f796e7dd1f
+  source: gm-anatomy-lunate
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Semilunar pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-0e51092896a2
+  source: gm-anatomy-triquetrum
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Piramidal pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-6bd057b9c9f1
+  source: gm-anatomy-pisiform
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Pisiforme pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-e496ba5ec634
+  source: gm-anatomy-trapezium
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Trapecio pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea un
+    objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-7aa8a283a306
+  source: gm-anatomy-trapezoid
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Trapezoide pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-59ab27a4fa0f
+  source: gm-anatomy-capitate
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Grande pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea un
+    objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-df15aaf1ce2c
+  source: gm-anatomy-hamate
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Ganchoso pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea un
+    objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-b62c7537b971
+  source: gm-anatomy-metacarpals
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Metacarpianos I–V pertenece a la familia anatómica indicada; esta relación organiza conocimiento y
+    no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-7b57e55bffdd
+  source: gm-anatomy-phalanges-hand
+  target: gm-anatomy-upper-limb-skeleton
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Falanges de la mano pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-f11bcb5d1d6b
+  source: gm-anatomy-brachial-plexus
+  target: gm-anatomy-upper-limb-neural
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Plexo braquial pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no
+    crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-10bf5f25543d
+  source: gm-anatomy-axillary-nerve
+  target: gm-anatomy-upper-limb-neural
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Nervio axilar pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-b2cb0f7c7118
+  source: gm-anatomy-radial-nerve
+  target: gm-anatomy-upper-limb-neural
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Nervio radial pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-f9c80f516f7b
+  source: gm-anatomy-musculocutaneous-nerve
+  target: gm-anatomy-upper-limb-neural
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Nervio musculocutáneo pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-fd28c039cd44
+  source: gm-anatomy-median-nerve
+  target: gm-anatomy-upper-limb-neural
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Nervio mediano pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no
+    crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-fab7998560c4
+  source: gm-anatomy-ulnar-nerve
+  target: gm-anatomy-upper-limb-neural
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Nervio ulnar o cubital pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-a7139e11f965
+  source: gm-anatomy-upper-limb-dermatomes-myotomes
+  target: gm-anatomy-upper-limb-neural
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Dermatomos pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-05aa58484265
+  source: gm-anatomy-subclavian-artery-upper-limb
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Arteria subclavia pertenece a la familia anatómica indicada; esta relación organiza conocimiento y
+    no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-87fc57624e7a
+  source: gm-anatomy-axillary-artery
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Arteria axilar pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no
+    crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-d339700c1636
+  source: gm-anatomy-brachial-artery
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Arteria braquial pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no
+    crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-9f641faeb4f1
+  source: gm-anatomy-radial-artery
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Arteria radial pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no
+    crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-31943df2f75e
+  source: gm-anatomy-ulnar-artery
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Arteria ulnar o cubital pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-ccecc60891b7
+  source: gm-anatomy-palmar-arches
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Arcos palmares superficial y profundo pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-a002a7c96358
+  source: gm-anatomy-superficial-veins-upper-limb
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Sistema venoso superficial pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-e082809c9c82
+  source: gm-anatomy-cephalic-vein
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Vena cefálica pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-8e3167c46595
+  source: gm-anatomy-basilic-vein
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Vena basílica pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea
+    un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-2fbab717e01d
+  source: gm-anatomy-median-cubital-vein
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Vena mediana cubital pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-54f1335ae6b4
+  source: gm-anatomy-deep-veins-upper-limb
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Sistema venoso profundo pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-d18defef2e29
+  source: gm-anatomy-axillary-lymph-nodes
+  target: gm-anatomy-upper-limb-vascular-lymphatic
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Ganglios linfáticos axilares pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-4c7f88871434
+  source: gm-anatomy-pectoral-girdle
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Cintura pectoral pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no
+    crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-002f8c4b283d
+  source: gm-anatomy-glenohumeral-joint
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Articulación glenohumeral pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-641ad5621a71
+  source: gm-anatomy-axilla
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Axila pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no crea un objetivo
+    de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-a044d77a1564
+  source: gm-anatomy-elbow-joint
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Complejo articular del codo pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-16a0f0acf3b5
+  source: gm-anatomy-proximal-radioulnar-joint
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Articulación radioulnar proximal pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-61b33d29df23
+  source: gm-anatomy-distal-radioulnar-joint
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Articulación radioulnar distal pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-8d0e3ee2ee2f
+  source: gm-anatomy-wrist-joint
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Complejo articular de la muñeca pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-482a3810c247
+  source: gm-anatomy-finger-thumb-joints
+  target: gm-anatomy-upper-limb-joints-regions
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Articulaciones de dedos y pulgar pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-9804593c58ef
+  source: gm-anatomy-rotator-cuff
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Manguito rotador pertenece a la familia anatómica indicada; esta relación organiza conocimiento y no
+    crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-b35034eb9096
+  source: gm-anatomy-pectoral-girdle-movers
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Músculos motores de la cintura pectoral pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-105847103432
+  source: gm-anatomy-anterior-arm-compartment
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Compartimento anterior del brazo pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-66edc22aba37
+  source: gm-anatomy-posterior-arm-compartment
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Compartimento posterior del brazo pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-abfc8a021ffa
+  source: gm-anatomy-forearm-flexor-pronator
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Grupo flexor-pronador del antebrazo pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-322db80c2997
+  source: gm-anatomy-forearm-extensor-supinator
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Grupo extensor-supinador del antebrazo pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-5ed0714f8027
+  source: gm-anatomy-intrinsic-hand-muscles
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Músculos intrínsecos de la mano pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-2b591d77c586
+  source: gm-anatomy-extrinsic-digital-tendons
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Tendones extrínsecos de dedos y pulgar pertenece a la familia anatómica indicada; esta relación organiza
+    conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-c2c3cede9c08
+  source: gm-anatomy-flexor-retinaculum
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Retináculo flexor pertenece a la familia anatómica indicada; esta relación organiza conocimiento y
+    no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-6c6ec54349aa
+  source: gm-anatomy-extensor-retinaculum
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Retináculo extensor pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-804f11c5cf2d
+  source: gm-anatomy-flexor-tendon-sheaths
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Vainas sinoviales flexoras pertenece a la familia anatómica indicada; esta relación organiza conocimiento
+    y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-part-of-5319eb8061cf
+  source: gm-anatomy-upper-limb-fascial-compartments
+  target: gm-anatomy-upper-limb-soft-tissue
+  relation_type: part_of
+  family: structural
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: Fascia profunda y compartimentos del miembro superior pertenece a la familia anatómica indicada; esta
+    relación organiza conocimiento y no crea un objetivo de aprendizaje.
+  context:
+    derived_from: parent_ref
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:parent_ref
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-60639dabd8f5
+  source: gm-anatomy-clavicle
+  target: gm-ma-identify-upper-limb-long-flat-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    clavícula, escápula, húmero, radio y ulna».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2a31636290f1
+  source: gm-anatomy-scapula
+  target: gm-ma-identify-upper-limb-long-flat-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    clavícula, escápula, húmero, radio y ulna».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-269efc8ecc9d
+  source: gm-anatomy-humerus
+  target: gm-ma-identify-upper-limb-long-flat-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    clavícula, escápula, húmero, radio y ulna».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ac4e1e25d52f
+  source: gm-anatomy-radius
+  target: gm-ma-identify-upper-limb-long-flat-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    clavícula, escápula, húmero, radio y ulna».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d7acc329f53a
+  source: gm-anatomy-ulna
+  target: gm-ma-identify-upper-limb-long-flat-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    clavícula, escápula, húmero, radio y ulna».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d8b857a6186d
+  source: gm-anatomy-scaphoid
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a52b6ef9806d
+  source: gm-anatomy-lunate
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a0cfb3198653
+  source: gm-anatomy-triquetrum
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-bd29490ceebb
+  source: gm-anatomy-pisiform
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-f7da64b2284a
+  source: gm-anatomy-trapezium
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a74001497da0
+  source: gm-anatomy-trapezoid
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c5f76fa44ebc
+  source: gm-anatomy-capitate
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5fb1b2620f78
+  source: gm-anatomy-hamate
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-cb07a39eb0dc
+  source: gm-anatomy-metacarpals
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-680cad004b23
+  source: gm-anatomy-phalanges-hand
+  target: gm-ma-identify-wrist-hand-bones
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Identificar
+    huesos de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-366c257c4950
+  source: gm-anatomy-clavicle
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-1d69845f65f8
+  source: gm-anatomy-scapula
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-20ae70876e5d
+  source: gm-anatomy-humerus
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-bcae68741505
+  source: gm-anatomy-radius
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-0853625c77e5
+  source: gm-anatomy-ulna
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-11ad211417b5
+  source: gm-anatomy-scaphoid
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-bafa356d6260
+  source: gm-anatomy-glenohumeral-joint
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d4012d72c5f2
+  source: gm-anatomy-elbow-joint
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7cbcc6ffe4d0
+  source: gm-anatomy-wrist-joint
+  target: gm-ma-interpret-upper-limb-imaging
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Interpretar
+    imagen anatómica del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-942ae503c117
+  source: gm-anatomy-humerus
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-111ad7b2cbdd
+  source: gm-anatomy-radius
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-92f0dc48bb6b
+  source: gm-anatomy-ulna
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d369bfa904e2
+  source: gm-anatomy-scaphoid
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-935d76660e8a
+  source: gm-anatomy-axillary-nerve
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-167ab4109d78
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5ae7789081c8
+  source: gm-anatomy-median-nerve
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7a73e42024ae
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c1c7f741dc7f
+  source: gm-anatomy-brachial-artery
+  target: gm-ma-map-neurovascular-risk-by-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear riesgo
+    neurovascular por sitio de lesión».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-fdd20807712c
+  source: gm-anatomy-axillary-nerve
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-21f475ba02c9
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5fde6eac3ad8
+  source: gm-anatomy-musculocutaneous-nerve
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5e30ab0e6583
+  source: gm-anatomy-median-nerve
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-761f3b3362e9
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7e2d2815c38c
+  source: gm-anatomy-brachial-artery
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a1184e9be2a5
+  source: gm-anatomy-radial-artery
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-6b2917b19df5
+  source: gm-anatomy-ulnar-artery
+  target: gm-ma-predict-functional-effect-neurovascular-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir el
+    efecto de una lesión neurovascular».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4e57dd781356
+  source: gm-anatomy-subclavian-artery-upper-limb
+  target: gm-ma-trace-upper-limb-arterial-tree
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar el árbol
+    arterial del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-37d234fb0947
+  source: gm-anatomy-axillary-artery
+  target: gm-ma-trace-upper-limb-arterial-tree
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar el árbol
+    arterial del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c88fa3b95d24
+  source: gm-anatomy-brachial-artery
+  target: gm-ma-trace-upper-limb-arterial-tree
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar el árbol
+    arterial del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-dd73a0212f30
+  source: gm-anatomy-radial-artery
+  target: gm-ma-trace-upper-limb-arterial-tree
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar el árbol
+    arterial del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-1069c8f0c4dc
+  source: gm-anatomy-ulnar-artery
+  target: gm-ma-trace-upper-limb-arterial-tree
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar el árbol
+    arterial del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-e61c20e733d5
+  source: gm-anatomy-palmar-arches
+  target: gm-ma-trace-upper-limb-arterial-tree
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar el árbol
+    arterial del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-b6fbcff6f2b2
+  source: gm-anatomy-brachial-artery
+  target: gm-ma-explain-upper-limb-anastomoses
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar anastomosis
+    y circulación colateral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-fa959ee57561
+  source: gm-anatomy-radial-artery
+  target: gm-ma-explain-upper-limb-anastomoses
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar anastomosis
+    y circulación colateral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-e640212c31bf
+  source: gm-anatomy-ulnar-artery
+  target: gm-ma-explain-upper-limb-anastomoses
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar anastomosis
+    y circulación colateral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-b8b5fc82ba74
+  source: gm-anatomy-palmar-arches
+  target: gm-ma-explain-upper-limb-anastomoses
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar anastomosis
+    y circulación colateral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-993710ee5a07
+  source: gm-anatomy-brachial-artery
+  target: gm-ma-locate-upper-limb-pulses
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Localizar pulsos
+    braquial, radial y ulnar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-796a3b2d3bb9
+  source: gm-anatomy-radial-artery
+  target: gm-ma-locate-upper-limb-pulses
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Localizar pulsos
+    braquial, radial y ulnar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-03d635398b14
+  source: gm-anatomy-ulnar-artery
+  target: gm-ma-locate-upper-limb-pulses
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Localizar pulsos
+    braquial, radial y ulnar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-47ab05c982f6
+  source: gm-anatomy-superficial-veins-upper-limb
+  target: gm-ma-contrast-superficial-deep-veins
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Contrastar
+    venas superficiales y profundas».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7d7fe9deb27e
+  source: gm-anatomy-cephalic-vein
+  target: gm-ma-contrast-superficial-deep-veins
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Contrastar
+    venas superficiales y profundas».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2d58da903c51
+  source: gm-anatomy-basilic-vein
+  target: gm-ma-contrast-superficial-deep-veins
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Contrastar
+    venas superficiales y profundas».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-11e004029a7f
+  source: gm-anatomy-median-cubital-vein
+  target: gm-ma-contrast-superficial-deep-veins
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Contrastar
+    venas superficiales y profundas».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-610220f7d419
+  source: gm-anatomy-deep-veins-upper-limb
+  target: gm-ma-contrast-superficial-deep-veins
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Contrastar
+    venas superficiales y profundas».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5b4bb800da36
+  source: gm-anatomy-cephalic-vein
+  target: gm-ma-plan-upper-limb-venous-access
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Planificar
+    un acceso venoso periférico».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-aca41f877964
+  source: gm-anatomy-basilic-vein
+  target: gm-ma-plan-upper-limb-venous-access
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Planificar
+    un acceso venoso periférico».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c99db8130712
+  source: gm-anatomy-median-cubital-vein
+  target: gm-ma-plan-upper-limb-venous-access
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Planificar
+    un acceso venoso periférico».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-bf5e233d23d9
+  source: gm-anatomy-axillary-lymph-nodes
+  target: gm-ma-map-axillary-lymphatic-drainage
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear drenaje
+    linfático axilar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ef1e52459983
+  source: gm-anatomy-axilla
+  target: gm-ma-map-axillary-lymphatic-drainage
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear drenaje
+    linfático axilar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2d0b54766f11
+  source: gm-anatomy-brachial-plexus
+  target: gm-ma-reconstruct-brachial-plexus
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Reconstruir
+    el plexo braquial».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-54230097365c
+  source: gm-anatomy-axillary-artery
+  target: gm-ma-reconstruct-brachial-plexus
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Reconstruir
+    el plexo braquial».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c4e579151c50
+  source: gm-anatomy-brachial-plexus
+  target: gm-ma-localize-brachial-plexus-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Localizar una
+    lesión del plexo braquial».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-015a5fbffea4
+  source: gm-anatomy-upper-limb-dermatomes-myotomes
+  target: gm-ma-localize-brachial-plexus-injury
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Localizar una
+    lesión del plexo braquial».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-966de0dd1173
+  source: gm-anatomy-axillary-nerve
+  target: gm-ma-trace-five-terminal-nerves
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar los
+    cinco nervios terminales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-37c125de388f
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-trace-five-terminal-nerves
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar los
+    cinco nervios terminales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-8ba34dfb03d3
+  source: gm-anatomy-musculocutaneous-nerve
+  target: gm-ma-trace-five-terminal-nerves
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar los
+    cinco nervios terminales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7a2d6c6ab162
+  source: gm-anatomy-median-nerve
+  target: gm-ma-trace-five-terminal-nerves
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar los
+    cinco nervios terminales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-1f05a5ed80e6
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-trace-five-terminal-nerves
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Trazar los
+    cinco nervios terminales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2f82b4928dc8
+  source: gm-anatomy-axillary-nerve
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-fbec5297abda
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-0056bf5c8281
+  source: gm-anatomy-musculocutaneous-nerve
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ddf21b54d90c
+  source: gm-anatomy-median-nerve
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ab5036034ba2
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-dfd88e90560b
+  source: gm-anatomy-anterior-arm-compartment
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-f30035e15d18
+  source: gm-anatomy-posterior-arm-compartment
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-76885fbf3784
+  source: gm-anatomy-forearm-flexor-pronator
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-bbd7fdb619eb
+  source: gm-anatomy-forearm-extensor-supinator
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-bcea2863dc01
+  source: gm-anatomy-intrinsic-hand-muscles
+  target: gm-ma-map-terminal-nerve-territories
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear territorios
+    motores y sensitivos».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4f50f2f1dd20
+  source: gm-anatomy-upper-limb-dermatomes-myotomes
+  target: gm-ma-perform-upper-limb-neurologic-exam
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Realizar examen
+    neurológico del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-8254159b400d
+  source: gm-anatomy-axillary-nerve
+  target: gm-ma-perform-upper-limb-neurologic-exam
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Realizar examen
+    neurológico del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-1072348a3ae3
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-perform-upper-limb-neurologic-exam
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Realizar examen
+    neurológico del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-44507e1d7250
+  source: gm-anatomy-musculocutaneous-nerve
+  target: gm-ma-perform-upper-limb-neurologic-exam
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Realizar examen
+    neurológico del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-fdb8397fe9d0
+  source: gm-anatomy-median-nerve
+  target: gm-ma-perform-upper-limb-neurologic-exam
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Realizar examen
+    neurológico del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-12a56a8ff849
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-perform-upper-limb-neurologic-exam
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Realizar examen
+    neurológico del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-9221555d176c
+  source: gm-anatomy-pectoral-girdle
+  target: gm-ma-analyze-pectoral-girdle-movement
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar movimiento
+    de la cintura pectoral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-32759073b10c
+  source: gm-anatomy-clavicle
+  target: gm-ma-analyze-pectoral-girdle-movement
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar movimiento
+    de la cintura pectoral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d4210ec0de3d
+  source: gm-anatomy-scapula
+  target: gm-ma-analyze-pectoral-girdle-movement
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar movimiento
+    de la cintura pectoral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c50ef59eddd9
+  source: gm-anatomy-pectoral-girdle-movers
+  target: gm-ma-analyze-pectoral-girdle-movement
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar movimiento
+    de la cintura pectoral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-e4fc8e026195
+  source: gm-anatomy-glenohumeral-joint
+  target: gm-ma-explain-glenohumeral-stability
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimiento
+    y estabilidad glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-608e0083cb4c
+  source: gm-anatomy-scapula
+  target: gm-ma-explain-glenohumeral-stability
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimiento
+    y estabilidad glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-f889ec3612d4
+  source: gm-anatomy-humerus
+  target: gm-ma-explain-glenohumeral-stability
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimiento
+    y estabilidad glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-9c290dec8c17
+  source: gm-anatomy-rotator-cuff
+  target: gm-ma-explain-glenohumeral-stability
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimiento
+    y estabilidad glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-fe4ced086db4
+  source: gm-anatomy-glenohumeral-joint
+  target: gm-ma-predict-shoulder-dislocation-consequences
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir consecuencias
+    de luxación glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4dd135778a55
+  source: gm-anatomy-humerus
+  target: gm-ma-predict-shoulder-dislocation-consequences
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir consecuencias
+    de luxación glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-89b3ad923755
+  source: gm-anatomy-axillary-nerve
+  target: gm-ma-predict-shoulder-dislocation-consequences
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir consecuencias
+    de luxación glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a2c54b67721e
+  source: gm-anatomy-axillary-artery
+  target: gm-ma-predict-shoulder-dislocation-consequences
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir consecuencias
+    de luxación glenohumeral».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-6eae7670c28a
+  source: gm-anatomy-axilla
+  target: gm-ma-map-axilla-boundaries-contents
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear límites
+    y contenido de la axila».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-acf701b4b635
+  source: gm-anatomy-axillary-artery
+  target: gm-ma-map-axilla-boundaries-contents
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear límites
+    y contenido de la axila».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-09f3b756f03b
+  source: gm-anatomy-brachial-plexus
+  target: gm-ma-map-axilla-boundaries-contents
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear límites
+    y contenido de la axila».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-cd3ef79334f4
+  source: gm-anatomy-axillary-lymph-nodes
+  target: gm-ma-map-axilla-boundaries-contents
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear límites
+    y contenido de la axila».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-de7519d6e53c
+  source: gm-anatomy-elbow-joint
+  target: gm-ma-analyze-elbow-joint
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar la
+    anatomía del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ea8963d5b191
+  source: gm-anatomy-humerus
+  target: gm-ma-analyze-elbow-joint
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar la
+    anatomía del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d5afc8f4e987
+  source: gm-anatomy-radius
+  target: gm-ma-analyze-elbow-joint
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar la
+    anatomía del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5d49bfe42ed4
+  source: gm-anatomy-ulna
+  target: gm-ma-analyze-elbow-joint
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar la
+    anatomía del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-0cd85488fa43
+  source: gm-anatomy-anterior-arm-compartment
+  target: gm-ma-explain-elbow-flexion-extension
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar flexión
+    y extensión del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-6bc44995c523
+  source: gm-anatomy-posterior-arm-compartment
+  target: gm-ma-explain-elbow-flexion-extension
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar flexión
+    y extensión del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-1d8b84c916ea
+  source: gm-anatomy-musculocutaneous-nerve
+  target: gm-ma-explain-elbow-flexion-extension
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar flexión
+    y extensión del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5b9d26c970ad
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-explain-elbow-flexion-extension
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar flexión
+    y extensión del codo».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-e03f9d11f1a0
+  source: gm-anatomy-proximal-radioulnar-joint
+  target: gm-ma-analyze-radioulnar-joints
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar articulaciones
+    radioulnares».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-f13e3895f9ed
+  source: gm-anatomy-distal-radioulnar-joint
+  target: gm-ma-analyze-radioulnar-joints
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar articulaciones
+    radioulnares».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-60cf2e3cbd90
+  source: gm-anatomy-radius
+  target: gm-ma-analyze-radioulnar-joints
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar articulaciones
+    radioulnares».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-107dc9d991c2
+  source: gm-anatomy-ulna
+  target: gm-ma-analyze-radioulnar-joints
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar articulaciones
+    radioulnares».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2010bdb2ae81
+  source: gm-anatomy-forearm-flexor-pronator
+  target: gm-ma-explain-pronation-supination
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar pronación
+    y supinación».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-61798a976975
+  source: gm-anatomy-forearm-extensor-supinator
+  target: gm-ma-explain-pronation-supination
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar pronación
+    y supinación».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-33aba36bea6e
+  source: gm-anatomy-musculocutaneous-nerve
+  target: gm-ma-explain-pronation-supination
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar pronación
+    y supinación».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7970f3a44586
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-explain-pronation-supination
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar pronación
+    y supinación».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c77c94691849
+  source: gm-anatomy-median-nerve
+  target: gm-ma-explain-pronation-supination
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar pronación
+    y supinación».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-31932fc2f53f
+  source: gm-anatomy-wrist-joint
+  target: gm-ma-analyze-wrist-anatomy-relations
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar anatomía
+    y relaciones de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-60ecf2968671
+  source: gm-anatomy-flexor-retinaculum
+  target: gm-ma-analyze-wrist-anatomy-relations
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar anatomía
+    y relaciones de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d2e3feb34e05
+  source: gm-anatomy-extensor-retinaculum
+  target: gm-ma-analyze-wrist-anatomy-relations
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar anatomía
+    y relaciones de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ab5812a9c668
+  source: gm-anatomy-median-nerve
+  target: gm-ma-analyze-wrist-anatomy-relations
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar anatomía
+    y relaciones de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-37d2f39beb3b
+  source: gm-anatomy-radial-artery
+  target: gm-ma-analyze-wrist-anatomy-relations
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar anatomía
+    y relaciones de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-e622582c0619
+  source: gm-anatomy-ulnar-artery
+  target: gm-ma-analyze-wrist-anatomy-relations
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar anatomía
+    y relaciones de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d7c5f0644739
+  source: gm-anatomy-wrist-joint
+  target: gm-ma-explain-wrist-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7f4b8a0cc9bb
+  source: gm-anatomy-forearm-flexor-pronator
+  target: gm-ma-explain-wrist-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a86289ec6640
+  source: gm-anatomy-forearm-extensor-supinator
+  target: gm-ma-explain-wrist-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2ec50ddc3f7a
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-explain-wrist-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-bb0a5873b228
+  source: gm-anatomy-median-nerve
+  target: gm-ma-explain-wrist-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-3036639e401d
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-explain-wrist-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de la muñeca».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-9f99332706c7
+  source: gm-anatomy-finger-thumb-joints
+  target: gm-ma-explain-finger-thumb-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de dedos y pulgar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-7abc0a1e75d3
+  source: gm-anatomy-intrinsic-hand-muscles
+  target: gm-ma-explain-finger-thumb-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de dedos y pulgar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-986f8193ca5e
+  source: gm-anatomy-extrinsic-digital-tendons
+  target: gm-ma-explain-finger-thumb-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de dedos y pulgar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-0d82b10fcfef
+  source: gm-anatomy-median-nerve
+  target: gm-ma-explain-finger-thumb-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de dedos y pulgar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c4686ef3057f
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-explain-finger-thumb-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de dedos y pulgar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-862d1ab05879
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-explain-finger-thumb-movements
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar movimientos
+    de dedos y pulgar».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-5d70797b4ffa
+  source: gm-anatomy-intrinsic-hand-muscles
+  target: gm-ma-analyze-power-precision-hook-grips
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar agarres
+    de potencia, precisión y gancho».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4dc4100877b2
+  source: gm-anatomy-extrinsic-digital-tendons
+  target: gm-ma-analyze-power-precision-hook-grips
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar agarres
+    de potencia, precisión y gancho».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-0f576412ad86
+  source: gm-anatomy-median-nerve
+  target: gm-ma-analyze-power-precision-hook-grips
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar agarres
+    de potencia, precisión y gancho».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-9fa562f328f2
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-analyze-power-precision-hook-grips
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar agarres
+    de potencia, precisión y gancho».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d55791a0d273
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-analyze-power-precision-hook-grips
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Analizar agarres
+    de potencia, precisión y gancho».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-62e70a27ed0a
+  source: gm-anatomy-flexor-retinaculum
+  target: gm-ma-map-wrist-retinacula-sheaths
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear retináculos
+    y vainas de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2d1c3a3edfb1
+  source: gm-anatomy-extensor-retinaculum
+  target: gm-ma-map-wrist-retinacula-sheaths
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear retináculos
+    y vainas de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-2edd5773f52f
+  source: gm-anatomy-flexor-tendon-sheaths
+  target: gm-ma-map-wrist-retinacula-sheaths
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear retináculos
+    y vainas de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d17460d1c4b7
+  source: gm-anatomy-extrinsic-digital-tendons
+  target: gm-ma-map-wrist-retinacula-sheaths
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear retináculos
+    y vainas de muñeca y mano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a0aae37a7adb
+  source: gm-anatomy-flexor-retinaculum
+  target: gm-ma-explain-carpal-tunnel-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar el
+    túnel carpiano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c82dd177ed0e
+  source: gm-anatomy-median-nerve
+  target: gm-ma-explain-carpal-tunnel-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar el
+    túnel carpiano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a402771ffc4d
+  source: gm-anatomy-flexor-tendon-sheaths
+  target: gm-ma-explain-carpal-tunnel-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar el
+    túnel carpiano».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-6b8198f48f34
+  source: gm-anatomy-flexor-tendon-sheaths
+  target: gm-ma-predict-tendon-sheath-infection-spread
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir propagación
+    por vainas tendinosas».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4ed99c25627a
+  source: gm-anatomy-upper-limb-fascial-compartments
+  target: gm-ma-predict-tendon-sheath-infection-spread
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Predecir propagación
+    por vainas tendinosas».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4ce9af895203
+  source: gm-anatomy-upper-limb-fascial-compartments
+  target: gm-ma-map-upper-limb-fascial-compartments
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear compartimentos
+    fasciales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-52f5974ce07f
+  source: gm-anatomy-anterior-arm-compartment
+  target: gm-ma-map-upper-limb-fascial-compartments
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear compartimentos
+    fasciales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-50df730adad2
+  source: gm-anatomy-posterior-arm-compartment
+  target: gm-ma-map-upper-limb-fascial-compartments
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear compartimentos
+    fasciales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-898ccaccd564
+  source: gm-anatomy-forearm-flexor-pronator
+  target: gm-ma-map-upper-limb-fascial-compartments
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear compartimentos
+    fasciales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-8ec73c7c47ad
+  source: gm-anatomy-forearm-extensor-supinator
+  target: gm-ma-map-upper-limb-fascial-compartments
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear compartimentos
+    fasciales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4e131f674035
+  source: gm-anatomy-intrinsic-hand-muscles
+  target: gm-ma-map-upper-limb-fascial-compartments
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Mapear compartimentos
+    fasciales».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-c56d207378ef
+  source: gm-anatomy-upper-limb-fascial-compartments
+  target: gm-ma-explain-upper-limb-compartment-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar síndrome
+    compartimental del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ea48e80b85d3
+  source: gm-anatomy-brachial-artery
+  target: gm-ma-explain-upper-limb-compartment-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar síndrome
+    compartimental del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-ce5c05106a07
+  source: gm-anatomy-radial-artery
+  target: gm-ma-explain-upper-limb-compartment-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar síndrome
+    compartimental del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-d0bb10ff88f8
+  source: gm-anatomy-ulnar-artery
+  target: gm-ma-explain-upper-limb-compartment-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar síndrome
+    compartimental del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-6112f1ff5934
+  source: gm-anatomy-median-nerve
+  target: gm-ma-explain-upper-limb-compartment-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar síndrome
+    compartimental del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-a3008e05f572
+  source: gm-anatomy-ulnar-nerve
+  target: gm-ma-explain-upper-limb-compartment-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar síndrome
+    compartimental del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior
+- schema: grafomed-relation.v1
+  id: gm-rel-enables-mastery-of-4c50c232be51
+  source: gm-anatomy-radial-nerve
+  target: gm-ma-explain-upper-limb-compartment-syndrome
+  relation_type: enables_mastery_of
+  family: learning
+  lifecycle: graph_drafted
+  evidence_status: source_locked_candidate
+  validation_status: structural_pass
+  rationale: La entidad o familia anatómica aporta evidencia de conocimiento necesaria para dominar «Explicar síndrome
+    compartimental del miembro superior».
+  context:
+    derived_from: evidence_object_refs
+    candidate_design: true
+    promotion_allowed: false
+  source_refs:
+  - gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  claim_refs:
+  - gm-cluster-miembro-superior:evidence_object_refs
+  provenance:
+    created_by: mia
+    created_at: '2026-08-28T12:00:00-05:00'
+    packet_id: gm-cluster-miembro-superior

@@ -1,0 +1,112 @@
+schema: grafomed-slice-packet.v1
+id: slice-genital-ulcer-syndrome-initial-management-v0
+version: 0.1.0-candidate
+title: Genital ulcer syndrome to initial management
+lifecycle: graph_drafted
+release_status: internal_only
+authority: javier
+owners:
+  steward: mia
+  clinical: acai
+  semantic: siris
+  educational: alexei
+  systems: cris
+  independent_audit: ghost
+scope:
+  included:
+    - anogenital-ulcer syndrome recognition
+    - HSV and primary-syphilis principal contrast
+    - initial syphilis, HSV-lesion, and HIV testing
+    - resource- and jurisdiction-sensitive first management state
+    - mini-DETcSp D-E-T-C-S-P decisions
+    - original experimental assessment, remediation, and transfer
+  excluded:
+    - all Dermatology or all sexually transmitted infections
+    - full condition-specific longitudinal treatment
+    - patient-specific bedside decision support
+    - legacy Medico Completo content
+object_refs:
+  - gm-clinical-finding-anogenital-ulcer
+  - gm-condition-genital-herpes
+  - gm-condition-primary-syphilis
+  - gm-test-syphilis-evaluation-in-gud
+  - gm-test-hsv-lesion-naat-or-culture
+  - gm-test-hiv-screening-in-gud
+  - gm-decision-gud-diagnosis-confirmation
+  - gm-decision-gud-actionable-context
+  - gm-decision-gud-same-day-treatment
+  - gm-decision-gud-complication-escalation
+  - gm-decision-gud-follow-up
+  - gm-decision-gud-prognosis-communication
+  - gm-differential-set-anogenital-ulcer
+  - gm-illness-script-genital-herpes
+  - gm-detcsp-gud-initial-management
+learning_refs:
+  - gm-mastery-gud-evaluation
+  - gm-mastery-gud-initial-management
+  - gm-assessment-gud-v0
+relation_refs:
+  - gm-rel-ulcer-supports-hsv
+  - gm-rel-ulcer-supports-primary-syphilis
+  - gm-rel-herpes-discriminates-primary-syphilis
+  - gm-rel-primary-syphilis-discriminates-herpes
+  - gm-rel-syphilis-test-feeds-diagnosis-decision
+  - gm-rel-hsv-test-feeds-diagnosis-decision
+  - gm-rel-hiv-test-feeds-diagnosis-decision
+  - gm-rel-ulcer-feeds-diagnosis-decision
+  - gm-rel-diagnosis-changes-actionable-context
+  - gm-rel-context-changes-treatment
+  - gm-rel-treatment-changes-complication-plan
+  - gm-rel-complications-change-follow-up
+  - gm-rel-follow-up-changes-prognosis-communication
+  - gm-rel-diagnosis-enables-evaluation-mastery
+  - gm-rel-treatment-enables-management-mastery
+  - gm-rel-management-mastery-requires-evaluation
+  - gm-rel-evaluation-mastery-assessed-by-v0
+  - gm-rel-management-mastery-assessed-by-v0
+  - gm-rel-herpes-assembled-illness-script
+  - gm-rel-ulcer-assembled-illness-script
+  - gm-rel-herpes-assembled-differential
+  - gm-rel-syphilis-assembled-differential
+  - gm-rel-differential-assembled-detcsp
+  - gm-rel-d-stage-assembled-detcsp
+  - gm-rel-e-stage-assembled-detcsp
+  - gm-rel-t-stage-assembled-detcsp
+  - gm-rel-c-stage-assembled-detcsp
+  - gm-rel-s-stage-assembled-detcsp
+  - gm-rel-p-stage-assembled-detcsp
+route_refs:
+  - products/grafomed-v1/routes/route-gud-gold-v0.json
+  - products/grafomed-v1/routes/route-gud-generated-v0.json
+learner_state_ref: products/grafomed-v1/learner-state/fixture-gud-v0.json
+source_lock_ref: source_lock/sources.yaml
+evidence_bundle_ref: evidence_bundle/evidence-bundle.yaml
+review_refs:
+  - reviews/semantic-review.yaml
+  - reviews/clinical-review.yaml
+  - reviews/educational-review.yaml
+  - reviews/systems-review.yaml
+  - reviews/independent-audit.yaml
+required_gates:
+  semantic: pending_separate_review
+  clinical: pending_separate_review
+  educational: pending_separate_review
+  systems: pending_separate_review
+  independent_audit: pending_separate_review
+canonical_snapshot:
+  snapshot_id: gm-snap-5210a95a8ec45899
+  hash_algorithm: sha256
+  input_manifest:
+    included_roots: [source_lock, evidence_bundle, candidates]
+    generator: products/grafomed-v1/scripts/generate_route.py#snapshot_id
+    excludes: [routes, learner-state, reviews, exports, derived indexes]
+timestamps:
+  created_at: 2026-08-26T16:12:00-05:00
+  updated_at: 2026-08-26T16:31:00-05:00
+promotion:
+  eligible: false
+  blockers:
+    - all five separate review approvals remain pending
+    - assessment psychometrics and learning efficacy are unvalidated
+  legacy_migration_performed: false
+  front_created: false

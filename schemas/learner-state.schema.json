@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jaflo.local/grafomed/learner-state.schema.json",
+  "title": "Grafo Med learner-state fixture",
+  "type": "object",
+  "required": ["schema", "id", "fixture", "pseudonymous_learner_id", "graph_snapshot_id", "route_version", "states", "privacy"],
+  "properties": {
+    "schema": {"const": "grafomed-learner-state.v1"},
+    "id": {"type": "string", "pattern": "^gm-learner-state-[a-z0-9-]+$"},
+    "fixture": {"const": true},
+    "pseudonymous_learner_id": {"type": "string"},
+    "graph_snapshot_id": {"type": "string"},
+    "route_version": {"type": "string"},
+    "states": {
+      "type": "object",
+      "required": ["before", "after_success", "after_failure"],
+      "additionalProperties": {
+        "type": "object",
+        "required": ["mastery", "evidence_refs", "next_action"]
+      }
+    },
+    "privacy": {"type": "object", "required": ["contains_phi", "export_by_default"]}
+  },
+  "additionalProperties": true
+}
+

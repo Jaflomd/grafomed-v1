@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototipo explicable, adaptable y auditable de aprendizaje GrafoMed para miembro superior.">
+  <meta name="theme-color" content="#2A7DE1">
+  <title>USAMEDIC · GrafoMed Quest · Miembro superior</title>
+  <link rel="icon" type="image/png" href="assets/usamedic-isotipo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell" id="app-shell">
+    <aside class="side-nav" aria-label="Navegación principal">
+      <a class="brand" href="#today" data-nav="today" aria-label="GrafoMed Quest, inicio">
+        <img class="brand-logo" src="assets/usamedic-logo-horizontal.png" alt="USAMEDIC · Médicos de Excelencia">
+        <span class="product-lockup"><strong>GrafoMed</strong><small>Learning Quest</small></span>
+      </a>
+
+      <nav class="nav-list">
+        <button class="nav-item is-active" type="button" data-nav="today" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">◆</span><span>Hoy</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="journey">
+          <span class="nav-icon" aria-hidden="true">⌁</span><span>Camino</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="map">
+          <span class="nav-icon" aria-hidden="true">✦</span><span>Mapa</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="profile">
+          <span class="nav-icon" aria-hidden="true">◉</span><span>Dominio</span>
+        </button>
+      </nav>
+
+      <div class="route-chip">
+        <span class="eyebrow">Destino activo</span>
+        <strong>Dominar miembro superior</strong>
+        <span>Ruta preclínica explicable</span>
+      </div>
+
+      <div class="side-note">
+        <span class="demo-dot" aria-hidden="true"></span>
+        Prototipo con datos simulados. No modifica el learner state canónico.
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <header class="top-bar">
+        <div>
+          <div class="mobile-brand"><img src="assets/usamedic-logo-horizontal.png" alt="USAMEDIC"><span>GrafoMed Quest</span></div>
+          <span class="eyebrow">Ruta · Anatomía funcional</span>
+          <h1 id="screen-heading">Tu siguiente misión</h1>
+        </div>
+        <div class="player-stats" aria-label="Estado de la demostración">
+          <div class="stat-pill"><span aria-hidden="true">◒</span><strong id="active-days">4</strong><small>días activos</small></div>
+          <div class="stat-pill"><span aria-hidden="true">⚡</span><strong id="xp-value">240</strong><small>energía</small></div>
+          <button class="avatar-button" type="button" data-nav="profile" aria-label="Abrir perfil de dominio">JF</button>
+        </div>
+      </header>
+
+      <div class="prototype-banner" role="note">
+        <span class="usamedic-badge">USAMEDIC Learning Lab</span><span><strong>Modo demostración formativa.</strong> Los umbrales y estimaciones son sintéticos. Ningún punto, respuesta o sesión aislada declara competencia.</span>
+      </div>
+
+      <section class="screen is-active" id="screen-today" data-screen="today" aria-labelledby="screen-heading">
+        <div class="today-grid">
+          <article class="mission-card" id="mission-card">
+            <div class="mission-card-top">
+              <div>
+                <span class="mission-kicker" id="mission-kicker">Misión adaptativa · 7 min</span>
+                <h2 id="mission-title">Identificar clavícula, escápula, húmero, radio y ulna</h2>
+              </div>
+              <div class="mission-orb" aria-hidden="true">
+                <span>01</span>
+              </div>
+            </div>
+            <p class="mission-objective" id="mission-objective"></p>
+            <div class="why-now" id="why-now-panel">
+              <span class="why-icon" aria-hidden="true">✦</span>
+              <div><strong>Por qué ahora</strong><p id="mission-reason"></p><div class="reason-factors" id="reason-factors"></div><p class="reason-change" id="reason-change"></p></div>
+            </div>
+            <div class="resource-route" id="resource-route" aria-label="Ruta de recursos elegida"></div>
+            <div class="mission-evidence" id="mission-evidence" aria-label="Evidencia actual de esta misión"></div>
+            <div class="mission-actions">
+              <button class="primary-button" id="start-mission" type="button">Comenzar misión</button>
+              <button class="quiet-button" id="quick-review" type="button">Repaso de 2 minutos</button>
+              <button class="quiet-button" id="open-deep-unit" type="button">Ver unidad completa</button>
+              <button class="quiet-button" id="change-mission" type="button">Negociar ruta</button>
+            </div>
+          </article>
+
+          <aside class="today-side">
+            <article class="panel context-panel">
+              <div class="panel-heading"><div><span class="eyebrow">Contexto de hoy</span><h2>Ajusta la ruta</h2></div><span class="candidate-label">no altera dominio</span></div>
+              <div class="context-controls">
+                <label>Tiempo disponible<select id="context-time"><option value="5">5 minutos</option><option value="10">10 minutos</option><option value="20">20 minutos</option></select></label>
+                <label>Energía<select id="context-fatigue"><option value="high">Baja</option><option value="normal">Normal</option><option value="low">Alta</option></select></label>
+                <label>Modalidad<select id="context-modality"><option value="mixed">Mixta</option><option value="image">Imagen</option><option value="text">Texto / bajo ancho de banda</option></select></label>
+              </div>
+            </article>
+
+            <article class="panel frontier-panel" id="frontier-panel">
+              <div class="panel-heading"><div><span class="eyebrow">Frontera lista para aprender</span><h2>Opciones viables</h2></div><span class="count-badge">3</span></div>
+              <p>La recomendación es consejo negociable, no una orden ni una cadena lineal.</p>
+              <div class="frontier-list" id="frontier-list"></div>
+            </article>
+
+            <article class="panel progress-panel">
+              <div class="panel-heading"><div><span class="eyebrow">Expedición</span><h2>Miembro superior</h2></div><strong id="cluster-progress-label">9%</strong></div>
+              <div class="progress-track" aria-hidden="true"><span id="cluster-progress-bar"></span></div>
+              <p id="cluster-progress-copy">3 de 33 unidades tienen evidencia reutilizable.</p>
+              <button class="text-button" type="button" data-nav="journey">Ver camino completo <span aria-hidden="true">→</span></button>
+            </article>
+
+            <article class="panel review-panel">
+              <div class="panel-heading"><div><span class="eyebrow">Memoria</span><h2>Repasos próximos</h2></div><span class="count-badge" id="review-count">2</span></div>
+              <div class="review-list" id="review-list"></div>
+            </article>
+
+            <article class="panel contract-panel">
+              <span class="eyebrow">Contrato de dominio</span>
+              <h2>Completar ≠ dominar</h2>
+              <p>Una lección puede aportar evidencia. El dominio requiere recuperación posterior, modalidades distintas y transferencia.</p>
+            </article>
+          </aside>
+        </div>
+
+        <section class="deep-node-panel" id="deep-node-panel" aria-labelledby="deep-node-title" hidden>
+          <header class="deep-node-header">
+            <div>
+              <span class="eyebrow">Un nodo · una unidad profunda</span>
+              <h2 id="deep-node-title">Orientar los cinco huesos principales</h2>
+              <p id="deep-node-description"></p>
+            </div>
+            <div class="deep-node-summary" aria-label="Extensión de la unidad">
+              <span><strong id="deep-lesson-count">7</strong> microlecciones</span>
+              <span><strong id="deep-activity-count">33</strong> actividades</span>
+              <span><strong id="deep-format-count">4</strong> formatos</span>
+            </div>
+          </header>
+          <div class="deep-progress-row">
+            <div><span class="eyebrow">Progreso dentro del nodo</span><strong id="deep-progress-label">0 de 7 completadas</strong></div>
+            <div class="deep-progress-track" aria-hidden="true"><span id="deep-progress-bar"></span></div>
+            <p>El progreso abre práctica; no equivale a dominio.</p>
+          </div>
+          <div class="deep-lesson-path" id="deep-lesson-path" aria-label="Microlecciones del nodo"></div>
+          <footer class="deep-review-plan">
+            <div><span class="eyebrow">Después del checkpoint</span><h3>La memoria continúa</h3><p>Cuatro observaciones futuras separan adquisición, retención y transferencia.</p></div>
+            <div class="review-timeline" id="deep-review-timeline"></div>
+          </footer>
+        </section>
+      </section>
+
+      <section class="screen" id="screen-journey" data-screen="journey" aria-labelledby="journey-title">
+        <div class="screen-intro">
+          <div><span class="eyebrow">Camino adaptable</span><h2 id="journey-title">Diez regiones · treinta y tres misiones</h2><p>No es una escalera única: el grafo distingue unidades listas, explorables y bloqueadas por prerrequisitos candidatos. MIA explica su recomendación y tú puedes cambiarla.</p></div>
+          <div class="legend" aria-label="Estados de dominio">
+            <span><i class="legend-swatch state-unknown"></i>Desconocido</span>
+            <span><i class="legend-swatch state-practicing"></i>Practicando</span>
+            <span><i class="legend-swatch state-competent"></i>Competente</span>
+            <span><i class="legend-swatch state-transferable"></i>Transferible</span>
+          </div>
+        </div>
+        <div class="journey-path" id="journey-path"></div>
+      </section>
+
+      <section class="screen" id="screen-map" data-screen="map" aria-labelledby="map-title">
+        <div class="screen-intro">
+          <div><span class="eyebrow">Mundo de aprendizaje</span><h2 id="map-title">Mapa de dominio</h2><p>Cada región agrupa unidades evaluables; los puntos muestran evidencia del estudiante, no importancia médica.</p></div>
+          <a class="secondary-link" href="../../exports/upper-limb-preview.html?v=learning-prototype-v0">Abrir grafo 3D completo ↗</a>
+        </div>
+        <div class="world-map" id="world-map" aria-label="Mapa de objetivos clave del miembro superior"></div>
+        <aside class="map-detail panel" id="map-detail" aria-live="polite">
+          <span class="eyebrow">Región seleccionada</span>
+          <h2 id="map-detail-title">Osteología e imagen del miembro superior</h2>
+          <p id="map-detail-copy"></p>
+          <div class="map-detail-stats" id="map-detail-stats"></div>
+        </aside>
+      </section>
+
+      <section class="screen" id="screen-profile" data-screen="profile" aria-labelledby="profile-title">
+        <div class="screen-intro">
+          <div><span class="eyebrow">Learner state · demo local</span><h2 id="profile-title">Tu dominio no es un porcentaje único</h2><p>GrafoMed conserva por separado reconocimiento, explicación, aplicación y transferencia.</p></div>
+          <button class="quiet-button danger-quiet" id="reset-demo" type="button">Reiniciar demostración</button>
+        </div>
+
+        <div class="profile-grid">
+          <article class="panel mastery-overview">
+            <div class="mastery-ring" id="mastery-ring" aria-label="Estimación agregada experimental"><span id="mastery-percent">9%</span><small>estimación</small></div>
+            <div><span class="eyebrow">Miembro superior</span><h2 id="mastery-state-title">Dominio inicial</h2><p id="mastery-state-copy">Todavía estás construyendo representaciones anatómicas básicas.</p></div>
+          </article>
+
+          <article class="panel evidence-profile">
+            <div class="panel-heading"><div><span class="eyebrow">Perfil de evidencia</span><h2>A1–A4</h2></div><span class="candidate-label">experimental</span></div>
+            <div class="evidence-bars" id="profile-evidence-bars"></div>
+          </article>
+
+          <article class="panel state-distribution">
+            <div class="panel-heading"><div><span class="eyebrow">Distribución</span><h2>Estado de las unidades</h2></div></div>
+            <div class="distribution-list" id="state-distribution"></div>
+          </article>
+
+          <article class="panel evidence-ledger">
+            <div class="panel-heading"><div><span class="eyebrow">Evidencia reciente</span><h2>Qué cambió el modelo</h2></div></div>
+            <div class="ledger-list" id="evidence-ledger"></div>
+          </article>
+
+          <article class="panel open-model-panel">
+            <div class="panel-heading"><div><span class="eyebrow">Modelo abierto y contestable</span><h2>Qué cree MIA y por qué</h2></div><span class="candidate-label">estimación</span></div>
+            <div id="open-model"></div>
+            <button class="quiet-button" id="contest-inference" type="button">Contestar esta inferencia</button>
+          </article>
+
+          <article class="panel game-panel">
+            <div class="panel-heading"><div><span class="eyebrow">Capa de juego</span><h2>Progreso de aventura</h2></div><span class="candidate-label">separado</span></div>
+            <div id="game-state"></div>
+            <p><strong>XP no es dominio.</strong> Se obtiene por recuperar, calibrar, reflexionar y volver después de un descanso; nunca por una racha perfecta o por responder rápido.</p>
+          </article>
+
+          <article class="panel governance-panel">
+            <div class="panel-heading"><div><span class="eyebrow">Privacidad, equidad y acceso</span><h2>Tú controlas el rastro</h2></div><span class="candidate-label">demo local</span></div>
+            <ul class="governance-list">
+              <li>La inactividad, una omisión o un problema de acceso no cuentan como fallo.</li>
+              <li>Idioma, modalidad, ayuda y dispositivo quedan como contexto de la evidencia.</li>
+              <li>Este prototipo guarda solo en este navegador y no escribe al learner state canónico.</li>
+            </ul>
+            <div class="governance-actions"><button class="quiet-button" id="export-evidence" type="button">Exportar mi evidencia</button><button class="quiet-button" id="toggle-low-bandwidth" type="button">Activar modo texto</button></div>
+          </article>
+
+          <article class="panel evaluation-panel">
+            <div class="panel-heading"><div><span class="eyebrow">Qué debe demostrar el piloto</span><h2>Aprendizaje, no clics</h2></div></div>
+            <div class="evaluation-grid" id="evaluation-grid"></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="institutional-footer">
+        <div><img src="assets/usamedic-isotipo.png" alt=""><span><strong>USAMEDIC</strong> · Médicos de Excelencia</span></div>
+        <span>GrafoMed Quest · experiencia de aprendizaje candidata</span>
+        <a href="https://www.usamedic.pe" target="_blank" rel="noreferrer">usamedic.pe ↗</a>
+      </footer>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegación móvil">
+      <button class="bottom-item is-active" type="button" data-nav="today"><span aria-hidden="true">◆</span><small>Hoy</small></button>
+      <button class="bottom-item" type="button" data-nav="journey"><span aria-hidden="true">⌁</span><small>Camino</small></button>
+      <button class="bottom-item" type="button" data-nav="map"><span aria-hidden="true">✦</span><small>Mapa</small></button>
+      <button class="bottom-item" type="button" data-nav="profile"><span aria-hidden="true">◉</span><small>Dominio</small></button>
+    </nav>
+  </div>
+
+  <div class="lesson-overlay" id="lesson-overlay" hidden>
+    <section class="lesson-shell" role="dialog" aria-modal="true" aria-labelledby="lesson-title">
+      <header class="lesson-topbar">
+        <button class="icon-button" id="close-lesson" type="button" aria-label="Cerrar misión">×</button>
+        <div class="lesson-progress" aria-label="Progreso de la misión"><span id="lesson-progress-bar"></span></div>
+        <div class="lesson-energy" aria-label="Energía de juego ganada, separada del dominio"><span aria-hidden="true">⚡</span><strong id="lesson-xp">0</strong></div>
+      </header>
+      <div class="lesson-content" id="lesson-content"></div>
+      <footer class="lesson-footer">
+        <div class="lesson-response-panel" id="lesson-response-panel" aria-label="Confianza y ayuda para esta respuesta" hidden>
+          <div class="confidence-prompt"><strong>¿Qué tan seguro estás?</strong><span>Decláralo junto con tu respuesta</span></div>
+          <div class="confidence-options" role="group" aria-label="Nivel de seguridad">
+            <button type="button" data-confidence="low"><span class="wide-label">Estoy adivinando</span><span class="narrow-label">Adivino</span></button>
+            <button type="button" data-confidence="medium"><span class="wide-label">Tengo dudas</span><span class="narrow-label">Con dudas</span></button>
+            <button type="button" data-confidence="high"><span class="wide-label">Estoy seguro</span><span class="narrow-label">Seguro</span></button>
+          </div>
+          <button class="hint-button" type="button" id="use-hint">Usar una pista</button>
+          <div class="hint-box" id="hint-box" role="note" hidden></div>
+        </div>
+        <div class="lesson-feedback" id="lesson-feedback" aria-live="polite"></div>
+        <button class="primary-button" id="lesson-continue" type="button">Continuar</button>
+      </footer>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="node-pack.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

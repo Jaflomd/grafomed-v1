@@ -1,0 +1,1656 @@
+#!/usr/bin/env python3
+"""Build canonical Costanzo Physiology Chapter 3 (Neurophysiology) Graph JSON with 100% Universal Pedagogical Coverage & 20-Game Catalog Blueprints."""
+
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUT_GRAPH_JSON = ROOT / "graph" / "neurophysiology_costanzo_graph.json"
+MASTER_GRAPH_JSON = ROOT / "graph" / "costanzo_neuro_master_graph.json"
+ANS_GRAPH_JSON = ROOT / "graph" / "ans_costanzo_graph.json"
+
+CLUSTERS = [
+    {
+        "id": "CLU-NEURO-ORGANIZATION",
+        "title": "Organización del SNC, Clasificación de Fibras y Decusaciones",
+        "description": "Divisiones del SNC y SNP, clasificación de fibras de Erlanger-Gasser y Lloyd-Hunt, decusaciones, núcleos de relevo talámicos y mapas topográficos.",
+        "color": "#8b5cf6"
+    },
+    {
+        "id": "CLU-NEURO-SENSORY-SOMATO",
+        "title": "Transducción Sensorial, Campos Receptores y Sistema Somatosensorial",
+        "description": "Potenciales de receptor graduados, adaptación fásica vs tónica, columna dorsal (tacto fino/propiocepción) vs vía anterolateral (dolor/temperatura), dolor referido y hemisección medular.",
+        "color": "#0ea5e9"
+    },
+    {
+        "id": "CLU-NEURO-VISION",
+        "title": "Sistema Visual: Fotorrecepción y Vías Ópticas",
+        "description": "Bastones vs conos, cascada molecular de fotorrecepción (metarrodopsina II/transducina/cGMP↓/cierre de Na+ e hiperpolarización), campos On/Off center y lesiones de la vía óptica.",
+        "color": "#ec4899"
+    },
+    {
+        "id": "CLU-NEURO-AUDITORY-VESTIBULAR",
+        "title": "Audición y Sistema Vestibular",
+        "description": "Impedancia osicular, transducción en órgano de Corti y tonotopía de la membrana basilar; canales semicirculares (aceleración angular) y otolitos (aceleración lineal), reflejos vestibulares y nistagmo.",
+        "color": "#14b8a6"
+    },
+    {
+        "id": "CLU-NEURO-CHEMICAL-SENSES",
+        "title": "Sentidos Químicos: Olfato y Gusto",
+        "description": "Células olfatorias primarias y cascada Golf/cAMP/lámina cribosa; corpúsculos gustativos, papilas (VII, IX, X) y transducción de amargo, dulce, umami (IP3/Ca2+) y ácido/salado (ENaC).",
+        "color": "#f59e0b"
+    },
+    {
+        "id": "CLU-NEURO-MOTOR-REFLEXES",
+        "title": "Sistemas Motores y Reflejos Espinales",
+        "description": "Unidades motoras y principio del tamaño de Henneman; husos musculares y coactivación alfa-gamma; reflejos de estiramiento (Ia monosináptico), tendinoso de Golgi (Ib disináptico) y flexor de retirada.",
+        "color": "#10b981"
+    },
+    {
+        "id": "CLU-NEURO-BRAINSTEM-CEREBELLUM",
+        "title": "Control Motor del Tronco Encefálico y Cerebelo",
+        "description": "Vías extrapiramidales, rigidez de descerebración vs decorticación; capas del cerebelo, fibras trepadoras (oliva inferior) vs musgosas, salida inhibitoria de Purkinje y síndrome cerebeloso (ataxia).",
+        "color": "#6366f1"
+    },
+    {
+        "id": "CLU-NEURO-BASAL-GANGLIA-CORTEX",
+        "title": "Ganglios Basales y Corteza Motora",
+        "description": "Vía directa (D1 pro-cinética) vs indirecta (D2 anti-cinética); fisiopatología de Parkinson vs Huntington; áreas 4 (ejecución y marcha jacksoniana) y 6 (plan motor premotor/suplementario).",
+        "color": "#ef4444"
+    },
+    {
+        "id": "CLU-NEURO-HIGHER-FUNCTIONS",
+        "title": "Funciones Superiores, Sueño y Plasticidad Sináptica",
+        "description": "Ondas de EEG (alfa, beta, theta, delta), fases del sueño de ondas lentas y sueño REM paradójico; plasticidad sináptica y potenciación a largo plazo (LTP) dependiente de NMDA y Ca2+.",
+        "color": "#a855f7"
+    },
+    {
+        "id": "CLU-NEURO-CSF-BBB",
+        "title": "Líquido Cefalorraquídeo y Barrera Hematoencefálica",
+        "description": "Producción de LCR en plexos coroideos (500 mL/día), barrera hematoencefálica (uniones estrechas endoteliales y pies astrocitarios) y gradientes de concentración LCR vs Sangre.",
+        "color": "#3b82f6"
+    }
+]
+
+NODES = [
+    # Cluster 1: Organización y Fibras
+    {
+        "id": "CON-NEURO-ORGANIZATION",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-ORGANIZATION",
+        "title": "Organización del SNC, Núcleos de Relevo y Mapas Topográficos",
+        "summary": "Estructura del SNC (médula, tronco, cerebelo, diencéfalo, hemisferios) y principios de relevo talámico y mapas neurales (somatotópico, retinotópico, tonotópico).",
+        "decision_prompt": "Identificar el nivel anatómico del SNC donde convergen y se relevan las señales sensitivo-motoras antes de proyectar a la corteza cerebral.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "alta",
+                "clinical_mission": "Reconstruir la jerarquía anatómica del SNC desde los receptores periféricos, pasando por el tálamo, hasta las cortezas primarias y de asociación."
+            },
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "media",
+                "clinical_mission": "Diferenciar funciones de cortezas primarias (1 synapse directa) vs secundarias/terciarias de asociación."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-FIBER-CLASSIFICATION",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-ORGANIZATION",
+        "title": "Clasificación de Fibras Nerviosas (Erlanger-Gasser y Lloyd-Hunt)",
+        "summary": "Relación directa entre diámetro del axón, mielinización y velocidad de conducción. Nomenclatura A, B, C y grupos sensitivos I, II, III, IV.",
+        "decision_prompt": "Seleccionar el tipo de fibra nerviosa responsable de la transmisión según el requerimiento de velocidad del circuito clínico.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Emparejar tipos de fibra (Aα/Ia vs Aδ/III vs C/IV) con sus velocidades, presencia de mielina y modalidad sensorial transportada."
+            },
+            {
+                "game_id": "game-06",
+                "game_name": "Biomarker Dial & Cutoff Slider",
+                "suitability": "media",
+                "clinical_mission": "Ajustar el diámetro axonal y grado de mielinización para predecir la velocidad de conducción nerviosa en m/s."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-DECUSSATIONS",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-ORGANIZATION",
+        "title": "Decusaciones y Comisuras del Sistema Nervioso",
+        "summary": "Organización contralateral de las vías sensitivo-motoras; comisuras cerebrales (cuerpo calloso) y niveles de cruce en médula espinal vs tronco encefálico.",
+        "decision_prompt": "Predecir si una lesión causará déficit ipsilateral o contralateral según el nivel de decusación de la vía afectada.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "alta",
+                "clinical_mission": "Mapear los puntos de cruce de la línea media para el lemnisco medial, haz espinotalámico y vía córticoespinal."
+            },
+            {
+                "game_id": "game-16",
+                "game_name": "Rapid Crisis Triage",
+                "suitability": "media",
+                "clinical_mission": "Localizar de inmediato si un déficit hemipléjico o hemianestésico es supra o infragenicular/infradecusación."
+            }
+        ]
+    },
+
+    # Cluster 2: Somatosensorial y Dolor
+    {
+        "id": "CON-NEURO-RECEPTOR-POTENTIAL",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-SENSORY-SOMATO",
+        "title": "Transducción Sensorial y Potenciales de Receptor Graduados",
+        "summary": "Conversión de estímulo ambiental en potencial de receptor electrotónico graduado. Amplitud proporcional al estímulo que modula la frecuencia de potenciales de acción.",
+        "decision_prompt": "Distinguir las propiedades fisiológicas de un potencial de receptor graduado frente al potencial de acción todo o nada.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Identificar el fallo en la apertura de canales iónicos transductores que impide alcanzar el umbral de disparo."
+            },
+            {
+                "game_id": "game-20",
+                "game_name": "Clinical Calibration Slider",
+                "suitability": "media",
+                "clinical_mission": "Calibrar la relación matemática entre intensidad de estímulo mecánico y amplitud en mV del potencial generador."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-ADAPTATION-PHASIC-TONIC",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-SENSORY-SOMATO",
+        "title": "Adaptación de Receptores: Mecanorreceptores Fásicos vs Tónicos",
+        "summary": "Receptores fásicos de adaptación rápida (Pacini, Meissner) detectan velocidad y vibración (on/off). Receptores tónicos lentos (Merkel, Ruffini) codifican duración e intensidad sostenida.",
+        "decision_prompt": "Discriminar qué tipo de mecanorreceptor cutáneo está comprometido ante fallas en la detección de vibración rápida vs presión constante.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Enfrentar corpúsculo de Pacini vs discos de Merkel en velocidad de adaptación, morfología del potencial y función sensorial."
+            },
+            {
+                "game_id": "game-08",
+                "game_name": "Pathology Hotspot Inspector",
+                "suitability": "media",
+                "clinical_mission": "Identificar capas dérmicas y morfología microscópica de Pacini en tejido subcutáneo frente a Meissner en papilas dérmicas."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-DORSAL-COLUMN-SYSTEM",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-SENSORY-SOMATO",
+        "title": "Sistema de Columna Dorsal-Lemnisco Medial (DCML)",
+        "summary": "Vía de propiocepción consciente, vibración y tacto fino discriminativo. Fibras grupo I y II ascienden ipsilaterales a núcleos gracilis (miembro inferior) y cuneatus (superior); decusan en bulbo raquídeo.",
+        "decision_prompt": "Interpretar el hallazgo clínico de pérdida de sensibilidad vibratoria con diapasón de 128 Hz y signo de Romberg positivo.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "alta",
+                "clinical_mission": "Construir la cadena neuronal completa de la vía DCML de primero, segundo (bulbo) y tercer orden (VPL del tálamo) hacia S1."
+            },
+            {
+                "game_id": "game-03",
+                "game_name": "Illness Script Matrix",
+                "suitability": "media",
+                "clinical_mission": "Matriz diagnóstica de marcha tabética (tabes dorsal / neurosífilis) con afección selectiva de columnas dorsales."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-ANTEROLATERAL-SYSTEM",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-SENSORY-SOMATO",
+        "title": "Sistema Anterolateral (Espinotalámico): Dolor y Temperatura",
+        "summary": "Transmisión de dolor rápido (Aδ/grupo III, glutamato) y dolor lento sordo (C/grupo IV, sustancia P) junto con temperatura (canales TRPV y TRPM8). Decusa en la comisura blanca medular.",
+        "decision_prompt": "Diferenciar el dolor agudo punzante y bien localizado del dolor crónico ardiente y difuso según la vía axonal involucrada.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Duelo entre dolor rápido (A-delta) y dolor lento (fibras C amielínicas) en latencia, localización y mediadores químicos."
+            },
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "media",
+                "clinical_mission": "Rastrear la señalización dolorosa y la acción sensibilizante de bradicinina, prostaglandinas e histamina en hiperalgesia."
+            }
+        ]
+    },
+    {
+        "id": "DEC-NEURO-BROWNSEQUARD-LOCALIZATION",
+        "type": "decision",
+        "cluster_id": "CLU-NEURO-SENSORY-SOMATO",
+        "title": "Localización Topográfica en Hemisección Medular (Síndrome de Brown-Séquard)",
+        "summary": "Lesión de media médula que produce pérdida ipsilateral de motricidad y propiocepción/vibración (DCML) con pérdida contralateral de dolor y temperatura 1-2 segmentos por debajo (espinotalámico).",
+        "decision_prompt": "Localizar el nivel y lado exacto de la lesión medular ante una disociación sensitiva cruzada y paresia espástica.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-04",
+                "game_name": "Management Script Matrix",
+                "suitability": "alta",
+                "clinical_mission": "Establecer la conducta diagnóstica (RMN de columna urgente) y predecir los déficits neurológicos del paciente."
+            },
+            {
+                "game_id": "game-09",
+                "game_name": "Red Herring Hunter",
+                "suitability": "alta",
+                "clinical_mission": "Descartar diagnósticos diferenciales de lesión cortical o polineuropatía identificando el patrón cruzado patognomónico."
+            }
+        ]
+    },
+    {
+        "id": "DEC-NEURO-REFERRED-PAIN-DERMATOMAL",
+        "type": "decision",
+        "cluster_id": "CLU-NEURO-SENSORY-SOMATO",
+        "title": "Evaluación del Dolor Referido según la Regla Dermatómica",
+        "summary": "Convergencia de aferentes nociceptivos viscerales y somáticos en las mismas neuronas de segundo orden del asta dorsal medular. Irradiación a dermatomas de origen embriológico común.",
+        "decision_prompt": "Reconocer el origen visceral del dolor torácico irradiado a hombro/brazo izquierdo (isquemia miocárdica T1-T5) o dolor en fosa iliaca derecha.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-03",
+                "game_name": "Illness Script Matrix",
+                "suitability": "alta",
+                "clinical_mission": "Vincular presentaciones de dolor visceral referido (infarto de miocardio, cólico biliar, nefrolitiasis) a sus segmentos dermatómicos."
+            },
+            {
+                "game_id": "game-16",
+                "game_name": "Rapid Crisis Triage",
+                "suitability": "alta",
+                "clinical_mission": "Triage urgente en shock room de paciente con dolor referido en cuello/mandíbula/brazo para protocolo coronario agudo."
+            }
+        ]
+    },
+
+    # Cluster 3: Sistema Visual
+    {
+        "id": "CON-NEURO-RODS-VS-CONES",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-VISION",
+        "title": "Arquitectura Retiniana: Bastones vs Conos",
+        "summary": "Bastones (alta sensibilidad a luz tenue, visión nocturna, discos membranosos libres, convergencia alta, nula visión cromática) vs Conos (alta agudeza en fóvea central 1:1, fotópicos, 3 pigmentos cromáticos).",
+        "decision_prompt": "Diferenciar la disfunción de fotorreceptores ante ceguera nocturna (hemeralopía por déficit de vitamina A) vs pérdida de agudeza visual central y color.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Contrastar bastones frente a conos en umbral de excitación, número de fotones requeridos, localización en la retina y velocidad de adaptación."
+            },
+            {
+                "game_id": "game-08",
+                "game_name": "Pathology Hotspot Inspector",
+                "suitability": "media",
+                "clinical_mission": "Identificar en el corte histológico de retina las 8 capas desde el epitelio pigmentario hasta las fibras del nervio óptico."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-PHOTOTRANSDUCTION-CASCADE",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-VISION",
+        "title": "Cascada Bioquímica de Fotorrecepción Retiniana",
+        "summary": "Fotorrecepción: Luz -> fotoisomerización de 11-cis a all-trans retinal -> metarrodopsina II -> activación de transducina (Gt) -> activación de PDE -> cGMP↓ -> cierre canales Na+ -> hiperpolarización -> liberación de glutamato↓.",
+        "decision_prompt": "Secuenciar el orden estricto de eventos moleculares que generan la hiperpolarización del fotorreceptor ante el estímulo luminoso.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Detectar el punto de interrupción en la cascada visual ante mutaciones en PDE6 o déficit de regeneración de 11-cis retinal."
+            },
+            {
+                "game_id": "game-05",
+                "game_name": "Molecular Circuit Breaker",
+                "suitability": "alta",
+                "clinical_mission": "Restaurar los niveles de cGMP y la corriente oscura modulando la actividad de transducina y guanilato ciclasa."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-VISUAL-RECEPTIVE-FIELDS",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-VISION",
+        "title": "Campos Receptores Retinianos (On-Center vs Off-Center)",
+        "summary": "Organización concéntrica antagónica en células bipolares. On-center (receptores metabotrópicos mGluR6 se despolarizan por disminución de glutamato) y Off-center (receptores ionotrópicos AMPA/kainato). Surround invertido por células horizontales.",
+        "decision_prompt": "Deducir si una célula bipolar se despolarizará o hiperpolarizará ante un punto de luz en el centro de su campo según su receptor de glutamato.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "alta",
+                "clinical_mission": "Trazar el circuito retiniano con fotorreceptor, célula horizontal GABAérgica y célula bipolar On vs Off."
+            },
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "media",
+                "clinical_mission": "Asignar respuestas On-center/Off-surround vs Off-center/On-surround según iluminación central o anular."
+            }
+        ]
+    },
+    {
+        "id": "DEC-NEURO-OPTIC-PATHWAY-LESIONS",
+        "type": "decision",
+        "cluster_id": "CLU-NEURO-VISION",
+        "title": "Diagnóstico y Localización de Defectos Campimétricos de la Vía Óptica",
+        "summary": "Localización precisa de lesiones: Nervio óptico (ceguera ipsilateral), Quiasma óptico (hemianopsia bitemporal heterónima), Cintilla óptica (hemianopsia homónima contralateral) y Radiación óptica/corteza occipital (con respeto macular).",
+        "decision_prompt": "Identificar el sitio anatómico exacto de compresión o infarto ante un defecto campimétrico visual bilateral.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-04",
+                "game_name": "Management Script Matrix",
+                "suitability": "alta",
+                "clinical_mission": "Plan de estudio neuro-oftalmológico y RM selar ante hemianopsia bitemporal por adenoma hipofisario."
+            },
+            {
+                "game_id": "game-09",
+                "game_name": "Red Herring Hunter",
+                "suitability": "alta",
+                "clinical_mission": "Diferenciar lesión de cintilla óptica de infarto occipital verificando la presencia o ausencia de respeto macular."
+            }
+        ]
+    },
+
+    # Cluster 4: Audición y Vestibular
+    {
+        "id": "CON-NEURO-AUDITORY-TRANSDUCTION",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-AUDITORY-VESTIBULAR",
+        "title": "Transducción Mecano-Acústica en el Órgano de Corti",
+        "summary": "Adaptación de impedancias timpano-osicular; movimiento del estribo en ventana oval desplaza perilinfa y endolinfa; cizallamiento de estereocilios contra la membrana tectoria modula canales de K+ generando el microfónico coclear.",
+        "decision_prompt": "Explicar el mecanismo iónico particular de la cóclea donde la entrada de K+ (rico en la endolinfa) despolariza la célula ciliada.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Simular la disfunción de la estría vascular y la pérdida de la alta concentración de K+ endolinfático."
+            },
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "media",
+                "clinical_mission": "Conectar la cadena de relevo acústico: nervio VIII, núcleos cocleares bulbares, colículo inferior, NGM del tálamo y corteza auditiva A1."
+            }
+        ]
+    },
+    {
+        "id": "RUL-NEURO-BASILAR-MEMBRANE-TONOTOPY",
+        "type": "rule",
+        "cluster_id": "CLU-NEURO-AUDITORY-VESTIBULAR",
+        "title": "Regla Tonotópica de la Membrana Basilar Coclear",
+        "summary": "Base coclear (cerca de la ventana oval) es estrecha y rígida $\\to$ responde a altas frecuencias (hasta 20,000 Hz). Ápice coclear (helicotrema) es ancho y distensible $\\to$ responde a bajas frecuencias (20-200 Hz).",
+        "criteria": "Frecuencias altas (agudas) resuenan en la base rígida; frecuencias bajas (graves) resuenan en el ápice distensible.",
+        "decision_prompt": "Predecir la zona de daño coclear en hipoacusia inducida por ruido o presbiacusia (pérdida selectiva de tonos agudos en la base).",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-06",
+                "game_name": "Biomarker Dial & Cutoff Slider",
+                "suitability": "alta",
+                "clinical_mission": "Deslizar el selector de Hz (20 a 20,000) para ubicar el punto de máxima resonancia física sobre la membrana basilar."
+            },
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "media",
+                "clinical_mission": "Comparar base vs ápice en ancho (100 µm vs 500 µm), rigidez mecánica y respuesta a frecuencias sonoras."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-VESTIBULAR-ACCELERATION",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-AUDITORY-VESTIBULAR",
+        "title": "Fisiología Vestibular: Conductos Semicirculares vs Órganos Otolíticos",
+        "summary": "Tres conductos semicirculares perpendiculares detectan aceleración angular mediante desplazamiento de la cúpula gelatinosa. Utrículo y sáculo detectan aceleración lineal y gravedad con masa otolítica de otoconias.",
+        "decision_prompt": "Discriminar qué estructura vestibular se estimula primariamente durante el giro de cabeza (angular) frente a la inclinación cefálica en ascensor (lineal).",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Duelo entre conductos semicirculares (cúpula, ángulo, rotación) y otolitos (otoconias, gravedad, mácula horizontal utricular / vertical sacular)."
+            },
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "media",
+                "clinical_mission": "Mapear la vía vestibulo-ocular vía fascículo longitudinal medial hacia los núcleos oculomotores (III, IV, VI)."
+            }
+        ]
+    },
+    {
+        "id": "DEC-NEURO-VESTIBULAR-NYSTAGMUS-TESTS",
+        "type": "decision",
+        "cluster_id": "CLU-NEURO-AUDITORY-VESTIBULAR",
+        "title": "Evaluación del Nistagmo Vestibular y Pruebas Térmicas (COWS)",
+        "summary": "Nistagmo con fase lenta compensatoria y fase rápida de corrección sacádica. Prueba calórica con regla COWS (Cold Opposite, Warm Same): agua fría produce nistagmo contralateral; caliente, ipsilateral.",
+        "decision_prompt": "Determinar si el reflejo vestíbulo-ocular y el tronco encefálico están intactos en paciente comatoso mediante la prueba calórica.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-04",
+                "game_name": "Management Script Matrix",
+                "suitability": "alta",
+                "clinical_mission": "Protocolo de evaluación de tronco encefálico y reflejos oculocefálicos/oculovestibulares en UCI."
+            },
+            {
+                "game_id": "game-16",
+                "game_name": "Rapid Crisis Triage",
+                "suitability": "alta",
+                "clinical_mission": "Diferenciar vértigo periférico con nistagmo unidireccional fatigable de vértigo central con nistagmo vertical o disociado."
+            }
+        ]
+    },
+
+    # Cluster 5: Sentidos Químicos
+    {
+        "id": "CON-NEURO-OLFACTORY-TRANSDUCTION",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-CHEMICAL-SENSES",
+        "title": "Transducción Olfatoria, Proteína Golf y Lámina Cribosa",
+        "summary": "Neuronas receptoras olfatorias como células primarias con neurogénesis continua. Proteína Golf $\\to$ adenilil ciclasa $\\to$ cAMP $\\to$ apertura de canales catiónicos de Na+/Ca2+ $\\to$ despolarización. Paso axónico por la lámina cribosa hacia glomérulos del bulbo.",
+        "decision_prompt": "Explicar el mecanismo fisiopatológico de anosmia postraumática tras una fractura de la fosa craneal anterior con sección de filamentos olfatorios.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Rastrear la cascada de Golf/cAMP y la falta de despolarización ciliar ante inhibición enzimática."
+            },
+            {
+                "game_id": "game-09",
+                "game_name": "Red Herring Hunter",
+                "suitability": "media",
+                "clinical_mission": "Discriminar causa de anosmia (traumatismo de lámina cribosa vs meningioma del surco olfatorio vs rinitis obstructiva)."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-GUSTATORY-TRANSDUCTION",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-CHEMICAL-SENSES",
+        "title": "Transducción Gustativa y Vías Nerviosas Craneales (VII, IX, X)",
+        "summary": "Células receptoras epiteliales especializadas. Amargo, dulce y umami señalizan por GPCR vía IP3/Ca2+ abriendo canales TRP. Salado y ácido entran directamente por canales epiteliales de Na+ (ENaC). Inervación: dos tercios anteriores VII (cuerda del tímpano), tercio posterior IX, base/epiglotis X hacia el núcleo solitario.",
+        "decision_prompt": "Localizar la lesión neurológica ante pérdida selectiva del gusto en los dos tercios anteriores de la lengua (parálisis de Bell / nervio facial).",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Separar los 5 sabores en dos mecanismos biofísicos: GPCR-IP3/Ca2+ vs canales iónicos directos ENaC/H+."
+            },
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "media",
+                "clinical_mission": "Mapear la vía aferente gustativa desde papilas fungiformes/circunvaladas al núcleo del tracto solitario y núcleo VPM del tálamo."
+            }
+        ]
+    },
+
+    # Cluster 6: Sistemas Motores y Reflejos
+    {
+        "id": "CON-NEURO-MOTOR-UNIT-SIZE-PRINCIPLE",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-MOTOR-REFLEXES",
+        "title": "Unidad Motora y Principio del Tamaño de Henneman",
+        "summary": "Unidad motora: una motoneurona alfa y todas las fibras extrafusales que inerva. Principio del tamaño: las motoneuronas pequeñas tienen menor umbral, conducen más lento y se reclutan primero para movimientos finos; las grandes se reclutan al final para fuerza máxima.",
+        "decision_prompt": "Justificar por qué las fibras musculares tónicas resistentes a la fatiga son activadas antes de las fibras fásicas glucolíticas rápidas.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-06",
+                "game_name": "Biomarker Dial & Cutoff Slider",
+                "suitability": "alta",
+                "clinical_mission": "Aumentar progresivamente la demanda de tensión muscular para observar el reclutamiento ordenado de motoneuronas según su diámetro somático."
+            },
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "media",
+                "clinical_mission": "Comparar motoneuronas pequeñas vs grandes en umbral de excitación, número de fibras inervadas y velocidad de disparo."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-MUSCLE-SPINDLE-COACTIVATION",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-MOTOR-REFLEXES",
+        "title": "Huso Muscular y Coactivación Alfa-Gamma",
+        "summary": "Husos en paralelo con fibras extrafusales sensan longitud y velocidad de estiramiento (aferentes Ia dinámicas y II estáticas). La coactivación de motoneuronas gamma estáticas y dinámicas tensa los polos intrafusales para evitar el colapso de sensibilidad durante la contracción muscular.",
+        "decision_prompt": "Identificar el mecanismo que preserva el tono postural y la retroalimentación sensorial durante el acortamiento activo de un músculo.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Simular la parálisis selectiva de motoneuronas gamma y demostrar el cese de descargas Ia durante la contracción extrafusal."
+            },
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "media",
+                "clinical_mission": "Conectar el circuito del servomecanismo fusimotor intrafusal en paralelo con la masa muscular extrafusal."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-SPINAL-REFLEXES-TRIAD",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-MOTOR-REFLEXES",
+        "title": "Tríada de Reflejos Espinales (Miotático, Golgi y Flexor)",
+        "summary": "1. Estiramiento (miotático): monosináptico, aferencia Ia, produce contracción del homónimo. 2. Tendinoso de Golgi: disináptico, aferencia Ib en serie, produce inhibición/relajación del homónimo (navaja de muelle). 3. Flexor de retirada: polisináptico nociceptivo (grupos II, III, IV), flexión ipsilateral con extensión cruzada contralateral y posdescarga.",
+        "decision_prompt": "Clasificar un arco reflejo espinal según su número de sinapsis, aferencia sensorial y respuesta motora excitatoria o inhibitoria.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Enfrentar los tres reflejos espinales en número de sinapsis (mono vs di vs poli), fibra aferente (Ia vs Ib vs II-IV) y efecto en el músculo homónimo."
+            },
+            {
+                "game_id": "game-03",
+                "game_name": "Illness Script Matrix",
+                "suitability": "media",
+                "clinical_mission": "Identificar alteraciones reflejas patológicas: hiperreflexia osteotendinosa vs fenómeno de la navaja de muelle en espasticidad."
+            }
+        ]
+    },
+
+    # Cluster 7: Tronco y Cerebelo
+    {
+        "id": "DEC-NEURO-DECEREBRATE-RIGIDITY",
+        "type": "decision",
+        "cluster_id": "CLU-NEURO-BRAINSTEM-CEREBELLUM",
+        "title": "Diagnóstico Diferencial: Rigidez de Descerebración vs Decorticación",
+        "summary": "Descerebración (lesión por debajo del mesencéfalo entre colículos superior e inferior): desconexión cortical y rubroespinal con hiperactividad tónica de núcleos vestibulares laterales y reticular pontino $\\to$ extensión rígida de las 4 extremidades. Decorticación (lesión superior al mesencéfalo): rubroespinal intacto $\\to$ flexión de miembros superiores y extensión de inferiores.",
+        "decision_prompt": "Distinguir de urgencia el nivel rostrocaudal del daño troncoencefálico ante posturas tónicas espontáneas o inducidas en coma.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-16",
+                "game_name": "Rapid Crisis Triage",
+                "suitability": "alta",
+                "clinical_mission": "Categorizar en escala de coma de Glasgow y triar de inmediato hernia uncal con transición de decorticación a descerebración."
+            },
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Comparar postura de decorticación vs descerebración: nivel de corteza vs tronco medio, tono en miembros superiores e integridad del tracto rubroespinal."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-CEREBELLAR-CIRCUITRY",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-BRAINSTEM-CEREBELLUM",
+        "title": "Citoarquitectura y Circuitos de la Corteza Cerebelosa",
+        "summary": "Tres capas: molecular, células de Purkinje y granular. Dos entradas excitatorias: Fibras trepadoras (de oliva inferior $\\to$ sinapsis 1:1 con Purkinje $\\to$ espigas complejas) y Fibras musgosas (a células granulares $\\to$ fibras paralelas $\\to$ espigas simples). La única salida de la corteza es siempre inhibitoria (GABA) a través de las células de Purkinje hacia los núcleos profundos.",
+        "decision_prompt": "Explicar el papel fisiológico de las células de Purkinje como moduladores inhibitorios que esculpen la sinergia motora.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "alta",
+                "clinical_mission": "Reconstruir el microcircuito cerebeloso conectando fibras musgosas, células granulares, fibras paralelas, interneuronas inhibidoras (canasta/estrelladas) y Purkinje."
+            },
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "media",
+                "clinical_mission": "Identificar el bloqueo de la transmisión GABAérgica de Purkinje y el escape desinhibido de los núcleos vestibulares y cerebelosos profundos."
+            }
+        ]
+    },
+    {
+        "id": "DEC-NEURO-CEREBELLAR-ATAXIA-SYNDROME",
+        "type": "decision",
+        "cluster_id": "CLU-NEURO-BRAINSTEM-CEREBELLUM",
+        "title": "Diagnóstico de Síndrome Cerebeloso y Ataxia",
+        "summary": "Pérdida de sinergia motora (control de frecuencia, rango, fuerza y dirección): ataxia apendicular o de la marcha, disdiadococinesia (falla en movimientos alternantes rápidos), dismetría (sobrealcance), temblor de intención (aumenta al final del movimiento voluntario) y fenómeno de rebote.",
+        "decision_prompt": "Reconocer las manifestaciones semiológicas cerebelosas ipsilaterales y diferenciarlas de los déficits de los ganglios basales.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-03",
+                "game_name": "Illness Script Matrix",
+                "suitability": "alta",
+                "clinical_mission": "Construir el script clínico de lesión hemisférica cerebelosa: marcha ebria, dismetría índice-nariz y temblor de intención."
+            },
+            {
+                "game_id": "game-09",
+                "game_name": "Red Herring Hunter",
+                "suitability": "alta",
+                "clinical_mission": "Descartar temblor de reposo parkinsoniano identificando el vector cinético del temblor cerebeloso voluntario intencional."
+            }
+        ]
+    },
+
+    # Cluster 8: Ganglios Basales y Corteza
+    {
+        "id": "CON-NEURO-BASAL-GANGLIA-PATHWAYS",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-BASAL-GANGLIA-CORTEX",
+        "title": "Vías Directa e Indirecta de los Ganglios Basales",
+        "summary": "Vía directa (receptores D1): corteza (+) $\\to$ estriado GABA (-) $\\to$ GPi/SNr GABA (-) $\\to$ tálamo desinhibido (+) $\\to$ corteza (+) [Facilita movimiento]. Vía indirecta (receptores D2): corteza (+) $\\to$ estriado (-) $\\to$ GPe (-) $\\to$ núcleo subtalámico (+) $\\to$ GPi/SNr (-) $\\to$ tálamo inhibido (-) [Frena movimiento]. La dopamina de la sustancia negra pars compacta favorece el movimiento activando D1 e inhibiendo D2.",
+        "decision_prompt": "Predecir el efecto sobre el flujo talamocortical tras la activación o inhibición selectiva de los receptores D1 vs D2 estriatales.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Rastrear la cascada de excitaciones e inhibiciones sucesivas (GABA vs Glutamato) en la vía directa e indirecta ante una lesión del núcleo subtalámico (hemibalismo)."
+            },
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "alta",
+                "clinical_mission": "Diagramar el bucle cerrado cortico-estriado-pálido-tálamo-cortical y la modulación nigroestriatal dopaminérgica."
+            }
+        ]
+    },
+    {
+        "id": "DEC-NEURO-PARKINSON-VS-HUNTINGTON",
+        "type": "decision",
+        "cluster_id": "CLU-NEURO-BASAL-GANGLIA-CORTEX",
+        "title": "Manejo y Diagnóstico Diferencial: Parkinson vs Huntington",
+        "summary": "Parkinson: destrucción de neuronas dopaminérgicas en sustancia negra pars compacta $\\to$ predominio de la vía indirecta $\\to$ bradicinesia, acinesia, rigidez y temblor de reposo en cuenta de monedas (tratamiento con L-Dopa/inhibidor de Dopa-descarboxilasa). Huntington: destrucción autosómica dominante de neuronas estriatales GABA/colinérgicas $\\to$ desinhibición talamocortical $\\to$ hipercinesia coreica y demencia.",
+        "decision_prompt": "Prescribir el régimen farmacológico dopaminérgico adecuado y seleccionar las precauciones motoras según la enfermedad de los ganglios basales.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-04",
+                "game_name": "Management Script Matrix",
+                "suitability": "alta",
+                "clinical_mission": "Organizar el esquema de manejo con Levodopa + Carbidopa / agonistas dopaminérgicos y monitoreo de fluctuaciones on-off."
+            },
+            {
+                "game_id": "game-17",
+                "game_name": "Contraindication Minesweeper",
+                "suitability": "alta",
+                "clinical_mission": "Desactivar medicamentos bloqueadores dopaminérgicos (metoclopramida, neurolépticos típicos) contraindicados en enfermedad de Parkinson."
+            }
+        ]
+    },
+
+    # Cluster 9: Funciones Superiores y Plasticidad
+    {
+        "id": "CON-NEURO-EEG-AND-SLEEP-STAGES",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-HIGHER-FUNCTIONS",
+        "title": "Electroencefalograma y Fases del Sueño (NREM y REM)",
+        "summary": "Ritmos de EEG: Beta (13-30 Hz, alerta activo), Alfa (8-13 Hz, despierto ojos cerrados), Theta (4-7 Hz, fase 1), Delta (<4 Hz, fase 4 ondas lentas). Fase 2 muestra husos de sueño y complejos K. Sueño REM (paradójico): EEG de alta frecuencia similar a vigilia, atonía motora somática, movimientos oculares rápidos, sueños vívidos y erección.",
+        "decision_prompt": "Interpretar el trazado polisomnográfico de un paciente durante un episodio de desincronización cortical con parálisis muscular fisiológica.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Duelo entre sueño de ondas lentas (fase 4 delta) vs sueño REM (paradójico) en tono muscular, EEG, frecuencia cardíaca y umbral de despertar."
+            },
+            {
+                "game_id": "game-06",
+                "game_name": "Biomarker Dial & Cutoff Slider",
+                "suitability": "media",
+                "clinical_mission": "Ajustar las frecuencias del espectro EEG (de 1 a 30 Hz) asociándolas a su estado fisiológico correspondiente."
+            }
+        ]
+    },
+    {
+        "id": "CON-NEURO-LTP-SYNAPTIC-PLASTICITY",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-HIGHER-FUNCTIONS",
+        "title": "Potenciación a Largo Plazo (LTP) y Plasticidad Sináptica",
+        "summary": "Base molecular del aprendizaje y memoria en hipocampo. Estimulación presináptica de alta frecuencia libera glutamato $\\to$ despolarización vía AMPA remueve el bloqueo de Mg2+ del receptor NMDA $\\to$ influjo masivo de Ca2+ $\\to$ activación de CaMKII y proteincinasas $\\to$ inserción de nuevos receptores AMPA con hipersensibilidad postsináptica duradera.",
+        "decision_prompt": "Secuenciar el mecanismo iónico que desbloquea los receptores NMDA permitiendo el flujo de Ca2+ y la consolidación de la memoria.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Rastrear la dependencia de despolarización previa para expulsar el tapón de Mg2+ del canal NMDA en la sinapsis glutamatérgica."
+            },
+            {
+                "game_id": "game-01",
+                "game_name": "DAG Concept Map Builder",
+                "suitability": "media",
+                "clinical_mission": "Construir la red causal de segundos mensajeros de LTP desde la entrada presináptica tetánica hasta la modificación dendrítica."
+            }
+        ]
+    },
+
+    # Cluster 10: LCR y BHE
+    {
+        "id": "CON-NEURO-CSF-DYNAMICS-BBB",
+        "type": "concept",
+        "cluster_id": "CLU-NEURO-CSF-BBB",
+        "title": "Dinámica del Líquido Cefalorraquídeo y Barrera Hematoencefálica",
+        "summary": "Producción de 500 mL/día de LCR por células epiteliales de plexos coroideos; circulación ventricular y subaracnoidea; reabsorción unidireccional en vellosidades aracnoideas venosas. Barrera hematoencefálica (BHE) formada por uniones estrechas (tight junctions) entre células endoteliales capilares y procesos podocitarios de astrocitos.",
+        "decision_prompt": "Predecir la penetrancia de fármacos al sistema nervioso central según su liposolubilidad y grado de ionización a pH fisiológico.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-02",
+                "game_name": "Metabolic & Pathway Fault-Detector",
+                "suitability": "alta",
+                "clinical_mission": "Identificar el punto de obstrucción en hidrocefalia no comunicante (acueducto de Silvio) vs comunicante (falla de reabsorción en vellosidades aracnoideas)."
+            },
+            {
+                "game_id": "game-17",
+                "game_name": "Contraindication Minesweeper",
+                "suitability": "media",
+                "clinical_mission": "Detectar fármacos incapaces de atravesar la barrera hematoencefálica intacta por baja liposolubilidad o alto peso molecular."
+            }
+        ]
+    },
+    {
+        "id": "RUL-NEURO-CSF-VS-BLOOD-COMPOSITION",
+        "type": "rule",
+        "cluster_id": "CLU-NEURO-CSF-BBB",
+        "title": "Regla de Gradientes Químicos: LCR vs Sangre",
+        "summary": "Composición comparativa: [LCR] = [Sangre] para Na+, Cl-, HCO3- y osmolaridad (~290 mOsm/L). [LCR] < [Sangre] para glucosa (~60% de glucemia), K+, Ca2+, aminoácidos y proteínas (prácticamente nulas, <45 mg/dL). [LCR] > [Sangre] para Mg2+ y creatinina.",
+        "criteria": "[LCR]=[Sangre]: Na+, Cl-, osmolaridad. [LCR]<[Sangre]: Glucosa, K+, Ca2+, proteínas (muy bajas). [LCR]>[Sangre]: Mg2+.",
+        "decision_prompt": "Interpretar el citoquímico de LCR en punción lumbar ante hipoglucorriquia (<40% de glucemia) e hiperproteinorraquia marcada sugerentes de meningitis bacteriana.",
+        "assessment_recommendations": [
+            {
+                "game_id": "game-06",
+                "game_name": "Biomarker Dial & Cutoff Slider",
+                "suitability": "alta",
+                "clinical_mission": "Calibrar las concentraciones normales de glucosa, proteínas y Mg2+ en LCR respecto a la química plasmática simultánea."
+            },
+            {
+                "game_id": "game-11",
+                "game_name": "Feature Contrast Duel",
+                "suitability": "alta",
+                "clinical_mission": "Clasificar solutos en tres columnas: concentración LCR mayor que en sangre, igual que en sangre o menor que en sangre."
+            }
+        ]
+    }
+]
+
+TEACHING_UNITS = [
+    {
+        "target_id": "CON-NEURO-ORGANIZATION",
+        "body": "El sistema nervioso central (SNC) integra la médula espinal, tronco encefálico (bulbo, puente, mesencéfalo), cerebelo, diencéfalo (tálamo e hipotálamo) y hemisferios cerebrales. Casi toda la información sensorial y motora que proyecta hacia o desde la corteza cerebral se procesa en núcleos de relevo talámicos que contienen interneuronas moduladoras y neuronas de proyección. La información en el SNC se codifica en mapas topográficos estrictos (somatotópico en S1, retinotópico en V1, tonotópico en A1) preservados en cada nivel del neuroeje.",
+        "example": "Un paciente presenta un infarto talámico aislado en el núcleo ventral posterolateral (VPL). Manifiesta pérdida sensitiva contralateral completa de hemicuerpo respetando únicamente el olfato, dado que la vía olfatoria es la única que proyecta directamente a la corteza sin relevo talámico previo.",
+        "boundary": "Aplica a todas las modalidades sensitivas primarias (visión, audición, tacto, gusto), excepto la vía olfatoria primaria que proyecta directo a la corteza piriforme.",
+        "pearl": "El tálamo es la 'gran aduana sensorial' del encéfalo: toda afluencia sensorial asciende por núcleos talámicos específicos antes de alcanzar la corteza perceptiva, salvo el olfato.",
+        "pitfall": "Asumir erróneamente que las vías sensitivas primarias conectan de forma monosináptica continua desde la periferia hasta la corteza sin procesamiento intermedio en núcleos de relevo.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 65–68, Figures 3-1 & 3-2."
+    },
+    {
+        "target_id": "CON-NEURO-FIBER-CLASSIFICATION",
+        "body": "La velocidad de conducción nerviosa depende de dos variables biofísicas: el diámetro del axón y la presencia de vaina de mielina. Según Erlanger-Gasser: fibras A (Aα motoneuronas y propiocepción más gruesas/rápidas, Aβ tacto/presión, Aγ husos, Aδ dolor rápido/temperatura con mielina), fibras B (autonómicas preganglionares mielínicas) y fibras C (amielínicas más delgadas y lentas para dolor sordo y autonómicas postganglionares). Según Lloyd-Hunt (solo sensitivas): Ia/Ib (las más veloces y gruesas con mielina), II (tacto y husos secundarios), III (dolor rápido) y IV (dolor sordo/olfato sin mielina).",
+        "example": "En la neuropatía por toxicidad por anestésicos locales, las fibras pequeñas amielínicas C y mielínicas delgadas Aδ son bloqueadas antes que las gruesas motoras Aα, permitiendo analgesia antes de la parálisis motora completa.",
+        "boundary": "La velocidad máxima de conducción puede superar 100 m/s en fibras Aα/Ia (mielínicas de 20 µm), cayendo a 0.5-2 m/s en fibras C/IV amielínicas de 0.5 µm.",
+        "pearl": "A mayor calibre y más mielina, mayor velocidad de conducción por conducción saltatoria en los nódulos de Ranvier. Las fibras C amielínicas son las más lentas del sistema nervioso humano.",
+        "pitfall": "Confundir las fibras B autonómicas preganglionares (mielinizadas delgadas) con las fibras C postganglionares (estrictamente amielínicas).",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 68–69, Table 3-1."
+    },
+    {
+        "target_id": "CON-NEURO-DECUSSATIONS",
+        "body": "Casi todas las vías sensitivas y motoras son bilateralmente simétricas y cruzan la línea media (decusación), de modo que un hemisferio cerebral controla y percibe el hemicuerpo contralateral. No obstante, el nivel de decusación difiere drásticamente: la vía de la columna dorsal decusa en el bulbo raquídeo (fibras arcuatas internas); la vía espinotalámica decusa en la médula espinal 1-2 segmentos por encima de su entrada; y la vía córticoespinal lateral decusa en la decusación de las pirámides bulbares.",
+        "example": "Un hematoma epidural en la corteza motora precentral derecha produce hemiplejía de las extremidades izquierdas debido a que los axones córticoespinales cruzan caudalmente en las pirámides bulbares.",
+        "boundary": "Ciertas vías sensoriales son mixtas: la vía auditiva presenta axones cruzados y no cruzados a nivel del puente y colículos; la vía visual cruza solo las fibras retinianas nasales en el quiasma óptico.",
+        "pearl": "Las áreas del sistema nervioso compuestas exclusivamente por axones que cruzan la línea media se denominan comisuras (ej. cuerpo calloso y comisura blanca anterior medular).",
+        "pitfall": "Suponer que todas las vías sensitivas decusan al mismo nivel anatómico que ingresan en la médula espinal.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 68–69."
+    },
+    {
+        "target_id": "CON-NEURO-RECEPTOR-POTENTIAL",
+        "body": "La transducción sensorial convierte la energía de un estímulo ambiental (mecánica, lumínica, térmica, química) en corriente iónica transmembrana. Esta corriente genera una variación local de potencial llamada potencial de receptor o generador. A diferencia de los potenciales de acción (que son de tipo todo o nada), los potenciales de receptor son potenciales graduados electrotónicos cuya amplitud es proporcional a la intensidad del estímulo. Si un potencial despolarizante alcanza el umbral en la zona gatillo axonal, se generan potenciales de acción a una frecuencia proporcional a su amplitud.",
+        "example": "Una presión mecánica suave sobre la piel induce una pequeña deformación de la membrana del mecanorreceptor con corriente de entrada subumbral que no dispara potencial de acción; una presión vigorosa genera un potencial de 25 mV que sobrepasa el umbral y gatilla un tren de 80 potenciales de acción por segundo.",
+        "boundary": "Ciertos receptores sensoriales no se despolarizan sino que se hiperpolarizan ante el estímulo adecuado: los fotorreceptores de la retina (bastones y conos) generan un potencial de receptor hiperpolarizante ante la luz.",
+        "pearl": "Los potenciales de receptor son graduados y carecen de período refractario, permitiendo suma temporal y espacial de estímulos.",
+        "pitfall": "Considerar que el potencial de receptor es en sí mismo un potencial de acción que se propaga regenerativamente a lo largo del axón.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 71–72, Figure 3-4."
+    },
+    {
+        "target_id": "CON-NEURO-ADAPTATION-PHASIC-TONIC",
+        "body": "Cuando un estímulo constante se mantiene en el tiempo, la frecuencia de potenciales de acción de los receptores declina, fenómeno conocido como adaptación. Los receptores fásicos (adaptación rápida, ej. corpúsculo de Pacini, Meissner) disparan una breve ráfaga de potenciales al inicio del estímulo (on) y al cese (off), permaneciendo en silencio durante la presión estática continua; están optimizados para detectar cambios de velocidad y vibración. Los receptores tónicos (adaptación lenta, ej. discos de Merkel, terminaciones de Ruffini) mantienen su despolarización y disparan potenciales de forma continua mientras dura el estímulo, codificando intensidad y duración.",
+        "example": "Al colocarse un reloj en la muñeca, los corpúsculos de Pacini disparan intensamente en el primer segundo pero se silencian enseguida (adaptación fásica), de modo que no se percibe continuamente; si la correa ajusta excesivamente, los receptores tónicos de Merkel continúan enviando señales de presión sostenida.",
+        "boundary": "El corpúsculo de Pacini es el más rápidamente adaptable de todos los mecanorreceptores y puede seguir estímulos vibratorios de hasta 300-400 Hz.",
+        "pearl": "Fásicos = detección de velocidad, vibración y cambio ('On-Off'). Tónicos = codificación de intensidad mantenida y duración ('Steady-state').",
+        "pitfall": "Creer que la ausencia de potenciales de acción en un receptor de Pacini durante una presión constante significa que el estímulo cesó, cuando en realidad refleja adaptación de las laminillas viscoelásticas del corpúsculo.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 74–76, Figure 3-7, Table 3-3."
+    },
+    {
+        "target_id": "CON-NEURO-DORSAL-COLUMN-SYSTEM",
+        "body": "La vía de la columna dorsal-lemnisco medial (DCML) procesa tacto discriminativo fino, presión epicrítica, vibración y propiocepción consciente. Las neuronas de primer orden (ganglio de la raíz dorsal, fibras mielinizadas gruesas I y II) ascienden ipsilateralmente por los cordones posteriores: fascículo gracilis (medial, procedente de miembros inferiores y tronco bajo) y fascículo cuneatus (lateral, miembros superiores sobre T6). Sinapsan en los núcleos gracilis y cuneatus del bulbo raquídeo con las neuronas de 2º orden, las cuales cruzan la línea media como fibras arcuatas internas formando el lemnisco medial que asciende al núcleo ventral posterolateral (VPL) del tálamo, y de allí a la corteza S1.",
+        "example": "Un paciente con ataxia sensitiva y déficit de propiocepción empeora marcadamente su estabilidad al cerrar los ojos (signo de Romberg positivo), debido a la pérdida de información propioceptiva que asciende por las columnas dorsales.",
+        "boundary": "El fascículo cuneatus solo se encuentra en la médula espinal por encima del nivel T6; por debajo de T6 solo existe el fascículo gracilis.",
+        "pearl": "Gracilis es medial y lleva información de las piernas ('las piernas son gráciles'); Cuneatus es lateral y lleva información de los brazos y tórax alto.",
+        "pitfall": "Pensar que las fibras de la columna dorsal cruzan en la médula espinal; las fibras de primer orden ascienden ipsilaterales y cruzan exclusivamente en el bulbo raquídeo.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 77–78, Figure 3-10A."
+    },
+    {
+        "target_id": "CON-NEURO-ANTEROLATERAL-SYSTEM",
+        "body": "El sistema anterolateral o haz espinotalámico transmite dolor, temperatura y tacto protopático grueso. Las neuronas de primer orden (ganglios de la raíz dorsal) ingresan al asta dorsal y sinapsan en neuronas de segundo orden. Los axones de estas neuronas de 2º orden cruzan inmediatamente la línea media a través de la comisura blanca anterior medular (a 1-2 niveles de su entrada) y ascienden en el cordón anterolateral contralateral hacia el núcleo VPL del tálamo y corteza S1. El dolor rápido viaja por fibras finas mielinizadas Aδ (grupo III) usando glutamato; el dolor lento sordo y urente viaja por fibras amielínicas C (grupo IV) usando sustancia P.",
+        "example": "La siringomielia (quiste en el canal ependimario central de la médula) comprime la comisura blanca anterior donde decusan las fibras espinotalámicas, produciendo una pérdida bilateral de sensibilidad termoalgésica en patrón de capa/chaleco en extremidades superiores, con tacto fino preservado.",
+        "boundary": "Los canales termoceptivos involucran familias TRP: TRPV (vanilloide sensible a calor y capsaicina) y TRPM8 (sensible a frío y mentol). Sobre 45°C los termorreceptores se inactivan y se activan los nociceptores polimodales.",
+        "pearl": "El dolor rápido Aδ es punzante, rápido y de localización milimétrica; el dolor lento C es tardío, quemante, persistente y mal localizado.",
+        "pitfall": "Atribuir el dolor por quemaduras graves a termorreceptores de calor; a más de 45°C los receptores de calor se saturan y apagan, siendo los nociceptores de fibras C y Aδ los únicos que disparan.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 76–78, Figure 3-10B."
+    },
+    {
+        "target_id": "DEC-NEURO-BROWNSEQUARD-LOCALIZATION",
+        "body": "El síndrome de Brown-Séquard por hemisección medular (traumática por herida penetrante o compresiva) demuestra la disociación anatómica de las vías ascendentes y descendentes: 1. A nivel de la lesión y por debajo: pérdida IPSILATERAL de la propiocepción, vibración y discriminación táctil (vía DCML que aún no ha decusado en el bulbo) junto con parálisis motora espástica ipsilateral (haz córticoespinal que ya decusó en las pirámides). 2. Pérdida CONTRALATERAL de la sensibilidad al dolor y la temperatura a partir de 1 a 2 segmentos dermatómicos por debajo de la lesión (haz espinotalámico que decusó a la entrada de la médula).",
+        "example": "Un paciente apuñalado en el hemidorso derecho a nivel T8 presenta pérdida de propiocepción y fuerza en la pierna derecha, pero anestesia termoalgésica en la pierna izquierda desde el nivel T10 hacia abajo.",
+        "boundary": "El déficit termoalgésico contralateral inicia 1 a 2 dermatomas por debajo de la lesión anatómica debido a la distancia de ascenso oblícuo de las fibras de segundo orden antes de cruzar la comisura blanca anterior.",
+        "pearl": "En Brown-Séquard: la parálisis y la pérdida propioceptiva son del mismo lado de la lesión (ipsilaterales); la pérdida del dolor y calor es del lado contrario (contralateral).",
+        "pitfall": "Buscar el nivel de pérdida termoalgésica exactamente en el mismo nivel óseo de la lesión, olvidando el desfase fisiológico de 1-2 segmentos del haz espinotalámico.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 77–78, Figure 3-10."
+    },
+    {
+        "target_id": "DEC-NEURO-REFERRED-PAIN-DERMATOMAL",
+        "body": "El dolor referido es un dolor de origen visceral percibido en una región cutánea somática distante. Se rige por la regla dermatómica: las fibras aferentes nociceptivas viscerales entran a la médula por las mismas raíces dorsales y convergen en las mismas neuronas de segundo orden del asta dorsal que las fibras nociceptivas somáticas cutáneas. Como la corteza cerebral recibe predominantemente señales de la piel, interpreta que los impulsos aferentes provenientes de la neurona de segundo orden compartida se originan en el dermatoma cutáneo.",
+        "example": "En la isquemia miocárdica aguda, las aferentes viscerales cardíacas ingresan en T1-T5, convergiendo con aferentes somáticas del hemitórax anterior izquierdo, axila y cara medial del brazo izquierdo (nervio intercostobraquial), generando el dolor precordial típico irradiado al brazo.",
+        "boundary": "El dolor diafragmático o de la cúpula vesicular irrita el nervio frénico (C3-C5), refiriéndose típicamente a la región supraclavicular y hombro ipsilateral.",
+        "pearl": "Regla dermatómica: el dolor visceral se refiere a las áreas de la piel cuyos nervios espinales derivan de los mismos segmentos medulares que inervan la víscera comprometida.",
+        "pitfall": "Descartar un infarto agudo de miocardio en un paciente que solo consulta por dolor urente en la mandíbula o en el brazo izquierdo sin queja torácica primaria.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 78–79."
+    },
+    {
+        "target_id": "CON-NEURO-RODS-VS-CONES",
+        "body": "La retina posee dos poblaciones de fotorreceptores: 1. Bastones: umbral muy bajo (sensibles a un solo fotón), adaptados a visión nocturna o escotópica, contienen grandes cantidades de rodopsina en discos membranosos libres flotantes que se renuevan y fagocitan en el epitelio pigmentario; exhiben alta convergencia sináptica (muchos bastones por célula bipolar), lo que otorga alta sensibilidad pero baja agudeza visual, y están ausentes en la fóvea central. 2. Conos: umbral alto (requieren cientos de fotones), adaptados a visión diurna o fotópica, con pigmentos cromáticos (azul, verde, rojo); en la fóvea la relación sináptica es 1 cono: 1 bipolar: 1 célula ganglionar, lo que confiere máxima agudeza visual sin convergencia.",
+        "example": "La ceguera nocturna (hemeralopía) es el primer signo clínico del déficit nutricional de vitamina A, ya que se agota el 11-cis retinal necesario para sintetizar la rodopsina de los bastones.",
+        "boundary": "La fóvea central de la mácula está poblada exclusivamente por conos delgados; los bastones predominan en la periferia de la retina.",
+        "pearl": "Conos = Cono, Color, Claridad y Central (fóvea). Bastones = Blanco y negro, Bajas luces (nocturna), Borde retiniano periférico.",
+        "pitfall": "Creer que la fóvea contiene la máxima sensibilidad a la luz tenue; en la oscuridad completa, mirar un objeto tenue directamente con la fóvea hace que desaparezca porque allí no hay bastones.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 80–82, Table 3-4, Figures 3-13 & 3-14."
+    },
+    {
+        "target_id": "CON-NEURO-PHOTOTRANSDUCTION-CASCADE",
+        "body": "La fotorrecepción es el proceso por el cual la luz se transduce en señal eléctrica. 1. La luz incide en el fotorreceptor y produce la fotoisomerización de 11-cis retinal a all-trans retinal. 2. La opsina sufre cambios conformacionales originando metarrodopsina II. 3. La metarrodopsina II activa a la proteína G transducina (Gt). 4. La transducina activa una fosfodiesterasa (PDE) que hidroliza cGMP a 5'-GMP. 5. La caída intracelular de cGMP provoca el cierre de los canales de Na+ dependientes de cGMP en el segmento externo. 6. La disminución de la corriente de entrada de Na+ ('corriente oscura') produce la HIPERPOLARIZACIÓN de la membrana del fotorreceptor. 7. Esta hiperpolarización disminuye la liberación del neurotransmisor glutamato en la sinapsis con células bipolares.",
+        "example": "El fármaco sildenafil (inhibidor de PDE5) puede presentar como efecto adverso visión azulada o alteración visual transitoria debido a la inhibición cruzada parcial de la PDE6 retiniana de los fotorreceptores.",
+        "boundary": "En la oscuridad, los niveles de cGMP son elevados, los canales de Na+ están abiertos y el fotorreceptor está crónicamente despolarizado liberando glutamato continuamente.",
+        "pearl": "A diferencia de la mayoría de los receptores sensitivos corporales que se despolarizan con el estímulo, los fotorreceptores de la retina humana se HIPERPOLARIZAN ante la luz y reducen la liberación de glutamato.",
+        "pitfall": "Pensar que la luz provoca la apertura de canales de Na+ y liberación aumentada de neurotransmisor; la luz cierra canales de Na+ e hiperpolariza.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 82–84, Figure 3-15."
+    },
+    {
+        "target_id": "CON-NEURO-VISUAL-RECEPTIVE-FIELDS",
+        "body": "Los campos receptores de las células bipolares tienen organización concéntrica centro-periferia antagónica. Cuando la luz ilumina el centro del campo, el fotorreceptor central se hiperpolariza y disminuye su liberación de glutamato: 1. Células bipolares On-center: poseen receptores metabotrópicos de glutamato (mGluR6) que normalmente son inhibitorios; al disminuir el glutamato por la luz, se produce desinhibición y la célula On-center se DESPOLARIZA (se enciende). 2. Células bipolares Off-center: poseen receptores ionotrópicos de glutamato (AMPA/kainato) que son excitatorios; al disminuir el glutamato por la luz, se HIPERPOLARIZAN (se apaga). Las células horizontales suministran inhibición lateral GABAérgica invirtiendo la respuesta en la periferia (surround).",
+        "example": "Este diseño biofísico centro-periferia permite al sistema visual destacar contrastes de luminancia y bordes geométricos más que niveles uniformes de luz ambiental plana.",
+        "boundary": "Las células ganglionares retinianas y las neuronas del cuerpo geniculado lateral del tálamo conservan este mismo patrón concéntrico On/Off de las células bipolares.",
+        "pearl": "La célula On-center tiene receptores metabotrópicos y se excita con la luz central; la Off-center tiene receptores ionotrópicos y se inhibe con la luz central.",
+        "pitfall": "Creer que la periferia (surround) tiene la misma polaridad que el centro; la función de las células horizontales es precisamente antagonizar la respuesta central para agudizar el contraste espacial.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 84–85, Figure 3-16."
+    },
+    {
+        "target_id": "DEC-NEURO-OPTIC-PATHWAY-LESIONS",
+        "body": "Las lesiones de la vía óptica se localizan con precisión por campimetría: 1. Sección de un nervio óptico: ceguera ipsilateral completa del ojo afectado. 2. Lesión del quiasma óptico (compresión por adenoma de hipófisis o craneofaringioma): interrumpe las fibras decusadas provenientes de las hemirretinas nasales, produciendo HEMIANOPSIA BITEMPORAL heterónima (pérdida de la visión periférica de ambos campos temporales). 3. Lesión de la cintilla óptica: produce HEMIANOPSIA HOMÓNIMA CONTRALATERAL (se pierde el campo temporal del ojo contralateral y el campo nasal del ojo ipsilateral). 4. Lesión de las radiaciones geniculocalcarinas o corteza visual occipital (isquemia de la arteria cerebral posterior): produce hemianopsia homónima contralateral con RESPETO MACULAR, debido a la doble irrigación de la representación macular en el polo occipital (circulación colateral de la arteria cerebral media).",
+        "example": "Una paciente mujer de 38 años con amenorrea y galactorrea choca repetidamente los espejos laterales de su vehículo; la campimetría revela hemianopsia bitemporal compatible con macroadenoma hipofisario prolactinoma que comprime el quiasma óptico.",
+        "boundary": "El respeto macular se presenta típicamente en infartos corticales de la arteria cerebral posterior, mientras que la sección quirúrgica o tumoral completa de la cintilla óptica no respeta la mácula.",
+        "pearl": "Quiasma óptico = Hemianopsia Bitemporal. Cintilla óptica = Hemianopsia Homónima Contralateral. Corteza occipital = Hemianopsia Homónima con Respeto Macular.",
+        "pitfall": "Olvidar que los campos visuales temporales proyectan en las hemirretinas nasales (que son las que cruzan la línea media en el quiasma).",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 85–87, Figures 3-17 & 3-18."
+    },
+    {
+        "target_id": "CON-NEURO-AUDITORY-TRANSDUCTION",
+        "body": "El oído medio actúa como un adaptador de impedancias entre el aire del conducto auditivo y el líquido de la cóclea, magnificando la presión sonora mediante la relación de superficies (tímpano grande vs ventana oval pequeña, ratio 20:1) y la palanca osicular (martillo-yunque-estribo). La vibración de la platina del estribo en la ventana oval genera ondas de presión en la perilinfa de la escala vestibular y timpánica, deformando la membrana basilar. Las células ciliadas del órgano de Corti están apoyadas en la membrana basilar mientras sus estereocilios están embebidos en la membrana tectoria suprayacente. El cizallamiento desplaza los estereocilios hacia el cinocilio más alto, abriendo canales mecanosensibles de K+. Dado que la escala media contiene endolinfa excepcionalmente rica en K+ (potencial endococlear de +80 mV), el K+ ingresa pasivamente despolarizando la célula ciliada (potencial microfónico coclear), abriendo canales de Ca2+ voltaje-dependientes y liberando pulsos de glutamato hacia el nervio coclear (CN VIII).",
+        "example": "El uso de diuréticos de asa (furosemida en altas dosis) inhibe el cotransportador Na+-K+-2Cl- en la estría vascular de la cóclea, destruyendo el gradiente de K+ de la endolinfa y produciendo ototoxicidad con sordera neurosensorial.",
+        "boundary": "La endolinfa es un fluido extracelular único: su composición iónica asemeja a la del líquido intracelular (alto K+, bajo Na+).",
+        "pearl": "En las células ciliadas auditivas, el K+ es el ión despolarizante que entra a la célula, a diferencia de casi todas las demás neuronas donde la despolarización es por entrada de Na+.",
+        "pitfall": "Creer que la despolarización de la célula ciliada ocurre por flujo de Na+ como en un potencial de acción clásico.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 87–90, Figures 3-19, 3-20 & 3-21."
+    },
+    {
+        "target_id": "RUL-NEURO-BASILAR-MEMBRANE-TONOTOPY",
+        "body": "La membrana basilar funciona como un analizador espectral mecánico tonotópico: 1. La base de la membrana basilar (adyacente a la ventana oval y estribo) es estrecha (100 µm) y rígida; resuena con frecuencias altas (sonidos agudos, 2,000 a 20,000 Hz). 2. El ápice de la membrana basilar (en el helicotrema) es ancho (500 µm) y altamente distensible o compliante; resuena con frecuencias bajas (sonidos graves, 20 a 500 Hz). La frecuencia sonora se codifica por el sitio físico exacto de máxima deflexión en la membrana basilar, generando un mapa tonotópico que se proyecta fielmente a través del colículo inferior y el cuerpo geniculado medial hasta la corteza auditiva primaria A1.",
+        "example": "En la presbiacusia (pérdida auditiva asociada al envejecimiento) y en el trauma acústico crónico industrial, las frecuencias agudas (>4,000 Hz) son las primeras en perderse debido al daño acumulativo en las células ciliadas de la base de la membrana basilar.",
+        "boundary": "El rango audible humano va de 20 Hz a 20,000 Hz; la máxima sensibilidad del oído humano radica entre 2,000 y 5,000 Hz (frecuencias del habla).",
+        "pearl": "Base = Estrecha, Rígida, Frecuencias Altas (Agudas). Ápice = Ancho, Compliante, Frecuencias Bajas (Graves).",
+        "pitfall": "Pensar intuitivamente que la base de la cóclea es la parte ancha de la membrana; la base de la membrana basilar es la más estrecha y el ápice es 5 veces más ancho.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, p. 90, Figure 3-22."
+    },
+    {
+        "target_id": "CON-NEURO-VESTIBULAR-ACCELERATION",
+        "body": "El aparato vestibular del laberinto membranoso detecta el movimiento y posición de la cabeza en el espacio mediante dos subsistemas: 1. Tres conductos semicirculares (horizontal, superior y posterior) dispuestos en planos perpendiculares de 90° entre sí: detectan aceleración angular o rotacional de la cabeza. Cada conducto tiene una ampolla con células ciliadas embebidas en una cúpula gelatinosa. Durante el giro cefálico (ej. rotación a la izquierda), la inercia del fluido endolinfático empuja la cúpula, flexionando los estereocilios hacia el cinocilio en el conducto horizontal izquierdo (despolarización y excitación) y alejándolos en el derecho (hiperpolarización e inhibición). 2. Órganos otolíticos (utrículo y sáculo): detectan aceleración lineal (inclinación gravitacional y desplazamiento anterior/posterior o vertical). Poseen una mácula cubierta por una membrana otolítica densa con cristales de carbonato cálcico (otoconias) que aumentan su inercia.",
+        "example": "En el vértigo posicional paroxístico benigno (VPPB), otoconias desprendidas del utrículo migran hacia el conducto semicircular posterior (cupulolitiasis/canalitiasis), generando deflexión aberrante de la cúpula con nistagmo y vértigo severo al cambiar de posición.",
+        "boundary": "Cuando la rotación de la cabeza se mantiene a velocidad angular constante, la endolinfa alcanza la velocidad de las paredes del conducto y los cilios vuelven a la posición de reposo (cesan los potenciales de acción).",
+        "pearl": "Flexión hacia el cinocilio = Despolarización (Excitación). Flexión en dirección opuesta al cinocilio = Hiperpolarización (Inhibición).",
+        "pitfall": "Asumir que los conductos semicirculares codifican la velocidad constante; codifican estrictamente la aceleración y desaceleración angular.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 90–93, Figures 3-23 & 3-24."
+    },
+    {
+        "target_id": "DEC-NEURO-VESTIBULAR-NYSTAGMUS-TESTS",
+        "body": "El reflejo vestíbulo-ocular (RVO) estabiliza la imagen retiniana durante los movimientos de la cabeza fijando la mirada. Ante un giro cefálico hacia la derecha, los ojos se desplazan lentamente hacia la izquierda (fase lenta del nistagmo); al llegar al tope de la órbita, ocurre un movimiento sacádico rápido de retorno hacia la derecha (fase rápida del nistagmo, que define su dirección: nistagmo a la derecha). La prueba calórica evalúa de forma independiente cada conducto horizontal con la cabeza inclinada a 60° hacia atrás usando la mnemotecnia COWS (Cold Opposite, Warm Same): 1. Irrigación con agua fría: el enfriamiento induce flujo endolinfático descendente que simula rotación hacia el lado opuesto $\\to$ nistagmo con fase rápida hacia el lado CONTRARIO. 2. Irrigación con agua caliente: induce flujo ascendente que excita la cúpula simulando rotación ipsilateral $\\to$ nistagmo con fase rápida hacia el MISMO lado.",
+        "example": "En un paciente en coma profundo por intoxicación farmacológica, la prueba de ojos de muñeca (reflejo oculocefálico) intacta demuestra integridad del tronco encefálico mesencefálico y protuberancial (núcleos III, VI y fascículo longitudinal medial).",
+        "boundary": "En el paciente en coma profundo con tronco intacto pero corteza inactivada, se conserva la fase lenta del RVO (desviación tónica conjugada de la mirada) pero desaparece la fase rápida sacádica del nistagmo, la cual depende de la corteza cerebral.",
+        "pearl": "Regla COWS: Cold Opposite, Warm Same (Agua Fría = fase rápida al lado Opuesto; Agua Caliente = fase rápida al Mismo lado).",
+        "pitfall": "Determinar la dirección del nistagmo por el movimiento lento; por convención médica y electrooculográfica, el nistagmo siempre se nombra por la dirección de su fase RÁPIDA.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 92–93."
+    },
+    {
+        "target_id": "CON-NEURO-OLFACTORY-TRANSDUCTION",
+        "body": "El epitelio olfatorio en los cornetes superiores contiene células de soporte, células basales madre (con neurogénesis continua de por vida) y neuronas receptoras olfatorias primarias. Las moléculas odorantes se disuelven en el moco y se unen a receptores acoplados a proteína G Golf en los cilios. La activación de Golf estimula la adenilato ciclasa elevando el cAMP intracelular, lo que abre canales catiónicos permeables a Na+, K+ y Ca2+, despolarizando el receptor olfatorio. Los axones amielínicos de estas neuronas (los más lentos del organismo) atraviesan los forámenes de la lámina cribosa del etmoides para converger en los glomérulos del bulbo olfatorio sobre las dendritas de las células mitrales (neuronas de segundo orden).",
+        "example": "Un paciente con traumatismo craneoencefálico frontal presenta anosmia total y rinorrea de líquido claro; la tomografía muestra fractura de la lámina cribosa del hueso etmoides con fístula de LCR y sección traumática irreversible de los filamentos del nervio olfatorio.",
+        "boundary": "La vía olfatoria es la única modalidad sensorial que alcanza la corteza cerebral primaria (corteza piriforme y periamigdalina) sin relevo obligado previo en el tálamo.",
+        "pearl": "Las células receptoras olfatorias son neuronas bipolares primarias auténticas con capacidad de neurogénesis regular a partir de las células basales madre.",
+        "pitfall": "Confundir la vía olfatoria con las demás vías sensoriales y asumir que requiere un núcleo de relevo talámico previo para su percepción cortical primaria.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 93–95, Figures 3-25 & 3-26."
+    },
+    {
+        "target_id": "CON-NEURO-GUSTATORY-TRANSDUCTION",
+        "body": "El sentido del gusto transduce tastantes disueltos a través de botones gustativos en tres tipos de papilas linguales: fungiformes (dorso y punta, inervadas por cuerda del tímpano del CN VII), foliadas (bordes laterales) y circunvaladas (en la V lingual posterior, inervadas por CN IX). Las células gustativas son células epiteliales especializadas (no neuronas). Transducción: 1. Amargo, Dulce y Umami: unión a GPCR acoplados a fosfolipasa C $\\to$ generación de IP3 y elevación de Ca2+ citosólico $\\to$ apertura de canales TRP $\\to$ despolarización. 2. Salado: entrada directa de iones Na+ a través de canales epiteliales de Na+ (ENaC) $\\to$ despolarización directa. 3. Ácido (sour): entrada directa de protones H+ a través de canales ENaC $\\to$ despolarización. La información asciende por los pares VII (2/3 anteriores), IX (1/3 posterior) y X (epiglotis) al núcleo del tracto solitario en el bulbo, relevando en el núcleo VPM del tálamo hacia la corteza gustativa.",
+        "example": "Un paciente operado de mastoidectomía refiere pérdida del sabor dulce y salado en la punta de la lengua en el lado operado, por tracción accidental de la cuerda del tímpano (rama del VII par).",
+        "boundary": "Aunque todas las zonas de la lengua pueden percibir los 5 sabores básicos, la punta lingual es más sensible a dulce/salado/umami, los laterales a ácido y la base posterior a amargo.",
+        "pearl": "Amargo, Dulce y Umami usan receptores metabotrópicos GPCR acoplados a IP3/Ca2+; Salado y Ácido despolarizan directamente a través de canales iónicos ENaC.",
+        "pitfall": "Clasificar las células receptoras gustativas como neuronas; a diferencia de los receptores olfatorios, los receptores del gusto son células epiteliales modificadas.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 95–97, Figures 3-27 to 3-30."
+    },
+    {
+        "target_id": "CON-NEURO-MOTOR-UNIT-SIZE-PRINCIPLE",
+        "body": "Una unidad motora está formada por una motoneurona alfa única y todas las fibras musculares esqueléticas extrafusales que inerva. En músculos de control fino (músculos extraoculares), una motoneurona inerva de 3 a 5 fibras; en músculos posturales de potencia (cuádriceps o gastrocnemio), una motoneurona inerva más de 1,000 fibras. El principio del tamaño de Henneman establece que las motoneuronas pequeñas tienen cuerpos celulares de menor diámetro, mayor resistencia de entrada de membrana y menor umbral de excitación; por ende, son reclutadas en primer término para tareas de baja fuerza. A medida que se incrementa la demanda tensional, se reclutan progresivamente motoneuronas de mayor tamaño celular, que inervan fibras glucolíticas de contracción rápida pero fatigables.",
+        "example": "Al sostener un lápiz para escribir con precisión, el SNC recluta exclusivamente unidades motoras pequeñas de bajo umbral resistentes a fatiga; para levantar un mueble de 50 kg, la despolarización central máxima recluta las unidades motoras grandes de alta fuerza.",
+        "boundary": "El orden de reclutamiento es fijo y estereotipado: pequeñas (tipo I lentas) $\\to$ intermedias (tipo IIA) $\\to$ grandes (tipo IIB/IIX rápidas y fatigables).",
+        "pearl": "Principio del tamaño de Henneman: las motoneuronas pequeñas se reclutan primero y generan menor tensión; las motoneuronas grandes se reclutan al final y desarrollan la máxima fuerza muscular.",
+        "pitfall": "Pensar que en una contracción máxima súbita las motoneuronas grandes disparan aisladas; siempre se reclutan sumadas a las pequeñas.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, p. 98."
+    },
+    {
+        "target_id": "CON-NEURO-MUSCLE-SPINDLE-COACTIVATION",
+        "body": "El huso muscular es un mecanorreceptor dispuesto en paralelo con las fibras extrafusales, compuesto por fibras intrafusales en saco nuclear (sensibles a velocidad de cambio de longitud) y en cadena nuclear (sensibles a longitud estática). Posee inervación aferente por fibras Ia (anuloespirales rápidas) y grupo II, e inervación eferente motora por motoneuronas gamma dinámicas y estáticas. Durante un movimiento voluntario, la corteza motora activa simultáneamente las motoneuronas alfa (que contraen el músculo extrafusal) y las motoneuronas gamma (que contraen los extremos polares contráctiles del huso intrafusal). Esta coactivación alfa-gamma evita que el huso muscular se destense ('floppy') durante el acortamiento del músculo, preservando intacta su sensibilidad propioceptiva para detectar cualquier perturbación mecánica inesperada.",
+        "example": "Si se levantara un vaso creyendo que está lleno cuando en realidad está vacío, la coactivación alfa-gamma permite que el huso detecte instantáneamente la desaceleración discrepante de longitud y corrija la fuerza aplicada en menos de 50 ms.",
+        "boundary": "Sin coactivación gamma, cualquier contracción activa silenciaría por completo las descargas de las fibras Ia del huso muscular.",
+        "pearl": "Los husos musculares están dispuestos EN PARALELO con las fibras extrafusales y sensan LONGITUD; los órganos tendinosos de Golgi están dispuestos EN SERIE y sensan TENSIÓN.",
+        "pitfall": "Confundir la función de las motoneuronas alfa (generan fuerza muscular extrafusal) con la de las gamma (solo calibran la sensibilidad del huso intrafusal y no generan fuerza motriz útil).",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 98–100, Figure 3-31."
+    },
+    {
+        "target_id": "CON-NEURO-SPINAL-REFLEXES-TRIAD",
+        "body": "Los tres reflejos espinales fundamentales son: 1. Reflejo de estiramiento (miotático, ej. rotuliano): monosináptico. El estiramiento muscular al percutir el tendón estimula fibras aferentes Ia del huso que hacen sinapsis directa con motoneuronas alfa homónimas $\\to$ contracción del músculo estirado (con relajación recíproca disináptica del antagonista mediada por interneurona inhibitoria). 2. Reflejo tendinoso de Golgi (miotático inverso): disináptico. La contracción activa intensa tensa el tendón y activa fibras Ib en serie; éstas sinapsan con una interneurona inhibitoria en la médula que inhibe la motoneurona alfa homónima $\\to$ relajación del músculo que se estaba contrayendo (evita desgarros tendinosos; base del signo de la navaja de muelle en espasticidad). 3. Reflejo flexor de retirada: polisináptico. Un estímulo doloroso activa fibras nociceptivas cutáneas (II, III, IV) que disparan múltiples interneuronas medulares produciendo flexión ipsilateral y extensión contralateral cruzada para mantener la postura erguida.",
+        "example": "Al pisar un clavo con el pie derecho, el reflejo flexor contrae los isquiotibiales derechos para retirar la pierna del estímulo, mientras el reflejo extensor cruzado contrae el cuádriceps izquierdo para soportar todo el peso corporal.",
+        "boundary": "El reflejo miotático es el único reflejo monosináptico del cuerpo humano (una sola sinapsis central entre aferencia Ia y motoneurona alfa).",
+        "pearl": "Estiramiento = Ia monosináptico $\\to$ Contracción homónima. Golgi = Ib disináptico $\\to$ Relajación homónima. Flexor = Polisináptico $\\to$ Flexión ipsilateral + Extensión contralateral.",
+        "pitfall": "Creer que el reflejo tendinoso de Golgi se desencadena golpeando el tendón con el martillo; el martillo estira el músculo y desencadena el reflejo miotático del huso, no el de Golgi.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 100–102, Table 3-5, Figures 3-32, 3-33 & 3-34."
+    },
+    {
+        "target_id": "DEC-NEURO-DECEREBRATE-RIGIDITY",
+        "body": "El control postural del tronco encefálico se basa en el balance entre tractos facilitadores e inhibidores del tono extensor. El núcleo vestibular lateral (tracto vestibuloespinal lateral) y los núcleos reticulares de la protuberancia (tracto reticuloespinal pontino) son potentes activadores de motoneuronas extensoras antigravitatorias. La formación reticular bulbar (reticuloespinal bulbar) inhibe a los extensores, estimulada normalmente por impulsos corticales descendentes. Una transacción o hernia transtentorial por debajo del mesencéfalo (entre colículos) interrumpe la influencia cortical inhibitoria y desconecta el tracto rubroespinal flexor, desinhibiendo masivamente a los núcleos pontinos y vestibulares: se produce RIGIDEZ DE DESCEREBRACIÓN (brazos y piernas rígidamente extendidos en aducción y pronación). En lesiones rostrales al mesencéfalo se produce RIGIDEZ DE DECORTICACIÓN (brazos flexionados por acción del rubroespinal preservado, piernas extendidas).",
+        "example": "Un paciente con traumatismo craneoencefálico grave y hematoma subdural que mostraba flexión de brazos (decorticación) progresa a extensión rígida forzada de las cuatro extremidades con rotación interna de muñecas, indicando herniación uncal mesencefálica inminente.",
+        "boundary": "Las lesiones por encima del mesencéfalo nunca causan rigidez de descerebración; la rigidez de descerebración requiere indemnidad de la protuberancia y bulbo alto.",
+        "pearl": "Decorticación = Lesión sobre el mesencéfalo (flexión de brazos, manos en el 'corazón'). Descerebración = Lesión en/bajo el mesencéfalo (extensión de las 4 extremidades).",
+        "pitfall": "Interpretar la extensión rígida de las 4 extremidades como una mejoría neurológica; es un signo ominoso de sufrimiento del tronco encefálico.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 102–103."
+    },
+    {
+        "target_id": "CON-NEURO-CEREBELLAR-CIRCUITRY",
+        "body": "El cerebelo modula la sinergia del movimiento (velocidad, rango, fuerza y dirección). Su corteza posee 3 capas: granular (interna), de células de Purkinje (media) y molecular (externa). Recibe dos entradas excitatorias: 1. Fibras trepadoras: originadas exclusivamente en la oliva inferior del bulbo, ascienden y establecen múltiples sinapsis excitatorias directas a lo largo de las dendritas de una sola célula de Purkinje (1:1), generando 'espigas complejas' (ráfagas prolongadas de despolarización asociadas al aprendizaje motor). 2. Fibras musgosas: transmiten impulsos vestibulares, espinales y pontocerebelosos hacia las células granulares en los glomérulos; los axones de las células granulares ascienden a la capa molecular bifurcándose como 'fibras paralelas', las cuales contactan hasta 250,000 células de Purkinje generando 'espigas simples'. La ÚNICA salida de la corteza cerebelosa son los axones de las células de Purkinje, los cuales son SIEMPRE INHIBITORIOS (usan GABA) sobre los núcleos cerebelosos profundos y vestibulares.",
+        "example": "En la intoxicación alcohólica aguda o degeneración cerebelosa alcohólica por déficit de tiamina, la pérdida de modulación inhibitoria de Purkinje sobre los núcleos vestibulares genera nistagmo y ataxia troncal de la marcha.",
+        "boundary": "Todas las interneuronas de la corteza cerebelosa (células en canasta, estrelladas, Golgi II) son inhibitorias; la única interneurona excitatoria de la corteza cerebelosa es la célula granular (usa glutamato).",
+        "pearl": "Trepadoras = de la oliva inferior $\\to$ espigas complejas en Purkinje. Musgosas = de puente/médula $\\to$ granulares $\\to$ fibras paralelas $\\to$ espigas simples. Salida = Purkinje (GABA, siempre inhibitoria).",
+        "pitfall": "Creer que la salida cerebelosa es excitatoria para la corteza; los axones de Purkinje liberan GABA e inhiben tónicamente a los núcleos profundos para moldear el movimiento con precisión milimétrica.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 103–104, Figure 3-35."
+    },
+    {
+        "target_id": "DEC-NEURO-CEREBELLAR-ATAXIA-SYNDROME",
+        "body": "Las lesiones de los hemisferios cerebelosos generan un cuadro de pérdida de sinergia motora (ataxia) en el hemicuerpo IPSILATERAL a la lesión (debido a la doble decusación de las vías córtico-ponto-cerebelo-dentato-rubro-talámicas): 1. Dismetría: incapacidad de calibrar la distancia del movimiento (sobrealcance o past-pointing). 2. Disdiadococinesia: imposibilidad de ejecutar movimientos alternantes rápidos coordinados (ej. pronosupinación de manos). 3. Temblor de intención: oscilación que aparece durante el movimiento voluntario y se magnifica al aproximarse al blanco (a diferencia del temblor de reposo de Parkinson). 4. Fenómeno de rebote: incapacidad de frenar una contracción isométrica cuando se retira bruscamente la resistencia. 5. Marcha atáxica: base de sustentación amplia y deambulación titubeante ('marcha ebria').",
+        "example": "Un niño de 7 años con un meduloblastoma en el vermis cerebeloso presenta ataxia truncal severa sin poder mantenerse sentado, mientras que un astrocitoma en el hemisferio cerebeloso derecho produce dismetría índice-nariz en el brazo derecho.",
+        "boundary": "Las lesiones de la línea media vermiana afectan el equilibrio axial y la marcha (ataxia truncal); las lesiones de los hemisferios afectan los movimientos apendiculares finos de las extremidades ipsilaterales.",
+        "pearl": "A diferencia de las lesiones de la corteza cerebral motora (que causan déficits contralaterales), las lesiones hemisféricas cerebelosas provocan ataxia IPSILATERAL.",
+        "pitfall": "Confundir el temblor de intención cerebeloso (que se acentúa en la prueba índice-nariz) con el temblor de reposo extrapiramidal del Parkinson (que desaparece con el movimiento intencionado).",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, p. 104."
+    },
+    {
+        "target_id": "CON-NEURO-BASAL-GANGLIA-PATHWAYS",
+        "body": "Los ganglios basales (estriado [caudado + putamen], globo pálido interno GPi y externo GPe, sustancia negra pars compacta SNc y reticulata SNr, y núcleo subtalámico STN) coordinan la iniciación y suavidad de los movimientos a través de dos circuitos balanceados: 1. Vía directa (pro-cinética): la corteza excita al estriado $\\to$ neuronas estriatales con receptores D1 liberan GABA inhibiendo al GPi/SNr $\\to$ se remueve la inhibición tónica sobre el tálamo $\\to$ el tálamo excita la corteza motora facilitando el movimiento. 2. Vía indirecta (anti-cinética): la corteza excita al estriado $\\to$ neuronas con receptores D2 liberan GABA inhibiendo al GPe $\\to$ el STN se desinhibe y libera glutamato excitando al GPi/SNr $\\to$ se incrementa la inhibición sobre el tálamo $\\to$ se inhibe la corteza motora suprimiendo movimientos inapropiados. La dopamina de la SNc activa la vía directa (vía D1) e inhibe la vía indirecta (vía D2), teniendo un efecto neto PRO-MOVIMIENTO.",
+        "example": "Una lesión isquémica focal del núcleo subtalámico (STN) anula la excitación sobre el GPi, provocando una desinhibición talámica violenta que se manifiesta como hemibalismo (lanzamiento incontrolable de un hemicuerpo).",
+        "boundary": "El neurotransmisor inhibidor universal de los ganglios basales es GABA; el neurotransmisor excitador es Glutamato.",
+        "pearl": "D1 = Vía Directa = Desinhibe el tálamo = Promueve el movimiento. D2 = Vía InDirecta = Inhibe el tálamo = Frena el movimiento. La dopamina promueve movimiento en ambas vías.",
+        "pitfall": "Pensar que la dopamina tiene el mismo receptor en ambas vías; excita la vía directa por receptores D1 pero inhibe la vía indirecta por receptores D2.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 104–106, Figure 3-36."
+    },
+    {
+        "target_id": "DEC-NEURO-PARKINSON-VS-HUNTINGTON",
+        "body": "Las dos patologías paradigmáticas de los ganglios basales contrastan la hipocinesia frente a la hipercinesia: 1. Enfermedad de Parkinson: degeneración idiopática de las neuronas dopaminérgicas de la sustancia negra pars compacta. La pérdida de dopamina apaga la vía directa (D1) y desinhibe la vía indirecta (D2), resultando en sobreinhibición talámica: se manifiesta como acinesia/bradicinesia (lentitud motora), marcha festinante, facies de máscara, rigidez muscular en rueda dentada y temblor de reposo de 4-6 Hz ('cuenta de monedas'). Tratamiento: reposición con L-Dopa (precursor que cruza la BHE) combinada con carbidopa (inhibidor periférico de la dopa-descarboxilasa) o agonistas dopaminérgicos (bromocriptina, pramipexol). 2. Corea de Huntington: trastorno neurodegenerativo genético autosómico dominante (expansión de tripletes CAG en huntingtina) con destrucción precoz de neuronas estriatales espinosas GABAérgicas de la vía indirecta, desinhibiendo el tálamo: se manifiesta como movimientos coreoatetósicos involuntarios y demencia.",
+        "example": "Un paciente de 67 años con rigidez matutina y temblor de reposo mejora notablemente tras iniciar L-Dopa/carbidopa; a los 5 años presenta fluctuaciones motoras on-off y discinesias por picos de dosis de dopamina.",
+        "boundary": "La dopamina pura no cruza la barrera hematoencefálica y está contraindicada; debe administrarse su precursor L-Dopa, siempre asociada a un inhibidor periférico para evitar emesis severa y arritmias por dopamina plasmática.",
+        "pearl": "Parkinson = Falta de dopamina en sustancia negra $\\to$ Hiperactividad de vía indirecta $\\to$ Hipocinesia y temblor de reposo. Huntington = Pérdida de neuronas GABA en caudado $\\to$ Pérdida de vía indirecta $\\to$ Hipercinesia coreica.",
+        "pitfall": "Administrar antagonistas dopaminérgicos como metoclopramida o haloperidol a un paciente con Parkinson, lo cual puede desencadenar una crisis acinética aguda mortal.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, p. 106."
+    },
+    {
+        "target_id": "CON-NEURO-EEG-AND-SLEEP-STAGES",
+        "body": "El electroencefalograma (EEG) registra las corrientes extracelulares generadas por la suma sincronizada de potenciales sinápticos excitatorios e inhibitorios en la corteza cerebral (no registra potenciales de acción individuales). Ritmos: 1. Beta (13-30 Hz): desincronizado, bajo voltaje, alta frecuencia, propio de vigilia alerta con ojos abiertos. 2. Alfa (8-13 Hz): sincronizado sobre lóbulos occipitoparietales, vigilia en reposo con ojos cerrados. 3. Fase 1 NREM: ondas theta (4-7 Hz). 4. Fase 2 NREM: husos de sueño (ráfagas de 12-14 Hz) y complejos K de alto voltaje. 5. Fase 3 y 4 NREM: sueño de ondas lentas delta (0.5-4 Hz, alto voltaje). 6. Sueño REM (sueño paradójico): EEG de alta frecuencia y bajo voltaje que simula vigilia alerta ('paradójico' porque es el momento más difícil para despertar al sujeto), acompañado de atonía motora de músculos somáticos, movimientos oculares rápidos, sueños vívidos, pérdida de termorregulación y erección peniana cíclica.",
+        "example": "Un varón de 24 años es monitorizado en polisomnografía; al entrar en sueño REM, el EEG muestra ritmo beta similar al despierto, pero el electromiograma de mentón muestra abolición completa del tono muscular.",
+        "boundary": "El porcentaje de sueño REM es del 50% en recién nacidos, cae al 25% en adultos jóvenes y disminuye progresivamente en la vejez.",
+        "pearl": "Sueño REM = 'Cerebro despierto en un cuerpo paralizado': EEG desincronizado de alta frecuencia, atonía muscular absoluta y umbral máximo de despertar.",
+        "pitfall": "Pensar que las ondas del EEG son potenciales de acción individuales de axones corticales; corresponden a potenciales postsinápticos graduados dendríticos.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 106–107, Figure 3-37."
+    },
+    {
+        "target_id": "CON-NEURO-LTP-SYNAPTIC-PLASTICITY",
+        "body": "La potenciación a largo plazo (LTP) es el sustrato molecular del aprendizaje y la memoria en los circuitos hipocampales (vía perforante hacia el giro dentado y CA1). Mecanismo en sinapsis glutamatérgicas: 1. En reposo, los receptores NMDA de glutamato están bloqueados por un ion magnesio (Mg2+) extracelular dentro del canal iónico. 2. Un tren de estimulación presináptica de alta frecuencia (tétanos) libera abundante glutamato, activando receptores no-NMDA (AMPA) que permiten entrada de Na+ y despolarizan la espina dendrítica postsináptica. 3. La despolarización intensa expulsa electrostáticamente el tapón de Mg2+ del canal NMDA. 4. El canal NMDA abierto permite una entrada masiva de Ca2+ a la neurona postsináptica. 5. El aumento de Ca2+ intracelular activa la calmodulina y la proteincinasa dependiente de Ca2+/calmodulina II (CaMKII). 6. CaMKII fosforila e induce la exocitosis e inserción de nuevos receptores AMPA en la membrana sináptica, duplicando de forma persistente la sensibilidad del contacto sináptico durante días o semanas.",
+        "example": "El bloqueo farmacológico de receptores NMDA con ketamina o fenciclidina (PCP) inhibe la inducción de LTP e interrumpe la consolidación de nuevas memorias declarativas en modelos experimentales.",
+        "boundary": "El receptor NMDA actúa como un 'detector de coincidencia': requiere simultáneamente la presencia de glutamato y despolarización postsináptica para activarse.",
+        "pearl": "El receptor NMDA solo se abre si se despolariza la membrana para expulsar el tapón de Mg2+; la entrada de Ca2+ resultante es el interruptor maestro de la memoria a largo plazo.",
+        "pitfall": "Creer que el glutamato por sí solo puede abrir el canal NMDA a potenciales de membrana de reposo sin despolarización previa de receptores AMPA.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, p. 108."
+    },
+    {
+        "target_id": "CON-NEURO-CSF-DYNAMICS-BBB",
+        "body": "El encéfalo humano contiene aproximadamente 150 mL de líquido cefalorraquídeo (LCR), pero se producen 500 mL al día por las células epiteliales de los plexos coroideos (ubicados en los ventrículos laterales, tercero y cuarto), lo que implica una tasa de renovación de más de 3 veces al día. El LCR circula desde los ventrículos laterales por los agujeros de Monro al tercer ventrículo, por el acueducto de Silvio al cuarto ventrículo, y sale a los espacios subaracnoideos y cisternas por los agujeros de Luschka y Magendie. Se reabsorbe hacia la sangre venosa de los senos durales mediante flujo unidireccional masivo a través de las vellosidades aracnoideas. La barrera hematoencefálica (BHE) separa la sangre capilar del líquido intersticial cerebral mediante uniones estrechas (zonula occludens) entre células endoteliales capilares no fenestradas y prolongaciones podocitarias de astrocitos.",
+        "example": "En la meningitis bacteriana aguda, las toxinas y la inflamación de neutrófilos disrumpen las uniones estrechas de la BHE, permitiendo que antibióticos hidrosolubles como la vancomicina y ampicilina (que normalmente no penetran bien) alcancen concentraciones terapéuticas en el SNC.",
+        "boundary": "Las sustancias liposolubles (O2, CO2, alcohol, anestésicos generales) cruzan libremente la BHE por difusión pasiva; las moléculas polares grandes (glucosa, aminoácidos) requieren transportadores facilitados específicos (GLUT-1).",
+        "pearl": "La barrera hematoencefálica está constituida por las uniones estrechas del endotelio capilar cerebral; los pies de los astrocitos inducen y mantienen dichas uniones.",
+        "pitfall": "Pensar que los astrocitos forman físicamente la barrera; la barrera anatómica real son las uniones estrechas intercelulares del propio endotelio vascular.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, pp. 108–109, Figure 3-38."
+    },
+    {
+        "target_id": "RUL-NEURO-CSF-VS-BLOOD-COMPOSITION",
+        "body": "El LCR no es un ultrafiltrado pasivo del plasma, sino una secreción epitelial activa especializada de los plexos coroideos con concentraciones iónicas estrictamente reguladas para optimizar la excitabilidad neuronal: 1. [LCR] = [Sangre]: Osmolaridad (~289 mOsm/L), Na+ (140 mEq/L), Cl- (120 mEq/L) y HCO3- (25 mEq/L). 2. [LCR] < [Sangre]: Proteínas (prácticamente nulas: 15-45 mg/dL en LCR vs 6,000-8,000 mg/dL en sangre), Colesterol (nulo en LCR), Glucosa (~60% de la glucemia: 50-75 mg/dL), K+ (2.8 mEq/L vs 4.5 en sangre), Ca2+ (2.4 mEq/L) y pH (7.33 vs 7.40). 3. [LCR] > [Sangre]: Mg2+ (2.2 mEq/L vs 1.7 mEq/L en sangre) y creatinina. La menor concentración de K+ y mayor de Mg2+ en el LCR protegen a la corteza cerebral frente a despolarizaciones espontáneas y convulsiones.",
+        "example": "En una punción lumbar diagnóstica en un paciente con sospecha de meningitis, una glucosa en LCR de 18 mg/dL (con glucemia de 110 mg/dL, ratio < 0.2) junto a proteínas de 220 mg/dL confirma consumo bacteriano masivo y ruptura de la barrera.",
+        "criteria": "Normas de citoquímico LCR: Proteínas < 45 mg/dL; Glucosa > 60% de glucemia simultánea; Na+ y Cl- equivalentes a sangre; Mg2+ más alto que en sangre; K+ y Ca2+ más bajos que en sangre.",
+        "decision_prompt": "Auditar el reporte de laboratorio de líquido cefalorraquídeo para diferenciar un patrón normal o de meningitis viral vs bacteriana.",
+        "pearl": "En el LCR, el Mg2+ es MÁS ALTO que en sangre; las proteínas son prácticamente nulas y la glucosa es aproximadamente dos tercios de la glucemia plasmática.",
+        "pitfall": "Considerar anormal un K+ en LCR de 2.9 mEq/L; el K+ en LCR es fisiológicamente más bajo que en sangre periférica para mantener el gradiente de reposo neuronal.",
+        "source_lock": "Costanzo Physiology, 6th Ed., Chapter 3, p. 109, Table 3-6."
+    }
+]
+
+ASSESSMENT_UNITS = [
+    {
+        "target_id": "CON-NEURO-ORGANIZATION",
+        "difficulty": "intermedio",
+        "prompt": "Un neurólogo evalúa a un paciente que sufrió un infarto isquémico focal confinado al núcleo ventral posterolateral (VPL) del tálamo izquierdo. ¿Cuál de las siguientes modalidades sensoriales permanecerá completamente INTACTA en este paciente?",
+        "options": [
+            {"id": "A", "text": "Sensibilidad al pinchazo y calor del hemicuerpo derecho."},
+            {"id": "B", "text": "Sensibilidad propioceptiva y vibratoria del miembro inferior derecho."},
+            {"id": "C", "text": "Percepción de odorantes a través de las fosas nasales."},
+            {"id": "D", "text": "Tacto discriminativo de dos puntos en los dedos de la mano derecha."}
+        ],
+        "correct_option": "C",
+        "explanation": "La vía olfatoria es la única modalidad sensorial que proyecta directamente desde las células mitrales del bulbo olfatorio hacia la corteza piriforme sin realizar un relevo sináptico obligado en el tálamo. El tacto fino (B, D) y el dolor/temperatura (A) del hemicuerpo derecho ascienden por el lemnisco medial y haz espinotalámico respectivamente, relevando obligatoriamente en el núcleo VPL del tálamo."
+    },
+    {
+        "target_id": "CON-NEURO-FIBER-CLASSIFICATION",
+        "difficulty": "intermedio",
+        "prompt": "¿Cuál de las siguientes combinaciones describe correctamente la velocidad de conducción y las características histológicas de las fibras nerviosas que transmiten el dolor lento y sordo (quemante)?",
+        "options": [
+            {"id": "A", "text": "Fibras Aα / Grupo I, diámetro más grande, mielinizadas, las más rápidas."},
+            {"id": "B", "text": "Fibras Aδ / Grupo III, diámetro intermedio, mielinizadas, velocidad media."},
+            {"id": "C", "text": "Fibras C / Grupo IV, diámetro más pequeño, amielínicas, las más lentas."},
+            {"id": "D", "text": "Fibras B, diámetro pequeño, mielinizadas, velocidad intermedia."}
+        ],
+        "correct_option": "C",
+        "explanation": "El dolor lento, continuo y urente es transportado por fibras tipo C (clasificación de Erlanger-Gasser) o Grupo IV (clasificación de Lloyd-Hunt para nervios sensitivos). Estas fibras poseen el diámetro más pequeño (0.5 a 1.5 µm), son amielínicas y tienen la velocidad de conducción más lenta de todo el sistema nervioso (0.5 a 2 m/s)."
+    },
+    {
+        "target_id": "CON-NEURO-DECUSSATIONS",
+        "difficulty": "avanzado",
+        "prompt": "Una lesión isquémica destructiva en la comisura blanca anterior de la médula espinal a nivel C6-C8 afectará predominantemente cuál de las siguientes vías funcionales:",
+        "options": [
+            {"id": "A", "text": "Fibras de la columna dorsal que ascienden ipsilateralmente al núcleo cuneatus."},
+            {"id": "B", "text": "Fibras de segundo orden del haz espinotalámico que cruzan la línea media con información de dolor y temperatura."},
+            {"id": "C", "text": "Fibras córticoespinales laterales que decusan en las pirámides del bulbo raquídeo."},
+            {"id": "D", "text": "Fibras aferentes primarias Ia de los husos musculares del reflejo bicipital."}
+        ],
+        "correct_option": "B",
+        "explanation": "Los axones de las neuronas de segundo orden del sistema espinotalámico cruzan la línea media a través de la comisura blanca anterior de la médula espinal a 1-2 niveles de su entrada en el asta dorsal. La compresión o lesión de la comisura blanca anterior (como ocurre en la siringomielia) interrumpe selectivamente estas fibras decusantes, causando pérdida disociada de dolor y temperatura bilateral a nivel de los dermatomas lesionados."
+    },
+    {
+        "target_id": "CON-NEURO-RECEPTOR-POTENTIAL",
+        "difficulty": "facil",
+        "prompt": "A diferencia de los potenciales de acción axonales, los potenciales de receptor en los mecanorreceptores sensoriales se caracterizan por:",
+        "options": [
+            {"id": "A", "text": "Ser de naturaleza de 'todo o nada' con amplitud constante e invariable."},
+            {"id": "B", "text": "Presentar un período refractario absoluto prolongado que impide la sumación."},
+            {"id": "C", "text": "Ser potenciales graduados electrotónicos cuya amplitud es proporcional a la intensidad del estímulo."},
+            {"id": "D", "text": "Propagarse sin decremento a lo largo de distancias de varios metros."}
+        ],
+        "correct_option": "C",
+        "explanation": "Los potenciales de receptor (o potenciales generadores) son potenciales locales graduados: su amplitud varía en función directa de la magnitud de la energía del estímulo y se conducen pasivamente con decremento electrotónico. No obedecen a la ley del todo o nada ni tienen período refractario, lo que les permite sumarse temporal y espacialmente hasta alcanzar el umbral."
+    },
+    {
+        "target_id": "CON-NEURO-ADAPTATION-PHASIC-TONIC",
+        "difficulty": "intermedio",
+        "prompt": "Un sujeto coloca la yema de su dedo sobre un diapasón que vibra a 250 Hz. ¿Cuál de los siguientes receptores cutáneos es el principal responsable de codificar este estímulo vibratorio de alta frecuencia?",
+        "options": [
+            {"id": "A", "text": "Corpúsculo de Pacini, debido a su adaptación sumamente rápida y respuesta fásica on-off."},
+            {"id": "B", "text": "Disco de Merkel, debido a su adaptación lenta y campos receptores pequeños."},
+            {"id": "C", "text": "Terminación de Ruffini, debido a su respuesta sostenida al estiramiento dérmico."},
+            {"id": "D", "text": "Nociceptor polimodal, debido a su umbral de activación elevado."}
+        ],
+        "correct_option": "A",
+        "explanation": "Los corpúsculos de Pacini son los mecanorreceptores de adaptación más rápida del organismo (receptores fásicos). Sus laminillas concéntricas de tejido conectivo actúan como un filtro mecánico viscoelástico que responde con una rápida despolarización transitoria ante el inicio y el cese de la deformación, capacitándolos para seguir vibraciones de 100 a 400 Hz."
+    },
+    {
+        "target_id": "CON-NEURO-DORSAL-COLUMN-SYSTEM",
+        "difficulty": "intermedio",
+        "prompt": "¿En qué estructura anatómica realizan su primera sinapsis las fibras primarias del fascículo gracilis que transportan la sensibilidad propioceptiva del miembro inferior derecho?",
+        "options": [
+            {"id": "A", "text": "Asta dorsal de la médula espinal lumbar L4."},
+            {"id": "B", "text": "Núcleo gracilis del bulbo raquídeo ipsilateral."},
+            {"id": "C", "text": "Núcleo ventral posterolateral (VPL) del tálamo izquierdo."},
+            {"id": "D", "text": "Corteza somatosensorial primaria S1 en el giro poscentral."}
+        ],
+        "correct_option": "B",
+        "explanation": "En el sistema de la columna dorsal (DCML), las neuronas aferentes primarias ingresan por la raíz dorsal y ascienden IPSILATERALMENTE sin hacer sinapsis en la médula espinal hasta alcanzar los núcleos de los cordones posteriores en el bulbo raquídeo: las fibras de miembros inferiores terminan en el núcleo gracilis ipsilateral, donde sinapsan con las neuronas de segundo orden."
+    },
+    {
+        "target_id": "CON-NEURO-ANTEROLATERAL-SYSTEM",
+        "difficulty": "intermedio",
+        "prompt": "Un paciente toca una superficie caliente a 52 °C con su mano. ¿Cuál de los siguientes eventos fisiológicos explica la sensación de dolor quemante que persiste segundos después de retirar la mano?",
+        "options": [
+            {"id": "A", "text": "Activación exclusiva de termorreceptores de calor que conducen por fibras Aα."},
+            {"id": "B", "text": "Activación de nociceptores polimodales que descargan persistentemente a través de fibras C amielínicas con liberación de sustancia P."},
+            {"id": "C", "text": "Transmisión ultra-rápida por el fascículo cuneatus hacia el núcleo gracilis."},
+            {"id": "D", "text": "Cierre de canales TRPV en la membrana receptora por acción del mentol."}
+        ],
+        "correct_option": "B",
+        "explanation": "A temperaturas superiores a 45 °C los termorreceptores se inactivan y se activan los nociceptores térmicos y polimodales. El dolor retardado, sordo y persistente es transportado por fibras C amielínicas del sistema anterolateral que liberan sustancia P y glutamato en el asta dorsal medular."
+    },
+    {
+        "target_id": "DEC-NEURO-BROWNSEQUARD-LOCALIZATION",
+        "difficulty": "avanzado",
+        "prompt": "Un paciente sufre una herida por arma blanca que causa hemisección medular derecha a nivel T10 (síndrome de Brown-Séquard). ¿Cuál de los siguientes patrones de déficit neurológico se esperará encontrar por debajo de la lesión?",
+        "options": [
+            {"id": "A", "text": "Pérdida de propiocepción y paresia en miembro inferior derecho; pérdida de termoalgesia en miembro inferior izquierdo."},
+            {"id": "B", "text": "Pérdida de propiocepción en miembro inferior izquierdo; parálisis y pérdida de dolor en miembro inferior derecho."},
+            {"id": "C", "text": "Pérdida bilateral simétrica de termoalgesia con motilidad preservada en ambas piernas."},
+            {"id": "D", "text": "Pérdida de tacto fino y temperatura en el lado derecho con parálisis del lado izquierdo."}
+        ],
+        "correct_option": "A",
+        "explanation": "En el síndrome de Brown-Séquard (hemisección medular): el haz córticoespinal y la columna dorsal (DCML) no han cruzado aún en la médula (el córticoespinal ya cruzó en el bulbo y la columna dorsal cruzará en el bulbo), por lo que causan parálisis espástica y pérdida de vibración/propiocepción IPSILATERALES (lado derecho). El haz espinotalámico decusa en la médula a nivel de entrada, por lo que su sección interrumpe las fibras ascendentes que traen termoalgesia del hemicuerpo CONTRALATERAL (lado izquierdo)."
+    },
+    {
+        "target_id": "DEC-NEURO-REFERRED-PAIN-DERMATOMAL",
+        "difficulty": "intermedio",
+        "prompt": "¿Cuál es la base neurofisiológica de la irradiación del dolor precordial cardíaco hacia la cara medial del brazo izquierdo y el hombro en un infarto de miocardio?",
+        "options": [
+            {"id": "A", "text": "Espasmo reflejo de la arteria braquial mediado por receptores beta-2 adrenérgicos."},
+            {"id": "B", "text": "Convergencia de aferentes viscerales simpáticas cardíacas y aferentes somáticas cutáneas en las mismas neuronas de segundo orden en los segmentos medulares T1-T5."},
+            {"id": "C", "text": "Lesión directa del nervio radial por liberación de troponinas en la circulación sistémica."},
+            {"id": "D", "text": "Inervación somática directa del músculo miocárdico por ramas motoras del plexo braquial."}
+        ],
+        "correct_option": "B",
+        "explanation": "La regla dermatómica del dolor referido se fundamenta en la convergencia en el asta dorsal de la médula: las fibras nociceptivas viscerales del corazón entran por las raíces dorsales T1-T5 y sinapsan en las mismas neuronas de segundo orden del haz espinotalámico que reciben axones somáticos de los dermatomas T1-T5 (tórax y cara medial del brazo izquierdo). La corteza cerebral atribuye el origen del dolor a la superficie cutánea más frecuentemente activada."
+    },
+    {
+        "target_id": "CON-NEURO-RODS-VS-CONES",
+        "difficulty": "facil",
+        "prompt": "¿Cuál de las siguientes afirmaciones describe con precisión las propiedades fisiológicas de los conos en comparación con los bastones?",
+        "options": [
+            {"id": "A", "text": "Los conos tienen un umbral más bajo para la luz y se saturan con la iluminación ambiental diurna."},
+            {"id": "B", "text": "Los conos están concentrados en la fóvea central y exhiben mínima convergencia con células bipolares, otorgando alta agudeza visual."},
+            {"id": "C", "text": "Los conos carecen de pigmentos fotosensibles y solo participan en la adaptación a la oscuridad."},
+            {"id": "D", "text": "Muchos conos convergen en una sola célula bipolar, lo que maximiza la sensibilidad en la penumbra."}
+        ],
+        "correct_option": "B",
+        "explanation": "Los conos tienen un umbral de activación más elevado que los bastones (visión fotópica diurna), están densamente empaquetados en la fóvea central y presentan una relación de convergencia de casi 1:1 con las células bipolares y ganglionares, lo que proporciona la máxima resolución espacial y agudeza visual."
+    },
+    {
+        "target_id": "CON-NEURO-PHOTOTRANSDUCTION-CASCADE",
+        "difficulty": "avanzado",
+        "prompt": "¿Cuál de los siguientes pasos moleculares ocurre de forma INMEDIATA tras la activación de la transducina (Gt) por la metarrodopsina II en la cascada de fotorrecepción?",
+        "options": [
+            {"id": "A", "text": "Apertura directa de canales de Na+ y despolarización del fotorreceptor."},
+            {"id": "B", "text": "Activación de la fosfodiesterasa (PDE) con degradación de cGMP a 5'-GMP."},
+            {"id": "C", "text": "Aumento masivo de la liberación de glutamato hacia las células bipolares."},
+            {"id": "D", "text": "Conversión enzimática de all-trans retinal a 11-cis retinal en el segmento externo."}
+        ],
+        "correct_option": "B",
+        "explanation": "La transducina (Gt) activada estimula la fosfodiesterasa (PDE) de cGMP, la cual hidroliza el cGMP a 5'-GMP. La disminución de la concentración intracelular de cGMP conduce al cierre de los canales de Na+ regulados por cGMP, provocando la hiperpolarización de la membrana y el cese de la corriente oscura."
+    },
+    {
+        "target_id": "CON-NEURO-VISUAL-RECEPTIVE-FIELDS",
+        "difficulty": "avanzado",
+        "prompt": "Cuando la luz incide en el centro del campo receptor de una célula bipolar retiniana de tipo On-center, la célula responde despolarizándose. ¿Cuál es el mecanismo biofísico subyacente?",
+        "options": [
+            {"id": "A", "text": "El fotorreceptor central se despolariza y secreta acetilcolina sobre receptores nicotínicos."},
+            {"id": "B", "text": "El fotorreceptor central se hiperpolariza, disminuyendo la liberación de glutamato que actuaba sobre receptores metabotrópicos inhibitorios de la célula bipolar."},
+            {"id": "C", "text": "Las células horizontales hiperpolarizan directamente el axón de la célula ganglionar."},
+            {"id": "D", "text": "El fotorreceptor central incrementa la liberación de glutamato estimulando canales ionotrópicos AMPA."}
+        ],
+        "correct_option": "B",
+        "explanation": "La luz siempre hiperpolariza al fotorreceptor y reduce su tasa de liberación tónica de glutamato. En las células bipolares On-center, el glutamato interactúa normalmente con receptores metabotrópicos (mGluR6) que mantienen canales catiónicos cerrados (respuesta inhibitoria); al disminuir la liberación de glutamato por la luz, se suprime esta inhibición y la célula On-center se despolariza."
+    },
+    {
+        "target_id": "DEC-NEURO-OPTIC-PATHWAY-LESIONS",
+        "difficulty": "intermedio",
+        "prompt": "Un paciente de 52 años es derivado por oftalmología tras constatarse una hemianopsia homónima contralateral izquierda en la campimetría computarizada. Al explorar el reflejo fotomotor y el fondo de ojo, no se aprecia compromiso pupilar ni atrofia del quiasma. La lesión anatómica más probable se ubica en:",
+        "options": [
+            {"id": "A", "text": "Nervio óptico derecho antes de la entrada al canal óptico."},
+            {"id": "B", "text": "Quiasma óptico en su segmento central."},
+            {"id": "C", "text": "Cintilla óptica derecha o radiaciones ópticas geniculocalcarinas derechas."},
+            {"id": "D", "text": "Nervio óptico izquierdo con desprendimiento de retina nasal."}
+        ],
+        "correct_option": "C",
+        "explanation": "Una hemianopsia homónima contralateral (pérdida del hemicampo visual izquierdo en ambos ojos) se origina por la interrupción de las fibras de la vía óptica RETROQUIASMÁTICA derecha: la cintilla óptica derecha contiene axones de la hemirretina temporal derecha (campo nasal izquierdo) y de la hemirretina nasal izquierda decusada (campo temporal izquierdo)."
+    },
+    {
+        "target_id": "CON-NEURO-AUDITORY-TRANSDUCTION",
+        "difficulty": "intermedio",
+        "prompt": "¿Por qué la deflexión de los estereocilios hacia el cinocilio en las células ciliadas del órgano de Corti produce despolarización por entrada de potasio (K+), en lugar de sodio?",
+        "options": [
+            {"id": "A", "text": "Porque las células ciliadas carecen totalmente de canales de sodio en toda su membrana plasmática."},
+            {"id": "B", "text": "Porque los estereocilios están inmersos en endolinfa de la escala media, que tiene una concentración de K+ inusualmente alta y un potencial de +80 mV."},
+            {"id": "C", "text": "Porque la perilinfa tiene un potencial osmolar que bloquea selectivamente los canales catiónicos."},
+            {"id": "D", "text": "Porque el potasio es bombeado activamente por la membrana tectoria acoplada a ATPasa."}
+        ],
+        "correct_option": "B",
+        "explanation": "La escala media contiene endolinfa, secretada por la estría vascular, cuya composición es semejante al líquido intracelular (alta en K+, baja en Na+) con un potencial endococlear positivo (+80 mV). Al abrirse los canales mecanoeléctricos apicales de los estereocilios, existe un enorme gradiente electroquímico que impulsa al K+ hacia el interior de la célula ciliada, despolarizándola."
+    },
+    {
+        "target_id": "RUL-NEURO-BASILAR-MEMBRANE-TONOTOPY",
+        "difficulty": "intermedio",
+        "prompt": "En la cóclea humana, ¿cómo varía la estructura física de la membrana basilar desde la base (cerca de la ventana oval) hacia el ápice (helicotrema), y qué frecuencias detecta preferentemente cada extremo?",
+        "options": [
+            {"id": "A", "text": "Base: ancha y compliante (altas frecuencias); Ápice: estrecha y rígida (bajas frecuencias)."},
+            {"id": "B", "text": "Base: estrecha y rígida (altas frecuencias); Ápice: ancha y compliante (bajas frecuencias)."},
+            {"id": "C", "text": "Base: ancha y rígida (bajas frecuencias); Ápice: estrecha y compliante (altas frecuencias)."},
+            {"id": "D", "text": "Toda la membrana basilar tiene el mismo grosor y rigidez uniforme a lo largo del caracol."},
+        ],
+        "correct_option": "B",
+        "explanation": "La membrana basilar es tonotópica: en la base (cercana al estribo) es estrecha (~100 µm) y rígida, oscilando con frecuencias altas o agudas (hasta 20,000 Hz). En el ápice (helicotrema) es aproximadamente 5 veces más ancha (~500 µm) y mucho más flexible o compliante, resonando con ondas de baja frecuencia o tonos graves (20 a 200 Hz)."
+    },
+    {
+        "target_id": "CON-NEURO-VESTIBULAR-ACCELERATION",
+        "difficulty": "intermedio",
+        "prompt": "Un patinador sobre hielo inicia un giro rotacional rápido de cabeza hacia la izquierda. Durante la fase inicial de la aceleración, ¿qué eventos ocurren en sus conductos semicirculares horizontales?",
+        "options": [
+            {"id": "A", "text": "La cúpula izquierda se desplaza flexionando estereocilios hacia el cinocilio (despolarización) y la derecha se hiperpolariza."},
+            {"id": "B", "text": "Ambos conductos horizontales se hiperpolarizan simultáneamente por flujo bilateral de otolitos."},
+            {"id": "C", "text": "El conducto derecho se despolariza y el izquierdo se silencia completamente por inhibición de Deiters."},
+            {"id": "D", "text": "Los estereocilios permanecen verticales debido a la igual densidad entre cúpula y hueso temporal."}
+        ],
+        "correct_option": "A",
+        "explanation": "Durante el inicio de la rotación hacia la izquierda, la inercia de la endolinfa produce un movimiento relativo del fluido en sentido opuesto que deflecta la cúpula hacia el utrículo en el conducto horizontal izquierdo, doblando los estereocilios hacia el cinocilio (despolarización y aumento del disparo aferente). En el conducto derecho, la deflexión aleja los estereocilios del cinocilio, provocando hiperpolarización."
+    },
+    {
+        "target_id": "DEC-NEURO-VESTIBULAR-NYSTAGMUS-TESTS",
+        "difficulty": "avanzado",
+        "prompt": "Se realiza una prueba calórica vestibular irrigando el conducto auditivo externo derecho con agua caliente (44 °C). En un paciente neurológicamente sano, ¿qué respuesta nistágmica se espera registrar?",
+        "options": [
+            {"id": "A", "text": "Fase rápida del nistagmo dirigida hacia el oído derecho (mismo lado irrigado)."},
+            {"id": "B", "text": "Fase rápida del nistagmo dirigida hacia el oído izquierdo (lado contralateral)."},
+            {"id": "C", "text": "Parálisis completa de los movimientos oculares con fijación rígida en la línea media."},
+            {"id": "D", "text": "Nistagmo vertical descendente sostenido con vómito incoercible."}
+        ],
+        "correct_option": "A",
+        "explanation": "Se aplica la regla nemotécnica COWS (Cold Opposite, Warm Same). El agua caliente (Warm) produce corrientes de convección térmica ascendentes en la endolinfa que deflectan la cúpula emulando una rotación cefálica hacia el mismo lado: induce una fase lenta hacia la izquierda y una fase RÁPIDA sacádica correctiva dirigida hacia el MISMO oído irrigado (nistagmo a la derecha)."
+    },
+    {
+        "target_id": "CON-NEURO-OLFACTORY-TRANSDUCTION",
+        "difficulty": "intermedio",
+        "prompt": "¿Cuál de las siguientes afirmaciones respecto a la biología celular de los receptores olfatorios humanos es CORRECTA?",
+        "options": [
+            {"id": "A", "text": "Son células epiteliales sin axón que relevan en neuronas pseudounipolares periféricas."},
+            {"id": "B", "text": "Son neuronas primarias aferentes auténticas que se regeneran continuamente a partir de células basales madre."},
+            {"id": "C", "text": "Sus axones mielinizados de gran calibre (Aα) ingresan al tronco encefálico por el puente."},
+            {"id": "D", "text": "La unión del odorante disminuye los niveles de cAMP citosólico abriendo canales de potasio."}
+        ],
+        "correct_option": "B",
+        "explanation": "Las células receptoras olfatorias son neuronas bipolares primarias de primer orden. Constituyen uno de los pocos ejemplos de neurogénesis continua en el sistema nervioso adulto, generándose continuamente a partir de mitosis y diferenciación de las células basales del epitelio olfatorio."
+    },
+    {
+        "target_id": "CON-NEURO-GUSTATORY-TRANSDUCTION",
+        "difficulty": "intermedio",
+        "prompt": "¿A través de qué nervio craneal y mecanismo de transducción celular se perciben predominantemente los sabores dulces y umami en la punta de la lengua?",
+        "options": [
+            {"id": "A", "text": "Nervio glosofaríngeo (IX) y canales epiteliales de sodio (ENaC)."},
+            {"id": "B", "text": "Nervio facial (VII) vía cuerda del tímpano y receptores acoplados a proteína G con vía IP3/Ca2+."},
+            {"id": "C", "text": "Nervio vago (X) y cotransportador simporte de glucosa SGLT-1."},
+            {"id": "D", "text": "Nervio trigémino (V3) y canales mecanosensibles de potasio."}
+        ],
+        "correct_option": "B",
+        "explanation": "Los dos tercios anteriores de la lengua (incluida la punta, donde abundan las papilas fungiformes sensibles a dulce, salado y umami) están inervados por la rama de la cuerda del tímpano del nervio facial (CN VII). Los sabores dulce y umami activan receptores acoplados a proteína G (familia T1R) que disparan la vía de fosfolipasa C, IP3 y liberación de Ca2+ intracelular con apertura de canales TRP."
+    },
+    {
+        "target_id": "CON-NEURO-MOTOR-UNIT-SIZE-PRINCIPLE",
+        "difficulty": "intermedio",
+        "prompt": "Según el principio del tamaño de Henneman, ¿por qué motivo las motoneuronas alfa más pequeñas se despolarizan y descargan antes que las motoneuronas grandes ante una orden motora central idéntica?",
+        "options": [
+            {"id": "A", "text": "Porque las motoneuronas pequeñas poseen una resistencia de entrada de membrana más alta, por lo que una corriente sináptica dada genera un mayor cambio de voltaje (Ley de Ohm)."},
+            {"id": "B", "text": "Porque las motoneuronas pequeñas tienen una velocidad de conducción axonal 10 veces más rápida que las grandes."},
+            {"id": "C", "text": "Porque las motoneuronas pequeñas son inervadas exclusivamente por neurotransmisores peptídicos de alta afinidad."},
+            {"id": "D", "text": "Porque las motoneuronas grandes carecen de receptores para glutamato en su soma."}
+        ],
+        "correct_option": "A",
+        "explanation": "Según la Ley de Ohm ($\Delta V = I \times R$), a menor área superficial celular, menor cantidad de canales de fuga y MAYOR resistencia de membrana de entrada ($R$). Por tanto, la misma corriente excitatoria presináptica ($I$) produce una despolarización local ($\Delta V$) significativamente mayor en las motoneuronas pequeñas, alcanzando su umbral mucho antes que las motoneuronas grandes (que tienen baja resistencia por su gran tamaño somático)."
+    },
+    {
+        "target_id": "CON-NEURO-MUSCLE-SPINDLE-COACTIVATION",
+        "difficulty": "avanzado",
+        "prompt": "Durante la contracción isométrica de un músculo esquelético, ¿cuál es la función de la activación simultánea de las motoneuronas gamma (coactivación alfa-gamma)?",
+        "options": [
+            {"id": "A", "text": "Generar la fuerza de contracción principal requerida para vencer la carga mecánica."},
+            {"id": "B", "text": "Contraer los extremos polares de las fibras intrafusales para mantener tensa la porción central del huso y preservar la sensibilidad del receptor Ia."},
+            {"id": "C", "text": "Inhibir el reflejo miotático para inducir relajación protectora del tendón."},
+            {"id": "D", "text": "Inervar los órganos tendinosos de Golgi para calibrar la aferencia Ib."}
+        ],
+        "correct_option": "B",
+        "explanation": "Cuando las motoneuronas alfa hacen que las fibras extrafusales se contraigan y acorten, el huso muscular en paralelo se aflojaría y quedaría silenciado. La coactivación simultánea de motoneuronas gamma contrae los polos distales de las fibras intrafusales, estirando su región central sensitiva y manteniendo a las terminaciones anuloespirales Ia listas para detectar cambios adicionales de longitud muscular."
+    },
+    {
+        "target_id": "CON-NEURO-SPINAL-REFLEXES-TRIAD",
+        "difficulty": "intermedio",
+        "prompt": "Al explorar el reflejo rotuliano o patelar en un paciente, se percute el tendón rotuliano con el martillo de reflejos. ¿Cuál es el circuito neuronal y la respuesta refleja fisiológica?",
+        "options": [
+            {"id": "A", "text": "Reflejo disináptico: estimulación de órganos de Golgi Ib $\\to$ relajación del cuádriceps."},
+            {"id": "B", "text": "Reflejo monosináptico: estiramiento del huso muscular $\\to$ activación de aferencia Ia $\\to$ contracción del músculo cuádriceps homónimo."},
+            {"id": "C", "text": "Reflejo polisináptico: activación de fibras nociceptivas C $\\to$ flexión de la rodilla con extensión del tobillo."},
+            {"id": "D", "text": "Reflejo de Hoffman: activación directa de motoneuronas gamma dinámicas $\\to$ hipertonía del gastrocnemio."}
+        ],
+        "correct_option": "B",
+        "explanation": "El reflejo rotuliano es el ejemplo clásico del reflejo miotático o de estiramiento: el golpe distiende el cuádriceps, estimulando las fibras aferentes primarias Ia de sus husos musculares. Estas fibras entran a la médula y hacen una única sinapsis excitatoria directa (monosináptica) sobre las motoneuronas alfa homónimas en el asta anterior (L2-L4), induciendo la contracción del cuádriceps y la extensión de la pierna."
+    },
+    {
+        "target_id": "DEC-NEURO-DECEREBRATE-RIGIDITY",
+        "difficulty": "avanzado",
+        "prompt": "Un paciente que sufrió un traumatismo encéfalo-craneano presenta una lesión del tronco encefálico caudal al mesencéfalo (intercolicular). ¿Cuál es la manifestación clínica característica y su causa fisiopatológica?",
+        "options": [
+            {"id": "A", "text": "Rigidez de decorticación con brazos flexionados, debido a la hiperactividad del tracto rubroespinal."},
+            {"id": "B", "text": "Rigidez de descerebración con hiperextensión de brazos y piernas, por desinhibición de los núcleos vestibulares laterales y reticular pontino."},
+            {"id": "C", "text": "Flacidez arrefléxica generalizada por desconexión completa de los nervios craneales."},
+            {"id": "D", "text": "Parálisis espástica confinada al hemicuerpo contralateral con temblor de reposo."}
+        ],
+        "correct_option": "B",
+        "explanation": "Una transacción entre los colículos superior e inferior desconecta la corteza cerebral y el núcleo rojo (tracto rubroespinal flexor). Esto deja sin oposición inhibitoria a los núcleos facilitadores pontinos y vestibulares laterales (Deiters), provocando una activación masiva y continua de motoneuronas alfa y gamma de músculos extensores antigravitatorios: rigidez de descerebración (extensión forzada de brazos y piernas)."
+    },
+    {
+        "target_id": "CON-NEURO-CEREBELLAR-CIRCUITRY",
+        "difficulty": "avanzado",
+        "prompt": "¿Cuál es la fuente de las fibras trepadoras que proyectan a la corteza cerebelosa, y cuál es la naturaleza de la señal de salida que emiten las células de Purkinje?",
+        "options": [
+            {"id": "A", "text": "Fibras trepadoras se originan en los núcleos del puente; las células de Purkinje emiten axones excitatorios glutamatérgicos."},
+            {"id": "B", "text": "Fibras trepadoras se originan exclusivamente en la oliva inferior; las células de Purkinje emiten la única salida de la corteza, que es siempre inhibitoria (GABA)."},
+            {"id": "C", "text": "Fibras trepadoras proceden de la médula espinal; las células de Purkinje no tienen axón y son interneuronas de la capa granular."},
+            {"id": "D", "text": "Fibras trepadoras provienen de la corteza motora primaria; las células de Purkinje liberan dopamina en los núcleos vestibulares."}
+        ],
+        "correct_option": "B",
+        "explanation": "Las fibras trepadoras provienen de forma exclusiva del complejo olivar inferior del bulbo raquídeo; cada fibra trepadora trepa alrededor de las dendritas de una única célula de Purkinje, produciendo espigas complejas. Toda la salida eferente de la corteza cerebelosa se canaliza a través de los axones de las células de Purkinje, cuya acción sobre los núcleos cerebelosos profundos es invariablemente inhibitoria mediada por GABA."
+    },
+    {
+        "target_id": "DEC-NEURO-CEREBELLAR-ATAXIA-SYNDROME",
+        "difficulty": "intermedio",
+        "prompt": "Un paciente con antecedentes de accidente cerebrovascular cerebeloso hemisférico derecho es examinado. ¿Cuál de los siguientes signos semiológicos es característico de esta afección?",
+        "options": [
+            {"id": "A", "text": "Temblor de reposo en cuenta de monedas que desaparece al extender el brazo hacia un objeto."},
+            {"id": "B", "text": "Dismetría con sobrealcance y temblor de intención en la prueba índice-nariz realizada con el brazo derecho."},
+            {"id": "C", "text": "Corea y atetosis involuntaria espasmódica del brazo izquierdo."},
+            {"id": "D", "text": "Pérdida de la sensibilidad termoalgésica en el hemicuerpo izquierdo con hiperreflexia bilateral."}
+        ],
+        "correct_option": "B",
+        "explanation": "Las lesiones de los hemisferios cerebelosos causan signos motores en el hemicuerpo IPSILATERAL a la lesión (lado derecho). La tríada cerebelosa clásica incluye ataxia, dismetría (past-pointing) y temblor de intención cinético que se intensifica a medida que el dedo del paciente se aproxima al blanco (la nariz del examinador)."
+    },
+    {
+        "target_id": "CON-NEURO-BASAL-GANGLIA-PATHWAYS",
+        "difficulty": "avanzado",
+        "prompt": "En el modelo funcional de los ganglios basales, ¿cuál es el resultado neto de la activación de la vía directa frente a la vía indirecta sobre la corteza motora cerebral?",
+        "options": [
+            {"id": "A", "text": "Vía directa es excitatoria (facilita el movimiento); vía indirecta es inhibitoria (suprime el movimiento)."},
+            {"id": "B", "text": "Vía directa es inhibitoria de la corteza; vía indirecta es pro-cinética motora."},
+            {"id": "C", "text": "Ambas vías son excitatorias y se activan simultáneamente por receptores D2."},
+            {"id": "D", "text": "La vía directa utiliza glutamato como transmisor estriatal y la indirecta utiliza dopamina."}
+        ],
+        "correct_option": "A",
+        "explanation": "En los ganglios basales: la vía directa (activada por receptores D1) inhibe al GPi/SNr, lo que desinhibe al tálamo y envía una señal neta excitatoria a la corteza para promover el movimiento voluntario. La vía indirecta (receptores D2 inhiben GPe, desinhibiendo STN, que excita GPi) incrementa la inhibición talámica, suprimiendo la actividad corticomotora. El balance entre ambas vías permite movimientos fluidos y precisos."
+    },
+    {
+        "target_id": "DEC-NEURO-PARKINSON-VS-HUNTINGTON",
+        "difficulty": "intermedio",
+        "prompt": "Un paciente de 62 años con enfermedad de Parkinson consulta por agravamiento de su bradicinesia y rigidez. ¿Cuál de los siguientes regímenes terapéuticos está fundamentado en la fisiopatología de los ganglios basales?",
+        "options": [
+            {"id": "A", "text": "Levodopa administrada conjuntamente con carbidopa para reponer dopamina en el estriado."},
+            {"id": "B", "text": "Administración intravenosa de dopamina pura sin coadyuvantes."},
+            {"id": "C", "text": "Antagonistas de receptores D2 como haloperidol para frenar la vía indirecta."},
+            {"id": "D", "text": "Inhibidores selectivos de la recaptación de serotonina en monoterapia a dosis altas."}
+        ],
+        "correct_option": "A",
+        "explanation": "La fisiopatología del Parkinson radica en la pérdida de neuronas dopaminérgicas en la sustancia negra. La dopamina periférica no cruza la barrera hematoencefálica; se administra su precursor L-Dopa, que cruza la BHE mediante transportadores de aminoácidos aromáticos y se convierte en dopamina en el encéfalo. Se asocia obligatoriamente a carbidopa (inhibidor periférico de la dopa-descarboxilasa) para evitar su transformación prematura extracerebral y minimizar náuseas y arritmias."
+    },
+    {
+        "target_id": "CON-NEURO-EEG-AND-SLEEP-STAGES",
+        "difficulty": "intermedio",
+        "prompt": "¿Por qué el sueño REM se conoce también como 'sueño paradójico'?",
+        "options": [
+            {"id": "A", "text": "Porque el sujeto se despierta espontáneamente cada 5 minutos sin motivo aparente."},
+            {"id": "B", "text": "Porque a pesar de que el EEG muestra ondas de alta frecuencia y bajo voltaje similares a la vigilia alerta, el sujeto es paradójicamente muy difícil de despertar."},
+            {"id": "C", "text": "Porque el tono muscular de las cuatro extremidades se encuentra en un estado de rigidez extrema."},
+            {"id": "D", "text": "Porque la frecuencia cardíaca y la presión arterial se reducen a cero temporalmente."}
+        ],
+        "correct_option": "B",
+        "explanation": "El sueño REM es 'paradójico' porque el trazado electroencefalográfico está completamente desincronizado (bajo voltaje y frecuencia rápida con ondas en dientes de sierra similares al estado despierto activo), sugiriendo una corteza sumamente activa (en la que ocurren la mayor parte de los sueños), pero el umbral de despertar está en su punto máximo y el sujeto exhibe atonía muscular periférica profunda."
+    },
+    {
+        "target_id": "CON-NEURO-LTP-SYNAPTIC-PLASTICITY",
+        "difficulty": "avanzado",
+        "prompt": "En la inducción de la potenciación a largo plazo (LTP) hipocampal, ¿cuál es el requisito biofísico indispensable para que los iones Ca2+ puedan ingresar a través de los canales del receptor NMDA?",
+        "options": [
+            {"id": "A", "text": "La ausencia total de neurotransmisores excitatorios en la hendidura sináptica."},
+            {"id": "B", "text": "La despolarización previa de la membrana postsináptica (mediada por receptores AMPA) que expulse electrostáticamente el ion Mg2+ del poro del canal."},
+            {"id": "C", "text": "El cierre previo de todos los canales de potasio dependientes de voltaje."},
+            {"id": "D", "text": "La entrada masiva de aniones cloruro a través de receptores GABAA adyacentes."}
+        ],
+        "correct_option": "B",
+        "explanation": "A potenciales de reposo (-70 mV), el canal del receptor NMDA está bloqueado por iones magnesio (Mg2+) extracelulares fijados por el campo eléctrico negativo del interior celular. La estimulación tetánica activa intensamente los receptores AMPA, despolarizando la espina dendrítica postsináptica; este cambio de voltaje positivo en el interior repele y expulsa el tapón de Mg2+, permitiendo el flujo de Ca2+ y Na+ hacia el citoplasma y disparando la LTP."
+    },
+    {
+        "target_id": "CON-NEURO-CSF-DYNAMICS-BBB",
+        "difficulty": "intermedio",
+        "prompt": "¿Qué estructura celular constituye la barrera anatómica REAL responsable de la estricta restricción de permeabilidad en la barrera hematoencefálica (BHE)?",
+        "options": [
+            {"id": "A", "text": "Las uniones estrechas (tight junctions / zonula occludens) entre las células endoteliales de los capilares cerebrales."},
+            {"id": "B", "text": "La vaina continua de mielina depositada por los oligodendrocitos perivasculares."},
+            {"id": "C", "text": "Las fenestraciones abiertas de los capilares de la piamadre."},
+            {"id": "D", "text": "El flujo retrógrado pulsátil del líquido cefalorraquídeo ventricular."}
+        ],
+        "correct_option": "A",
+        "explanation": "La barrera hematoencefálica está conformada primariamente por uniones estrechas (zonula occludens) continuas e impermeables entre las células endoteliales de los capilares sanguíneos cerebrales. Aunque las prolongaciones terminales de los astrocitos (pies vasculares) envuelven a los capilares e inducen la formación de estas uniones, el sellado biofísico efectivo reside en las uniones estrechas endoteliales."
+    },
+    {
+        "target_id": "RUL-NEURO-CSF-VS-BLOOD-COMPOSITION",
+        "difficulty": "intermedio",
+        "prompt": "¿Cuál de las siguientes sustancias se encuentra en una concentración significativamente MAYOR en el líquido cefalorraquídeo normal que en el plasma sanguíneo?",
+        "options": [
+            {"id": "A", "text": "Proteínas totales."},
+            {"id": "B", "text": "Glucosa."},
+            {"id": "C", "text": "Magnesio (Mg2+)."},
+            {"id": "D", "text": "Potasio (K+)."}
+        ],
+        "correct_option": "C",
+        "explanation": "Según la tabla comparativa de Costanzo (Tabla 3-6): el magnesio ([LCR] ~2.2 mEq/L vs [Sangre] ~1.7 mEq/L) y la creatinina son las únicas sustancias que presentan una concentración mayor en el LCR que en la sangre. Las proteínas son prácticamente insignificantes en LCR (15-45 mg/dL vs 7,000 mg/dL), la glucosa es aproximadamente un 60% de la sanguínea y el potasio es menor en el LCR (2.8 mEq/L vs 4.5 mEq/L) para prevenir hiperexcitabilidad cortical."
+    }
+]
+
+EDGES = [
+    # Cluster 1
+    {"source": "CON-NEURO-ORGANIZATION", "target": "CON-NEURO-FIBER-CLASSIFICATION", "kind": "supports"},
+    {"source": "CON-NEURO-ORGANIZATION", "target": "CON-NEURO-DECUSSATIONS", "kind": "requires"},
+    
+    # Cluster 2
+    {"source": "CON-NEURO-FIBER-CLASSIFICATION", "target": "CON-NEURO-RECEPTOR-POTENTIAL", "kind": "requires"},
+    {"source": "CON-NEURO-RECEPTOR-POTENTIAL", "target": "CON-NEURO-ADAPTATION-PHASIC-TONIC", "kind": "supports"},
+    {"source": "CON-NEURO-ADAPTATION-PHASIC-TONIC", "target": "CON-NEURO-DORSAL-COLUMN-SYSTEM", "kind": "supports"},
+    {"source": "CON-NEURO-FIBER-CLASSIFICATION", "target": "CON-NEURO-ANTEROLATERAL-SYSTEM", "kind": "supports"},
+    {"source": "CON-NEURO-DECUSSATIONS", "target": "DEC-NEURO-BROWNSEQUARD-LOCALIZATION", "kind": "requires"},
+    {"source": "CON-NEURO-DORSAL-COLUMN-SYSTEM", "target": "DEC-NEURO-BROWNSEQUARD-LOCALIZATION", "kind": "requires"},
+    {"source": "CON-NEURO-ANTEROLATERAL-SYSTEM", "target": "DEC-NEURO-BROWNSEQUARD-LOCALIZATION", "kind": "requires"},
+    {"source": "CON-NEURO-ANTEROLATERAL-SYSTEM", "target": "DEC-NEURO-REFERRED-PAIN-DERMATOMAL", "kind": "supports"},
+
+    # Cluster 3
+    {"source": "CON-NEURO-RECEPTOR-POTENTIAL", "target": "CON-NEURO-RODS-VS-CONES", "kind": "supports"},
+    {"source": "CON-NEURO-RODS-VS-CONES", "target": "CON-NEURO-PHOTOTRANSDUCTION-CASCADE", "kind": "requires"},
+    {"source": "CON-NEURO-PHOTOTRANSDUCTION-CASCADE", "target": "CON-NEURO-VISUAL-RECEPTIVE-FIELDS", "kind": "supports"},
+    {"source": "CON-NEURO-DECUSSATIONS", "target": "DEC-NEURO-OPTIC-PATHWAY-LESIONS", "kind": "requires"},
+    {"source": "CON-NEURO-VISUAL-RECEPTIVE-FIELDS", "target": "DEC-NEURO-OPTIC-PATHWAY-LESIONS", "kind": "supports"},
+
+    # Cluster 4
+    {"source": "CON-NEURO-RECEPTOR-POTENTIAL", "target": "CON-NEURO-AUDITORY-TRANSDUCTION", "kind": "supports"},
+    {"source": "CON-NEURO-AUDITORY-TRANSDUCTION", "target": "RUL-NEURO-BASILAR-MEMBRANE-TONOTOPY", "kind": "supports"},
+    {"source": "CON-NEURO-AUDITORY-TRANSDUCTION", "target": "CON-NEURO-VESTIBULAR-ACCELERATION", "kind": "supports"},
+    {"source": "CON-NEURO-VESTIBULAR-ACCELERATION", "target": "DEC-NEURO-VESTIBULAR-NYSTAGMUS-TESTS", "kind": "supports"},
+
+    # Cluster 5
+    {"source": "CON-NEURO-RECEPTOR-POTENTIAL", "target": "CON-NEURO-OLFACTORY-TRANSDUCTION", "kind": "supports"},
+    {"source": "CON-NEURO-RECEPTOR-POTENTIAL", "target": "CON-NEURO-GUSTATORY-TRANSDUCTION", "kind": "supports"},
+
+    # Cluster 6
+    {"source": "CON-NEURO-FIBER-CLASSIFICATION", "target": "CON-NEURO-MOTOR-UNIT-SIZE-PRINCIPLE", "kind": "supports"},
+    {"source": "CON-NEURO-MOTOR-UNIT-SIZE-PRINCIPLE", "target": "CON-NEURO-MUSCLE-SPINDLE-COACTIVATION", "kind": "supports"},
+    {"source": "CON-NEURO-MUSCLE-SPINDLE-COACTIVATION", "target": "CON-NEURO-SPINAL-REFLEXES-TRIAD", "kind": "requires"},
+
+    # Cluster 7
+    {"source": "CON-NEURO-SPINAL-REFLEXES-TRIAD", "target": "DEC-NEURO-DECEREBRATE-RIGIDITY", "kind": "supports"},
+    {"source": "CON-NEURO-ORGANIZATION", "target": "CON-NEURO-CEREBELLAR-CIRCUITRY", "kind": "requires"},
+    {"source": "CON-NEURO-CEREBELLAR-CIRCUITRY", "target": "DEC-NEURO-CEREBELLAR-ATAXIA-SYNDROME", "kind": "supports"},
+
+    # Cluster 8
+    {"source": "CON-NEURO-ORGANIZATION", "target": "CON-NEURO-BASAL-GANGLIA-PATHWAYS", "kind": "requires"},
+    {"source": "CON-NEURO-BASAL-GANGLIA-PATHWAYS", "target": "DEC-NEURO-PARKINSON-VS-HUNTINGTON", "kind": "supports"},
+
+    # Cluster 9
+    {"source": "CON-NEURO-ORGANIZATION", "target": "CON-NEURO-EEG-AND-SLEEP-STAGES", "kind": "supports"},
+    {"source": "CON-NEURO-RECEPTOR-POTENTIAL", "target": "CON-NEURO-LTP-SYNAPTIC-PLASTICITY", "kind": "supports"},
+
+    # Cluster 10
+    {"source": "CON-NEURO-ORGANIZATION", "target": "CON-NEURO-CSF-DYNAMICS-BBB", "kind": "supports"},
+    {"source": "CON-NEURO-CSF-DYNAMICS-BBB", "target": "RUL-NEURO-CSF-VS-BLOOD-COMPOSITION", "kind": "supports"}
+]
+
+
+def validate_dag(nodes, edges):
+    """Topological cycle detection to verify valid DAG."""
+    adj = {n["id"]: [] for n in nodes}
+    for e in edges:
+        if e["source"] in adj and e["target"] in adj:
+            adj[e["source"]].append(e["target"])
+
+    visited = {}
+    
+    def dfs(u):
+        visited[u] = 1 # in progress
+        for v in adj.get(u, []):
+            if visited.get(v, 0) == 1:
+                return False
+            if visited.get(v, 0) == 0:
+                if not dfs(v):
+                    return False
+        visited[u] = 2 # completed
+        return True
+
+    for n in nodes:
+        nid = n["id"]
+        if visited.get(nid, 0) == 0:
+            if not dfs(nid):
+                raise ValueError(f"Cycle detected involving node {nid}!")
+    
+    print(f"✓ DAG validation passed: {len(nodes)} nodes visited, 0 cycles detected.")
+
+
+def validate_universal_coverage(nodes, teachings, assessments):
+    """Verify 100% pedagogical coverage."""
+    node_ids = {n["id"] for n in nodes}
+    teach_ids = {t["target_id"] for t in teachings}
+    assess_ids = {a["target_id"] for a in assessments}
+
+    missing_teach = node_ids - teach_ids
+    missing_assess = node_ids - assess_ids
+    
+    if missing_teach:
+        raise ValueError(f"Missing teaching units for: {missing_teach}")
+    if missing_assess:
+        raise ValueError(f"Missing assessment units for: {missing_assess}")
+
+    for n in nodes:
+        recs = n.get("assessment_recommendations", [])
+        if not recs:
+            raise ValueError(f"Node {n['id']} lacks assessment_recommendations!")
+
+    print(f"✓ Universal Pedagogical Coverage Passed: 100% of {len(nodes)} nodes have Teaching, Assessment units & Game Blueprints.")
+
+
+def main():
+    validate_dag(NODES, EDGES)
+    validate_universal_coverage(NODES, TEACHING_UNITS, ASSESSMENT_UNITS)
+
+    graph_payload = {
+        "release": {
+            "id": "neurophysiology-costanzo-physio-ch3.v1",
+            "title": "Neurofisiología General, Sistemas Sensoriales, Motores y Funciones Superiores",
+            "source": "Costanzo Physiology, 6th Edition, Chapter 3: Neurophysiology, pp. 65–111. Linda S. Costanzo, PhD. Elsevier.",
+            "version": 1,
+            "universal_coverage": True,
+            "game_catalog_integrated": True,
+            "total_games_in_suite": 20
+        },
+        "clusters": CLUSTERS,
+        "nodes": NODES,
+        "teaching_units": TEACHING_UNITS,
+        "assessment_units": ASSESSMENT_UNITS,
+        "edges": EDGES
+    }
+
+    OUTPUT_GRAPH_JSON.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_GRAPH_JSON.write_text(json.dumps(graph_payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"✓ Neurophysiology Graph JSON written to: {OUTPUT_GRAPH_JSON}")
+    print(f"  Clusters: {len(CLUSTERS)}")
+    print(f"  Nodes: {len(NODES)}")
+    print(f"  Teaching Units: {len(TEACHING_UNITS)}")
+    print(f"  Assessment Units: {len(ASSESSMENT_UNITS)}")
+    print(f"  Edges: {len(EDGES)}")
+
+    # Build Master Graph combining ANS (Ch 2) + Neurophysiology (Ch 3)
+    if ANS_GRAPH_JSON.exists():
+        ans_data = json.loads(ANS_GRAPH_JSON.read_text(encoding="utf-8"))
+        
+        master_clusters = ans_data["clusters"] + CLUSTERS
+        master_nodes = ans_data["nodes"] + NODES
+        master_teachings = ans_data["teaching_units"] + TEACHING_UNITS
+        master_assessments = ans_data["assessment_units"] + ASSESSMENT_UNITS
+        
+        # Cross-chapter linking edges
+        cross_edges = [
+            {"source": "CON-ANS-SOMATIC-VS-AUTONOMIC", "target": "CON-NEURO-ORGANIZATION", "kind": "supports"},
+            {"source": "CON-ANS-SOMATIC-VS-AUTONOMIC", "target": "CON-NEURO-FIBER-CLASSIFICATION", "kind": "supports"},
+            {"source": "CON-ANS-ALPHA1-RECEPTOR", "target": "DEC-NEURO-REFERRED-PAIN-DERMATOMAL", "kind": "supports"},
+            {"source": "CON-ANS-SYMP-THORACOLUMBAR", "target": "DEC-NEURO-BROWNSEQUARD-LOCALIZATION", "kind": "supports"},
+            {"source": "CON-NEURO-DECUSSATIONS", "target": "DEC-ANS-HORNER-SYNDROME", "kind": "supports"},
+            {"source": "CON-NEURO-SPINAL-REFLEXES-TRIAD", "target": "DEC-ANS-BLADDER-CONTROL", "kind": "supports"}
+        ]
+        
+        master_edges = ans_data["edges"] + EDGES + cross_edges
+        validate_dag(master_nodes, master_edges)
+        
+        master_payload = {
+            "release": {
+                "id": "costanzo-neuro-master-ch2-ch3.v1",
+                "title": "Master Fisiología Nerviosa: Sistema Autónomo y Neurofisiología Integral",
+                "source": "Costanzo Physiology, 6th Edition, Chapters 2 & 3 (Autonomic Nervous System & Neurophysiology), pp. 45–111. Linda S. Costanzo, PhD. Elsevier.",
+                "version": 1,
+                "universal_coverage": True,
+                "game_catalog_integrated": True,
+                "total_games_in_suite": 20
+            },
+            "clusters": master_clusters,
+            "nodes": master_nodes,
+            "teaching_units": master_teachings,
+            "assessment_units": master_assessments,
+            "edges": master_edges
+        }
+        
+        MASTER_GRAPH_JSON.write_text(json.dumps(master_payload, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"\n✓ Master Combined Graph JSON (ANS + Neurophysiology) written to: {MASTER_GRAPH_JSON}")
+        print(f"  Total Clusters: {len(master_clusters)}")
+        print(f"  Total Nodes: {len(master_nodes)}")
+        print(f"  Total Teachings: {len(master_teachings)}")
+        print(f"  Total Assessments: {len(master_assessments)}")
+        print(f"  Total Edges: {len(master_edges)} (including 6 cross-chapter bridges)")
+
+
+if __name__ == "__main__":
+    main()

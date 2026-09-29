@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://grafomed.local/schemas/evidence-event.v0.schema.json",
+  "title": "GrafoMed candidate learning evidence event",
+  "description": "Candidate contract for auditable formative evidence. It is not a competence-certification record.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "id",
+    "type",
+    "occurredAt",
+    "learnerRef",
+    "atomRef",
+    "objectiveRef",
+    "activityRef",
+    "assessmentUseRef",
+    "evidenceLevel",
+    "phase",
+    "response",
+    "correct",
+    "assistance",
+    "attemptNumber",
+    "confidence",
+    "context",
+    "scorer",
+    "validity",
+    "versions"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "type": { "const": "learning_evidence_event" },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "learnerRef": { "type": "string", "minLength": 1 },
+    "atomRef": { "type": "string", "minLength": 1 },
+    "objectiveRef": { "type": "string", "minLength": 1 },
+    "activityRef": { "type": "string", "minLength": 1 },
+    "assessmentUseRef": { "type": "string", "minLength": 1 },
+    "evidenceLevel": { "enum": ["A1", "A2", "A3", "A4"] },
+    "phase": { "enum": ["diagnostic", "guided", "retrieval", "contrast", "delayed_retention", "near_transfer", "far_transfer", "simulated_performance", "workplace_performance"] },
+    "response": {},
+    "correct": { "type": ["boolean", "null"] },
+    "assistance": {
+      "type": "object",
+      "required": ["level", "hints"],
+      "properties": {
+        "level": { "enum": ["none", "hint", "retry", "tutored", "model_assisted"] },
+        "hints": { "type": "array", "items": { "type": "string" } },
+        "tools": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "attemptNumber": { "type": "integer", "minimum": 1 },
+    "confidence": { "enum": ["low", "medium", "high", "not_observed"] },
+    "latencyMs": { "type": ["integer", "null"], "minimum": 0 },
+    "context": {
+      "type": "object",
+      "required": ["language", "modality", "device", "interruption"],
+      "properties": {
+        "language": { "type": "string" },
+        "modality": { "type": "string" },
+        "device": { "type": "string" },
+        "interruption": { "type": "string" },
+        "fatigue": { "type": "string" }
+      }
+    },
+    "scorer": {
+      "type": "object",
+      "required": ["method", "confidence", "reviewStatus"],
+      "properties": {
+        "method": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "reviewStatus": { "type": "string" }
+      }
+    },
+    "validity": { "type": "string" },
+    "versions": {
+      "type": "object",
+      "required": ["prototype", "atom", "item", "rubric", "algorithm"],
+      "properties": {
+        "prototype": { "type": "string" },
+        "atom": { "type": "string" },
+        "item": { "type": "string" },
+        "rubric": { "type": "string" },
+        "algorithm": { "type": "string" }
+      }
+    }
+  }
+}

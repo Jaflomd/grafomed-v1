@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GrafoMed — Asma (Nature Reviews Disease Primers 2015)</title>
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --panel-bg: rgba(15, 23, 42, 0.9);
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-green: #34d399;
+      --accent-purple: #a78bfa;
+      --accent-amber: #fbbf24;
+      --accent-red: #f87171;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Header */
+    header {
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .logo-badge {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+    h1 { font-size: 15px; font-weight: 600; color: #fff; }
+    .header-sub { font-size: 11px; color: var(--text-muted); }
+    .header-metrics {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .metric-badge {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+    }
+    .metric-badge b { color: var(--accent-blue); }
+
+    /* Main Container */
+    #workspace {
+      display: flex;
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Left Controls Sidebar */
+    #sidebar-left {
+      width: 270px;
+      background: var(--panel-bg);
+      backdrop-filter: blur(10px);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 14px;
+      gap: 14px;
+      z-index: 5;
+      overflow-y: auto;
+    }
+    .search-box input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: white;
+      font-size: 12px;
+      outline: none;
+    }
+    .search-box input:focus { border-color: var(--accent-blue); }
+    .filter-group h3 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 6px 10px;
+      margin-bottom: 4px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-size: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+    .filter-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #fff;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    /* Center Graph Viewport */
+    #viewport {
+      flex: 1;
+      position: relative;
+      cursor: grab;
+      background: radial-gradient(circle at center, #111827 0%, #090d16 100%);
+    }
+    #viewport:active { cursor: grabbing; }
+    canvas { width: 100%; height: 100%; display: block; }
+    .viewport-tools {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4px;
+      z-index: 5;
+    }
+    .tool-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .tool-btn:hover { background: rgba(255, 255, 255, 0.1); }
+
+    /* Right Deep Inspector Sidebar */
+    #sidebar-right {
+      width: 480px;
+      background: var(--panel-bg);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+      overflow-y: auto;
+      padding: 18px;
+      gap: 14px;
+    }
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      color: var(--text-muted);
+      gap: 12px;
+      padding: 20px;
+    }
+    .node-header { display: flex; flex-direction: column; gap: 6px; }
+    .badge-row { display: flex; gap: 8px; align-items: center; }
+    .badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .badge-decision { background: rgba(52, 211, 153, 0.2); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.4); }
+    .badge-rule { background: rgba(251, 191, 36, 0.2); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.4); }
+    .badge-concept { background: rgba(167, 139, 250, 0.2); color: #a78bfa; border: 1px solid rgba(167, 139, 250, 0.4); }
+    .badge-procedure { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+    .node-id { font-size: 12px; color: var(--text-muted); font-family: ui-monospace, monospace; }
+    .node-title { font-size: 16px; font-weight: 700; line-height: 1.3; color: #fff; }
+
+    /* Tabs in Inspector */
+    .tab-nav {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .tab-btn {
+      padding: 8px 14px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: #fff; }
+    .tab-btn.active {
+      color: var(--accent-blue);
+      border-bottom-color: var(--accent-blue);
+    }
+    .tab-pane { display: none; flex-direction: column; gap: 14px; }
+    .tab-pane.active { display: flex; }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-decision {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+    .decision-text { font-size: 13px; font-weight: 600; color: #6ee7b7; line-height: 1.4; }
+    .criteria-text { font-size: 12px; color: #fde68a; font-family: ui-monospace, monospace; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px; }
+
+    .teaching-box { display: flex; flex-direction: column; gap: 10px; }
+    .teaching-sec { display: flex; flex-direction: column; gap: 4px; }
+    .teaching-sec-label { font-size: 10px; text-transform: uppercase; color: var(--accent-blue); font-weight: 700; }
+    .teaching-sec p { font-size: 13px; line-height: 1.5; color: #cbd5e1; }
+
+    .alert-pearl {
+      background: rgba(56, 189, 248, 0.1);
+      border-left: 3px solid var(--accent-blue);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 12px;
+      color: #bae6fd;
+    }
+    .alert-pitfall {
+      background: rgba(248, 113, 113, 0.1);
+      border-left: 3px solid var(--accent-red);
+      padding: 8px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 12px;
+      color: #fecaca;
+    }
+
+    /* Assessment UI */
+    .quiz-prompt {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #f1f5f9;
+      font-weight: 500;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quiz-opt-btn {
+      padding: 10px 12px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #e2e8f0;
+      font-size: 12px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      gap: 8px;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+    .quiz-opt-btn:hover { background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.4); }
+    .quiz-opt-btn.correct {
+      background: rgba(52, 211, 153, 0.2) !important;
+      border-color: #34d399 !important;
+      color: #6ee7b7 !important;
+      font-weight: 600;
+    }
+    .quiz-opt-btn.incorrect {
+      background: rgba(248, 113, 113, 0.2) !important;
+      border-color: #f87171 !important;
+      color: #fca5a5 !important;
+    }
+    .quiz-feedback {
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .quiz-feedback.show-correct {
+      display: flex;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      color: #a7f3d0;
+    }
+    .quiz-feedback.show-incorrect {
+      display: flex;
+      background: rgba(248, 113, 113, 0.1);
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      color: #fecaca;
+    }
+    .quiz-reset-btn {
+      margin-top: 6px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: white;
+      font-size: 11px;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+    .quiz-reset-btn:hover { background: rgba(255, 255, 255, 0.15); }
+
+    .rel-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .rel-tag {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #cbd5e1;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .rel-tag:hover { background: rgba(56, 189, 248, 0.2); border-color: var(--accent-blue); color: #fff; }
+    .source-lock-tag {
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: ui-monospace, monospace;
+      background: rgba(0,0,0,0.4);
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <div class="logo-badge">GRAFOMED STUDIO</div>
+      <div>
+        <h1 id="header-title">Asma: Fisiopatología, Diagnóstico y Manejo</h1>
+        <div class="header-sub">Nature Reviews Disease Primers 2015 (Holgate, Wenzel et al.)</div>
+      </div>
+    </div>
+    <div class="header-metrics">
+      <div class="metric-badge">Clusters: <b id="m-clusters">5</b></div>
+      <div class="metric-badge">Nodos: <b id="m-nodes">26</b></div>
+      <div class="metric-badge">Teachings: <b style="color:var(--accent-green)">26 (100%)</b></div>
+      <div class="metric-badge">Assessments: <b style="color:var(--accent-amber)">26 (100%)</b></div>
+      <div class="metric-badge">Aristas: <b id="m-edges">32</b></div>
+    </div>
+  </header>
+
+  <div id="workspace">
+    <!-- Left Sidebar: Filters -->
+    <div id="sidebar-left">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Buscar nodo, regla, fármaco...">
+      </div>
+
+      <div class="filter-group">
+        <h3>Tipo de Nodo</h3>
+        <button class="filter-btn active" data-type="all">
+          <span class="dot" style="background:#cbd5e1"></span> Todos (26)
+        </button>
+        <button class="filter-btn" data-type="decision">
+          <span class="dot" style="background:var(--accent-green)"></span> Decisiones Clínicas (12)
+        </button>
+        <button class="filter-btn" data-type="rule">
+          <span class="dot" style="background:var(--accent-amber)"></span> Reglas y Criterios (5)
+        </button>
+        <button class="filter-btn" data-type="concept">
+          <span class="dot" style="background:var(--accent-purple)"></span> Conceptos y Vías (8)
+        </button>
+        <button class="filter-btn" data-type="procedure">
+          <span class="dot" style="background:var(--accent-blue)"></span> Procedimientos (1)
+        </button>
+      </div>
+
+      <div class="filter-group" id="cluster-filter-group">
+        <h3>Clusters de la Guía</h3>
+        <!-- Dynamic clusters -->
+      </div>
+    </div>
+
+    <!-- Center Canvas -->
+    <div id="viewport">
+      <canvas id="graph-canvas"></canvas>
+      <div class="viewport-tools">
+        <button class="tool-btn" id="btn-zoom-in">＋</button>
+        <button class="tool-btn" id="btn-zoom-out">－</button>
+        <button class="tool-btn" id="btn-reset">Reset Vista</button>
+      </div>
+    </div>
+
+    <!-- Right Sidebar: Deep Inspector -->
+    <div id="sidebar-right">
+      <div id="empty-inspector" class="empty-state">
+        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <path d="M12 8v4m0 4h.01" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p><b>100% Cobertura Pedagógica Activa</b></p>
+        <p>Selecciona cualquier nodo para auditar su <b>Teaching Unit</b> y resolver su <b>Assessment Unit</b> interactiva.</p>
+      </div>
+
+      <div id="active-inspector" style="display:none; flex-direction:column; gap:12px;">
+        <div class="node-header">
+          <div class="badge-row">
+            <span id="insp-badge" class="badge">DECISIÓN</span>
+            <span id="insp-id" class="node-id">DEC-ASMA-01</span>
+          </div>
+          <div id="insp-title" class="node-title">Título del Nodo</div>
+          <div id="insp-cluster" style="font-size:11px; color:var(--text-muted);">Cluster</div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+          <button class="tab-btn active" id="tab-btn-teach">
+            <span>🧠</span> Lección / Teaching Unit
+          </button>
+          <button class="tab-btn" id="tab-btn-quiz">
+            <span>📝</span> Evaluación Interactiva
+          </button>
+        </div>
+
+        <!-- TAB 1: TEACHING PANE -->
+        <div id="pane-teach" class="tab-pane active">
+          <!-- Decision Box -->
+          <div id="box-decision" class="card card-decision">
+            <div class="card-title">🎯 Decisión Clínica Observable</div>
+            <div id="insp-decision" class="decision-text">Acción clínica a ejecutar...</div>
+          </div>
+
+          <!-- Rule Criteria Box -->
+          <div id="box-criteria" class="card" style="display:none;">
+            <div class="card-title">📏 Criterio Operativo / Umbral Numérico</div>
+            <div id="insp-criteria" class="criteria-text">Criterios...</div>
+          </div>
+
+          <!-- Teaching Unit Content -->
+          <div id="box-teaching" class="card">
+            <div class="card-title">📖 Fundamento Teórico y Caso</div>
+            <div class="teaching-box">
+              <div class="teaching-sec">
+                <span class="teaching-sec-label">Mecanismo Fisiopatológico</span>
+                <p id="insp-teach-body">Cuerpo teórico...</p>
+              </div>
+              <div class="teaching-sec">
+                <span class="teaching-sec-label">Caso Clínico Ilustrativo</span>
+                <p id="insp-teach-example">Caso...</p>
+              </div>
+              <div class="teaching-sec">
+                <span class="teaching-sec-label">Boundary (Límites y Cuándo Falla)</span>
+                <p id="insp-teach-boundary">Límites...</p>
+              </div>
+              <div id="insp-alert-pearl" class="alert-pearl">
+                <b>💎 Perla Clínica:</b> <span id="insp-teach-pearl"></span>
+              </div>
+              <div id="insp-alert-pitfall" class="alert-pitfall">
+                <b>🛑 Trampa Frecuente:</b> <span id="insp-teach-pitfall"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: ASSESSMENT PANE -->
+        <div id="pane-quiz" class="tab-pane">
+          <!-- BLUEPRINT DE JUEGOS RECOMENDADOS -->
+          <div class="card" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.05);">
+            <div class="card-title" style="color:var(--accent-blue);">
+              <span>🎮</span> Blueprint de Juegos de Evaluación Recomendados
+            </div>
+            <div style="font-size:11px; color:var(--text-muted); margin-bottom:4px;">
+              Juegos seleccionados de la suite de 20 para evaluar este nodo en <code>games-lab</code>:
+            </div>
+            <div id="quiz-games-container" style="display:flex; flex-direction:column; gap:8px;">
+              <!-- Dynamic Games List -->
+            </div>
+          </div>
+
+          <!-- VIÑETA CLÍNICA DE PRUEBA -->
+          <div class="card" style="border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.04);">
+            <div class="card-title" style="color:var(--accent-amber);">
+              <span>🎯</span> Viñeta de Evaluación Clínica Rápida
+              <span id="quiz-difficulty" style="margin-left:auto; font-size:10px; padding:2px 6px; border-radius:4px; background:rgba(255,255,255,0.1);">INTERMEDIO</span>
+            </div>
+            <div id="quiz-prompt" class="quiz-prompt">Cargando caso...</div>
+          </div>
+
+          <div class="quiz-options" id="quiz-options-container">
+            <!-- Dynamic Options -->
+          </div>
+
+          <div id="quiz-feedback-box" class="quiz-feedback">
+            <div id="quiz-feedback-title" style="font-weight:700; font-size:13px;"></div>
+            <div id="quiz-feedback-body" style="font-size:12px;"></div>
+            <button class="quiz-reset-btn" id="quiz-reset-btn">🔄 Reiniciar Pregunta</button>
+          </div>
+        </div>
+
+        <!-- Shared Relations Box -->
+        <div class="card">
+          <div class="card-title">🔗 Conexiones Topológicas</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-bottom:4px;">Prerrequisitos Entrantes (Requires / Supports):</div>
+          <div id="insp-incoming" class="rel-list">Ninguno</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:8px; margin-bottom:4px;">Desbloquea (Unlocks):</div>
+          <div id="insp-outgoing" class="rel-list">Ninguno</div>
+        </div>
+
+        <!-- Source Lock Box -->
+        <div class="card">
+          <div class="card-title">🔒 Source-Lock Provenance</div>
+          <div id="insp-source-lock" class="source-lock-tag">Nature Reviews Disease Primers 2015</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const GRAPH_DATA = {"release": {"id": "asthma-primer-holgate-2015.v2", "title": "Asma: Fisiopatología, Diagnóstico y Manejo Estratificado", "source": "Nature Reviews Disease Primers (2015) 1:15025. Holgate ST, Wenzel S, Postma DS, Weiss ST, Renz H, Sly PD. DOI: 10.1038/nrdp.2015.25", "version": 2, "universal_coverage": true, "game_catalog_integrated": true, "total_games_in_suite": 20}, "clusters": [{"id": "CLU-ASMA-PATHO", "title": "Fisiopatología, Inmunología y Remodelado de la Vía Aérea", "description": "Mecanismos de sensibilización, alarminas epiteliales, cascada Th2, respuesta dual EAR/LAR, unidad trófica epitelio-mesenquimal y deficiencia de interferones antivirales.", "color": "#8b5cf6"}, {"id": "CLU-ASMA-DX", "title": "Diagnóstico Clínico y Confirmación Espirométrica", "description": "Sospecha sintomática, prueba de reversibilidad broncodilatadora con SABA, pruebas de provocación bronquial y exclusión de diagnósticos diferenciales.", "color": "#10b981"}, {"id": "CLU-ASMA-BIOMARK", "title": "Fenotipos, Endotipos y Biomarcadores T2 vs No-T2", "description": "Estratificación molecular de asma alérgica, eosinofílica de inicio tardío, neutrofílica Th17 y paucigranulocítica mediante FeNO, eosinófilos y periostina.", "color": "#f59e0b"}, {"id": "CLU-ASMA-TX-STEP", "title": "Manejo Farmacológico Escalonado GINA (Steps 1–5)", "description": "Estrategia por pasos de GINA: ICS-formoterol a demanda, terapia de mantenimiento y rescate (MART), LAMA tiotropio y auditoría de factores modificables.", "color": "#0ea5e9"}, {"id": "CLU-ASMA-SEVERE", "title": "Asma Grave, Terapias Biológicas y Planes de Acción", "description": "Selección de anticuerpos monoclonales dirigidos (anti-IgE, anti-IL-5, anti-IL-4Rα), termoplastia bronquial y planes de automanejo escrito con PROMs.", "color": "#ef4444"}], "nodes": [{"id": "CON-ASMA-ALARM", "type": "concept", "cluster_id": "CLU-ASMA-PATHO", "title": "Alarminas Epiteliales (TSLP, IL-25, IL-33) e ILC2", "summary": "Respuesta inmune innata del epitelio ante daño por proteasas alergénicas, virus o contaminantes.", "decision_prompt": "Identificar el rol de las alarminas epiteliales como puente entre lesión de barrera y activación innata tipo 2 (ILC2s/nuocitos).", "assessment_recommendations": [{"game_id": "game-01", "game_name": "DAG Concept Map Builder", "suitability": "alta", "clinical_mission": "Ensamblar la red de señalización epitelio-alarmina-ILC2."}, {"game_id": "game-05", "game_name": "Molecular Circuit Breaker", "suitability": "alta", "clinical_mission": "Neutralizar TSLP/IL-33 antes de activar la síntesis de IL-5/IL-13 por ILC2s."}, {"game_id": "quick-mcq", "game_name": "Opción Múltiple / V-F", "suitability": "media", "clinical_mission": "Identificar el trío de alarminas T2 canónicas frente a interferones."}]}, {"id": "CON-ASMA-TH2-CASCADE", "type": "concept", "cluster_id": "CLU-ASMA-PATHO", "title": "Cascada Canónica Th2 y Switch Isotípico a IgE", "summary": "Diferenciación de CD4+ a Th2 mediada por DCs, producción de IL-4, IL-5, IL-9, IL-13 y maduración a células plasmáticas productoras de IgE.", "decision_prompt": "Vincular el perfil de citoquinas Th2 con sus órganos diana: IL-4/IL-13 para síntesis de IgE e iNOS, IL-5 para supervivencia de eosinófilos, IL-9/IL-13 para hipersecreción de moco.", "assessment_recommendations": [{"game_id": "game-01", "game_name": "DAG Concept Map Builder", "suitability": "alta", "clinical_mission": "Modelar la presentación de alérgenos por DCs a CD4+ y diferenciación Th2."}, {"game_id": "game-02", "game_name": "Metabolic & Pathway Fault-Detector", "suitability": "alta", "clinical_mission": "Evaluar la falla en el switch isotípico de IgE al bloquear IL-4 o CD40L."}, {"game_id": "game-05", "game_name": "Molecular Circuit Breaker", "suitability": "media", "clinical_mission": "Bloqueo selectivo de citoquinas Th2 efectoras."}]}, {"id": "CON-ASMA-EAR-LAR", "type": "concept", "cluster_id": "CLU-ASMA-PATHO", "title": "Respuesta Temprana (EAR) vs Tardía (LAR)", "summary": "Fisiopatología bifásica del espasmo bronquial mediado por degranulación mastocitaria inmediata vs reclutamiento inflamatorio tardío.", "decision_prompt": "Diferenciar la broncoconstricción temprana por histamina/cisteinil-leucotrienos (5-90 min) de la respuesta inflamatoria tardía celular (3-12 h).", "assessment_recommendations": [{"game_id": "game-11", "game_name": "Feature Contrast Duel", "suitability": "alta", "clinical_mission": "Duelo temporal y celular: EAR (5-90 min, mastocitos/histamina) vs LAR (3-12 h, eosinófilos/remodelado)."}, {"game_id": "game-01", "game_name": "DAG Concept Map Builder", "suitability": "media", "clinical_mission": "Trazar la secuencia bifásica del broncoespasmo alérgeno-inducido."}]}, {"id": "CON-ASMA-EMTU", "type": "concept", "cluster_id": "CLU-ASMA-PATHO", "title": "Unidad Trófica Epitelio-Mesenquimal (EMTU) y Remodelado", "summary": "Comportamiento del epitelio asmático como herida crónica que cicatriza por segunda intención con hipertrofia muscular y depósito de matriz.", "decision_prompt": "Explicar el engrosamiento de la lámina reticular (colágenos I, III, V, VI, periostina y tenascina) y la proliferación de miofibroblastos y músculo liso.", "assessment_recommendations": [{"game_id": "game-08", "game_name": "Pathology Hotspot Inspector", "suitability": "alta", "clinical_mission": "Inspeccionar biopsia: lámina reticular, pericitos, miofibroblastos y músculo liso hiperplásico."}, {"game_id": "game-01", "game_name": "DAG Concept Map Builder", "suitability": "alta", "clinical_mission": "Conectar citoquinas profibróticas (TGF-β, periostina) con el remodelado irreversible."}]}, {"id": "RUL-ASMA-DEFECTIVE-IFN", "type": "rule", "cluster_id": "CLU-ASMA-PATHO", "title": "Deficiencia Epitelial de Interferones Antivirales (IFN-β e IFN-λ)", "summary": "Respuesta antiviral innata deficiente en epitelio asmático que amplifica el daño inducido por Rinovirus y VSR.", "criteria": "Producción disminuida de IFN-beta y IFN-lambda en células epiteliales bronquiales asmáticas ante infección viral respiratoria.", "assessment_recommendations": [{"game_id": "game-02", "game_name": "Metabolic & Pathway Fault-Detector", "suitability": "alta", "clinical_mission": "Simular el bloqueo antiviral por déficit de IFN-β/λ frente a Rinovirus."}, {"game_id": "quick-mcq", "game_name": "Opción Múltiple / V-F", "suitability": "alta", "clinical_mission": "Diferenciar infección bacteriana de exacerbación viral por defecto epitelial."}]}, {"id": "DEC-ASMA-ASSESS-REMODEL-RISK", "type": "decision", "cluster_id": "CLU-ASMA-PATHO", "title": "Estratificar Riesgo de Remodelado y Obstrucción Fija", "summary": "Evaluar marcadores de progresión hacia limitación crónica no reversible al flujo aéreo.", "decision_prompt": "Identificar pacientes con inflamación crónica no controlada, asma de inicio en la adultez o atopia severa persistente con riesgo de daño estructural irreversible.", "assessment_recommendations": [{"game_id": "game-18", "game_name": "Longitudinal Serial Case", "suitability": "alta", "clinical_mission": "Seguimiento a 5 años: evaluar progresión de asma tardía hacia obstrucción fija."}, {"game_id": "game-03", "game_name": "Illness Script Matrix", "suitability": "alta", "clinical_mission": "Estratificar factores de riesgo: inicio adulto, tabaquismo y omisión de ICS."}]}, {"id": "CON-ASMA-SYMPTOM-PATTERN", "type": "concept", "cluster_id": "CLU-ASMA-DX", "title": "Patrón Clínico de Síntomas Respiratorios Variables", "summary": "Sibilancias, disnea, opresión torácica y tos de predominio nocturno/matutino o tras desencadenantes específicos.", "decision_prompt": "Reconocer que la presencia de síntomas aislados tiene baja especificidad ('ni todo lo que silba es asma, ni toda asma silba') y requiere prueba funcional.", "assessment_recommendations": [{"game_id": "game-09", "game_name": "Red Herring Hunter", "suitability": "alta", "clinical_mission": "Filtrar causas espurias de sibilancias y tos nocturna (ERGE, goteo postnasal)."}, {"game_id": "game-03", "game_name": "Illness Script Matrix", "suitability": "alta", "clinical_mission": "Reconocer el patrón temporal de variabilidad y gatillos del asma."}]}, {"id": "RUL-ASMA-SPIRO-REVERSIBILITY", "type": "rule", "cluster_id": "CLU-ASMA-DX", "title": "Criterio Espirométrico de Reversibilidad con Broncodilatador", "summary": "Regla cuantitativa formal para confirmar limitación variable al flujo aéreo post-inhalación de SABA.", "criteria": "Incremento de FEV1 ≥ 12% Y ≥ 200 mL respecto al valor basal tras 200-400 mcg de salbutamol inhalado.", "assessment_recommendations": [{"game_id": "game-07", "game_name": "Loop Detective (Espirometría)", "suitability": "alta", "clinical_mission": "Ajustar cursores para validar el doble criterio: incremento ≥ 12% Y ≥ 200 mL post-SABA."}, {"game_id": "game-06", "game_name": "Biomarker Dial & Cutoff Slider", "suitability": "alta", "clinical_mission": "Desplazar FEV1 basal y post-BD para resolver casos límite."}]}, {"id": "DEC-ASMA-CONFIRM-DIAGNOSIS", "type": "decision", "cluster_id": "CLU-ASMA-DX", "title": "Confirmar Diagnóstico Objetivo de Asma", "summary": "Integrar síntomas característicos con demostración objetiva de limitación variable del flujo aéreo.", "decision_prompt": "Emitir diagnóstico formal de asma solo tras verificar clínica compatible junto con reversibilidad espirométrica demostrada o variabilidad de PEF.", "assessment_recommendations": [{"game_id": "game-12", "game_name": "Diagnostic Test Sequencer", "suitability": "alta", "clinical_mission": "Secuenciar algoritmo diagnóstico: clínica → espirometría con BD → PEF seriado."}, {"game_id": "game-09", "game_name": "Red Herring Hunter", "suitability": "alta", "clinical_mission": "Evitar el sobrediagnóstico por juicio clínico puro sin prueba funcional."}]}, {"id": "PRC-ASMA-BRONCHIAL-PROVOCATION", "type": "procedure", "cluster_id": "CLU-ASMA-DX", "title": "Prueba de Provocación Bronquial (Metacolina / Manitol / Ejercicio)", "summary": "Protocolo diagnóstico de provocación directa o indirecta para pacientes con sospecha clínica y espirometría basal normal.", "decision_prompt": "Solicitar test de provocación con metacolina o ejercicio para desenmascarar hiperreactividad bronquial cuando la espirometría basal es no diagnóstica.", "assessment_recommendations": [{"game_id": "game-07", "game_name": "Loop Detective (Espirometría)", "suitability": "alta", "clinical_mission": "Interpretar curva dosis-respuesta con concentraciones crecientes de metacolina."}, {"game_id": "game-17", "game_name": "Contraindication Minesweeper", "suitability": "alta", "clinical_mission": "Desactivar la prueba si el FEV1 basal es < 60% o hay evento cardiovascular reciente."}]}, {"id": "RUL-ASMA-METHACHOLINE-FALL", "type": "rule", "cluster_id": "CLU-ASMA-DX", "title": "Criterio de Positividad en Test de Metacolina", "summary": "Umbral de caída de flujo para catalogar hiperreactividad de vías aéreas.", "criteria": "Caída del FEV1 ≥ 20% respecto al valor control con solución salina ante concentraciones estándar de metacolina.", "assessment_recommendations": [{"game_id": "game-06", "game_name": "Biomarker Dial & Cutoff Slider", "suitability": "alta", "clinical_mission": "Localizar el punto de caída del 20% (PC20) e indexar severidad de hiperreactividad."}, {"game_id": "game-07", "game_name": "Loop Detective (Espirometría)", "suitability": "media", "clinical_mission": "Comparar curva basal post-salina con caída post-metacolina."}]}, {"id": "DEC-ASMA-DIFFERENTIAL-DIAGNOSIS", "type": "decision", "cluster_id": "CLU-ASMA-DX", "title": "Discriminar Diagnósticos Diferenciales y ACOS", "summary": "Diferenciar asma de EPOC, disfunción de cuerdas vocales, laringoespasmo, reflujo gastroesofágico y bronquiectasias.", "decision_prompt": "Evaluar antecedentes de tabaquismo intenso, persistencia de obstrucción fija, ruidos laríngeos inspiratorios y falta de respuesta a broncodilatadores para descartar simuladores.", "assessment_recommendations": [{"game_id": "game-11", "game_name": "Feature Contrast Duel", "suitability": "alta", "clinical_mission": "Duelo clínico directo: Asma vs EPOC vs Disfunción de Cuerdas Vocales vs ACOS."}, {"game_id": "game-09", "game_name": "Red Herring Hunter", "suitability": "alta", "clinical_mission": "Detectar estridor inspiratorio y aplanamiento en bucle flujo-volumen."}]}, {"id": "CON-ASMA-ENDOTYPES-T2-VS-NONT2", "type": "concept", "cluster_id": "CLU-ASMA-BIOMARK", "title": "Endotipos Moleculares: T2-High vs No-T2", "summary": "Dicotomía molecular entre inflamación dependiente de citoquinas Th2/ILC2 y vías neutrofílicas Th1/Th17 o paucigranulocíticas.", "decision_prompt": "Clasificar el mecanismo patogénico subyacente para predecir respuesta terapéutica a esteroides y biológicos dirigidos.", "assessment_recommendations": [{"game_id": "game-10", "game_name": "Patient Phenotype Sorter", "suitability": "alta", "clinical_mission": "Clasificar viñetas de pacientes en buzones moleculares: T2-High vs No-T2."}, {"game_id": "game-03", "game_name": "Illness Script Matrix", "suitability": "alta", "clinical_mission": "Matriz de contraste: asma alérgica, eosinofílica tardía, neutrofílica y paucigranulocítica."}]}, {"id": "RUL-ASMA-FENO-BIOMARKER", "type": "rule", "cluster_id": "CLU-ASMA-BIOMARK", "title": "Fracción Exhalada de Óxido Nítrico (FeNO)", "summary": "Biomarcador directo de inflamación eosinofílica/T2 mediada por expresión de iNOS en epitelio bronquial.", "criteria": "FeNO > 25-50 ppb indica alta probabilidad de inflamación T2 sensible a corticosteroides inhalados.", "assessment_recommendations": [{"game_id": "game-06", "game_name": "Biomarker Dial & Cutoff Slider", "suitability": "alta", "clinical_mission": "Ajustar dial de FeNO (> 25-50 ppb) y calibrar respuesta predicha a esteroides inhalados."}, {"game_id": "game-19", "game_name": "Biologic Matchmaker", "suitability": "media", "clinical_mission": "Integrar FeNO con eosinofilia periférica para selección de Dupilumab."}]}, {"id": "RUL-ASMA-BLOOD-EOSINOPHILS", "type": "rule", "cluster_id": "CLU-ASMA-BIOMARK", "title": "Umbral de Eosinofilia Periférica y en Esputo", "summary": "Criterio biológico de carga inflamatoria eosinofílica para selección de tratamiento.", "criteria": "Eosinófilos en sangre periférica ≥ 150-300 cél/µL (o ≥ 2-3% en esputo inducido) predicen respuesta a terapias anti-IL-5.", "assessment_recommendations": [{"game_id": "game-06", "game_name": "Biomarker Dial & Cutoff Slider", "suitability": "alta", "clinical_mission": "Mover umbral de eosinófilos (150 vs 300 cél/µL) y evaluar indicación de anti-IL-5."}, {"game_id": "game-19", "game_name": "Biologic Matchmaker", "suitability": "alta", "clinical_mission": "Filtrar candidatos a Mepolizumab según eosinofilia persistente."}]}, {"id": "CON-ASMA-PERIOSTIN", "type": "concept", "cluster_id": "CLU-ASMA-BIOMARK", "title": "Periostina Sérica como Marcador de Actividad IL-4/IL-13", "summary": "Proteína de matriz extracelular secretada por epitelio y fibroblastos bajo estímulo de IL-4 e IL-13.", "decision_prompt": "Utilizar la elevación de periostina como indicador de eosinofilia tisular profunda, remodelado de membrana basal y respuesta a bloqueo de IL-13.", "assessment_recommendations": [{"game_id": "game-06", "game_name": "Biomarker Dial & Cutoff Slider", "suitability": "alta", "clinical_mission": "Correlacionar niveles séricos de periostina con actividad de IL-13 y remodelado."}, {"game_id": "game-08", "game_name": "Pathology Hotspot Inspector", "suitability": "media", "clinical_mission": "Identificar la secreción basolateral de periostina hacia la circulación."}]}, {"id": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "type": "decision", "cluster_id": "CLU-ASMA-BIOMARK", "title": "Clasificar Endotipo Inflamatorio y Susceptibilidad", "summary": "Adjudicar fenotipo clínico: alérgico clásico, eosinofílico tardío, EREA (Aspirina), inducido por ejercicio o asociado a obesidad.", "decision_prompt": "Combinar historia de atopia, presencia de pólipos nasales/intolerancia a AINEs, IMC, FeNO y eosinófilos para definir el tratamiento de precisión.", "assessment_recommendations": [{"game_id": "game-10", "game_name": "Patient Phenotype Sorter", "suitability": "alta", "clinical_mission": "Asignar en swipe rápido a 5 pacientes a sus endotipos terapéuticos definitivos."}, {"game_id": "game-19", "game_name": "Biologic Matchmaker", "suitability": "alta", "clinical_mission": "Conectar fenotipo clínico complejo (ej. EREA/Samter) con su perfil inflamatorio."}]}, {"id": "DEC-ASMA-STEP1-2-MANAGEMENT", "type": "decision", "cluster_id": "CLU-ASMA-TX-STEP", "title": "Iniciar Tratamiento en Asma Leve (Steps 1–2)", "summary": "Prescribir terapia antiinflamatoria controladora temprana para abolir el riesgo de exacerbación y reducir uso exclusivo de SABA.", "decision_prompt": "Indicar ICS a dosis baja regular diario o ICS-formoterol a demanda desde el diagnóstico inicial, desaconsejando la monoterapia con SABA.", "assessment_recommendations": [{"game_id": "game-13", "game_name": "Stepwise GINA Ladder", "suitability": "alta", "clinical_mission": "Armar Step 1-2 con ICS-formoterol a demanda o ICS diario, erradicando SABA solo."}, {"game_id": "game-04", "game_name": "Management Script Matrix", "suitability": "alta", "clinical_mission": "Prescribir el esquema controlador inicial según frecuencia sintomática."}]}, {"id": "DEC-ASMA-STEP3-ESCALATION", "type": "decision", "cluster_id": "CLU-ASMA-TX-STEP", "title": "Escalar a Step 3: Terapia Combinada ICS/LABA (MART)", "summary": "Asociar broncodilatador de acción prolongada a dosis baja de corticoide inhalado.", "decision_prompt": "Seleccionar combinación ICS a dosis baja + LABA (preferentemente budesonida/formoterol o beclometasona/formoterol como mantenimiento y rescate MART).", "assessment_recommendations": [{"game_id": "game-13", "game_name": "Stepwise GINA Ladder", "suitability": "alta", "clinical_mission": "Configurar terapia MART con ICS-formoterol a dosis bajas para mantenimiento y rescate."}, {"game_id": "game-18", "game_name": "Longitudinal Serial Case", "suitability": "alta", "clinical_mission": "Evaluar respuesta clínica a los 3 meses y ajustar dosis de rescate consumidas."}]}, {"id": "DEC-ASMA-STEP4-ESCALATION", "type": "decision", "cluster_id": "CLU-ASMA-TX-STEP", "title": "Escalar a Step 4 y Adicionar LAMA (Tiotropio)", "summary": "Intensificar a dosis media/alta de ICS/LABA y sumar antagonista muscarínico de acción prolongada si persisten exacerbaciones.", "decision_prompt": "Añadir Tiotropio en dispositivo de niebla fina (Respimat) a la combinación ICS/LABA a dosis media-alta en pacientes con exacerbaciones frecuentes.", "assessment_recommendations": [{"game_id": "game-13", "game_name": "Stepwise GINA Ladder", "suitability": "alta", "clinical_mission": "Intensificar a dosis media/alta de ICS/LABA y añadir Tiotropio Respimat (LAMA)."}, {"game_id": "game-17", "game_name": "Contraindication Minesweeper", "suitability": "media", "clinical_mission": "Verificar que el paciente no suspenda el corticoide al iniciar el antimuscarínico."}]}, {"id": "DEC-ASMA-AUDIT-MODIFIABLE-FACTORS", "type": "decision", "cluster_id": "CLU-ASMA-TX-STEP", "title": "Auditar Factores Modificables Antes de Todo Escalamiento", "summary": "Verificar técnica del inhalador, adherencia terapéutica, tabaquismo y comorbilidades antes de clasificar como asma refractaria.", "decision_prompt": "Revisar presencialmente la técnica inhalatoria y descartar rinosinusitis, ERGE, obesidad o exposición ocupacional antes de aumentar dosis farmacológica.", "assessment_recommendations": [{"game_id": "game-14", "game_name": "Inhaler Error Inspector", "suitability": "alta", "clinical_mission": "Auditar 5 pasos de uso de MDI/Turbuhaler y corregir el fallo técnico crítico."}, {"game_id": "game-09", "game_name": "Red Herring Hunter", "suitability": "alta", "clinical_mission": "Detectar mala adherencia y tabaquismo antes de clasificar como asma refractaria."}]}, {"id": "DEC-ASMA-BIOLOGIC-OMALIZUMAB", "type": "decision", "cluster_id": "CLU-ASMA-SEVERE", "title": "Prescribir Omalizumab (Anti-IgE)", "summary": "Terapia biológica dirigida para asma alérgica grave no controlada en Step 5.", "decision_prompt": "Iniciar Omalizumab subcutáneo en pacientes con asma alérgica grave, IgE sérica total en rango dosificable y sensibilización perenne a aeroalérgenos.", "assessment_recommendations": [{"game_id": "game-05", "game_name": "Molecular Circuit Breaker", "suitability": "alta", "clinical_mission": "Acoplar Omalizumab a la IgE libre impidiendo su unión al receptor FcεRI."}, {"game_id": "game-19", "game_name": "Biologic Matchmaker", "suitability": "alta", "clinical_mission": "Calcular dosis según tabla cruzada de peso corporal e IgE sérica basal."}]}, {"id": "DEC-ASMA-BIOLOGIC-MEPOLIZUMAB", "type": "decision", "cluster_id": "CLU-ASMA-SEVERE", "title": "Prescribir Terapias Dirigidas a la Vía IL-5 (Mepolizumab)", "summary": "Anticuerpo monoclonal bloqueador de IL-5 o su receptor para asma eosinofílica severa refractaria.", "decision_prompt": "Indicar Mepolizumab en pacientes con asma severa y eosinofilia periférica persistente (≥ 150-300 cél/µL) para reducir exacerbaciones y dosis de corticoides orales.", "assessment_recommendations": [{"game_id": "game-05", "game_name": "Molecular Circuit Breaker", "suitability": "alta", "clinical_mission": "Neutralizar IL-5 libre y detener el reclutamiento y supervivencia eosinofílica."}, {"game_id": "game-19", "game_name": "Biologic Matchmaker", "suitability": "alta", "clinical_mission": "Seleccionar Mepolizumab en paciente corticodependiente con eosinófilos ≥ 300/µL."}]}, {"id": "DEC-ASMA-BIOLOGIC-DUPILUMAB", "type": "decision", "cluster_id": "CLU-ASMA-SEVERE", "title": "Prescribir Bloqueo IL-4Rα (Dupilumab)", "summary": "Inhibición dual de la señalización de IL-4 e IL-13 en asma T2 moderada a severa con eosinofilia o FeNO elevado.", "decision_prompt": "Seleccionar Dupilumab para pacientes dependientes de corticoides orales o con FeNO y eosinófilos elevados y comorbilidades atópicas (ej. dermatitis atópica, poliposis nasal).", "assessment_recommendations": [{"game_id": "game-05", "game_name": "Molecular Circuit Breaker", "suitability": "alta", "clinical_mission": "Bloquear la subunidad IL-4Rα y apagar la señal dual de IL-4 e IL-13."}, {"game_id": "game-19", "game_name": "Biologic Matchmaker", "suitability": "alta", "clinical_mission": "Emparejar en asma severa con FeNO elevado y poliposis nasal concurrente."}]}, {"id": "DEC-ASMA-BRONCHIAL-THERMOPLASTY", "type": "decision", "cluster_id": "CLU-ASMA-SEVERE", "title": "Evaluar Candidatura a Termoplastia Bronquial", "summary": "Procedimiento broncoscópico invasivo de radiofrecuencia (sistema Alair) para ablación de hipertrofia muscular lisa.", "decision_prompt": "Considerar termoplastia bronquial exclusivamente en centros de referencia para asma grave refractaria a todos los tratamientos médicos optimizados.", "assessment_recommendations": [{"game_id": "game-04", "game_name": "Management Script Matrix", "suitability": "alta", "clinical_mission": "Definir protocolo en 3 sesiones broncoscópicas de radiofrecuencia a 65 °C."}, {"game_id": "game-17", "game_name": "Contraindication Minesweeper", "suitability": "alta", "clinical_mission": "Suspender el procedimiento si hay crisis reciente o FEV1 basal post-BD < 50%."}]}, {"id": "DEC-ASMA-WRITTEN-ACTION-PLAN", "type": "decision", "cluster_id": "CLU-ASMA-SEVERE", "title": "Formular Plan de Acción Escrito y Monitorizar con PROMs", "summary": "Establecer co-manejo guiado por zonas (verde, amarilla, roja) y cuestionarios validados de control (ACT, ACQ, AQLQ).", "decision_prompt": "Entregar a todo paciente un plan de acción por escrito con indicaciones claras de incremento de medicación y búsqueda de urgencias ante caída de PEF o síntomas.", "assessment_recommendations": [{"game_id": "game-15", "game_name": "Traffic Light Action Plan", "suitability": "alta", "clinical_mission": "Construir las 3 zonas (Verde/Amarilla/Roja) y definir dosis de rescate y esteroide oral."}, {"game_id": "game-16", "game_name": "Rapid Crisis Triage (60s)", "suitability": "alta", "clinical_mission": "Simular la toma de decisiones del paciente cuando el PEF cae por debajo del 50%."}]}], "teaching_units": [{"id": "UNT-ASMA-ALARM", "target_id": "CON-ASMA-ALARM", "title": "Mecanismo de las Alarminas Epiteliales", "body": "El epitelio bronquial no es una barrera inerte, sino un órgano sensor inmunológico. Al ser lesionado por proteasas alergénicas (ácaros Der p I, cucarachas, hongos), virus o contaminación, libera TSLP, IL-25 e IL-33. Estas alarminas activan directamente a las células linfoides innatas tipo 2 (ILC2s/nuocitos) sin necesidad de presentación antigénica previa, liberando rápidamente IL-5, IL-9 e IL-13.", "example": "Paciente expuesto bruscamente a partículas diésel que sufre broncoespasmo y eosinofilia rápida sin nueva exposición alergénica demostrable.", "boundary": "Las alarminas explican la inducción rápida innata; no sustituyen la memoria inmunológica adquirida mediada por células Th2 y células B.", "pearl": "TSLP, IL-25 e IL-33 son los detonantes maestros en la cúspide epitelial de la cascada T2.", "pitfall": "Asumir que toda inflamación T2 depende exclusivamente de linfocitos T colaboradores vírgenes reconociendo alérgenos vía MHC-II.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 3, 7 (Figuras 5 y 6)."}, {"id": "UNT-ASMA-TH2-CASCADE", "target_id": "CON-ASMA-TH2-CASCADE", "title": "Cascada Th2 Canónica y Switch a IgE", "body": "Las células dendríticas mieloides (mDCs) capturan antígenos procesados mediante MHC-II y migran a ganglios linfáticos locales. En presencia de co-estimulación (CD80/CD86-CD28) y citoquinas inductoras, los linfocitos T vírgenes se diferencian en Th2. Estas secretan IL-4 e IL-13 (que inducen a linfocitos B a cambiar a IgE), IL-5 (diferenciación y sobrevida de eosinófilos) e IL-9 (crecimiento mastocitario).", "example": "Niño atópico de 7 años con IgE total elevada y sensibilización a Dermatophagoides pteronyssinus que desarrolla eosinofilia periférica.", "boundary": "En asma no atópica intrínseca o neutrofílica, los linfocitos Th17 y Th1 predominan y esta cascada está apagada.", "pearl": "IL-4 activa el switch de IgE; IL-5 alimenta al eosinófilo; IL-13 desencadena hiperreactividad y moco.", "pitfall": "Creer que la IgE causa el asma por sí sola sin la cooperación de las citoquinas que reclutan eosinófilos y remodelan la mucosa.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 3, 6 (Figura 5)."}, {"id": "UNT-ASMA-EAR-LAR", "target_id": "CON-ASMA-EAR-LAR", "title": "Respuesta Temprana (EAR) vs Respuesta Tardía (LAR)", "body": "La exposición al alérgeno provoca una Respuesta Asmática Temprana (EAR) a los 5-90 min por entrecruzamiento de IgE en mastocitos de mucosa (MCT), liberando histamina, PGD2 y leucotrieno C4 (LTC4). Posteriormente, entre las 3 y 12 horas, ocurre la Respuesta Asmática Tardía (LAR), impulsada por infiltración de eosinófilos, liberación sostenida de leucotrienos y citoquinas Th2 con aumento de la hiperreactividad bronquial.", "example": "Paciente que tras visitar una casa con gatos sufre sibilancias inmediatas que ceden con salbutamol, pero despierta a las 3:00 AM con disnea grave y esputo denso.", "boundary": "Las pruebas de provocación de laboratorio generan EAR y LAR, pero no reproducen el daño inflamatorio crónico persistente del asma de años.", "pearl": "El SABA apaga la fase temprana (EAR), pero solo el corticoide inhalado previene y neutraliza la fase tardía (LAR).", "pitfall": "Considerar que el paciente está fuera de peligro tras aliviar la fase temprana sin pautar esteroides para la fase tardía inminente.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 3, 7."}, {"id": "UNT-ASMA-EMTU", "target_id": "CON-ASMA-EMTU", "title": "Unidad Trófica Epitelio-Mesenquimal (EMTU)", "body": "En el asma crónica, la comunicación entre el epitelio lesionado y el mesénquima subyacente se perpetúa como un escenario de 'herida crónica'. En lugar de cicatrización por primera intención, el epitelio secreta EGF, TGF-β, FGF y periostina, estimulando a pericitos y fibroblastos a transformarse en miofibroblastos. Esto causa engrosamiento de la lámina reticular con colágenos I, III, V y VI, hiperplasia de músculo liso y angiogénesis.", "example": "Paciente con asma de 20 años de evolución mal controlada que presenta reducción de la respuesta broncodilatadora y FEV1/FVC fijo de 62%.", "boundary": "El remodelado subepitelial de la lámina reticular es específico de asma; el engrosamiento en EPOC tiene una composición molecular distinta.", "pearl": "La broncoconstricción mecánica repetida induce por sí misma factores profibróticos como RELM-β y YKL-40, acelerando el remodelado.", "pitfall": "Asumir que el músculo liso bronquial es solo una víctima pasiva: prolifera y secreta citoquinas proinflamatorias activamente.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 4, 8 (Figura 7)."}, {"id": "UNT-ASMA-DEFECTIVE-IFN", "target_id": "RUL-ASMA-DEFECTIVE-IFN", "title": "Deficiencia Epitelial de Interferones Antivirales", "body": "Las células epiteliales bronquiales de pacientes con asma presentan un defecto intrínseco en la producción de interferón tipo 1 (IFN-β) y tipo 3 (IFN-λ) al ser infectadas por virus respiratorios comunes (Rinovirus, VSR, Influenza). Esto impide frenar la replicación viral temprana, desencadenando muerte epitelial masiva, liberación de alarminas y exacerbaciones agudas severas.", "example": "Un resfriado común por rinovirus que causa rinitis leve en personas sanas detona una crisis asmática con insuficiencia respiratoria en un paciente asmático.", "boundary": "No todas las exacerbaciones son virales; la exposición masiva a alérgenos o picos de contaminación ambiental puede inducir crisis por vías no virales.", "pearl": "El asma confiere una inmunodeficiencia antiviral localizada estrictamente en el epitelio respiratorio.", "pitfall": "Pensar que las crisis asmáticas por virus ocurren por una 'infección bacteriana sobreañadida' y prescribir antibióticos innecesarios.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 5, 8."}, {"id": "UNT-ASMA-ASSESS-REMODEL-RISK", "target_id": "DEC-ASMA-ASSESS-REMODEL-RISK", "title": "Estratificación de Riesgo de Obstrucción Fija", "body": "Un subgrupo de asmáticos presenta un declive acelerado de la función pulmonar a lo largo de su vida, culminando en obstrucción fija irreversible del flujo aéreo (síndrome de solapamiento o remodelado avanzado). Este riesgo es máximo en asma de inicio tardío en adultos, tabaquismo activo concomitante y omisión persistente de corticoides inhalados.", "example": "Mujer de 58 años diagnosticada de asma a los 45 años, sin atopia previa, con FEV1 basal del 55% que tras salbutamol solo sube al 58%.", "boundary": "Una obstrucción fija no excluye el diagnóstico de base de asma si hay historia previa de hiperreactividad documentada.", "pearl": "El inicio temprano y continuo de corticoides inhalados es la única intervención farmacológica capaz de atenuar la progresión del remodelado.", "pitfall": "Clasificar apresuradamente como 'EPOC pura' a un paciente no fumador con obstrucción fija sin investigar asma de larga data no tratada.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 1, 3."}, {"id": "UNT-ASMA-SYMPTOM-PATTERN", "target_id": "CON-ASMA-SYMPTOM-PATTERN", "title": "Patrón Clínico de Síntomas Respiratorios Variables", "body": "El asma se manifiesta característicamente por cuatro síntomas cardinales: sibilancias, opresión torácica, disnea y tos. La clave clínica diagnóstica no es su presencia aislada, sino su variabilidad: empeoran por la noche o madrugada, varían en intensidad a lo largo de los días y son detonados por alérgenos, ejercicio, aire frío o infecciones virales.", "example": "Varón de 24 años que refiere disnea y opresión en el pecho únicamente tras correr en invierno o visitar la casa de campo de sus padres.", "boundary": "La tos crónica aislada sin sibilancias ni opresión puede ser la variante tusígena de asma, pero exige descartar goteo postnasal y reflujo ácido.", "pearl": "'Ni todo lo que silba es asma, ni toda asma silba': los síntomas aislados tienen una tasa de sobrediagnóstico de hasta el 35%.", "pitfall": "Iniciar tratamiento de mantenimiento de por vida basado solo en el relato de 'me silba el pecho' sin confirmación espirométrica objetiva.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 10."}, {"id": "UNT-ASMA-SPIRO-REVERSIBILITY", "target_id": "RUL-ASMA-SPIRO-REVERSIBILITY", "title": "Criterio Numérico Estándar de Reversibilidad Post-SABA", "body": "Por convención internacional, la prueba de reversibilidad broncodilatadora exige dos umbrales simultáneos: un incremento del FEV1 mayor o igual al 12% respecto al valor basal pre-broncodilatador, ACOMPAÑADO de un aumento absoluto de al menos 200 mL tras administrar 200-400 mcg de salbutamol inhalado.", "example": "FEV1 basal: 2.0 L. FEV1 post-salbutamol: 2.35 L. Incremento absoluto: +350 mL. Incremento porcentual: (0.35 / 2.0) = 17.5%. Cumple ambos requisitos.", "boundary": "Si el FEV1 basal es de 1.1 L y sube a 1.25 L (+13.6% pero solo +150 mL), la prueba es técnicamente negativa/no concluyente.", "pearl": "Deben cumplirse los dos criterios juntos: porcentaje (≥ 12%) Y volumen absoluto (≥ 200 mL).", "pitfall": "Aceptar como positiva una reversibilidad de 15% que solo representa 110 mL de incremento absoluto.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 10-11."}, {"id": "UNT-ASMA-CONFIRM-DIAGNOSIS", "target_id": "DEC-ASMA-CONFIRM-DIAGNOSIS", "title": "Confirmación Diagnóstica Rigurosa: Clínica + Fisiología", "body": "El diagnóstico formal de asma requiere documentar la limitación variable del flujo aéreo junto a la clínica compatible. Si la espirometría basal es normal, se debe realizar monitorización ambulatoria del flujo espiratorio máximo (PEF) durante 2 semanas (variabilidad diurna > 10% en adultos) o una prueba de provocación bronquial.", "example": "Mujer de 31 años con síntomas nocturnos esporádicos y espirometría normal. La monitorización de PEF revela una variabilidad diaria promedio del 16%, confirmando el diagnóstico.", "boundary": "Una sola espirometría normal en un paciente que acude asintomático en intercrisis jamás excluye el diagnóstico.", "pearl": "Documenta la fisiología variable antes de iniciar corticoides crónicos; después es mucho más difícil suspenderlos para confirmar.", "pitfall": "Etiquetar a un paciente como asmático sin prueba funcional y luego descubrir que sus síntomas eran por reflujo o ansiedad.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 10-11."}, {"id": "UNT-ASMA-BRONCHIAL-PROVOCATION", "target_id": "PRC-ASMA-BRONCHIAL-PROVOCATION", "title": "Prueba de Provocación Bronquial (Metacolina / Manitol / Ejercicio)", "body": "Indicada ante fuerte sospecha clínica de asma con espirometría basal rigurosamente normal. Se expone al paciente a concentraciones crecientes de un agonista colinérgico (metacolina) o estímulo osmótico (manitol) hasta observar una caída significativa de la función pulmonar.", "example": "Atleta que presenta opresión torácica exclusiva durante el entrenamiento invernal. Su espirometría basal es 105%. El test de esfuerzo con aire frío demuestra caída del FEV1 del 22%.", "boundary": "Absolutamente contraindicada si el FEV1 basal es < 60% del predicho o < 1.5 L, o si hubo infarto o accidente cerebrovascular en los últimos 3 meses.", "pearl": "Un test de provocación con metacolina negativo descarta con virtual certeza el asma activa (excelente valor predictivo negativo).", "pitfall": "Realizar provocación en un paciente que ya tiene patrón obstructivo severo en la espirometría basal.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 11."}, {"id": "UNT-ASMA-METHACHOLINE-FALL", "target_id": "RUL-ASMA-METHACHOLINE-FALL", "title": "Criterio Numérico de Caída en Provocación Bronquial", "body": "El criterio estándar internacional de hiperreactividad bronquial positiva mediante test de metacolina es una caída del FEV1 mayor o igual al 20% (PC20) respecto al valor control basal post-solución salina a una concentración acumulada de fármaco ≤ 8-16 mg/mL.", "example": "FEV1 post-salina: 3.2 L. Tras inhalar metacolina a 2 mg/mL, el FEV1 desciende a 2.4 L (caída de 800 mL, 25%). Prueba marcadamente positiva.", "boundary": "Falsos positivos pueden ocurrir tras infecciones respiratorias virales recientes en personas no asmáticas (hiperreactividad post-viral transitoria).", "pearl": "Cuanto menor es la dosis de metacolina necesaria para provocar la caída del 20%, mayor es la severidad de la hiperreactividad.", "pitfall": "Hacer la prueba antes de que pasen 6 semanas de un cuadro de bronquitis aguda viral, obteniendo un falso positivo.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 11."}, {"id": "UNT-ASMA-DIFFERENTIAL-DIAGNOSIS", "target_id": "DEC-ASMA-DIFFERENTIAL-DIAGNOSIS", "title": "Diagnóstico Diferencial y Síndrome de Solapamiento Asma-EPOC (ACOS)", "body": "El diagnóstico diferencial incluye: EPOC (fumadores > 40 años, disnea progresiva de esfuerzo, poca reversibilidad), disfunción de cuerdas vocales (estridor inspiratorio con aplanamiento en curva flujo-volumen inspiratoria), insuficiencia cardíaca (disnea paroxística nocturna, crepitantes basales) y bronquiectasias.", "example": "Fumador de 60 años con historia de atopia en la infancia que presenta sibilancias pero también enfisema centrolobulillar en TAC y FEV1/FVC post-BD de 0.61. Compatible con ACOS.", "boundary": "La respuesta espectacular a un ciclo corto de corticoides orales orienta fuertemente hacia componente asmático/T2.", "pearl": "Si el paciente no responde en absoluto a dosis plenas de broncodilatadores y esteroides, sospecha disfunción de cuerdas vocales o aspiración por ERGE.", "pitfall": "Tratar una estenosis traqueal o un tumor de vía aérea central como 'asma resistente' porque emite ruidos que simulan sibilancias.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 11."}, {"id": "UNT-ASMA-ENDOTYPES-T2-VS-NONT2", "target_id": "CON-ASMA-ENDOTYPES-T2-VS-NONT2", "title": "Endotipos Moleculares: T2-High vs No-T2", "body": "El asma se divide en dos macro-endotipos: 1) T2-High: caracterizada por citoquinas IL-4, IL-5, IL-13, eosinofilia en esputo/sangre, FeNO alto y excelente sensibilidad a esteroides y biológicos anti-Th2. 2) No-T2: caracterizada por neutrofilia mediada por Th17/Th1 o patrón paucigranulocítico (conducción por disfunción intrínseca del músculo liso), asociada a obesidad o tabaquismo y resistente a esteroides.", "example": "Mujer obesa de 48 años con asma de inicio a los 46 años, no atópica, eosinófilos 80 cél/µL, FeNO 14 ppb y neutrofilia en esputo del 75%. Endotipo No-T2 neutrofílico.", "boundary": "Un paciente con asma T2-high que comienza a fumar puede virar hacia un patrón mixto inflamatorio con neutrofilia añadida.", "pearl": "La respuesta a los corticoides inhalados es la prueba de fuego que distingue al endotipo T2 del No-T2.", "pitfall": "Escalar a dosis masivas de corticoides sistémicos en un paciente con endotipo No-T2 paucigranulocítico, causando solo efectos adversos.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 2 (Figura 1), p. 11-12."}, {"id": "UNT-ASMA-FENO-BIOMARKER", "target_id": "RUL-ASMA-FENO-BIOMARKER", "title": "Fracción Exhalada de Óxido Nítrico (FeNO)", "body": "El FeNO mide el óxido nítrico producido por la enzima inducible iNOS en las células del epitelio bronquial, cuya expresión es activada específicamente por IL-4 e IL-13. Es un biomarcador puntual, no invasivo y reproducible de inflamación T2 eosinofílica activa y es altamente sensible a la supresión por corticoides.", "example": "Paciente con asma no controlada que acude a revisión con FeNO de 78 ppb. Tras 4 semanas de cumplimiento estricto con budesonida inhalada, el FeNO desciende a 22 ppb.", "boundary": "El tabaquismo activo disminuye artificialmente los niveles de FeNO, generando falsos negativos en pacientes fumadores.", "pearl": "Un FeNO > 50 ppb predice una alta probabilidad de respuesta sintomática y espirométrica a los corticoides inhalados.", "pitfall": "Considerar que un paciente no tiene asma si su FeNO es bajo mientras está consumiendo dosis altas de prednisona oral.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 11-12 (Figura 10)."}, {"id": "UNT-ASMA-BLOOD-EOSINOPHILS", "target_id": "RUL-ASMA-BLOOD-EOSINOPHILS", "title": "Conteo de Eosinófilos en Sangre Periférica y Esputo", "body": "Los eosinófilos son los principales efectores tisulares de la vía T2, reclutados y mantenidos por la IL-5. Un recuento de eosinófilos en sangre periférica ≥ 150-300 cél/µL (o ≥ 2-3% en esputo inducido) identifica a los pacientes con alto riesgo de exacerbaciones y predice con precisión la respuesta a terapias anti-IL-5.", "example": "Paciente con 3 hospitalizaciones al año por crisis asmáticas cuyo hemograma rutinario muestra 520 eosinófilos/µL (8.5%). Candidato a terapia dirigida.", "boundary": "Los corticoides sistémicos inducen apoptosis rápida de eosinófilos en sangre; el conteo debe obtenerse con el paciente en la menor dosis posible de OCS.", "pearl": "El conteo de eosinófilos en sangre es un sustituto clínicamente accesible y validado de la eosinofilia en la mucosa bronquial.", "pitfall": "Evaluar eosinófilos inmediatamente después de que el paciente recibió un bolo de metilprednisolona en urgencias, hallando 0 cél/µL.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 11, 12."}, {"id": "UNT-ASMA-PERIOSTIN", "target_id": "CON-ASMA-PERIOSTIN", "title": "Periostina Sérica como Marcador de Actividad IL-4/IL-13", "body": "La periostina es una proteína matricial extracelular inducida por IL-4 e IL-13 en células epiteliales y fibroblastos pulmonares. Se secreta hacia la circulación y actúa ligándose a integrinas αVβ3 y αVβ5 para promover fibrosis subepitelial y migración celular. Niveles séricos elevados discriminan inflamación eosinofílica tisular y predicen respuesta al bloqueo de IL-13 (ej. lebrikizumab).", "example": "Investigación traslacional en paciente con asma severa que correlaciona niveles séricos altos de periostina con mayor engrosamiento de membrana basal en biopsia.", "boundary": "La periostina se eleva también durante el crecimiento óseo en niños y fracturas en consolidación, limitando su uso en pediatría.", "pearl": "La periostina refleja la actividad biológica de la IL-13 en la pared de la vía aérea mejor que la eosinofilia sanguínea.", "pitfall": "Interpretar niveles de periostina en adolescentes en pleno estirón puberal sin considerar la síntesis osteoblástica.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 11-12."}, {"id": "UNT-ASMA-PHENOTYPE-CLASSIFICATION", "target_id": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "title": "Clasificación Integral de Fenotipos y Endotipos", "body": "La estratificación del paciente asmático combina edad de inicio, atopia, comorbilidades (poliposis, obesidad, intolerancia a AINEs) y biomarcadores (FeNO, IgE, eosinófilos). Fenotipos mayores: 1) Asma alérgica de inicio infantil; 2) Asma eosinofílica de inicio tardío; 3) Enfermedad respiratoria exacerbada por aspirina (EREA); 4) Asma asociada a obesidad; 5) Asma neutrofílica en fumadores.", "example": "Mujer de 50 años sin atopia infantil que presenta rinosinusitis con poliposis nasal bilateral y asma tras tomar ibuprofeno. Fenotipo EREA (tríada de Samter).", "boundary": "Los fenotipos clínicos no son inmutables; un paciente puede compartir rasgos alérgicos y desarrollar eosinofilia grave en la adultez.", "pearl": "Pregunta siempre por poliposis nasal y reacción a aspirina en todo adulto con asma de reciente comienzo.", "pitfall": "Tratar a todos los asmáticos adultos con el mismo régimen genérico sin buscar fenotipos tratables específicos.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 2 (Figura 1), p. 11."}, {"id": "UNT-ASMA-STEP1-2-MANAGEMENT", "target_id": "DEC-ASMA-STEP1-2-MANAGEMENT", "title": "Manejo Escalonado Inicial: Antiinflamatorio Temprano", "body": "El uso exclusivo de SABA en monoterapia está obsoleto por incrementar el riesgo de muerte y exacerbaciones. Para Step 1 y Step 2, el estándar moderno es asegurar corticoide inhalado (ICS): ya sea como ICS a dosis bajas regular diario más SABA de rescate, o preferentemente combinación de dosis baja de ICS-formoterol a demanda ante cualquier síntoma.", "example": "Joven de 20 años con síntomas asmáticos 1 vez por semana tras subir escaleras. Se prescribe budesonida/formoterol 160/4.5 mcg 1 disparo a demanda.", "boundary": "Si el paciente tiene despertares nocturnos frecuentes o síntomas la mayoría de los días, Step 1-2 es insuficiente; requiere Step 3.", "pearl": "Nunca dejes a un asmático con un inhalador de rescate puro sin corticoide: el corticoide es el extintor que apaga el fuego inflamatorio.", "pitfall": "Entregar recetas repetidas de salbutamol solo a un paciente que consume más de 3 cartuchos al año, triplicando su riesgo de UCI.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 13-14 (Figura 11)."}, {"id": "UNT-ASMA-STEP3-ESCALATION", "target_id": "DEC-ASMA-STEP3-ESCALATION", "title": "Step 3 y la Estrategia MART (Mantenimiento y Rescate)", "body": "Cuando el asma no se controla con dosis bajas de ICS, el paso más costo-efectivo es asociar un LABA. La estrategia de terapia de mantenimiento y rescate (MART) con ICS-formoterol permite que el paciente utilice el mismo inhalador diariamente de base y en disparos adicionales ante crisis, logrando una reducción del 30-40% en exacerbaciones severas.", "example": "Paciente en Step 2 con síntomas 4 días a la semana. Se rota a beclometasona/formoterol 100/6 mcg: 1 puff cada 12 h más 1 puff de rescate ante necesidad.", "boundary": "No utilizar régimen MART con salmeterol ni vilanterol: su inicio de acción lento los inhabilita para rescate inmediato.", "pearl": "Formoterol es único: tiene la rapidez de inicio del salbutamol (1-3 min) y la duración prolongada de 12 horas del LABA.", "pitfall": "Subir la dosis de ICS a niveles muy altos en monoterapia en lugar de agregar un LABA en el Step 3.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 13-14."}, {"id": "UNT-ASMA-STEP4-ESCALATION", "target_id": "DEC-ASMA-STEP4-ESCALATION", "title": "Step 4 y la Adición de Antimuscarínico (Tiotropio)", "body": "En pacientes que persisten con síntomas o crisis en Step 3, se escala a dosis media o alta de ICS/LABA. En este escalón, la adición de tiotropio (LAMA en dispositivo Respimat de niebla fina) actúa bloqueando el tono colinérgico broncoconstrictor autónomo vía M3, ofreciendo broncodilatación aditiva y reduciendo el riesgo de crisis graves.", "example": "Paciente con ICS/LABA dosis alta que sufrió 2 exacerbaciones en el último año. Se añade Tiotropio Respimat 5 mcg/día (2 inhalaciones de 2.5 mcg).", "boundary": "Tiotropio es un adyuvante para asma con exacerbaciones; nunca debe administrarse como monoterapia sin corticoide.", "pearl": "El bloqueo muscarínico inhibe el reflejo vagal broncoconstrictor que los beta-2 agonistas no neutralizan.", "pitfall": "Suspender el ICS/LABA al indicar tiotropio creyendo erróneamente que un broncodilatador sustituye al otro.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 13-14 (Figura 11)."}, {"id": "UNT-ASMA-AUDIT-MODIFIABLE-FACTORS", "target_id": "DEC-ASMA-AUDIT-MODIFIABLE-FACTORS", "title": "Auditoría de Factores Modificables Antes de Declarar Refractariedad", "body": "Hasta el 75% de los pacientes remitidos por 'asma grave resistente' tienen en realidad 'asma de difícil control' debido a factores corregibles: mala técnica inhalatoria, falta de adherencia, tabaquismo activo, exposición continuada a alérgenos domésticos, reflujo gastroesofágico o rinosinusitis crónica.", "example": "Paciente derivado para biológicos en Step 4. En la consulta se le pide que use su inhalador: dispara antes de inhalar y no contiene la respiración. Se corrige la técnica y su asma se controla en 3 semanas.", "boundary": "Si tras comprobar adherencia > 80%, técnica perfecta y control de comorbilidades durante 3-6 meses el paciente sigue mal controlado, se confirma Asma Grave Refractaria.", "pearl": "El mejor fármaco del mundo tiene eficacia cero si impacta en la lengua o la pared posterior de la faringe.", "pitfall": "Escalar a biológicos de alto costo o corticoides orales sin haber visto al paciente usar su dispositivo en la consulta.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 14."}, {"id": "UNT-ASMA-BIOLOGIC-OMALIZUMAB", "target_id": "DEC-ASMA-BIOLOGIC-OMALIZUMAB", "title": "Prescribir Omalizumab (Anti-IgE)", "body": "Omalizumab es un anticuerpo monoclonal humanizado que se une a la porción Fc de la IgE libre, impidiendo su fijación al receptor de alta afinidad (FcεRI) en mastocitos y basófilos y disminuyendo la densidad de estos receptores. Indicado en asma alérgica grave no controlada en Step 5 con sensibilización confirmada e IgE total dentro de tabla de dosificación.", "example": "Paciente de 29 años con asma severa alérgica, IgE total de 450 UI/mL, prick test positivo a ácaros y 3 crisis al año pese a ICS/LABA a dosis alta. Candidato a Omalizumab SC cada 2-4 semanas.", "boundary": "No indicado si la IgE total es < 30 UI/mL o superior al límite superior de la tabla según peso corporal, ni en asma puramente no atópica.", "pearl": "Omalizumab reduce drásticamente las exacerbaciones y las visitas a urgencias en asma alérgica bien fenotipada.", "pitfall": "Monitorear la respuesta terapéutica midiendo los niveles séricos de IgE total: los niveles aumentan tras el fármaco debido a complejos IgE-anticuerpo de eliminación lenta.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 14, 17."}, {"id": "UNT-ASMA-BIOLOGIC-MEPOLIZUMAB", "target_id": "DEC-ASMA-BIOLOGIC-MEPOLIZUMAB", "title": "Prescribir Terapias Anti-IL-5 (Mepolizumab)", "body": "La interleucina 5 (IL-5) es la citoquina central responsable del reclutamiento, maduración y supervivencia de los eosinófilos. Mepolizumab y Reslizumab neutralizan la IL-5 circulante, mientras que Benralizumab se une a la subunidad α del receptor de IL-5 (IL-5Rα), induciendo citotoxicidad celular dependiente de anticuerpos y depleción casi total de eosinófilos.", "example": "Varón de 55 años con asma eosinofílica severa de inicio tardío, 680 eosinófilos/µL en sangre y dependencia de 10 mg de prednisona oral diaria. Mepolizumab 100 mg SC cada 4 semanas reduce sus crisis y permite retirar el corticoide oral.", "boundary": "Inútil en pacientes con asma no eosinofílica (eosinófilos en sangre < 150 cél/µL).", "pearl": "Anti-IL-5 es el tratamiento de elección para el asma eosinofílica dependiente de corticoides orales.", "pitfall": "Esperar grandes mejorías en el FEV1: los anti-IL-5 reducen exacerbaciones en más del 50%, pero su impacto en el FEV1 basal es más modesto.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 12, 14, 17."}, {"id": "UNT-ASMA-BIOLOGIC-DUPILUMAB", "target_id": "DEC-ASMA-BIOLOGIC-DUPILUMAB", "title": "Prescribir Bloqueo de IL-4Rα (Dupilumab)", "body": "Dupilumab es un anticuerpo monoclonal completamente humano dirigido contra la subunidad alfa del receptor de IL-4 (IL-4Rα), bloqueando simultáneamente la señalización de IL-4 e IL-13. Disminuye la producción de IgE, la expresión epitelial de iNOS (reduciendo el FeNO) y la hipersecreción de moco mediada por células caliciformes.", "example": "Paciente con asma severa corticodependiente que presenta además dermatitis atópica grave y rinosinusitis crónica con poliposis nasal. Dupilumab aborda todas las manifestaciones T2.", "boundary": "Puede provocar una eosinofilia periférica transitoria inicial por bloqueo de la migración de eosinófilos hacia los tejidos; vigilar si eosinófilos > 1500 cél/µL.", "pearl": "Dupilumab ofrece una ventaja sustancial en pacientes con comorbilidades atópicas concurrentes (poliposis nasal y eccema).", "pitfall": "Administrar Dupilumab en pacientes con hipereosinofilia severa preexistente sin descartar síndrome de Churg-Strauss (EGPA).", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 12, 14."}, {"id": "UNT-ASMA-BRONCHIAL-THERMOPLASTY", "target_id": "DEC-ASMA-BRONCHIAL-THERMOPLASTY", "title": "Termoplastia Bronquial por Radiofrecuencia", "body": "La termoplastia bronquial (sistema Alair) consiste en la aplicación broncoscópica de energía térmica por radiofrecuencia a 65 °C en la pared de vías aéreas de 3 a 10 mm en tres sesiones secuenciales. Esto produce ablación de la masa de músculo liso hipertrofiado sin alterar la arquitectura alveolar circundante.", "example": "Paciente con asma grave refractaria a múltiples biológicos que mantiene hipertrofia muscular demostrada y crisis frecuentes. Tras tres sesiones de termoplastia se reducen las visitas a urgencias.", "boundary": "No se realiza durante exacerbaciones agudas ni en pacientes con coagulopatía o FEV1 basal post-BD < 50% por riesgo de colapso respiratorio periprocedimiento.", "pearl": "Ataca el componente estructural muscular ('el suelo') y no la cascada inflamatoria inmunológica ('la semilla').", "pitfall": "No advertir al paciente que en los días inmediatos posteriores a cada sesión broncoscópica habrá un aumento transitorio de síntomas asmáticos.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 15, 17."}, {"id": "UNT-ASMA-WRITTEN-ACTION-PLAN", "target_id": "DEC-ASMA-WRITTEN-ACTION-PLAN", "title": "Formulación del Plan de Acción Escrito y PROMs", "body": "El plan de acción escrito individualizado estructura el automanejo en 3 zonas: Verde (control > 80% PEF, dosis habitual), Amarilla (pérdida de control, PEF 50-80%, incremento de medicación y corticoide oral) y Roja (alerta médica, PEF < 50%, acudir de urgencia). El seguimiento se apoya en cuestionarios de resultados percibidos por el paciente (PROMs: ACT, ACQ y AQLQ).", "example": "Paciente que identifica caída de su PEF matutino a 65% y disnea nocturna: según su plan escrito, cuadruplica su dosis de ICS-formoterol durante 7 días y evita acudir a urgencias.", "boundary": "Un plan de acción verbal sin respaldo escrito no demuestra reducción de mortalidad ni hospitalizaciones en los ensayos clínicos.", "pearl": "La mayoría de las muertes por asma son prevenibles y derivan de la demora del paciente en reconocer el deterioro de la Zona Amarilla.", "pitfall": "Entregar un plan sin entrenar al paciente en cómo interpretar su medidor de flujo espiratorio máximo (PEF) o sus síntomas de alarma.", "source_lock": "Holgate et al. 2015, Nature Reviews Disease Primers, p. 13, 16."}], "assessment_units": [{"id": "Q-CON-ASMA-ALARM", "target_id": "CON-ASMA-ALARM", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál de los siguientes tríos de citoquinas secretadas por el epitelio respiratorio dañado ('alarminas') es el responsable de activar a las células linfoides innatas tipo 2 (ILC2s) para desencadenar inflamación T2 sin requerir presentación de antígenos?", "options": [{"id": "A", "text": "IL-1, IL-6 y TNF-α"}, {"id": "B", "text": "TSLP, IL-25 e IL-33"}, {"id": "C", "text": "IFN-γ, IL-12 e IL-18"}, {"id": "D", "text": "TGF-β, IL-10 y periostina"}], "correct_answer": "B", "explanation": "La opción B es la correcta: TSLP, IL-25 e IL-33 son las alarminas epiteliales canónicas que activan a las ILC2s para producir IL-5, IL-9 e IL-13 de manera innata. La opción A representa citoquinas proinflamatorias generales; la opción C media respuestas Th1/neutrofílicas; la opción D participa en regulación y remodelado tisular.", "feedback_remediation": "Repasa el papel del epitelio como sensor inmunológico y el eje alarminas-ILC2 en la Figura 6 del paper."}, {"id": "Q-CON-ASMA-TH2-CASCADE", "target_id": "CON-ASMA-TH2-CASCADE", "format": "choice", "difficulty": "base", "prompt": "En la cascada inflamatoria Th2 del asma alérgica, ¿cuál de las siguientes citoquinas es la principal responsable directa de inducir a los linfocitos B a realizar el cambio de clase (switch isotípico) hacia la síntesis de IgE?", "options": [{"id": "A", "text": "Interleucina 5 (IL-5)"}, {"id": "B", "text": "Interleucina 4 (IL-4)"}, {"id": "C", "text": "Interferón gamma (IFN-γ)"}, {"id": "D", "text": "Interleucina 8 (IL-8)"}], "correct_answer": "B", "explanation": "La opción B es la correcta: La IL-4 (junto con la IL-13) actúa sobre los linfocitos B para dirigir la recombinación del switch isotípico de IgM a IgE. La IL-5 (A) estimula la maduración y supervivencia de eosinófilos. El IFN-γ (C) inhibe el switch a IgE. La IL-8 (D) recluta neutrófilos.", "feedback_remediation": "Revisa las funciones específicas de las citoquinas Th2 en la Figura 5 del paper."}, {"id": "Q-CON-ASMA-EAR-LAR", "target_id": "CON-ASMA-EAR-LAR", "format": "choice", "difficulty": "intermedio", "prompt": "Un paciente presenta broncoespasmo severo 15 minutos después de inhalar polen (fase temprana, EAR) que cede con salbutamol. Sin embargo, 6 horas después vuelve a presentar sibilancias y disnea creciente (fase tardía, LAR). ¿Cuál es el sustrato patológico predominante de la LAR?", "options": [{"id": "A", "text": "Degranulación pura de histamina por mastocitos de la submucosa"}, {"id": "B", "text": "Infiltración tisular de leucocitos (principalmente eosinófilos) y liberación sostenida de citoquinas Th2"}, {"id": "C", "text": "Vasoconstricción refleja mediada por receptores alfa-1 adrenérgicos"}, {"id": "D", "text": "Hiperplasia fibroblástica aguda irreversible en la lámina reticular"}], "correct_answer": "B", "explanation": "La opción B es la correcta: Mientras que la EAR es un evento espasmódico rápido mediado por aminas y leucotrienos preformados en mastocitos, la LAR se desarrolla entre las 3 y 12 horas por infiltración y activación de leucocitos (especialmente eosinófilos) que causan edema e hiperreactividad.", "feedback_remediation": "Revisa la cinética de la respuesta dual asmática y por qué los corticoides son indispensables para prevenir la LAR."}, {"id": "Q-CON-ASMA-EMTU", "target_id": "CON-ASMA-EMTU", "format": "choice", "difficulty": "avanzado", "prompt": "¿Qué alteración histopatológica característica define el remodelado de la vía aérea en la Unidad Trófica Epitelio-Mesenquimal (EMTU) del paciente con asma crónica?", "options": [{"id": "A", "text": "Destrucción de tabiques alveolares con pérdida de retracción elástica"}, {"id": "B", "text": "Engrosamiento de la lámina reticular subepitelial por depósito de colágenos I, III, V y periostina"}, {"id": "C", "text": "Metaplasia epidermoide con queratinización masiva del epitelio bronquial"}, {"id": "D", "text": "Atrofia concéntrica del músculo liso bronquial mediada por apoptosis"}], "correct_answer": "B", "explanation": "La opción B es la correcta: El engrosamiento de la lámina reticular de la membrana basal epitelial (por depósito de colágenos de reparación I, III, V, VI, periostina y tenascina) es el sello del remodelado asmático. El enfisema alveolar (A) ocurre en EPOC. En asma hay hiperplasia/hipertrofia del músculo liso, no atrofia (D).", "feedback_remediation": "Consulta la sección 'Airway remodelling' y la Figura 7 sobre la hipótesis de cicatrización por segunda intención."}, {"id": "Q-RUL-ASMA-DEFECTIVE-IFN", "target_id": "RUL-ASMA-DEFECTIVE-IFN", "format": "choice", "difficulty": "intermedio", "prompt": "¿Por qué las infecciones por Rinovirus son la causa desencadenante más frecuente de exacerbaciones graves en pacientes con asma?", "options": [{"id": "A", "text": "Porque el rinovirus sintetiza directamente toxinas citotóxicas beta-2 antagonistas"}, {"id": "B", "text": "Porque el epitelio bronquial asmático tiene una deficiencia intrínseca en inducir IFN-β e IFN-λ protectores"}, {"id": "C", "text": "Porque el rinovirus infecta exclusivamente los ganglios linfáticos peribronquiales destruyendo los linfocitos B"}, {"id": "D", "text": "Porque los pacientes asmáticos carecen de anticuerpos IgG circulantes en sangre"}], "correct_answer": "B", "explanation": "La opción B es la correcta: El epitelio asmático presenta una deficiencia en la producción innata de interferones tipo 1 (IFN-β) y tipo 3 (IFN-λ), lo que permite una mayor replicación viral y citotoxicidad epitelial con liberación masiva de alarminas.", "feedback_remediation": "Revisa los hallazgos de Wark y Djukanovic citados en el paper sobre la deficiencia de interferones en asma."}, {"id": "Q-DEC-ASMA-ASSESS-REMODEL-RISK", "target_id": "DEC-ASMA-ASSESS-REMODEL-RISK", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál de los siguientes grupos de pacientes presenta el mayor riesgo biológico de desarrollar una declinación acelerada de la función pulmonar con obstrucción fija irreversible?", "options": [{"id": "A", "text": "Niños con asma atópica leve y remisión sintomática en la adolescencia"}, {"id": "B", "text": "Adultos con asma de inicio tardío, inflamación crónica no tratada o tabaquismo concurrente"}, {"id": "C", "text": "Pacientes jóvenes con asma inducida exclusivamente por ejercicio de esfuerzo breve"}, {"id": "D", "text": "Lactantes con sibilancias transitorias asociadas a VSR en el primer año de vida"}], "correct_answer": "B", "explanation": "La opción B es la correcta: Los estudios longitudinales destacan que el asma de inicio en la adultez suele ser más severa desde el debut y exhibe una mayor tasa de declive del FEV1 hacia una obstrucción fija cuando la inflamación no se suprime tempranamente.", "feedback_remediation": "Revisa la epidemiología del curso de vida en las páginas 1 y 2 del paper."}, {"id": "Q-CON-ASMA-SYMPTOM-PATTERN", "target_id": "CON-ASMA-SYMPTOM-PATTERN", "format": "choice", "difficulty": "base", "prompt": "¿Cuál es la característica clínica cardinal de los síntomas respiratorios que orienta con mayor fuerza al diagnóstico de asma frente a otras enfermedades pulmonares?", "options": [{"id": "A", "text": "Disnea fija y constante que no se modifica a lo largo de las 24 horas del día"}, {"id": "B", "text": "Tos productiva diaria con abundante expectoración purulenta de predominio vespertino"}, {"id": "C", "text": "Variabilidad temporal e intensidad fluctuante de los síntomas con empeoramiento nocturno o matutino"}, {"id": "D", "text": "Dolor torácico pleurítico punzante irradiado a escápula"}], "correct_answer": "C", "explanation": "La opción C es la correcta: La variabilidad en el tiempo y en la intensidad (con empeoramiento nocturno o tras factores gatillo como aire frío o alérgenos) es el rasgo definitorio de la sospecha de asma.", "feedback_remediation": "Revisa la definición operativa de asma según GINA 2015 en la página 1 del documento."}, {"id": "Q-RUL-ASMA-SPIRO-REVERSIBILITY", "target_id": "RUL-ASMA-SPIRO-REVERSIBILITY", "format": "choice", "difficulty": "intermedio", "prompt": "Un paciente de 35 años realiza una espirometría. Su FEV1 basal es de 2.00 L. Tras administrar 400 mcg de salbutamol inhalado, su FEV1 es de 2.22 L (+220 mL y +11.0% de incremento). ¿Cómo se interpreta este resultado según los criterios estándar internacionales de reversibilidad?", "options": [{"id": "A", "text": "Positivo para reversibilidad, porque superó los 200 mL absolutos"}, {"id": "B", "text": "Negativo/No significativo para reversibilidad, porque no alcanzó el 12% de incremento porcentual"}, {"id": "C", "text": "Indeterminado, requiriendo repetir la prueba con bromuro de ipratropio"}, {"id": "D", "text": "Patrón restrictivo puro que descarta patología de vías aéreas"}], "correct_answer": "B", "explanation": "La opción B es la correcta: El criterio internacional exige el cumplimiento simultáneo de AMBOS requisitos: incremento ≥ 12% Y incremento ≥ 200 mL. Al subir un 11%, no cumple el criterio porcentual.", "feedback_remediation": "Recuerda la regla mnemotécnica '12% Y 200 mL' en la sección de Diagnóstico (p. 10-11)."}, {"id": "Q-DEC-ASMA-CONFIRM-DIAGNOSIS", "target_id": "DEC-ASMA-CONFIRM-DIAGNOSIS", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál es la conducta diagnóstica más rigurosa recomendada ante un paciente con clínica altamente sugestiva de asma cuya primera espirometría basal resulta estrictamente normal?", "options": [{"id": "A", "text": "Descartar definitivamente el asma y suspender cualquier estudio pulmonar adicional"}, {"id": "B", "text": "Indicar monitorización ambulatoria del PEF diario durante 2 semanas o solicitar una prueba de provocación bronquial"}, {"id": "C", "text": "Iniciar tratamiento de por vida con corticoides orales continuos"}, {"id": "D", "text": "Solicitar de inmediato una biopsia pulmonar a cielo abierto"}], "correct_answer": "B", "explanation": "La opción B es la correcta: Como el asma es una afección intrínsecamente variable, una espirometría normal en intercrisis no excluye la enfermedad. Se debe investigar variabilidad ambulatoria con PEF o inducir hiperreactividad con provocación bronquial.", "feedback_remediation": "Revisa el algoritmo diagnóstico de GINA y NICE citado en la página 11."}, {"id": "Q-PRC-ASMA-BRONCHIAL-PROVOCATION", "target_id": "PRC-ASMA-BRONCHIAL-PROVOCATION", "format": "choice", "difficulty": "intermedio", "prompt": "¿En cuál de las siguientes situaciones clínicas está CONTRAINDICADA la realización de una prueba de provocación bronquial con metacolina?", "options": [{"id": "A", "text": "Sospecha de asma ocupacional con FEV1 basal del 95% del predicho"}, {"id": "B", "text": "Atleta con tos al correr y espirometría basal rigurosamente normal"}, {"id": "C", "text": "Paciente con obstrucción bronquial basal grave (FEV1 < 60% del predicho o < 1.5 L)"}, {"id": "D", "text": "Adulto joven no atópico con variabilidad de PEF no concluyente del 8%"}], "correct_answer": "C", "explanation": "La opción C es la correcta: Provocar broncoconstricción en un paciente que ya presenta un FEV1 basal menor al 60% supone un riesgo inaceptable de insuficiencia respiratoria aguda refractaria.", "feedback_remediation": "Consulta las directrices de seguridad para pruebas de provocación bronquial en el texto de la página 11."}, {"id": "Q-RUL-ASMA-METHACHOLINE-FALL", "target_id": "RUL-ASMA-METHACHOLINE-FALL", "format": "choice", "difficulty": "base", "prompt": "¿Qué porcentaje de caída del FEV1 respecto al valor control post-solución salina se utiliza universalmente como umbral diagnóstico de positividad (PC20) en el test de provocación con metacolina?", "options": [{"id": "A", "text": "Caída ≥ 5%"}, {"id": "B", "text": "Caída ≥ 10%"}, {"id": "C", "text": "Caída ≥ 20%"}, {"id": "D", "text": "Caída ≥ 50%"}], "correct_answer": "C", "explanation": "La opción C es la correcta: Una caída de al menos el 20% en el FEV1 (PC20) define una prueba de provocación bronquial positiva para hiperreactividad de vías aéreas.", "feedback_remediation": "Revisa la definición del valor de PC20 en la página 11 del paper."}, {"id": "Q-DEC-ASMA-DIFFERENTIAL-DIAGNOSIS", "target_id": "DEC-ASMA-DIFFERENTIAL-DIAGNOSIS", "format": "choice", "difficulty": "intermedio", "prompt": "Una mujer de 40 años consulta por disnea súbita y ruidos respiratorios. En la auscultación se percibe un sonido rudo inspiratorio en cuello y la espirometría muestra una curva de flujo-volumen con aplanamiento severo de la rama inspiratoria sin respuesta a salbutamol. ¿Cuál es el diagnóstico más probable?", "options": [{"id": "A", "text": "Asma alérgica grave"}, {"id": "B", "text": "Disfunción de cuerdas vocales (movimiento paradójico)"}, {"id": "C", "text": "Enfermedad pulmonar obstructiva crónica (EPOC)"}, {"id": "D", "text": "Aspergilosis broncopulmonar alérgica"}], "correct_answer": "B", "explanation": "La opción B es la correcta: La disfunción de cuerdas vocales mimetiza asma, pero genera estridor inspiratorio (no espiratorio) y produce aplanamiento de la rama inspiratoria en el bucle flujo-volumen sin respuesta a broncodilatadores.", "feedback_remediation": "Revisa los diagnósticos diferenciales en el recuadro de la página 11 del documento."}, {"id": "Q-CON-ASMA-ENDOTYPES-T2-VS-NONT2", "target_id": "CON-ASMA-ENDOTYPES-T2-VS-NONT2", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál de los siguientes patrones biológicos y clínicos se asocia típicamente al endotipo de asma No-T2?", "options": [{"id": "A", "text": "Eosinofilia masiva en esputo y FeNO > 60 ppb"}, {"id": "B", "text": "Respuesta óptima a dosis bajas de corticoides inhalados y omalizumab"}, {"id": "C", "text": "Inflamación neutrofílica mediada por Th1/Th17 o paucigranulocítica, asociada a obesidad, tabaquismo y corticorresistencia"}, {"id": "D", "text": "Alergia infantil mediada por IgE contra ácaros y epitelio de gato"}], "correct_answer": "C", "explanation": "La opción C es la correcta: El endotipo No-T2 se distingue por ausencia de marcadores eosinofílicos, presencia de neutrófilos en esputo o disfunción muscular lisa pura, y marcada resistencia a esteroides.", "feedback_remediation": "Estudia la clasificación molecular de la Figura 1 en la página 2."}, {"id": "Q-RUL-ASMA-FENO-BIOMARKER", "target_id": "RUL-ASMA-FENO-BIOMARKER", "format": "choice", "difficulty": "intermedio", "prompt": "¿Qué proceso bioquímico directo en la mucosa respiratoria refleja una elevación de la fracción exhalada de óxido nítrico (FeNO > 50 ppb)?", "options": [{"id": "A", "text": "Inducción de la enzima iNOS en el epitelio bronquial por acción de IL-4 e IL-13"}, {"id": "B", "text": "Destrucción de células endoteliales por acción directa de la elastasa de neutrófilos"}, {"id": "C", "text": "Aclaramiento acelerado de cGMP en el músculo liso bronquial"}, {"id": "D", "text": "Infección bacteriana activa por Pseudomonas aeruginosa"}], "correct_answer": "A", "explanation": "La opción A es la correcta: Las citoquinas T2 IL-4 e IL-13 sobreexpresan la óxido nítrico sintasa inducible (iNOS) en el epitelio bronquial, produciendo grandes cantidades de NO exhalado.", "feedback_remediation": "Revisa el mecanismo de inducción del FeNO y su utilidad clínica en la página 11."}, {"id": "Q-RUL-ASMA-BLOOD-EOSINOPHILS", "target_id": "RUL-ASMA-BLOOD-EOSINOPHILS", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál es el punto de corte comúnmente aceptado en ensayos clínicos de asma grave para considerar a un paciente respondedor a anticuerpos dirigidos contra la IL-5 (ej. mepolizumab)?", "options": [{"id": "A", "text": "Eosinófilos en sangre periférica < 50 cél/µL"}, {"id": "B", "text": "Eosinófilos en sangre periférica ≥ 150-300 cél/µL"}, {"id": "C", "text": "Eosinófilos exclusivamente en médula ósea > 10%"}, {"id": "D", "text": "Neutrófilos en esputo > 80%"}], "correct_answer": "B", "explanation": "La opción B es la correcta: Los ensayos DREAM y MENSA demostraron que un recuento de eosinófilos sanguíneos de al menos 150 cél/µL al inicio (o ≥ 300 en el año previo) predice una marcada reducción de exacerbaciones con mepolizumab.", "feedback_remediation": "Revisa los umbrales de eosinófilos para selección de biológicos en la página 12."}, {"id": "Q-CON-ASMA-PERIOSTIN", "target_id": "CON-ASMA-PERIOSTIN", "format": "choice", "difficulty": "avanzado", "prompt": "¿Cuál es la función biológica de la periostina secretada por el epitelio respiratorio bajo el influjo de IL-4 e IL-13?", "options": [{"id": "A", "text": "Actuar como anticuerpo neutralizante contra virus respiratorios"}, {"id": "B", "text": "Funcionar como ligando de integrinas αVβ3 y αVβ5 para promover adhesión, migración celular y entrecruzamiento de colágeno subepitelial"}, {"id": "C", "text": "Inhibir competitivamente el receptor beta-2 adrenérgico"}, {"id": "D", "text": "Inducir apoptosis de mastocitos tisulares"}], "correct_answer": "B", "explanation": "La opción B es la correcta: La periostina es una proteína matricial que se une a integrinas αVβ3 y αVβ5, promoviendo la migración epitelial y la fibrosis subepitelial en el remodelado asmático.", "feedback_remediation": "Consulta la sección de periostina en la página 11 del paper."}, {"id": "Q-DEC-ASMA-PHENOTYPE-CLASSIFICATION", "target_id": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "format": "choice", "difficulty": "intermedio", "prompt": "Un paciente de 48 años con asma y poliposis nasal presenta una crisis de broncoespasmo grave tras ingerir naproxeno. ¿Cuál es el mecanismo bioquímico subyacente a esta exacerbación por AINEs (EREA)?", "options": [{"id": "A", "text": "Alergia mediada por IgE específica contra la molécula del naproxeno"}, {"id": "B", "text": "Inhibición de COX-1 que desvía el ácido araquidónico hacia la vía de 5-lipoxigenasa y reduce la PGE2 broncodilatadora"}, {"id": "C", "text": "Destrucción directa del endotelio capilar pulmonar por acidificación plasmática"}, {"id": "D", "text": "Mutación somática del receptor de histamina H1"}], "correct_answer": "B", "explanation": "La opción B es la correcta: La intolerancia a AINEs no es alérgica sino farmacológica: el bloqueo de COX-1 disminuye la prostaglandina E2 (PGE2, protectora y broncodilatadora) y sobreproduce cisteinil-leucotrienos broncoconstrictores masivos.", "feedback_remediation": "Revisa la fisiopatología de la intolerancia a AINEs en la página 1 del documento."}, {"id": "Q-DEC-ASMA-STEP1-2-MANAGEMENT", "target_id": "DEC-ASMA-STEP1-2-MANAGEMENT", "format": "choice", "difficulty": "intermedio", "prompt": "¿Por qué las guías internacionales modernas desaconsejan enérgicamente la monoterapia con SABA (salbutamol solo según necesidad) en el Step 1 del asma?", "options": [{"id": "A", "text": "Porque el salbutamol es un fármaco cardiotóxico prohibido en personas jóvenes"}, {"id": "B", "text": "Porque el uso regular o exclusivo de SABA desensibiliza receptores beta-2, aumenta la inflamación y eleva el riesgo de crisis graves y muerte"}, {"id": "C", "text": "Porque el salbutamol induce fibrosis alveolar inmediata en menos de 24 horas"}, {"id": "D", "text": "Porque no existe evidencia de que el salbutamol relaje el músculo liso bronquial"}], "correct_answer": "B", "explanation": "La opción B es la correcta: El uso de SABA en monoterapia enmascara el empeoramiento de la inflamación de base y se asocia a incremento en hospitalizaciones y mortalidad por asma.", "feedback_remediation": "Revisa la evolución del manejo del Step 1-2 en las páginas 13 y 14."}, {"id": "Q-DEC-ASMA-STEP3-ESCALATION", "target_id": "DEC-ASMA-STEP3-ESCALATION", "format": "choice", "difficulty": "intermedio", "prompt": "En el Step 3 del asma en adultos, ¿por qué la combinación de budesonida/formoterol se puede prescribir tanto de mantenimiento diario como de rescate (estrategia MART), mientras que fluticasona/salmeterol no?", "options": [{"id": "A", "text": "Porque la fluticasona carece de actividad antiinflamatoria en vías aéreas"}, {"id": "B", "text": "Porque el formoterol tiene un inicio de acción tan rápido como el salbutamol (1-3 minutos), mientras que el salmeterol tarda 15-30 minutos"}, {"id": "C", "text": "Porque el salmeterol solo se absorbe por vía gastrointestinal"}, {"id": "D", "text": "Porque la budesonida es el único esteroide que no requiere receta médica"}], "correct_answer": "B", "explanation": "La opción B es la correcta: El formoterol combina rápida acción broncodilatadora con larga duración, permitiendo usarlo para alivio inmediato de síntomas. El salmeterol tarda demasiado en iniciar su efecto para ser seguro como rescate.", "feedback_remediation": "Revisa los fundamentos de la estrategia MART en la página 13 del paper."}, {"id": "Q-DEC-ASMA-STEP4-ESCALATION", "target_id": "DEC-ASMA-STEP4-ESCALATION", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál es el rol farmacológico del Tiotropio en dispositivo de niebla fina (Respimat) cuando se añade en el Step 4 del asma no controlada?", "options": [{"id": "A", "text": "Sustituir por completo a los corticoides inhalados para evitar osteoporosis"}, {"id": "B", "text": "Proporcionar broncodilatación aditiva al antagonizar receptores muscarínicos M3 y reducir el riesgo de exacerbaciones graves"}, {"id": "C", "text": "Bloquear selectivamente la síntesis de histamina en los mastocitos"}, {"id": "D", "text": "Eliminar de forma irreversible el virus del rinovirus de la vía aérea"}], "correct_answer": "B", "explanation": "La opción B es la correcta: El tiotropio actúa como antagonista competitivo de receptores M3 en el músculo liso bronquial, sumando broncodilatación por una vía diferente al receptor beta-2.", "feedback_remediation": "Consulta el papel de los LAMA en el asma moderada-severa en las páginas 13 y 14."}, {"id": "Q-DEC-ASMA-AUDIT-MODIFIABLE-FACTORS", "target_id": "DEC-ASMA-AUDIT-MODIFIABLE-FACTORS", "format": "choice", "difficulty": "base", "prompt": "Antes de diagnosticar formalmente a un paciente con 'Asma Grave Refractaria' y escalar a biológicos de alto costo, ¿cuál es el paso de verificación clínico más crítico?", "options": [{"id": "A", "text": "Solicitar una gammagrafía de ventilación-perfusión pulmonar"}, {"id": "B", "text": "Auditar presencialmente la técnica de uso del inhalador y confirmar adherencia terapéutica y control de comorbilidades"}, {"id": "C", "text": "Duplicar inmediatamente la dosis de todos los broncodilatadores"}, {"id": "D", "text": "Prescribir antibióticos profilácticos durante 1 año"}], "correct_answer": "B", "explanation": "La opción B es la correcta: Hasta el 70-80% de los pacientes mal controlados fallan por mala técnica de inhalación o baja adherencia ('asma de difícil control'), factores que deben corregirse antes de catalogar como refractariedad intrínseca.", "feedback_remediation": "Revisa los factores modificables descritos en la página 14 del paper."}, {"id": "Q-DEC-ASMA-BIOLOGIC-OMALIZUMAB", "target_id": "DEC-ASMA-BIOLOGIC-OMALIZUMAB", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál es el perfil del paciente ideal que obtiene el mayor beneficio clínico con el tratamiento con Omalizumab en Step 5?", "options": [{"id": "A", "text": "Paciente fumador con asma neutrofílica no atópica e IgE total indetectable"}, {"id": "B", "text": "Paciente con asma alérgica severa, sensibilización demostrada a aeroalérgenos perennes e IgE basal en rango dosificable"}, {"id": "C", "text": "Paciente de 80 años con enfisema severo y eosinófilos en esputo del 0%"}, {"id": "D", "text": "Cualquier paciente que no tolere el salbutamol inhalado"}], "correct_answer": "B", "explanation": "La opción B es la correcta: Omalizumab es un anticuerpo monoclonal anti-IgE indicado específicamente en asma alérgica grave con demostración de sensibilización y niveles de IgE en rango terapéutico.", "feedback_remediation": "Revisa las indicaciones de Omalizumab en la página 14 del texto."}, {"id": "Q-DEC-ASMA-BIOLOGIC-MEPOLIZUMAB", "target_id": "DEC-ASMA-BIOLOGIC-MEPOLIZUMAB", "format": "choice", "difficulty": "intermedio", "prompt": "¿Cuál es el principal beneficio demostrado del tratamiento con Mepolizumab (anti-IL-5) en pacientes con asma eosinofílica severa refractaria?", "options": [{"id": "A", "text": "Curación microbiológica definitiva del asma en 6 meses"}, {"id": "B", "text": "Reducción significativa del número de exacerbaciones agudas y efecto ahorrador de corticoides orales"}, {"id": "C", "text": "Multiplicación por dos del FEV1 basal en la primera semana"}, {"id": "D", "text": "Inmunización de por vida contra el virus del resfriado común"}], "correct_answer": "B", "explanation": "La opción B es la correcta: El bloqueo de IL-5 agota selectivamente los eosinófilos, reduciendo en más del 50% las crisis asmáticas graves y permitiendo disminuir o retirar los corticoides orales crónicos.", "feedback_remediation": "Consulta los ensayos clínicos de Mepolizumab en las páginas 12 y 14."}, {"id": "Q-DEC-ASMA-BIOLOGIC-DUPILUMAB", "target_id": "DEC-ASMA-BIOLOGIC-DUPILUMAB", "format": "choice", "difficulty": "avanzado", "prompt": "¿Cuál es la diana molecular exacta contra la que actúa el anticuerpo monoclonal Dupilumab?", "options": [{"id": "A", "text": "La subunidad alfa del receptor de IL-4 (IL-4Rα), bloqueando la señal de IL-4 e IL-13"}, {"id": "B", "text": "El receptor soluble de TNF-alfa"}, {"id": "C", "text": "La porción Fc libre de la molécula de IgM"}, {"id": "D", "text": "La enzima 5-lipoxigenasa citoplasmática"}], "correct_answer": "A", "explanation": "La opción A es la correcta: Dupilumab bloquea la cadena IL-4Rα compartida por los receptores de IL-4 e IL-13, inhibiendo de forma dual ambas vías inflamatorias T2.", "feedback_remediation": "Revisa los mecanismos de los biológicos de última generación en la página 12."}, {"id": "Q-DEC-ASMA-BRONCHIAL-THERMOPLASTY", "target_id": "DEC-ASMA-BRONCHIAL-THERMOPLASTY", "format": "choice", "difficulty": "avanzado", "prompt": "¿Sobre qué componente estructural de la pared de la vía aérea actúa la energía térmica entregada en la termoplastia bronquial?", "options": [{"id": "A", "text": "Sobre los cartílagos traqueales para aumentar su rigidez elástica"}, {"id": "B", "text": "Sobre el músculo liso de la vía aérea, induciendo su ablación térmica y reducción de masa"}, {"id": "C", "text": "Sobre las glándulas submucosas exclusivamente para desecar el moco"}, {"id": "D", "text": "Sobre los macrófagos alveolares para inducir su proliferación"}], "correct_answer": "B", "explanation": "La opción B es la correcta: La termoplastia bronquial aplica radiofrecuencia para calentar y reducir selectivamente la masa y contractilidad del músculo liso bronquial.", "feedback_remediation": "Consulta la sección de termoplastia bronquial en la página 15 del paper."}, {"id": "Q-DEC-ASMA-WRITTEN-ACTION-PLAN", "target_id": "DEC-ASMA-WRITTEN-ACTION-PLAN", "format": "choice", "difficulty": "base", "prompt": "En un plan de acción escrito para el automanejo del asma, ¿qué acción inmediata debe adoptar el paciente cuando ingresa a la 'Zona Amarilla' (PEF entre 50% y 80% o aumento de síntomas diurnos/nocturnos)?", "options": [{"id": "A", "text": "Suspender toda la medicación inhalada y esperar 48 horas en reposo"}, {"id": "B", "text": "Aumentar de inmediato la dosis de controlador/aliviador según el plan preestablecido y valorar ciclo corto de corticoide oral"}, {"id": "C", "text": "Acudir en ambulancia con código rojo de paro cardiorrespiratorio"}, {"id": "D", "text": "Iniciar antibióticos de amplio espectro de forma indefinida"}], "correct_answer": "B", "explanation": "La opción B es la correcta: La Zona Amarilla señala pérdida de control y exige acción preventiva ambulatoria inmediata (incrementar corticoide inhalado/aliviador o iniciar esteroide oral) para abortar la progresión a Zona Roja.", "feedback_remediation": "Revisa los componentes del plan de automanejo guiado en la página 13 del documento."}], "edges": [{"source": "CON-ASMA-ALARM", "target": "CON-ASMA-TH2-CASCADE", "kind": "supports"}, {"source": "CON-ASMA-TH2-CASCADE", "target": "CON-ASMA-EAR-LAR", "kind": "supports"}, {"source": "CON-ASMA-EAR-LAR", "target": "CON-ASMA-EMTU", "kind": "supports"}, {"source": "CON-ASMA-EMTU", "target": "DEC-ASMA-ASSESS-REMODEL-RISK", "kind": "requires"}, {"source": "RUL-ASMA-DEFECTIVE-IFN", "target": "CON-ASMA-EMTU", "kind": "supports"}, {"source": "CON-ASMA-SYMPTOM-PATTERN", "target": "DEC-ASMA-CONFIRM-DIAGNOSIS", "kind": "requires"}, {"source": "RUL-ASMA-SPIRO-REVERSIBILITY", "target": "DEC-ASMA-CONFIRM-DIAGNOSIS", "kind": "requires"}, {"source": "CON-ASMA-SYMPTOM-PATTERN", "target": "PRC-ASMA-BRONCHIAL-PROVOCATION", "kind": "supports"}, {"source": "PRC-ASMA-BRONCHIAL-PROVOCATION", "target": "RUL-ASMA-METHACHOLINE-FALL", "kind": "supports"}, {"source": "RUL-ASMA-METHACHOLINE-FALL", "target": "DEC-ASMA-CONFIRM-DIAGNOSIS", "kind": "supports"}, {"source": "DEC-ASMA-CONFIRM-DIAGNOSIS", "target": "DEC-ASMA-DIFFERENTIAL-DIAGNOSIS", "kind": "requires"}, {"source": "CON-ASMA-TH2-CASCADE", "target": "CON-ASMA-ENDOTYPES-T2-VS-NONT2", "kind": "supports"}, {"source": "CON-ASMA-ENDOTYPES-T2-VS-NONT2", "target": "RUL-ASMA-FENO-BIOMARKER", "kind": "supports"}, {"source": "CON-ASMA-ENDOTYPES-T2-VS-NONT2", "target": "RUL-ASMA-BLOOD-EOSINOPHILS", "kind": "supports"}, {"source": "CON-ASMA-ENDOTYPES-T2-VS-NONT2", "target": "CON-ASMA-PERIOSTIN", "kind": "supports"}, {"source": "RUL-ASMA-FENO-BIOMARKER", "target": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "kind": "supports"}, {"source": "RUL-ASMA-BLOOD-EOSINOPHILS", "target": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "kind": "supports"}, {"source": "CON-ASMA-PERIOSTIN", "target": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "kind": "supports"}, {"source": "DEC-ASMA-CONFIRM-DIAGNOSIS", "target": "DEC-ASMA-STEP1-2-MANAGEMENT", "kind": "requires"}, {"source": "DEC-ASMA-STEP1-2-MANAGEMENT", "target": "DEC-ASMA-STEP3-ESCALATION", "kind": "requires"}, {"source": "DEC-ASMA-STEP3-ESCALATION", "target": "DEC-ASMA-STEP4-ESCALATION", "kind": "requires"}, {"source": "DEC-ASMA-STEP3-ESCALATION", "target": "DEC-ASMA-AUDIT-MODIFIABLE-FACTORS", "kind": "requires"}, {"source": "DEC-ASMA-AUDIT-MODIFIABLE-FACTORS", "target": "DEC-ASMA-STEP4-ESCALATION", "kind": "supports"}, {"source": "DEC-ASMA-STEP4-ESCALATION", "target": "DEC-ASMA-BIOLOGIC-OMALIZUMAB", "kind": "requires"}, {"source": "DEC-ASMA-STEP4-ESCALATION", "target": "DEC-ASMA-BIOLOGIC-MEPOLIZUMAB", "kind": "requires"}, {"source": "DEC-ASMA-STEP4-ESCALATION", "target": "DEC-ASMA-BIOLOGIC-DUPILUMAB", "kind": "requires"}, {"source": "DEC-ASMA-STEP4-ESCALATION", "target": "DEC-ASMA-BRONCHIAL-THERMOPLASTY", "kind": "requires"}, {"source": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "target": "DEC-ASMA-BIOLOGIC-OMALIZUMAB", "kind": "supports"}, {"source": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "target": "DEC-ASMA-BIOLOGIC-MEPOLIZUMAB", "kind": "supports"}, {"source": "DEC-ASMA-PHENOTYPE-CLASSIFICATION", "target": "DEC-ASMA-BIOLOGIC-DUPILUMAB", "kind": "supports"}, {"source": "DEC-ASMA-STEP1-2-MANAGEMENT", "target": "DEC-ASMA-WRITTEN-ACTION-PLAN", "kind": "requires"}, {"source": "DEC-ASMA-STEP4-ESCALATION", "target": "DEC-ASMA-WRITTEN-ACTION-PLAN", "kind": "supports"}]};
+
+    // Fast lookups
+    const nodeMap = new Map(GRAPH_DATA.nodes.map(n => [n.id, n]));
+    const teachMap = new Map(GRAPH_DATA.teaching_units.map(u => [u.target_id, u]));
+    const quizMap = new Map(GRAPH_DATA.assessment_units.map(q => [q.target_id, q]));
+    const clusterMap = new Map(GRAPH_DATA.clusters.map(c => [c.id, c]));
+
+    // Populate Cluster Filter Buttons
+    const clusterContainer = document.getElementById("cluster-filter-group");
+    GRAPH_DATA.clusters.forEach(c => {
+      const btn = document.createElement("button");
+      btn.className = "filter-btn";
+      btn.dataset.cluster = c.id;
+      btn.innerHTML = `<span class="dot" style="background:${c.color || '#38bdf8'}"></span> ${c.title}`;
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-cluster]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedCluster = c.id;
+        render();
+      });
+      clusterContainer.appendChild(btn);
+    });
+
+    // Color definitions
+    const TYPE_COLORS = {
+      decision: "#34d399",
+      rule: "#fbbf24",
+      concept: "#a78bfa",
+      procedure: "#38bdf8"
+    };
+
+    // Canvas setup
+    const canvas = document.getElementById("graph-canvas");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+
+    function resize() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      width = canvas.width = rect.width;
+      height = canvas.height = rect.height;
+    }
+    window.addEventListener("resize", () => { resize(); render(); });
+    resize();
+
+    // Simulation nodes & edges
+    const simNodes = GRAPH_DATA.nodes.map((n, i) => {
+      const angle = (i / GRAPH_DATA.nodes.length) * 2 * Math.PI;
+      const radius = 220 + (i % 3) * 60;
+      return {
+        ...n,
+        x: width / 2 + Math.cos(angle) * radius,
+        y: height / 2 + Math.sin(angle) * radius,
+        vx: 0,
+        vy: 0,
+        radius: n.type === 'decision' ? 14 : 10
+      };
+    });
+    const simNodeMap = new Map(simNodes.map(n => [n.id, n]));
+
+    const simEdges = GRAPH_DATA.edges.map(e => ({
+      source: simNodeMap.get(e.source),
+      target: simNodeMap.get(e.target),
+      kind: e.kind
+    })).filter(e => e.source && e.target);
+
+    // Camera transform
+    let camera = { x: 0, y: 0, zoom: 0.85 };
+    let isDragging = false;
+    let dragStart = { x: 0, y: 0 };
+    let draggedNode = null;
+    let selectedNode = null;
+    let hoveredNode = null;
+
+    let selectedType = "all";
+    let selectedCluster = "all";
+    let searchQuery = "";
+
+    // Force simulation step
+    function stepSimulation() {
+      const k = 0.05;
+      const repulse = 1200;
+
+      for (let i = 0; i < simNodes.length; i++) {
+        for (let j = i + 1; j < simNodes.length; j++) {
+          const a = simNodes[i];
+          const b = simNodes[j];
+          const dx = b.x - a.x;
+          const dy = b.y - a.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          if (dist < 350) {
+            const force = repulse / (dist * dist);
+            const fx = (dx / dist) * force;
+            const fy = (dy / dist) * force;
+            a.vx -= fx;
+            a.vy -= fy;
+            b.vx += fx;
+            b.vy += fy;
+          }
+        }
+      }
+
+      simEdges.forEach(e => {
+        const dx = e.target.x - e.source.x;
+        const dy = e.target.y - e.source.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const targetDist = 95;
+        const force = (dist - targetDist) * 0.03;
+        const fx = (dx / dist) * force;
+        const fy = (dy / dist) * force;
+        e.source.vx += fx;
+        e.source.vy += fy;
+        e.target.vx -= fx;
+        e.target.vy -= fy;
+      });
+
+      // Damping & center gravity
+      simNodes.forEach(n => {
+        if (n === draggedNode) return;
+        n.vx += (width / 2 - n.x) * 0.002;
+        n.vy += (height / 2 - n.y) * 0.002;
+        n.vx *= 0.88;
+        n.vy *= 0.88;
+        n.x += n.vx;
+        n.y += n.vy;
+      });
+    }
+
+    // Render loop
+    let animCount = 0;
+    function render() {
+      ctx.clearRect(0, 0, width, height);
+
+      ctx.save();
+      ctx.translate(camera.x + width / 2, camera.y + height / 2);
+      ctx.scale(camera.zoom, camera.zoom);
+      ctx.translate(-width / 2, -height / 2);
+
+      // Draw Edges
+      simEdges.forEach(e => {
+        const isConnectedToHover = hoveredNode && (e.source.id === hoveredNode.id || e.target.id === hoveredNode.id);
+        const isConnectedToSelect = selectedNode && (e.source.id === selectedNode.id || e.target.id === selectedNode.id);
+
+        ctx.beginPath();
+        ctx.moveTo(e.source.x, e.source.y);
+        ctx.lineTo(e.target.x, e.target.y);
+        
+        if (isConnectedToSelect) {
+          ctx.strokeStyle = "#38bdf8";
+          ctx.lineWidth = 2.5;
+        } else if (isConnectedToHover) {
+          ctx.strokeStyle = "#60a5fa";
+          ctx.lineWidth = 2;
+        } else {
+          ctx.strokeStyle = "rgba(148, 163, 184, 0.18)";
+          ctx.lineWidth = 1;
+        }
+        ctx.stroke();
+
+        // Arrow head
+        const angle = Math.atan2(e.target.y - e.source.y, e.target.x - e.source.x);
+        const headlen = 7;
+        const tox = e.target.x - Math.cos(angle) * (e.target.radius + 3);
+        const toy = e.target.y - Math.sin(angle) * (e.target.radius + 3);
+
+        ctx.beginPath();
+        ctx.moveTo(tox, toy);
+        ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+        ctx.fillStyle = ctx.strokeStyle;
+        ctx.fill();
+      });
+
+      // Draw Nodes
+      simNodes.forEach(n => {
+        const matchesType = selectedType === "all" || n.type === selectedType;
+        const matchesCluster = selectedCluster === "all" || n.cluster_id === selectedCluster;
+        const matchesSearch = !searchQuery || n.title.toLowerCase().includes(searchQuery) || n.id.toLowerCase().includes(searchQuery);
+        const isDimmed = !(matchesType && matchesCluster && matchesSearch);
+
+        ctx.save();
+        ctx.globalAlpha = isDimmed ? 0.15 : 1;
+
+        const color = TYPE_COLORS[n.type] || "#38bdf8";
+        const isSelected = selectedNode && selectedNode.id === n.id;
+        const isHovered = hoveredNode && hoveredNode.id === n.id;
+
+        // Outer glow on selection
+        if (isSelected || isHovered) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.radius + 7, 0, Math.PI * 2);
+          ctx.fillStyle = isSelected ? "rgba(56, 189, 248, 0.4)" : "rgba(255, 255, 255, 0.2)";
+          ctx.fill();
+        }
+
+        // Main circle
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = isSelected ? 16 : 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Border
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = isSelected ? 2.5 : 1;
+        ctx.stroke();
+
+        // Label
+        ctx.font = isSelected ? "bold 12px sans-serif" : "11px sans-serif";
+        ctx.fillStyle = isSelected ? "#38bdf8" : (isDimmed ? "rgba(255,255,255,0.2)" : "#cbd5e1");
+        ctx.textAlign = "center";
+        ctx.fillText(n.id, n.x, n.y + n.radius + 14);
+
+        ctx.restore();
+      });
+
+      ctx.restore();
+
+      if (animCount < 150) {
+        stepSimulation();
+        animCount++;
+        requestAnimationFrame(render);
+      }
+    }
+
+    // Coordinates helper
+    function toWorld(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      const sx = clientX - rect.left;
+      const sy = clientY - rect.top;
+      return {
+        x: (sx - (camera.x + width / 2)) / camera.zoom + width / 2,
+        y: (sy - (camera.y + height / 2)) / camera.zoom + height / 2
+      };
+    }
+
+    function findNodeAt(clientX, clientY) {
+      const world = toWorld(clientX, clientY);
+      for (let i = simNodes.length - 1; i >= 0; i--) {
+        const n = simNodes[i];
+        if (Math.hypot(n.x - world.x, n.y - world.y) <= n.radius + 5) {
+          return n;
+        }
+      }
+      return null;
+    }
+
+    canvas.addEventListener("mousedown", e => {
+      const hit = findNodeAt(e.clientX, e.clientY);
+      if (hit) {
+        draggedNode = hit;
+        selectNode(hit);
+      } else {
+        isDragging = true;
+        dragStart = { x: e.clientX - camera.x, y: e.clientY - camera.y };
+      }
+    });
+
+    window.addEventListener("mousemove", e => {
+      if (draggedNode) {
+        const w = toWorld(e.clientX, e.clientY);
+        draggedNode.x = w.x;
+        draggedNode.y = w.y;
+        render();
+        return;
+      }
+      if (isDragging) {
+        camera.x = e.clientX - dragStart.x;
+        camera.y = e.clientY - dragStart.y;
+        render();
+        return;
+      }
+      const hit = findNodeAt(e.clientX, e.clientY);
+      if (hit !== hoveredNode) {
+        hoveredNode = hit;
+        render();
+      }
+    });
+
+    window.addEventListener("mouseup", () => {
+      draggedNode = null;
+      isDragging = false;
+    });
+
+    canvas.addEventListener("wheel", e => {
+      e.preventDefault();
+      const factor = e.deltaY < 0 ? 1.1 : 0.9;
+      camera.zoom = Math.max(0.2, Math.min(3.0, camera.zoom * factor));
+      render();
+    });
+
+    // Tab Navigation logic
+    const tabBtnTeach = document.getElementById("tab-btn-teach");
+    const tabBtnQuiz = document.getElementById("tab-btn-quiz");
+    const paneTeach = document.getElementById("pane-teach");
+    const paneQuiz = document.getElementById("pane-quiz");
+
+    tabBtnTeach.addEventListener("click", () => {
+      tabBtnTeach.classList.add("active");
+      tabBtnQuiz.classList.remove("active");
+      paneTeach.classList.add("active");
+      paneQuiz.classList.remove("active");
+    });
+
+    tabBtnQuiz.addEventListener("click", () => {
+      tabBtnQuiz.classList.add("active");
+      tabBtnTeach.classList.remove("active");
+      paneQuiz.classList.add("active");
+      paneTeach.classList.remove("active");
+    });
+
+    // Inspector Selection
+    function selectNode(n) {
+      selectedNode = n;
+      const emptyInsp = document.getElementById("empty-inspector");
+      const activeInsp = document.getElementById("active-inspector");
+
+      if (!n) {
+        emptyInsp.style.display = "flex";
+        activeInsp.style.display = "none";
+        render();
+        return;
+      }
+
+      emptyInsp.style.display = "none";
+      activeInsp.style.display = "flex";
+
+      // Header
+      const badge = document.getElementById("insp-badge");
+      badge.textContent = n.type.toUpperCase();
+      badge.className = `badge badge-${n.type}`;
+      document.getElementById("insp-id").textContent = n.id;
+      document.getElementById("insp-title").textContent = n.title;
+
+      const cluster = clusterMap.get(n.cluster_id);
+      document.getElementById("insp-cluster").textContent = cluster ? `Cluster: ${cluster.title}` : "";
+
+      // Decision Box
+      const boxDec = document.getElementById("box-decision");
+      if (n.decision_prompt) {
+        boxDec.style.display = "flex";
+        document.getElementById("insp-decision").textContent = n.decision_prompt;
+      } else {
+        boxDec.style.display = "none";
+      }
+
+      // Rule Criteria Box
+      const boxCrit = document.getElementById("box-criteria");
+      if (n.criteria) {
+        boxCrit.style.display = "flex";
+        document.getElementById("insp-criteria").textContent = n.criteria;
+      } else {
+        boxCrit.style.display = "none";
+      }
+
+      // Teaching Unit Box
+      const unit = teachMap.get(n.id);
+      if (unit) {
+        document.getElementById("insp-teach-body").textContent = unit.body || "Sin teoría registrada.";
+        document.getElementById("insp-teach-example").textContent = unit.example || "Sin caso registrado.";
+        document.getElementById("insp-teach-boundary").textContent = unit.boundary || "Sin límites registrados.";
+        document.getElementById("insp-teach-pearl").textContent = unit.pearl || "";
+        document.getElementById("insp-teach-pitfall").textContent = unit.pitfall || "";
+        document.getElementById("insp-source-lock").textContent = unit.source_lock || "Nature Reviews 2015";
+      }
+
+      // Setup Assessment Quiz Unit
+      setupQuiz(n.id);
+
+      // Incoming & Outgoing Relations
+      const incoming = GRAPH_DATA.edges.filter(e => e.target === n.id);
+      const outgoing = GRAPH_DATA.edges.filter(e => e.source === n.id);
+
+      const inContainer = document.getElementById("insp-incoming");
+      inContainer.innerHTML = incoming.length ? "" : "<span style='color:#64748b'>Ninguno</span>";
+      incoming.forEach(e => {
+        const btn = document.createElement("button");
+        btn.className = "rel-tag";
+        btn.textContent = `← ${e.source} (${e.kind})`;
+        btn.addEventListener("click", () => {
+          const targetNode = simNodeMap.get(e.source);
+          if (targetNode) selectNode(targetNode);
+        });
+        inContainer.appendChild(btn);
+      });
+
+      const outContainer = document.getElementById("insp-outgoing");
+      outContainer.innerHTML = outgoing.length ? "" : "<span style='color:#64748b'>Ninguno</span>";
+      outgoing.forEach(e => {
+        const btn = document.createElement("button");
+        btn.className = "rel-tag";
+        btn.textContent = `→ ${e.target} (${e.kind})`;
+        btn.addEventListener("click", () => {
+          const targetNode = simNodeMap.get(e.target);
+          if (targetNode) selectNode(targetNode);
+        });
+        outContainer.appendChild(btn);
+      });
+
+      render();
+    }
+
+    function setupQuiz(nodeId) {
+      const nodeObj = nodeMap.get(nodeId);
+      const q = quizMap.get(nodeId);
+      const promptEl = document.getElementById("quiz-prompt");
+      const diffEl = document.getElementById("quiz-difficulty");
+      const optionsContainer = document.getElementById("quiz-options-container");
+      const feedbackBox = document.getElementById("quiz-feedback-box");
+      const feedbackTitle = document.getElementById("quiz-feedback-title");
+      const feedbackBody = document.getElementById("quiz-feedback-body");
+
+      // 1. Populate Recommended Games Roadmap
+      const gamesContainer = document.getElementById("quiz-games-container");
+      gamesContainer.innerHTML = "";
+      const recs = (nodeObj && nodeObj.assessment_recommendations) || [];
+      if (recs.length === 0) {
+        gamesContainer.innerHTML = "<span style='font-size:11px; color:#64748b;'>No hay juegos especificados para este nodo.</span>";
+      } else {
+        recs.forEach(g => {
+          const gameCard = document.createElement("div");
+          gameCard.style.cssText = "background:rgba(15,23,42,0.7); border:1px solid var(--border); border-radius:6px; padding:10px; display:flex; flex-direction:column; gap:4px;";
+          const isAlta = g.suitability === "alta";
+          gameCard.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-weight:700; font-size:12px; color:#38bdf8;">${g.game_id ? g.game_id.toUpperCase() + ' · ' : ''}${g.game_name}</span>
+              <span style="font-size:9px; text-transform:uppercase; font-weight:700; padding:2px 6px; border-radius:4px; ${isAlta ? 'background:rgba(52,211,153,0.2); color:#34d399; border:1px solid rgba(52,211,153,0.4);' : 'background:rgba(56,189,248,0.2); color:#38bdf8; border:1px solid rgba(56,189,248,0.4);'}">${isAlta ? 'Prioridad Alta' : 'Prioridad Media'}</span>
+            </div>
+            <div style="font-size:11px; color:#cbd5e1; line-height:1.4;">${g.clinical_mission || g.objective || ''}</div>
+            <div style="display:flex; justify-content:flex-end; margin-top:2px;">
+              <a href="../app/static/games-lab.html" target="_blank" style="font-size:10px; color:#38bdf8; text-decoration:none; display:flex; align-items:center; gap:4px;">
+                🕹️ Ver Prototipo en Games Lab &rarr;
+              </a>
+            </div>
+          `;
+          gamesContainer.appendChild(gameCard);
+        });
+      }
+
+      // 2. Setup Interactive Quiz
+      feedbackBox.className = "quiz-feedback";
+      feedbackBox.style.display = "none";
+      optionsContainer.innerHTML = "";
+
+      if (!q) {
+        promptEl.textContent = "No hay evaluación asociada a este nodo.";
+        return;
+      }
+
+      diffEl.textContent = (q.difficulty || "INTERMEDIO").toUpperCase();
+      promptEl.textContent = q.prompt;
+
+      let answered = false;
+
+      q.options.forEach(opt => {
+        const optBtn = document.createElement("button");
+        optBtn.className = "quiz-opt-btn";
+        optBtn.innerHTML = `<b>${opt.id})</b> <span>${opt.text}</span>`;
+        
+        optBtn.addEventListener("click", () => {
+          if (answered) return;
+          answered = true;
+
+          const isCorrect = opt.id === q.correct_answer;
+          if (isCorrect) {
+            optBtn.classList.add("correct");
+            feedbackBox.className = "quiz-feedback show-correct";
+            feedbackTitle.textContent = "¡CORRECTO! 🎯";
+            feedbackBody.textContent = q.explanation;
+          } else {
+            optBtn.classList.add("incorrect");
+            // Highlight the correct one
+            Array.from(optionsContainer.children).forEach(b => {
+              if (b.dataset.optId === q.correct_answer) b.classList.add("correct");
+            });
+            feedbackBox.className = "quiz-feedback show-incorrect";
+            feedbackTitle.textContent = "RESPUESTA INCORRECTA";
+            feedbackBody.textContent = q.explanation;
+          }
+        });
+
+        optBtn.dataset.optId = opt.id;
+        optionsContainer.appendChild(optBtn);
+      });
+
+      document.getElementById("quiz-reset-btn").onclick = () => setupQuiz(nodeId);
+    }
+
+    // Tools
+    document.getElementById("btn-zoom-in").addEventListener("click", () => { camera.zoom *= 1.2; render(); });
+    document.getElementById("btn-zoom-out").addEventListener("click", () => { camera.zoom *= 0.8; render(); });
+    document.getElementById("btn-reset").addEventListener("click", () => {
+      camera = { x: 0, y: 0, zoom: 0.85 };
+      animCount = 0;
+      render();
+    });
+
+    // Filters
+    document.querySelectorAll("[data-type]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-type]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedType = btn.dataset.type;
+        render();
+      });
+    });
+
+    document.getElementById("search-input").addEventListener("input", e => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      render();
+    });
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>

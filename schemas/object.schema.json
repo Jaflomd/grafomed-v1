@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jaflo.local/grafomed/object.schema.json",
+  "title": "Grafo Med object",
+  "type": "object",
+  "required": [
+    "schema", "id", "object_type", "layer", "label", "lifecycle",
+    "evidence_status", "validation_status", "review_status", "source_refs",
+    "claim_refs", "tags", "provenance", "duplicate_reuse_check"
+  ],
+  "properties": {
+    "schema": {"const": "grafomed-object.v1"},
+    "id": {"type": "string", "pattern": "^gm-[a-z0-9-]+$"},
+    "object_type": {
+      "enum": [
+        "anatomical_entity", "biological_process", "developmental_event",
+        "condition", "clinical_finding", "mechanism", "test", "intervention",
+        "risk", "context", "decision_atom", "decision_pattern", "clinical_chain",
+        "illness_script", "detcsp_pathway", "differential_set",
+        "professional_activity", "mastery_atom", "learning_objective", "resource",
+        "activity", "case", "assessment"
+      ]
+    },
+    "layer": {"enum": ["medical_truth", "learning_representation", "assemblies"]},
+    "label": {"type": "string", "minLength": 3},
+    "definition": {"type": "string"},
+    "summary": {"type": "string"},
+    "learning_contract": {
+      "type": "object",
+      "description": "Single learner-facing contract associated with this graph object without changing its medical-truth identity.",
+      "required": ["objective", "expected_performance", "mastery_evidence"],
+      "properties": {
+        "objective": {"type": "string", "minLength": 10},
+        "expected_performance": {"type": "string", "minLength": 10},
+        "mastery_evidence": {"type": "string", "minLength": 10}
+      },
+      "additionalProperties": false
+    },
+    "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "boundaries": {"type": "array", "items": {"type": "string"}},
+    "lifecycle": {"enum": ["captured", "source_locked", "evidence_bundled", "graph_drafted", "reviewed", "route_tested", "promoted", "maintained", "blocked", "contested", "deprecated", "superseded", "archived"]},
+    "evidence_status": {"enum": ["unknown", "source_locked_candidate", "verified"]},
+    "validation_status": {"enum": ["pending", "structural_pass", "pass", "fail"]},
+    "review_status": {"enum": ["pending", "in_review", "pass", "fail", "contested"]},
+    "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "claim_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "competency_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "tags": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["axis", "code", "role", "weight", "provenance"],
+        "properties": {
+          "axis": {"enum": ["preclinical_discipline", "clinical_area", "organ_system", "learning_function", "competency_framework", "route_intent"]},
+          "code": {"type": "string"},
+          "role": {"enum": ["primary", "secondary", "bridge", "context", "prerequisite"]},
+          "weight": {"type": "number", "minimum": 0, "maximum": 1},
+          "provenance": {"type": "string", "minLength": 3}
+        },
+        "additionalProperties": false
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["created_by", "created_at", "packet_id", "source_refs"],
+      "properties": {
+        "created_by": {"const": "mia"},
+        "created_at": {"type": "string"},
+        "packet_id": {"type": "string"},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "duplicate_reuse_check": {
+      "type": "object",
+      "required": ["exact_id", "alias_full_text", "semantic_neighbor", "reuse_classification", "result"],
+      "properties": {
+        "exact_id": {"type": "string"},
+        "alias_full_text": {"type": "string"},
+        "semantic_neighbor": {"type": "string"},
+        "reuse_classification": {"enum": ["global", "transversal", "specialization", "condition_specific", "decision_pattern_instantiation", "learning_support"]},
+        "result": {"enum": ["new_candidate", "reuse_existing", "contested"]}
+      },
+      "additionalProperties": true
+    },
+    "trigger": {"type": "string"},
+    "actor": {"type": "string"},
+    "inputs": {"type": "array", "items": {"type": "string"}},
+    "alternatives": {"type": "array", "minItems": 2, "items": {"type": "string"}},
+    "discriminators": {
+      "oneOf": [
+        {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        {"type": "object", "minProperties": 1}
+      ]
+    },
+    "output": {"type": "string"},
+    "downstream_consequence": {"type": "string"},
+    "error_costs": {"type": "array", "items": {"type": "string"}},
+    "assessment_evidence": {"type": "array", "items": {"type": "string"}},
+    "member_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "evidence_object_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"object_type": {"const": "decision_atom"}}},
+      "then": {"required": ["trigger", "actor", "inputs", "alternatives", "discriminators", "output", "downstream_consequence", "error_costs", "assessment_evidence", "boundaries"]}
+    },
+    {
+      "if": {"properties": {"layer": {"const": "assemblies"}}},
+      "then": {"required": ["member_refs"]}
+    },
+    {
+      "if": {"properties": {"object_type": {"const": "mastery_atom"}}},
+      "then": {"required": ["evidence_object_refs", "assessment_evidence"]}
+    }
+  ],
+  "additionalProperties": true
+}

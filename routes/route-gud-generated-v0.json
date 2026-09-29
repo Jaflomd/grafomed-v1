@@ -1,0 +1,139 @@
+{
+  "schema": "grafomed-route.v1",
+  "id": "gm-route-gud-generated-v0",
+  "label": "Generated route - anogenital ulcer initial management",
+  "goal": "Evaluate an anogenital ulcer and commit to an evidence-backed first management state in context.",
+  "route_kind": "generated",
+  "status": "candidate",
+  "snapshot_id": "gm-snap-5210a95a8ec45899",
+  "target_refs": [
+    "gm-mastery-gud-evaluation",
+    "gm-mastery-gud-initial-management"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "node_id": "gm-clinical-finding-anogenital-ulcer",
+      "kind": "orient",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 2,
+      "node_id": "gm-condition-genital-herpes",
+      "kind": "learn",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 3,
+      "node_id": "gm-illness-script-genital-herpes",
+      "kind": "apply",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 4,
+      "node_id": "gm-condition-primary-syphilis",
+      "kind": "learn",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 5,
+      "node_id": "gm-differential-set-anogenital-ulcer",
+      "kind": "apply",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 6,
+      "node_id": "gm-test-syphilis-evaluation-in-gud",
+      "kind": "retrieve",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 7,
+      "node_id": "gm-test-hsv-lesion-naat-or-culture",
+      "kind": "retrieve",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 8,
+      "node_id": "gm-test-hiv-screening-in-gud",
+      "kind": "retrieve",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 9,
+      "node_id": "gm-decision-gud-diagnosis-confirmation",
+      "kind": "decide",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 10,
+      "node_id": "gm-decision-gud-actionable-context",
+      "kind": "decide",
+      "reason": "Required evidence for Evaluate and prioritize an anogenital-ulcer presentation; current fixture estimate is 0.35.",
+      "mastery_ref": "gm-mastery-gud-evaluation"
+    },
+    {
+      "order": 11,
+      "node_id": "gm-decision-gud-same-day-treatment",
+      "kind": "decide",
+      "reason": "Required evidence for Commit to and communicate the bounded initial management state; current fixture estimate is 0.20.",
+      "mastery_ref": "gm-mastery-gud-initial-management"
+    },
+    {
+      "order": 12,
+      "node_id": "gm-decision-gud-complication-escalation",
+      "kind": "decide",
+      "reason": "Required evidence for Commit to and communicate the bounded initial management state; current fixture estimate is 0.20.",
+      "mastery_ref": "gm-mastery-gud-initial-management"
+    },
+    {
+      "order": 13,
+      "node_id": "gm-decision-gud-follow-up",
+      "kind": "decide",
+      "reason": "Required evidence for Commit to and communicate the bounded initial management state; current fixture estimate is 0.20.",
+      "mastery_ref": "gm-mastery-gud-initial-management"
+    },
+    {
+      "order": 14,
+      "node_id": "gm-decision-gud-prognosis-communication",
+      "kind": "decide",
+      "reason": "Required evidence for Commit to and communicate the bounded initial management state; current fixture estimate is 0.20.",
+      "mastery_ref": "gm-mastery-gud-initial-management"
+    },
+    {
+      "order": 15,
+      "node_id": "gm-detcsp-gud-initial-management",
+      "kind": "apply",
+      "reason": "Required evidence for Commit to and communicate the bounded initial management state; current fixture estimate is 0.20.",
+      "mastery_ref": "gm-mastery-gud-initial-management"
+    },
+    {
+      "order": 16,
+      "node_id": "gm-assessment-gud-v0",
+      "kind": "assess",
+      "reason": "Collect observable evidence across both mastery atoms and select success, remediation, or transfer next action.",
+      "mastery_ref": "gm-mastery-gud-initial-management"
+    }
+  ],
+  "constraints": {
+    "hard_prerequisites_enforced": true,
+    "mastered_threshold_fixture_only": 0.75,
+    "learner_state_ref": "products/grafomed-v1/learner-state/fixture-gud-v0.json#states.before",
+    "resource_selection_deferred": true
+  },
+  "provenance": {
+    "created_by": "mia",
+    "created_at": "2026-08-26T16:29:00-05:00",
+    "packet_id": "slice-genital-ulcer-syndrome-initial-management-v0",
+    "algorithm": "deterministic_requires_then_declared_evidence_order_v0"
+  }
+}

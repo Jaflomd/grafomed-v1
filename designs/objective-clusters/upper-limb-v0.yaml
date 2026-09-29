@@ -1,0 +1,621 @@
+schema: grafomed-objective-cluster-draft.v0
+id: gm-cluster-miembro-superior
+title: "Miembro superior: anatomía funcional, neurovascular, exploración e imagen"
+canonical_language: es
+status: candidate_design_not_promoted
+created_at: "2026-08-28T12:00:00-05:00"
+created_by: mia
+authorized_by: javier
+product_id: grafomed-v1
+repository: false
+legacy_migration_performed: false
+
+design_status:
+  knowledge_entity_contract_available: true
+  objective_hierarchy_contract_available: false
+  promotion_allowed: false
+  reason: >-
+    El contrato de entidades anatómicas y mastery atoms es ejecutable, pero la
+    jerarquía presentation_cluster y key_objective continúa como diseño para la
+    futura especificación. Ningún objeto de este archivo es verdad promovida.
+
+source_lock:
+  id: gm-source-anatomical-society-regional-anatomy-syllabus-2016
+  citation: >-
+    Smith CF, Finn GM, Stewart J, et al. The Anatomical Society core regional
+    anatomy syllabus for undergraduate medicine. Journal of Anatomy.
+    2016;228(1):15-23.
+  doi: "10.1111/joa.12405"
+  pmid: "26612592"
+  pmcid: "PMC4694160"
+  stable_locator: "https://doi.org/10.1111/joa.12405"
+  section_used: "Upper limb: overview and outcomes 50-70"
+  evidence_role: external_consensus_curriculum_anchor
+  acquisition: [user_provided_excerpt, independently_verified_source]
+  access_date: "2026-08-28"
+  rights_status: remote_only_transformed_synthesis
+  evidence_status: source_locked_candidate
+  limitations:
+    - Es un syllabus de egreso, no una secuencia instruccional ni un estándar de aprobación.
+    - Varios resultados contienen acciones evaluables independientes y requieren descomposición.
+    - No define por sí mismo el conjunto exhaustivo de músculos, variantes ni imágenes necesarias.
+
+supporting_sources:
+  - id: gm-source-statpearls-upper-limb-general-2023
+    citation: >-
+      Forro SD, Munjal A, Lowe JB. Anatomy, Shoulder and Upper Limb, Arm
+      Structure and Function. StatPearls. Updated July 25, 2023.
+    stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK507841/"
+    evidence_role: regional_anatomy_reference
+    access_date: "2026-08-28"
+  - id: gm-source-statpearls-brachial-plexus-2023
+    citation: >-
+      Bayot ML, Nassereddin A, Varacallo MA. Anatomy, Shoulder and Upper Limb,
+      Brachial Plexus. StatPearls. Updated 2023.
+    stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK500016/"
+    evidence_role: neural_anatomy_reference
+    access_date: "2026-08-28"
+  - id: gm-source-statpearls-upper-limb-nerves-2023
+    citation: >-
+      Okwumabua E, Black AC, Thompson JH. Anatomy, Shoulder and Upper Limb,
+      Nerves. StatPearls. Updated July 30, 2023.
+    stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK526056/"
+    evidence_role: peripheral_nerve_reference
+    access_date: "2026-08-28"
+  - id: gm-source-statpearls-brachial-artery-2023
+    citation: >-
+      Anatomy, Shoulder and Upper Limb, Brachial Artery. StatPearls.
+    stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK537145/"
+    evidence_role: vascular_anatomy_reference
+    access_date: "2026-08-28"
+  - id: gm-source-statpearls-wrist-joint-2023
+    citation: >-
+      Anatomy, Shoulder and Upper Limb, Wrist Joint. StatPearls.
+    stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK534779/"
+    evidence_role: wrist_anatomy_reference
+    access_date: "2026-08-28"
+  - id: gm-source-statpearls-hand-compartments-2023
+    citation: >-
+      Anatomy, Shoulder and Upper Limb, Hand Compartments. StatPearls.
+    stable_locator: "https://www.ncbi.nlm.nih.gov/books/NBK532942/"
+    evidence_role: hand_and_neural_reference
+    access_date: "2026-08-28"
+
+cluster_contract:
+  level: presentation_cluster
+  objective: >-
+    Integra osteología, articulaciones, músculos, fascia, vasos, linfáticos y
+    nervios del miembro superior para interpretar imágenes, explorar función y
+    localizar consecuencias de lesiones frecuentes.
+  expected_performance: >-
+    El estudiante identifica estructuras y relaciones, explica movimiento y
+    estabilidad, reconstruye trayectos neurovasculares, localiza pulsos y acceso
+    venoso, examina función motora y sensitiva, y aplica la anatomía a trauma,
+    atrapamiento nervioso, infección y síndrome compartimental en simulación.
+  mastery_evidence: >-
+    Requiere desempeño agregado en modelos, superficie corporal, imágenes y
+    casos nuevos. Ninguna modalidad, MCQ o demostración aislada certifica el
+    cluster completo.
+  threshold_status: empirical_threshold_not_set
+
+boundaries:
+  included:
+    - osteología y relaciones espaciales del miembro superior
+    - plexo braquial, nervios terminales, dermatomos y exploración funcional
+    - arterias, pulsos, venas, acceso venoso y drenaje linfático axilar
+    - cintura escapular, hombro, axila, codo, radiocubital, muñeca y mano
+    - grupos musculares, agarres, retináculos, vainas y compartimentos fasciales
+    - anatomía aplicada a fractura, luxación, túnel carpiano, infección y síndrome compartimental
+    - radiografía, CT, MRI y ultrasonido a nivel anatómico básico
+  excluded:
+    - tratamiento completo de fracturas, luxaciones o lesiones nerviosas
+    - cirugía, rehabilitación y prescripción terapéutica longitudinal
+    - técnica completa de acceso vascular, reducción articular o fasciotomía
+    - certificación de desempeño clínico independiente sobre pacientes
+
+tag_assignments:
+  - {axis: preclinical_discipline, code: PRECLIN-ANATOMY, role: primary, weight: 1.0, provenance: source_outcomes_50_70}
+  - {axis: preclinical_discipline, code: PRECLIN-NEUROSCIENCE, role: secondary, weight: 0.72, provenance: source_outcomes_51_55_56_57_68}
+  - {axis: organ_system, code: SYS-MUSCULOSKELETAL, role: primary, weight: 0.95, provenance: cluster_scope}
+  - {axis: organ_system, code: SYS-NERVOUS, role: secondary, weight: 0.75, provenance: nerve_scope}
+  - {axis: organ_system, code: SYS-CARDIOVASCULAR, role: secondary, weight: 0.58, provenance: vascular_scope}
+  - {axis: learning_function, code: FUNC-STRUCTURE, role: primary, weight: 0.95, provenance: cluster_scope}
+  - {axis: learning_function, code: FUNC-RECOGNITION, role: secondary, weight: 0.78, provenance: models_surface_imaging}
+  - {axis: learning_function, code: FUNC-MECHANISM, role: secondary, weight: 0.72, provenance: movement_stability_injury}
+  - {axis: learning_function, code: FUNC-SAFETY, role: bridge, weight: 0.5, provenance: neurovascular_injury_and_compartments}
+  - {axis: clinical_area, code: CLIN-ORTHOPEDICS, role: bridge, weight: 0.56, provenance: trauma_and_joint_scope}
+  - {axis: clinical_area, code: CLIN-NEUROLOGY, role: bridge, weight: 0.48, provenance: localization_scope}
+  - {axis: clinical_area, code: CLIN-RADIOLOGY, role: bridge, weight: 0.48, provenance: imaging_scope}
+
+assessment_model:
+  levels:
+    - {code: A1, label: Reconocimiento anatómico, meaning: Identifica, orienta o clasifica estructuras en modelos, superficie o imágenes.}
+    - {code: A2, label: Explicación funcional, meaning: Explica relaciones entre estructura, movimiento, estabilidad, perfusión o función neural.}
+    - {code: A3, label: Aplicación clínica o procedimental, meaning: Usa la anatomía para explorar, localizar una lesión o planificar una acción simulada.}
+    - {code: A4, label: Transferencia multimodal, meaning: Resuelve un caso nuevo integrando anatomía, imagen y desempeño simulado.}
+  rules:
+    - Cada mastery atom declara un único objetivo observable.
+    - Las entidades de conocimiento no requieren objetivo propio.
+    - Los niveles son tipos de evidencia, no objetivos adicionales dentro del nodo.
+    - La aprobación exige muestreo entre modalidades, regiones y casos nuevos.
+
+knowledge_entity_layer:
+  status: source_locked_candidate_not_promoted
+  layer: medical_truth
+  object_type: anatomical_entity
+  contract:
+    objective_policy: only_learner_facing_units_require_one_objective
+    granularity_policy: >-
+      Crear entidades individuales para huesos, nervios y vasos que el resultado
+      exige identificar; usar grupos funcionales para músculos y tejidos cuando
+      el nivel individual todavía no tiene una relación o evaluación independiente.
+  families:
+    - {id: gm-anatomy-upper-limb-skeleton, label: Esqueleto del miembro superior}
+    - {id: gm-anatomy-upper-limb-neural, label: Organización neural del miembro superior}
+    - {id: gm-anatomy-upper-limb-vascular-lymphatic, label: Vasos y linfáticos del miembro superior}
+    - {id: gm-anatomy-upper-limb-joints-regions, label: Articulaciones y regiones del miembro superior}
+    - {id: gm-anatomy-upper-limb-soft-tissue, label: Músculos, fascia, retináculos y vainas}
+  entities:
+    - {id: gm-anatomy-clavicle, label: Clavícula, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso de la cintura pectoral que conecta el miembro superior con el esqueleto axial.}
+    - {id: gm-anatomy-scapula, label: Escápula, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso plano de la cintura pectoral que contiene la cavidad glenoidea y múltiples inserciones musculares.}
+    - {id: gm-anatomy-humerus, label: Húmero, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso del brazo relacionado con hombro, codo y trayectos neurovasculares vulnerables.}
+    - {id: gm-anatomy-radius, label: Radio, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso lateral del antebrazo que participa de manera principal en la articulación de la muñeca.}
+    - {id: gm-anatomy-ulna, label: Ulna o cúbito, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso medial del antebrazo que forma la articulación principal con la tróclea humeral.}
+    - {id: gm-anatomy-scaphoid, label: Escafoides, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso carpiano proximal radial frecuentemente fracturado y con irrigación clínicamente vulnerable.}
+    - {id: gm-anatomy-lunate, label: Semilunar, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso central de la fila proximal del carpo relacionado con el radio.}
+    - {id: gm-anatomy-triquetrum, label: Piramidal, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso carpiano proximal ulnar situado profundo al pisiforme.}
+    - {id: gm-anatomy-pisiform, label: Pisiforme, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso sesamoideo de la fila proximal dentro del tendón del flexor cubital del carpo.}
+    - {id: gm-anatomy-trapezium, label: Trapecio, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso carpiano distal radial que se articula con el primer metacarpiano.}
+    - {id: gm-anatomy-trapezoid, label: Trapezoide, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso carpiano distal relacionado principalmente con el segundo metacarpiano.}
+    - {id: gm-anatomy-capitate, label: Grande, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso central y de mayor tamaño de la fila distal del carpo.}
+    - {id: gm-anatomy-hamate, label: Ganchoso, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Hueso carpiano distal ulnar distinguido por su gancho palmar.}
+    - {id: gm-anatomy-metacarpals, label: Metacarpianos I–V, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Cinco huesos que conectan el carpo con las falanges y estructuran la palma.}
+    - {id: gm-anatomy-phalanges-hand, label: Falanges de la mano, parent_ref: gm-anatomy-upper-limb-skeleton, definition: Huesos digitales; el pulgar posee dos y los otros dedos tres falanges.}
+
+    - {id: gm-anatomy-brachial-plexus, label: Plexo braquial, parent_ref: gm-anatomy-upper-limb-neural, definition: Red de ramos ventrales C5–T1 organizada en raíces, troncos, divisiones, fascículos y ramas.}
+    - {id: gm-anatomy-axillary-nerve, label: Nervio axilar, parent_ref: gm-anatomy-upper-limb-neural, definition: Rama terminal del fascículo posterior relacionada con el cuello quirúrgico del húmero.}
+    - {id: gm-anatomy-radial-nerve, label: Nervio radial, parent_ref: gm-anatomy-upper-limb-neural, definition: Rama terminal posterior que recorre el surco radial y domina la función extensora.}
+    - {id: gm-anatomy-musculocutaneous-nerve, label: Nervio musculocutáneo, parent_ref: gm-anatomy-upper-limb-neural, definition: Rama terminal lateral que inerva el compartimento anterior del brazo y continúa como nervio cutáneo lateral del antebrazo.}
+    - {id: gm-anatomy-median-nerve, label: Nervio mediano, parent_ref: gm-anatomy-upper-limb-neural, definition: Nervio terminal que recorre brazo y antebrazo y atraviesa el túnel carpiano.}
+    - {id: gm-anatomy-ulnar-nerve, label: Nervio ulnar o cubital, parent_ref: gm-anatomy-upper-limb-neural, definition: Nervio terminal medial vulnerable detrás del epicóndilo medial y relevante para musculatura intrínseca de la mano.}
+    - {id: gm-anatomy-upper-limb-dermatomes-myotomes, label: Dermatomos, miotomos y reflejos del miembro superior, parent_ref: gm-anatomy-upper-limb-neural, definition: Mapa segmentario utilizado para diferenciar lesión radicular, plexual y periférica.}
+
+    - {id: gm-anatomy-subclavian-artery-upper-limb, label: Arteria subclavia, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Segmento arterial proximal que continúa como arteria axilar al cruzar el borde lateral de la primera costilla.}
+    - {id: gm-anatomy-axillary-artery, label: Arteria axilar, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Arteria de la axila relacionada con los fascículos del plexo braquial.}
+    - {id: gm-anatomy-brachial-artery, label: Arteria braquial, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Continuación de la axilar en el brazo y principal arteria palpable en la fosa cubital.}
+    - {id: gm-anatomy-radial-artery, label: Arteria radial, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Rama terminal lateral de la braquial y sitio habitual de pulso en la muñeca.}
+    - {id: gm-anatomy-ulnar-artery, label: Arteria ulnar o cubital, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Rama terminal medial que contribuye principalmente al arco palmar superficial.}
+    - {id: gm-anatomy-palmar-arches, label: Arcos palmares superficial y profundo, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Anastomosis radial-ulnar que distribuye sangre a palma y dedos.}
+    - {id: gm-anatomy-superficial-veins-upper-limb, label: Sistema venoso superficial, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Red subcutánea que drena hacia venas cefálica y basílica y ofrece sitios de acceso.}
+    - {id: gm-anatomy-cephalic-vein, label: Vena cefálica, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Vena superficial lateral que asciende hacia el surco deltopectoral.}
+    - {id: gm-anatomy-basilic-vein, label: Vena basílica, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Vena superficial medial que perfora fascia y contribuye a la vena axilar.}
+    - {id: gm-anatomy-median-cubital-vein, label: Vena mediana cubital, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Comunicación superficial frecuente en la fosa cubital usada para venopunción.}
+    - {id: gm-anatomy-deep-veins-upper-limb, label: Sistema venoso profundo, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Venas acompañantes de arterias profundas que drenan músculos y estructuras profundas.}
+    - {id: gm-anatomy-axillary-lymph-nodes, label: Ganglios linfáticos axilares, parent_ref: gm-anatomy-upper-limb-vascular-lymphatic, definition: Grupos ganglionares que reciben linfa del miembro superior, pared torácica y mama.}
+
+    - {id: gm-anatomy-pectoral-girdle, label: Cintura pectoral, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Complejo clavícula-escápula y articulaciones que posiciona el miembro superior respecto al tronco.}
+    - {id: gm-anatomy-glenohumeral-joint, label: Articulación glenohumeral, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Articulación sinovial entre cabeza humeral y cavidad glenoidea con gran movilidad y estabilidad dependiente de tejidos blandos.}
+    - {id: gm-anatomy-axilla, label: Axila, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Espacio piramidal de transición entre cuello, pared torácica y miembro superior que contiene vasos, plexo y ganglios.}
+    - {id: gm-anatomy-elbow-joint, label: Complejo articular del codo, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Complejo humeroulnar, humerorradial y radioulnar proximal dentro de una cápsula funcional.}
+    - {id: gm-anatomy-proximal-radioulnar-joint, label: Articulación radioulnar proximal, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Articulación trocoide que permite rotación de la cabeza radial durante pronación y supinación.}
+    - {id: gm-anatomy-distal-radioulnar-joint, label: Articulación radioulnar distal, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Articulación trocoide distal que coopera con la proximal en la rotación del antebrazo.}
+    - {id: gm-anatomy-wrist-joint, label: Complejo articular de la muñeca, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Articulaciones radiocarpiana y mediocarpiana que permiten flexión, extensión y desviaciones.}
+    - {id: gm-anatomy-finger-thumb-joints, label: Articulaciones de dedos y pulgar, parent_ref: gm-anatomy-upper-limb-joints-regions, definition: Complejo carpometacarpiano, metacarpofalángico e interfalángico que posibilita oposición y manipulación.}
+
+    - {id: gm-anatomy-rotator-cuff, label: Manguito rotador, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Grupo supraespinoso, infraespinoso, redondo menor y subescapular que centra y mueve la cabeza humeral.}
+    - {id: gm-anatomy-pectoral-girdle-movers, label: Músculos motores de la cintura pectoral, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Grupos que elevan, deprimen, retraen, protruyen y rotan la escápula.}
+    - {id: gm-anatomy-anterior-arm-compartment, label: Compartimento anterior del brazo, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Grupo flexor del brazo dominado por inervación musculocutánea.}
+    - {id: gm-anatomy-posterior-arm-compartment, label: Compartimento posterior del brazo, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Grupo extensor del brazo dominado por inervación radial.}
+    - {id: gm-anatomy-forearm-flexor-pronator, label: Grupo flexor-pronador del antebrazo, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Compartimento anterior que flexiona muñeca y dedos y participa en pronación.}
+    - {id: gm-anatomy-forearm-extensor-supinator, label: Grupo extensor-supinador del antebrazo, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Compartimento posterior que extiende muñeca y dedos y participa en supinación.}
+    - {id: gm-anatomy-intrinsic-hand-muscles, label: Músculos intrínsecos de la mano, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Músculos tenares, hipotenares, lumbricales, interóseos y aductor del pulgar responsables de control fino.}
+    - {id: gm-anatomy-extrinsic-digital-tendons, label: Tendones extrínsecos de dedos y pulgar, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Tendones provenientes del antebrazo que producen gran parte de la flexión y extensión digital.}
+    - {id: gm-anatomy-flexor-retinaculum, label: Retináculo flexor, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Banda fibrosa palmar que forma el techo del túnel carpiano.}
+    - {id: gm-anatomy-extensor-retinaculum, label: Retináculo extensor, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Banda dorsal que estabiliza tendones extensores en compartimentos.}
+    - {id: gm-anatomy-flexor-tendon-sheaths, label: Vainas sinoviales flexoras, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Vainas que facilitan deslizamiento tendinoso y pueden conducir propagación de infección.}
+    - {id: gm-anatomy-upper-limb-fascial-compartments, label: Fascia profunda y compartimentos del miembro superior, parent_ref: gm-anatomy-upper-limb-soft-tissue, definition: Tabiques y envolturas fasciales que delimitan grupos musculares, vasos y nervios.}
+
+objective_hierarchy:
+  - id: gm-ko-upper-limb-osteology-imaging
+    level: key_objective
+    source_outcomes: [50, 70]
+    title: "Osteología e imagen del miembro superior"
+    objective: >-
+      Reconoce huesos, relaciones y lesiones frecuentes del miembro superior en
+      especímenes e imágenes estándar.
+    mastery_atoms:
+      - id: gm-ma-identify-upper-limb-long-flat-bones
+        title: "Identificar clavícula, escápula, húmero, radio y ulna"
+        learning_contract:
+          objective: Identifica y orienta clavícula, escápula, húmero, radio y ulna mediante sus principales accidentes anatómicos.
+          expected_performance: Justifica lateralidad, orientación y región sin depender de una vista idéntica a la enseñada.
+          mastery_evidence: Identificación razonada en piezas, modelos o imágenes nuevas de los cinco huesos.
+        evidence_levels: [A1, A2, A4]
+        evidence_object_refs: [gm-anatomy-clavicle, gm-anatomy-scapula, gm-anatomy-humerus, gm-anatomy-radius, gm-anatomy-ulna]
+      - id: gm-ma-identify-wrist-hand-bones
+        title: "Identificar huesos de muñeca y mano"
+        learning_contract:
+          objective: Identifica los ocho carpianos, metacarpianos y falanges y establece sus posiciones relativas.
+          expected_performance: Reconstruye filas del carpo y orientación radial-ulnar, incluyendo el escafoides como lesión frecuente.
+          mastery_evidence: Identificación completa en al menos dos modalidades y una mano con orientación no anunciada.
+        evidence_levels: [A1, A2, A4]
+        evidence_object_refs: [gm-anatomy-scaphoid, gm-anatomy-lunate, gm-anatomy-triquetrum, gm-anatomy-pisiform, gm-anatomy-trapezium, gm-anatomy-trapezoid, gm-anatomy-capitate, gm-anatomy-hamate, gm-anatomy-metacarpals, gm-anatomy-phalanges-hand]
+      - id: gm-ma-interpret-upper-limb-imaging
+        title: "Interpretar imagen anatómica del miembro superior"
+        learning_contract:
+          objective: Orienta radiografía, CT, MRI o ultrasonido del miembro superior e identifica anatomía y anomalías frecuentes.
+          expected_performance: Reconoce modalidad, proyección o plano y localiza región y lesión sin emitir un informe radiológico completo.
+          mastery_evidence: Lectura estructurada de imágenes nuevas de hombro, codo, muñeca o mano en más de una modalidad.
+        evidence_levels: [A1, A3, A4]
+        evidence_object_refs: [gm-anatomy-clavicle, gm-anatomy-scapula, gm-anatomy-humerus, gm-anatomy-radius, gm-anatomy-ulna, gm-anatomy-scaphoid, gm-anatomy-glenohumeral-joint, gm-anatomy-elbow-joint, gm-anatomy-wrist-joint]
+
+  - id: gm-ko-upper-limb-trauma-neurovascular
+    level: key_objective
+    source_outcomes: [51]
+    title: "Relaciones neurovasculares vulnerables en trauma"
+    objective: Localiza estructuras neurovasculares en riesgo por fractura o luxación y predice sus consecuencias funcionales.
+    mastery_atoms:
+      - id: gm-ma-map-neurovascular-risk-by-injury
+        title: "Mapear riesgo neurovascular por sitio de lesión"
+        learning_contract:
+          objective: Identifica el nervio o vaso especialmente vulnerable ante una fractura o luxación del miembro superior.
+          expected_performance: Usa relaciones anatómicas y nivel de lesión, no asociaciones memorizadas sin justificación.
+          mastery_evidence: Localización razonada en escenarios que varían hueso, segmento y mecanismo.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-humerus, gm-anatomy-radius, gm-anatomy-ulna, gm-anatomy-scaphoid, gm-anatomy-axillary-nerve, gm-anatomy-radial-nerve, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve, gm-anatomy-brachial-artery]
+      - id: gm-ma-predict-functional-effect-neurovascular-injury
+        title: "Predecir el efecto de una lesión neurovascular"
+        learning_contract:
+          objective: Predice el déficit motor, sensitivo o perfusional esperado desde la estructura y nivel lesionados.
+          expected_performance: Distingue lesión nerviosa, arterial y combinada y declara límites cuando el patrón no localiza por sí solo.
+          mastery_evidence: Predicción coherente y comprobación mediante exploración simulada en casos nuevos.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-axillary-nerve, gm-anatomy-radial-nerve, gm-anatomy-musculocutaneous-nerve, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve, gm-anatomy-brachial-artery, gm-anatomy-radial-artery, gm-anatomy-ulnar-artery]
+
+  - id: gm-ko-upper-limb-arterial-supply-pulses
+    level: key_objective
+    source_outcomes: [52, 53]
+    title: "Irrigación arterial, anastomosis y pulsos"
+    objective: Reconstruye la irrigación del miembro superior y la aplica a perfusión, lesión y palpación de pulsos.
+    mastery_atoms:
+      - id: gm-ma-trace-upper-limb-arterial-tree
+        title: "Trazar el árbol arterial del miembro superior"
+        learning_contract:
+          objective: Traza la continuidad subclavia-axilar-braquial-radial-ulnar y sus ramas principales hasta la mano.
+          expected_performance: Usa límites regionales y relaciones anatómicas y reconoce que existen variantes.
+          mastery_evidence: Reconstrucción en diagrama, imagen o espécimen y aplicación a un sitio de lesión.
+        evidence_levels: [A1, A2, A3]
+        evidence_object_refs: [gm-anatomy-subclavian-artery-upper-limb, gm-anatomy-axillary-artery, gm-anatomy-brachial-artery, gm-anatomy-radial-artery, gm-anatomy-ulnar-artery, gm-anatomy-palmar-arches]
+      - id: gm-ma-explain-upper-limb-anastomoses
+        title: "Explicar anastomosis y circulación colateral"
+        learning_contract:
+          objective: Explica cómo las anastomosis relevantes mantienen o modifican la perfusión alrededor de articulaciones y mano.
+          expected_performance: Relaciona continuidad vascular, nivel de obstrucción y límites de la circulación colateral.
+          mastery_evidence: Explicación causal aplicada a al menos un escenario de codo o mano.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-brachial-artery, gm-anatomy-radial-artery, gm-anatomy-ulnar-artery, gm-anatomy-palmar-arches]
+      - id: gm-ma-locate-upper-limb-pulses
+        title: "Localizar pulsos braquial, radial y ulnar"
+        learning_contract:
+          objective: Localiza y palpa en simulación los pulsos braquial, radial y ulnar usando referencias superficiales.
+          expected_performance: Posiciona el miembro, identifica el trayecto esperado y comunica ausencia o dificultad sin inventar un hallazgo.
+          mastery_evidence: Observación directa en más de una anatomía corporal o simulador.
+        evidence_levels: [A1, A3, A4]
+        evidence_object_refs: [gm-anatomy-brachial-artery, gm-anatomy-radial-artery, gm-anatomy-ulnar-artery]
+
+  - id: gm-ko-upper-limb-venous-lymphatic
+    level: key_objective
+    source_outcomes: [54, 61]
+    title: "Drenaje venoso, acceso vascular y linfáticos axilares"
+    objective: Aplica venas superficiales y profundas y ganglios axilares a drenaje, acceso venoso y propagación tumoral.
+    mastery_atoms:
+      - id: gm-ma-contrast-superficial-deep-veins
+        title: "Contrastar venas superficiales y profundas"
+        learning_contract:
+          objective: Traza el drenaje venoso superficial y profundo y contrasta sus relaciones y funciones.
+          expected_performance: Distingue red subcutánea de venas acompañantes y conecta cefálica y basílica con el drenaje proximal.
+          mastery_evidence: Reconstrucción y comparación en diagrama o imagen nueva.
+        evidence_levels: [A1, A2, A3]
+        evidence_object_refs: [gm-anatomy-superficial-veins-upper-limb, gm-anatomy-cephalic-vein, gm-anatomy-basilic-vein, gm-anatomy-median-cubital-vein, gm-anatomy-deep-veins-upper-limb]
+      - id: gm-ma-plan-upper-limb-venous-access
+        title: "Planificar un acceso venoso periférico"
+        learning_contract:
+          objective: Selecciona un sitio superficial de acceso venoso y justifica sus relaciones anatómicas y riesgos.
+          expected_performance: Identifica referencias y estructuras vecinas en simulación; no certifica canulación independiente.
+          mastery_evidence: Plan verbal y demostración sobre modelo con variación del sitio disponible.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-cephalic-vein, gm-anatomy-basilic-vein, gm-anatomy-median-cubital-vein]
+      - id: gm-ma-map-axillary-lymphatic-drainage
+        title: "Mapear drenaje linfático axilar"
+        learning_contract:
+          objective: Explica la organización de los ganglios axilares y predice rutas de drenaje y propagación desde miembro, tronco o mama.
+          expected_performance: Usa territorio de drenaje y grupos ganglionares sin convertir anatomía en estadificación oncológica completa.
+          mastery_evidence: Resolución de escenarios de drenaje normal y propagación tumoral simulada.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-axillary-lymph-nodes, gm-anatomy-axilla]
+
+  - id: gm-ko-upper-limb-plexus-nerves-exam
+    level: key_objective
+    source_outcomes: [55, 56, 57, 68]
+    title: "Plexo braquial, nervios terminales y examen neurológico"
+    objective: Reconstruye la inervación del miembro superior y localiza lesiones mediante territorios y exploración funcional.
+    mastery_atoms:
+      - id: gm-ma-reconstruct-brachial-plexus
+        title: "Reconstruir el plexo braquial"
+        learning_contract:
+          objective: Reconstruye el plexo braquial desde C5–T1 hasta sus cinco ramas terminales.
+          expected_performance: Mantiene raíces, troncos, divisiones, fascículos y ramas en orden y relación con la arteria axilar.
+          mastery_evidence: Reconstrucción desde memoria y orientación en un esquema o imagen diferente.
+        evidence_levels: [A1, A2, A4]
+        evidence_object_refs: [gm-anatomy-brachial-plexus, gm-anatomy-axillary-artery]
+      - id: gm-ma-localize-brachial-plexus-injury
+        title: "Localizar una lesión del plexo braquial"
+        learning_contract:
+          objective: Localiza el nivel probable de una lesión plexual a partir de su patrón motor y sensitivo.
+          expected_performance: Diferencia raíz, plexo y nervio terminal y reconoce patrones que requieren datos adicionales.
+          mastery_evidence: Localización razonada en casos que varían nivel, mecanismo y extensión.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-brachial-plexus, gm-anatomy-upper-limb-dermatomes-myotomes]
+      - id: gm-ma-trace-five-terminal-nerves
+        title: "Trazar los cinco nervios terminales"
+        learning_contract:
+          objective: Traza origen, curso y puntos de vulnerabilidad de los nervios axilar, radial, musculocutáneo, mediano y ulnar.
+          expected_performance: Relaciona cada trayecto con huesos, articulaciones y compartimentos sin reducirlo a una lista de músculos.
+          mastery_evidence: Trazado en modelos o imágenes y aplicación a un sitio de lesión.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-axillary-nerve, gm-anatomy-radial-nerve, gm-anatomy-musculocutaneous-nerve, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve]
+      - id: gm-ma-map-terminal-nerve-territories
+        title: "Mapear territorios motores y sensitivos"
+        learning_contract:
+          objective: Asigna grupos musculares y territorios cutáneos principales a cada nervio terminal del miembro superior.
+          expected_performance: Usa patrones funcionales y puntos sensitivos autónomos y reconoce solapamiento entre territorios.
+          mastery_evidence: Mapeo multimodal y predicción de déficit en lesiones a niveles diferentes.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-axillary-nerve, gm-anatomy-radial-nerve, gm-anatomy-musculocutaneous-nerve, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve, gm-anatomy-anterior-arm-compartment, gm-anatomy-posterior-arm-compartment, gm-anatomy-forearm-flexor-pronator, gm-anatomy-forearm-extensor-supinator, gm-anatomy-intrinsic-hand-muscles]
+      - id: gm-ma-perform-upper-limb-neurologic-exam
+        title: "Realizar examen neurológico del miembro superior"
+        learning_contract:
+          objective: Evalúa de forma estructurada sensibilidad, función motora, reflejos y fuerza del miembro superior en simulación.
+          expected_performance: Selecciona movimientos y territorios discriminadores, compara lados y documenta asistencia y limitaciones.
+          mastery_evidence: Observación directa con checklist en casos simulados con patrones radicular y periférico.
+        evidence_levels: [A3, A4]
+        evidence_object_refs: [gm-anatomy-upper-limb-dermatomes-myotomes, gm-anatomy-axillary-nerve, gm-anatomy-radial-nerve, gm-anatomy-musculocutaneous-nerve, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve]
+
+  - id: gm-ko-upper-limb-shoulder-axilla
+    level: key_objective
+    source_outcomes: [58, 59, 60]
+    title: "Cintura pectoral, hombro y axila"
+    objective: Explica movimiento y estabilidad del complejo del hombro y orienta las relaciones de la axila.
+    mastery_atoms:
+      - id: gm-ma-analyze-pectoral-girdle-movement
+        title: "Analizar movimiento de la cintura pectoral"
+        learning_contract:
+          objective: Explica los movimientos de la cintura pectoral y asigna articulaciones, músculos e inervación responsables.
+          expected_performance: Integra clavícula, escápula y tórax y diferencia movimiento escapular de glenohumeral.
+          mastery_evidence: Análisis de movimientos observados y predicción tras debilitar un grupo muscular.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-pectoral-girdle, gm-anatomy-clavicle, gm-anatomy-scapula, gm-anatomy-pectoral-girdle-movers]
+      - id: gm-ma-explain-glenohumeral-stability
+        title: "Explicar movimiento y estabilidad glenohumeral"
+        learning_contract:
+          objective: Explica cómo superficies, cápsula, ligamentos y músculos permiten movimiento y estabilidad glenohumeral.
+          expected_performance: Reconoce el intercambio movilidad-estabilidad y el papel del manguito rotador.
+          mastery_evidence: Explicación causal aplicada a una posición o alteración propuesta.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-glenohumeral-joint, gm-anatomy-scapula, gm-anatomy-humerus, gm-anatomy-rotator-cuff]
+      - id: gm-ma-predict-shoulder-dislocation-consequences
+        title: "Predecir consecuencias de luxación glenohumeral"
+        learning_contract:
+          objective: Predice estructuras vulnerables y déficits funcionales desde la dirección y relaciones de una luxación glenohumeral.
+          expected_performance: Conecta cápsula, cabeza humeral, nervio axilar y perfusión sin realizar manejo completo.
+          mastery_evidence: Resolución de casos e imágenes con exploración poslesión simulada.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-glenohumeral-joint, gm-anatomy-humerus, gm-anatomy-axillary-nerve, gm-anatomy-axillary-artery]
+      - id: gm-ma-map-axilla-boundaries-contents
+        title: "Mapear límites y contenido de la axila"
+        learning_contract:
+          objective: Reconstruye paredes, vértice, base y contenido principal de la axila.
+          expected_performance: Orienta vasos, fascículos plexuales y ganglios en relación con las paredes y espacios vecinos.
+          mastery_evidence: Reconstrucción en cortes, modelos y una aplicación clínica nueva.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-axilla, gm-anatomy-axillary-artery, gm-anatomy-brachial-plexus, gm-anatomy-axillary-lymph-nodes]
+
+  - id: gm-ko-upper-limb-elbow-forearm
+    level: key_objective
+    source_outcomes: [62, 63]
+    title: "Codo y rotación del antebrazo"
+    objective: Relaciona articulaciones, músculos e inervación con flexión-extensión y pronación-supinación.
+    mastery_atoms:
+      - id: gm-ma-analyze-elbow-joint
+        title: "Analizar la anatomía del codo"
+        learning_contract:
+          objective: Explica superficies, cápsula y estabilizadores del complejo articular del codo.
+          expected_performance: Distingue componentes humeroulnar, humerorradial y radioulnar proximal y su contribución.
+          mastery_evidence: Identificación y explicación funcional en modelo e imagen nueva.
+        evidence_levels: [A1, A2, A3]
+        evidence_object_refs: [gm-anatomy-elbow-joint, gm-anatomy-humerus, gm-anatomy-radius, gm-anatomy-ulna]
+      - id: gm-ma-explain-elbow-flexion-extension
+        title: "Explicar flexión y extensión del codo"
+        learning_contract:
+          objective: Asigna músculos, inserciones e inervación a flexión y extensión del codo y demuestra ambos movimientos.
+          expected_performance: Diferencia motor principal, sinergistas y efecto de posición del antebrazo.
+          mastery_evidence: Demostración y predicción tras una lesión nerviosa o muscular simulada.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-anterior-arm-compartment, gm-anatomy-posterior-arm-compartment, gm-anatomy-musculocutaneous-nerve, gm-anatomy-radial-nerve]
+      - id: gm-ma-analyze-radioulnar-joints
+        title: "Analizar articulaciones radioulnares"
+        learning_contract:
+          objective: Explica cómo las articulaciones radioulnares proximal y distal permiten rotación coordinada del radio.
+          expected_performance: Orienta eje, cabeza radial y extremo distal y diferencia rotación de movimiento de muñeca.
+          mastery_evidence: Explicación sobre modelo y transferencia a una restricción articular propuesta.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-proximal-radioulnar-joint, gm-anatomy-distal-radioulnar-joint, gm-anatomy-radius, gm-anatomy-ulna]
+      - id: gm-ma-explain-pronation-supination
+        title: "Explicar pronación y supinación"
+        learning_contract:
+          objective: Asigna músculos, inserciones e inervación a pronación y supinación y demuestra ambos movimientos.
+          expected_performance: Reconoce el papel de bíceps, supinador, pronadores y nervios musculocutáneo, radial y mediano.
+          mastery_evidence: Demostración y predicción de déficit en lesiones a niveles diferentes.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-forearm-flexor-pronator, gm-anatomy-forearm-extensor-supinator, gm-anatomy-musculocutaneous-nerve, gm-anatomy-radial-nerve, gm-anatomy-median-nerve]
+
+  - id: gm-ko-upper-limb-wrist-hand-grip
+    level: key_objective
+    source_outcomes: [64, 65, 66]
+    title: "Muñeca, mano y agarres"
+    objective: Integra articulaciones, tendones, músculos y nervios para explicar movimientos de muñeca, dedos, pulgar y agarre.
+    mastery_atoms:
+      - id: gm-ma-analyze-wrist-anatomy-relations
+        title: "Analizar anatomía y relaciones de la muñeca"
+        learning_contract:
+          objective: Reconstruye articulaciones y posiciones relativas de tendones, vasos y nervios en la muñeca.
+          expected_performance: Orienta caras palmar y dorsal y usa las relaciones para anticipar estructuras expuestas a lesión.
+          mastery_evidence: Mapeo en corte, modelo e imagen clínica nueva.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-wrist-joint, gm-anatomy-flexor-retinaculum, gm-anatomy-extensor-retinaculum, gm-anatomy-median-nerve, gm-anatomy-radial-artery, gm-anatomy-ulnar-artery]
+      - id: gm-ma-explain-wrist-movements
+        title: "Explicar movimientos de la muñeca"
+        learning_contract:
+          objective: Asigna grupos musculares e inervación a flexión, extensión y desviaciones radial y ulnar de la muñeca.
+          expected_performance: Usa vectores de acción y coactivación, no una correspondencia de un músculo por movimiento.
+          mastery_evidence: Demostración y predicción funcional ante lesión nerviosa o tendinosa.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-wrist-joint, gm-anatomy-forearm-flexor-pronator, gm-anatomy-forearm-extensor-supinator, gm-anatomy-radial-nerve, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve]
+      - id: gm-ma-explain-finger-thumb-movements
+        title: "Explicar movimientos de dedos y pulgar"
+        learning_contract:
+          objective: Explica movimientos de dedos y pulgar diferenciando músculos extrínsecos, intrínsecos e inervación.
+          expected_performance: Integra articulaciones y tendones y distingue oposición, abducción, aducción, flexión y extensión.
+          mastery_evidence: Demostración y análisis de una pérdida motora selectiva en caso nuevo.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-finger-thumb-joints, gm-anatomy-intrinsic-hand-muscles, gm-anatomy-extrinsic-digital-tendons, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve, gm-anatomy-radial-nerve]
+      - id: gm-ma-analyze-power-precision-hook-grips
+        title: "Analizar agarres de potencia, precisión y gancho"
+        learning_contract:
+          objective: Compara agarres de potencia, precisión y gancho y asigna músculos y nervios indispensables para ejecutarlos.
+          expected_performance: Usa demandas mecánicas reales y predice cómo una lesión altera cada agarre de forma distinta.
+          mastery_evidence: Demostración de los tres agarres y análisis de transferencia con déficit simulado.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-intrinsic-hand-muscles, gm-anatomy-extrinsic-digital-tendons, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve, gm-anatomy-radial-nerve]
+
+  - id: gm-ko-upper-limb-retinacula-sheaths
+    level: key_objective
+    source_outcomes: [67]
+    title: "Retináculos, vainas y túnel carpiano"
+    objective: Aplica retináculos y vainas tendinosas a atrapamiento nervioso y propagación de infección.
+    mastery_atoms:
+      - id: gm-ma-map-wrist-retinacula-sheaths
+        title: "Mapear retináculos y vainas de muñeca y mano"
+        learning_contract:
+          objective: Identifica retináculos flexor y extensor y traza las vainas tendinosas relevantes de muñeca y mano.
+          expected_performance: Diferencia compartimentos dorsales, túnel carpiano y continuidad de vainas sinoviales.
+          mastery_evidence: Reconstrucción en cortes, modelos o ultrasonido nuevo.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-flexor-retinaculum, gm-anatomy-extensor-retinaculum, gm-anatomy-flexor-tendon-sheaths, gm-anatomy-extrinsic-digital-tendons]
+      - id: gm-ma-explain-carpal-tunnel-syndrome
+        title: "Explicar el túnel carpiano"
+        learning_contract:
+          objective: Explica la base anatómica del síndrome del túnel carpiano y predice su patrón funcional.
+          expected_performance: Relaciona contenido, techo, presión y territorio mediano sin asumir que todo dolor de mano proviene del túnel.
+          mastery_evidence: Resolución de casos con localización y contraste frente a una lesión mediana proximal.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-flexor-retinaculum, gm-anatomy-median-nerve, gm-anatomy-flexor-tendon-sheaths]
+      - id: gm-ma-predict-tendon-sheath-infection-spread
+        title: "Predecir propagación por vainas tendinosas"
+        learning_contract:
+          objective: Predice la ruta anatómica probable de propagación de una infección dentro de vainas flexoras de la mano.
+          expected_performance: Usa continuidad espacial y límites fasciales sin convertir el nodo en manejo infeccioso completo.
+          mastery_evidence: Trazado razonado en escenarios con distintos dedos o espacios comprometidos.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-flexor-tendon-sheaths, gm-anatomy-upper-limb-fascial-compartments]
+
+  - id: gm-ko-upper-limb-fascial-compartments
+    level: key_objective
+    source_outcomes: [69]
+    title: "Compartimentos fasciales y síndrome compartimental"
+    objective: Reconstruye compartimentos del miembro superior y aplica sus contenidos y límites al síndrome compartimental.
+    mastery_atoms:
+      - id: gm-ma-map-upper-limb-fascial-compartments
+        title: "Mapear compartimentos fasciales"
+        learning_contract:
+          objective: Delimita los principales compartimentos musculares del brazo, antebrazo y mano y asigna sus contenidos.
+          expected_performance: Relaciona fascia, tabiques, grupos musculares, vasos y nervios en cortes y modelos.
+          mastery_evidence: Reconstrucción multimodal de más de una región y orientación de un corte nuevo.
+        evidence_levels: [A1, A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-upper-limb-fascial-compartments, gm-anatomy-anterior-arm-compartment, gm-anatomy-posterior-arm-compartment, gm-anatomy-forearm-flexor-pronator, gm-anatomy-forearm-extensor-supinator, gm-anatomy-intrinsic-hand-muscles]
+      - id: gm-ma-explain-upper-limb-compartment-syndrome
+        title: "Explicar síndrome compartimental del miembro superior"
+        learning_contract:
+          objective: Explica cómo el aumento de presión en un compartimento compromete perfusión, nervios y función.
+          expected_performance: Conecta espacio limitado, contenido y consecuencias y reconoce que la conducta clínica completa pertenece a otro cluster.
+          mastery_evidence: Explicación causal y localización en un caso simulado nuevo.
+        evidence_levels: [A2, A3, A4]
+        evidence_object_refs: [gm-anatomy-upper-limb-fascial-compartments, gm-anatomy-brachial-artery, gm-anatomy-radial-artery, gm-anatomy-ulnar-artery, gm-anatomy-median-nerve, gm-anatomy-ulnar-nerve, gm-anatomy-radial-nerve]
+
+integrating_assemblies:
+  - id: gm-pa-examine-upper-limb
+    type: professional_activity_candidate
+    title: "Realizar una exploración anatómica del miembro superior"
+    member_refs: [gm-ma-locate-upper-limb-pulses, gm-ma-perform-upper-limb-neurologic-exam, gm-ma-explain-elbow-flexion-extension, gm-ma-explain-pronation-supination, gm-ma-explain-wrist-movements, gm-ma-explain-finger-thumb-movements, gm-ma-analyze-power-precision-hook-grips]
+    boundary: Desempeño simulado; no constituye diagnóstico musculoesquelético o neurológico completo.
+  - id: gm-dp-localize-upper-limb-trauma-deficit
+    type: decision_pattern_candidate
+    title: "Localizar un déficit neurovascular después de trauma"
+    member_refs: [gm-ma-map-neurovascular-risk-by-injury, gm-ma-predict-functional-effect-neurovascular-injury, gm-ma-map-terminal-nerve-territories, gm-ma-perform-upper-limb-neurologic-exam, gm-ma-interpret-upper-limb-imaging]
+    boundary: Localización anatómica; no incluye tratamiento completo del trauma.
+  - id: gm-pa-assess-hand-function
+    type: professional_activity_candidate
+    title: "Evaluar anatómicamente muñeca, mano y agarre"
+    member_refs: [gm-ma-analyze-wrist-anatomy-relations, gm-ma-explain-wrist-movements, gm-ma-explain-finger-thumb-movements, gm-ma-analyze-power-precision-hook-grips, gm-ma-explain-carpal-tunnel-syndrome]
+    boundary: Evaluación simulada; no certifica manejo clínico independiente.
+  - id: gm-pa-plan-venous-access-assess-perfusion
+    type: professional_activity_candidate
+    title: "Planificar acceso venoso y evaluar perfusión distal"
+    member_refs: [gm-ma-trace-upper-limb-arterial-tree, gm-ma-locate-upper-limb-pulses, gm-ma-contrast-superficial-deep-veins, gm-ma-plan-upper-limb-venous-access]
+    boundary: Planificación y examen simulado; no certifica canulación.
+  - id: gm-dp-recognize-compartment-threat
+    type: decision_pattern_candidate
+    title: "Reconocer anatómicamente una amenaza compartimental"
+    member_refs: [gm-ma-map-upper-limb-fascial-compartments, gm-ma-explain-upper-limb-compartment-syndrome, gm-ma-predict-functional-effect-neurovascular-injury]
+    boundary: Explicación y reconocimiento; manejo urgente pertenece a un cluster clínico.
+
+route_templates:
+  - id: gm-route-upper-limb-preclinical
+    title: "Dominar la anatomía del miembro superior"
+    target: gm-cluster-miembro-superior
+    tag: ROUTE-PRECLINICAL-MASTERY
+    suggested_sequence: [gm-ma-identify-upper-limb-long-flat-bones, gm-ma-identify-wrist-hand-bones, gm-ma-reconstruct-brachial-plexus, gm-ma-trace-five-terminal-nerves, gm-ma-trace-upper-limb-arterial-tree, gm-ma-analyze-pectoral-girdle-movement, gm-ma-analyze-elbow-joint, gm-ma-analyze-radioulnar-joints, gm-ma-analyze-wrist-anatomy-relations, gm-ma-map-upper-limb-fascial-compartments]
+  - id: gm-route-upper-limb-examination
+    title: "Exploración anatómica del miembro superior"
+    target: gm-pa-examine-upper-limb
+    tag: ROUTE-CASE-PERFORMANCE
+    suggested_sequence: [gm-ma-map-terminal-nerve-territories, gm-ma-locate-upper-limb-pulses, gm-ma-explain-elbow-flexion-extension, gm-ma-explain-pronation-supination, gm-ma-explain-wrist-movements, gm-ma-explain-finger-thumb-movements, gm-ma-perform-upper-limb-neurologic-exam]
+  - id: gm-route-upper-limb-trauma
+    title: "Trauma y localización neurovascular"
+    target: gm-dp-localize-upper-limb-trauma-deficit
+    tag: ROUTE-CASE-PERFORMANCE
+    suggested_sequence: [gm-ma-identify-upper-limb-long-flat-bones, gm-ma-map-neurovascular-risk-by-injury, gm-ma-trace-five-terminal-nerves, gm-ma-trace-upper-limb-arterial-tree, gm-ma-predict-functional-effect-neurovascular-injury, gm-ma-interpret-upper-limb-imaging]
+  - id: gm-route-upper-limb-hand
+    title: "Muñeca, mano, agarre y túnel carpiano"
+    target: gm-pa-assess-hand-function
+    tag: ROUTE-CASE-PERFORMANCE
+    suggested_sequence: [gm-ma-identify-wrist-hand-bones, gm-ma-analyze-wrist-anatomy-relations, gm-ma-map-wrist-retinacula-sheaths, gm-ma-explain-wrist-movements, gm-ma-explain-finger-thumb-movements, gm-ma-analyze-power-precision-hook-grips, gm-ma-explain-carpal-tunnel-syndrome]
+
+quality_counts:
+  source_outcomes: 21
+  key_objectives: 10
+  mastery_atoms: 33
+  integrating_assemblies: 5
+  route_templates: 4
+  knowledge_families: 5
+  knowledge_entities: 54
+  displayed_knowledge_nodes_including_families: 59
+  materialized_part_of_relations: 54
+  materialized_enables_mastery_of_relations: 167
+  materialized_relations_total: 221
+
+open_questions:
+  - Definir qué músculos individuales deben promoverse desde grupos funcionales por tener evaluación o relaciones propias.
+  - Añadir imágenes source-locked representativas de fracturas antes de declarar lista de anomalías evaluables.
+  - Definir estándares de muestreo y errores críticos mediante revisión anatómica y piloto.
+  - Mapear las actividades integradoras a EPAs y CanMEDS cuando el registro source-locked esté disponible.

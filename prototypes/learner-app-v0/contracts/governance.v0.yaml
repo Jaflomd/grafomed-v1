@@ -1,0 +1,32 @@
+schema: grafomed-prototype-governance.v0
+status: candidate_demo
+scope: learner-app-v0 local browser prototype
+data:
+  storage: browser_local_only
+  canonical_write: false
+  purpose: prototype_learning_and_usability
+  minimization: only demo learner state, route context, evidence events, and contests
+  portability: JSON export available to the learner
+  deletion: local reset available to the learner
+  secondary_use: prohibited_without_separate_authorization
+learner_rights:
+  inspect_model: true
+  inspect_evidence: true
+  inspect_versions: true
+  see_recommendation_reason: true
+  see_what_would_change_estimate: true
+  contest_inference: true
+  override_route: true
+missingness:
+  allowed_states: [not_attempted, not_observed, insufficient_sample, declined, unavailable, invalidated, failed]
+  rule: absence, inactivity, refusal, interruption, and access barriers must not be converted to failure
+game_separation:
+  mastery_inputs: [objective_aligned_evidence_events]
+  excluded_mastery_inputs: [xp, active_days, quest_progress, speed, streak]
+  prohibited: [competence_leaderboards, rest_penalties, streak_loss_as_failure]
+fairness_accessibility:
+  audit_status: not_started
+  axes: [language, disability, device, bandwidth, gaming_familiarity, training_background, local_context]
+versioning:
+  immutable_evidence_rule: historical evidence retains the exact objective, item, rubric, scorer, and route-algorithm versions
+  retroactive_rewrite: prohibited

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Visor 3D local e interactivo de snapshots versionados de Grafo Med.">
+  <title>Grafo Med · Visor 3D</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-stage">Saltar a la visualización</a>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-block" aria-label="Grafo Med viewer">
+        <div class="brand-mark" aria-hidden="true"><span>GM</span></div>
+        <div>
+          <div class="eyebrow">MIA · GRAFO DE APRENDIZAJE MÉDICO</div>
+          <h1>Grafo Med</h1>
+        </div>
+      </div>
+
+      <nav class="mode-switcher" aria-label="Viewer mode">
+        <button class="mode-button is-active" data-mode="graph" type="button">
+          <span aria-hidden="true">◉</span><span data-i18n="modeGraph">Nodos</span>
+        </button>
+        <button class="mode-button" data-mode="route" type="button">
+          <span aria-hidden="true">↝</span><span data-i18n="modeRoute">Ruta</span>
+        </button>
+        <button class="mode-button" data-mode="inspector" type="button">
+          <span aria-hidden="true">⌁</span><span data-i18n="modeInspector">Inspector</span>
+        </button>
+      </nav>
+
+      <div class="topbar-actions">
+        <div class="snapshot-chip" id="snapshot-chip" title="Current snapshot">
+          <span class="snapshot-dot"></span>
+          <span id="snapshot-short">Cargando…</span>
+        </div>
+        <button class="icon-button" id="language-toggle" type="button" aria-label="Change language">ES</button>
+        <button class="secondary-button" id="import-button" type="button" data-i18n="openSnapshot">Abrir snapshot</button>
+        <input id="snapshot-file" type="file" accept="application/json,.json" hidden>
+      </div>
+    </header>
+
+    <section class="notice-bar" id="notice-bar" aria-live="polite">
+      <strong id="notice-label">SNAPSHOT</strong>
+      <span id="notice-text">Cargando datos del visor…</span>
+      <button id="notice-dismiss" class="notice-dismiss" type="button" aria-label="Dismiss notice">×</button>
+    </section>
+
+    <div class="workspace-grid">
+      <aside class="control-rail" aria-label="Graph controls">
+        <section class="control-section search-section">
+          <label class="control-label" for="graph-search" data-i18n="search">Buscar</label>
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="graph-search" type="search" autocomplete="off" placeholder="ID, título, tag, competencia…">
+            <kbd>/</kbd>
+          </div>
+          <div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div>
+        </section>
+
+        <section class="control-section">
+          <div class="section-heading">
+            <h2 data-i18n="scope">Scope</h2>
+            <button class="text-button" id="clear-filters" type="button" data-i18n="reset">Reset</button>
+          </div>
+
+          <label class="control-label" for="layer-filter" data-i18n="layer">Layer</label>
+          <select id="layer-filter"><option value="all">All layers</option></select>
+
+          <label class="control-label" for="type-filter" data-i18n="objectType">Object type</label>
+          <select id="type-filter"><option value="all">All types</option></select>
+
+          <label class="control-label" for="status-filter" data-i18n="lifecycle">Lifecycle</label>
+          <select id="status-filter"><option value="all">All states</option></select>
+
+          <label class="control-label" for="family-filter" data-i18n="relationFamily">Relation family</label>
+          <select id="family-filter"><option value="all">All families</option></select>
+
+          <label class="toggle-row" for="candidate-toggle">
+            <span>
+              <strong data-i18n="candidateOverlay">Candidate overlay</strong>
+              <small data-i18n="candidateHint">Dashed, never canonical</small>
+            </span>
+            <input id="candidate-toggle" type="checkbox" checked>
+          </label>
+        </section>
+
+        <section class="control-section">
+          <div class="section-heading">
+            <h2 data-i18n="neighborhood">Neighborhood</h2>
+            <span class="value-badge" id="depth-value">1 hop</span>
+          </div>
+          <label class="control-label" for="depth-range" data-i18n="depth">Depth</label>
+          <input id="depth-range" type="range" min="0" max="3" value="1" step="1">
+
+          <div class="section-heading budget-heading">
+            <label class="control-label" for="node-budget" data-i18n="visibleBudget">Visible budget</label>
+            <span class="value-badge" id="budget-value">80</span>
+          </div>
+          <input id="node-budget" type="range" min="10" max="150" value="80" step="10">
+
+          <div class="button-stack">
+            <button class="primary-button" id="focus-button" type="button" data-i18n="focusSelection">Focus selection</button>
+            <button class="secondary-button" id="overview-button" type="button" data-i18n="allNodes">All nodes</button>
+          </div>
+        </section>
+
+        <section class="control-section legend-section">
+          <h2 data-i18n="visualGrammar">Visual grammar</h2>
+          <div class="legend-list" id="layer-legend"></div>
+          <div class="legend-divider"></div>
+          <div class="legend-item">
+            <span class="legend-candidate" aria-hidden="true"></span>
+            <span data-i18n="candidate">Candidate</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-edge" aria-hidden="true"></span>
+            <span data-i18n="typedRelation">Typed relation</span>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main-stage" id="main-stage" tabindex="-1">
+        <section class="stage-panel is-active" id="graph-stage" data-stage="graph" aria-label="Node map">
+          <div class="stage-toolbar">
+            <div>
+              <span class="stage-kicker" data-i18n="focalView">MAPA DE NODOS</span>
+              <h2 id="graph-title">Todos los nodos</h2>
+            </div>
+            <div class="stage-actions">
+              <button class="icon-button" id="zoom-out" type="button" aria-label="Zoom out">−</button>
+              <button class="icon-button" id="zoom-reset" type="button" aria-label="Reset zoom">⌂</button>
+              <button class="icon-button" id="zoom-in" type="button" aria-label="Zoom in">+</button>
+              <button class="secondary-button compact" id="export-svg" type="button" data-i18n="exportPng">Exportar PNG</button>
+            </div>
+          </div>
+
+          <div class="graph-canvas-wrap" id="graph-canvas-wrap">
+            <canvas id="graph-canvas" tabindex="0" role="img" aria-labelledby="graph-title graph-description"></canvas>
+            <p class="orbit-hint" data-i18n="orbitHint">Arrastra para rotar · usa la rueda para acercar · haz clic en un nodo</p>
+            <div class="graph-tooltip" id="graph-tooltip" hidden></div>
+            <div class="sr-only" id="graph-node-a11y" aria-label="Nodos visibles"></div>
+            <svg id="graph-svg" class="graph-svg-fallback" aria-hidden="true" hidden>
+              <desc id="graph-description">Interactive node map. Select a node to inspect it and double click to refocus.</desc>
+              <defs>
+                <marker id="arrow-default" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                </marker>
+              </defs>
+              <g id="viewport-layer">
+                <g id="edge-layer"></g>
+                <g id="edge-label-layer"></g>
+                <g id="node-layer"></g>
+              </g>
+            </svg>
+
+            <div class="canvas-empty" id="graph-empty" hidden>
+              <div class="empty-symbol" aria-hidden="true">○</div>
+              <h3 data-i18n="emptyGraph">No graph objects yet</h3>
+              <p data-i18n="emptyGraphHint">Build or import a snapshot to begin exploring.</p>
+            </div>
+
+            <div class="canvas-hud" id="canvas-hud">
+              <span id="visible-count">0 nodes</span>
+              <span aria-hidden="true">·</span>
+              <span id="edge-count">0 relations</span>
+              <span aria-hidden="true">·</span>
+              <span id="focus-id">No focus</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="stage-panel" id="route-stage" data-stage="route" aria-label="Learning route">
+          <div class="stage-toolbar route-toolbar">
+            <div>
+              <span class="stage-kicker" data-i18n="explainableRoute">EXPLAINABLE ROUTE</span>
+              <h2 data-i18n="routeTimeline">Learning route timeline</h2>
+            </div>
+            <select id="route-select" aria-label="Select route"></select>
+          </div>
+          <div class="route-content" id="route-content"></div>
+        </section>
+
+        <section class="stage-panel" id="inspector-stage" data-stage="inspector" aria-label="Focused object inspector">
+          <div class="stage-toolbar">
+            <div>
+              <span class="stage-kicker" data-i18n="evidenceView">EVIDENCE VIEW</span>
+              <h2 data-i18n="focusedInspector">Focused inspector</h2>
+            </div>
+          </div>
+          <div class="focused-inspector" id="focused-inspector"></div>
+        </section>
+      </main>
+
+      <aside class="inspector-rail" aria-label="Selection inspector">
+        <div class="inspector-header">
+          <span class="stage-kicker" data-i18n="selection">SELECTION</span>
+          <button class="icon-button small" id="close-selection" type="button" aria-label="Clear selection">×</button>
+        </div>
+        <div class="inspector-content" id="inspector-content"></div>
+        <div class="inspector-actions" id="inspector-actions" hidden>
+          <button class="primary-button" id="prepare-proposal" type="button" data-i18n="prepareProposal">Prepare proposal</button>
+          <button class="secondary-button" id="copy-object-id" type="button" data-i18n="copyId">Copy ID</button>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="statusbar">
+      <div class="status-group">
+        <span class="status-light" id="status-light"></span>
+        <span id="status-message">Initializing local projection…</span>
+      </div>
+      <div class="status-group status-meta">
+        <span id="total-stats">0 objects</span>
+        <span aria-hidden="true">·</span>
+        <button class="footer-button" id="export-json" type="button" data-i18n="exportSnapshot">Export snapshot</button>
+        <span aria-hidden="true">·</span>
+        <span data-i18n="readOnly">Canonical read-only</span>
+      </div>
+    </footer>
+  </div>
+
+  <dialog id="proposal-dialog" class="proposal-dialog">
+    <form method="dialog" id="proposal-form">
+      <div class="dialog-header">
+        <div>
+          <span class="stage-kicker" data-i18n="candidateOnly">CANDIDATE ONLY</span>
+          <h2 data-i18n="proposalTitle">Prepare graph proposal</h2>
+        </div>
+        <button class="icon-button" id="proposal-close" type="button" aria-label="Close">×</button>
+      </div>
+      <p class="dialog-note" data-i18n="proposalNote">This creates a downloadable proposal. It cannot modify or promote canonical graph data.</p>
+
+      <label class="control-label" for="proposal-action" data-i18n="proposalAction">Action</label>
+      <select id="proposal-action" name="action">
+        <option value="edit_object">Edit selected object</option>
+        <option value="create_relation">Create relation from selected object</option>
+        <option value="create_object">Create new object</option>
+        <option value="contest_object">Contest selected object</option>
+      </select>
+
+      <label class="control-label" for="proposal-target" data-i18n="targetObject">Target object</label>
+      <input id="proposal-target" name="target" readonly>
+
+      <label class="control-label" for="proposal-summary" data-i18n="requestedChange">Requested change</label>
+      <textarea id="proposal-summary" name="summary" rows="5" required placeholder="Describe the proposed change and why it is needed."></textarea>
+
+      <label class="control-label" for="proposal-evidence" data-i18n="evidenceRefs">Evidence or source references</label>
+      <textarea id="proposal-evidence" name="evidence" rows="3" placeholder="DOI, PMID, source-lock ID, or local source reference"></textarea>
+
+      <div class="dialog-actions">
+        <button class="secondary-button" value="cancel" type="button" id="proposal-cancel" data-i18n="cancel">Cancel</button>
+        <button class="secondary-button" type="button" id="copy-proposal" data-i18n="copyJson">Copy JSON</button>
+        <button class="primary-button" type="submit" value="download" data-i18n="downloadProposal">Download proposal</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/viewer-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

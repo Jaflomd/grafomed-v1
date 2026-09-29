@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jaflo.local/grafomed/relation.schema.json",
+  "title": "Grafo Med relation",
+  "type": "object",
+  "required": ["schema", "id", "source", "target", "relation_type", "family", "lifecycle", "evidence_status", "validation_status", "rationale", "context", "source_refs", "claim_refs", "provenance"],
+  "properties": {
+    "schema": {"const": "grafomed-relation.v1"},
+    "id": {"type": "string", "pattern": "^gm-rel-[a-z0-9-]+$"},
+    "source": {"type": "string", "pattern": "^gm-[a-z0-9-]+$"},
+    "target": {"type": "string", "pattern": "^gm-[a-z0-9-]+$"},
+    "relation_type": {"type": "string"},
+    "family": {"type": "string"},
+    "lifecycle": {"enum": ["graph_drafted", "reviewed", "promoted", "contested", "deprecated", "superseded"]},
+    "evidence_status": {"enum": ["unknown", "source_locked_candidate", "verified"]},
+    "validation_status": {"enum": ["pending", "structural_pass", "pass", "fail"]},
+    "rationale": {"type": "string", "minLength": 10},
+    "context": {"type": "object"},
+    "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "claim_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "provenance": {"type": "object", "required": ["created_by", "created_at", "packet_id"]}
+  },
+  "additionalProperties": false
+}
+

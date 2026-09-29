@@ -1,0 +1,243 @@
+<div id="__ROOT_ID__">
+  <style>
+    #__ROOT_ID__ {
+      width: 100%;
+      color: var(--foreground);
+    }
+    #__ROOT_ID__ .graph-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    #__ROOT_ID__ .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted-foreground);
+    }
+    #__ROOT_ID__ .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+    #__ROOT_ID__ .graph-stage {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      min-height: 440px;
+    }
+    #__ROOT_ID__ .graph-stage canvas {
+      display: block;
+    }
+    #__ROOT_ID__ .graph-hint {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      color: var(--muted-foreground);
+      pointer-events: none;
+    }
+    #__ROOT_ID__ .node-detail {
+      margin-top: 12px;
+    }
+    #__ROOT_ID__ .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    #__ROOT_ID__ .detail-grid p {
+      margin: 4px 0 0;
+    }
+    #__ROOT_ID__ .detail-meta {
+      margin-top: 10px;
+    }
+    @media (max-width: 520px) {
+      #__ROOT_ID__ .graph-stage {
+        height: 480px;
+      }
+      #__ROOT_ID__ .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="graph-heading">
+    <h1>__TITLE__ · __NODE_COUNT__ nodos</h1>
+    <span class="text-small text-muted">Borrador curricular</span>
+  </div>
+
+  <div class="viz-row text-small" aria-label="Leyenda del grafo">
+    <span class="legend-item"><span class="legend-dot" style="background:var(--viz-series-1)"></span>Cluster</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--viz-series-2)"></span>Objetivo clave</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--viz-series-3)"></span>Unidad evaluable</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--viz-series-4)"></span>Actividad integradora</span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--viz-series-5)"></span>Anatomía</span>
+  </div>
+
+  <div id="__STAGE_ID__" class="graph-stage" role="img" aria-label="__ARIA_LABEL__">
+    <div class="graph-hint text-small">Arrastra para rotar · rueda para acercar · selecciona un nodo</div>
+  </div>
+
+  <section class="card node-detail" aria-live="polite" aria-labelledby="__DETAIL_TITLE_ID__">
+    <div class="text-small text-muted" id="__DETAIL_TYPE_ID__">Cluster</div>
+    <h2 id="__DETAIL_TITLE_ID__">__TITLE__</h2>
+    <div class="detail-grid">
+      <div>
+        <strong id="__DETAIL_OBJECTIVE_LABEL_ID__">Objetivo</strong>
+        <p id="__DETAIL_OBJECTIVE_ID__"></p>
+      </div>
+      <div>
+        <strong id="__DETAIL_DESCRIPTION_LABEL_ID__">Qué se espera</strong>
+        <p id="__DETAIL_DESCRIPTION_ID__"></p>
+      </div>
+    </div>
+    <div id="__DETAIL_META_ID__" class="detail-meta text-small text-muted"></div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.79.0/dist/3d-force-graph.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three-spritetext@1.10.0/dist/three-spritetext.min.js"></script>
+  <script>
+    (() => {
+      const root = document.getElementById('__ROOT_ID__');
+      const stage = document.getElementById('__STAGE_ID__');
+      const detailType = document.getElementById('__DETAIL_TYPE_ID__');
+      const detailTitle = document.getElementById('__DETAIL_TITLE_ID__');
+      const detailObjectiveLabel = document.getElementById('__DETAIL_OBJECTIVE_LABEL_ID__');
+      const detailDescriptionLabel = document.getElementById('__DETAIL_DESCRIPTION_LABEL_ID__');
+      const detailObjective = document.getElementById('__DETAIL_OBJECTIVE_ID__');
+      const detailDescription = document.getElementById('__DETAIL_DESCRIPTION_ID__');
+      const detailMeta = document.getElementById('__DETAIL_META_ID__');
+      const graphData = __GRAPH_DATA__;
+      const nodes = graphData.nodes;
+      const links = graphData.links;
+
+      const typeLabels = {
+        cluster: 'Cluster',
+        key: 'Objetivo clave',
+        atom: 'Unidad de aprendizaje y evaluación',
+        assembly: 'Actividad integradora',
+        anatomyFamily: 'Familia anatómica',
+        anatomy: 'Entidad anatómica'
+      };
+
+      const colorProbe = document.createElement('span');
+      colorProbe.style.position = 'absolute';
+      colorProbe.style.visibility = 'hidden';
+      root.appendChild(colorProbe);
+      const resolveColor = token => {
+        colorProbe.style.color = `var(${token})`;
+        return getComputedStyle(colorProbe).color;
+      };
+      const palette = {};
+      const refreshPalette = () => {
+        palette.cluster = resolveColor('--viz-series-1');
+        palette.key = resolveColor('--viz-series-2');
+        palette.atom = resolveColor('--viz-series-3');
+        palette.assembly = resolveColor('--viz-series-4');
+        palette.anatomyFamily = resolveColor('--viz-series-5');
+        palette.anatomy = resolveColor('--viz-series-5');
+        palette.neutral = resolveColor('--border');
+        palette.text = resolveColor('--foreground');
+      };
+      refreshPalette();
+
+      const showDetail = node => {
+        const isKnowledge = node.type === 'anatomy' || node.type === 'anatomyFamily';
+        detailType.textContent = typeLabels[node.type];
+        detailTitle.textContent = node.title;
+        detailObjectiveLabel.textContent = isKnowledge ? 'Definición' : 'Objetivo';
+        detailDescriptionLabel.textContent = isKnowledge ? 'Conexión educativa' : 'Qué se espera';
+        detailObjective.textContent = node.objective;
+        detailDescription.textContent = node.description;
+        detailMeta.textContent = node.meta;
+      };
+      showDetail(nodes[0]);
+
+      if (typeof ForceGraph3D !== 'function' || typeof SpriteText !== 'function' || typeof THREE !== 'object') {
+        stage.textContent = 'No se pudo cargar la vista tridimensional.';
+        return;
+      }
+
+      const radiusFor = node => {
+        if (node.type === 'cluster') return 5.2;
+        if (node.type === 'anatomyFamily') return 4.2;
+        if (node.type === 'assembly') return 4;
+        if (node.type === 'key') return 3.8;
+        if (node.type === 'atom') return 2.1;
+        return 1.8;
+      };
+      const shouldLabel = node => ['cluster', 'key', 'assembly', 'anatomyFamily'].includes(node.type);
+      const makeNodeObject = node => {
+        const radius = radiusFor(node);
+        const group = new THREE.Group();
+        const sphere = new THREE.Mesh(
+          new THREE.SphereGeometry(radius, 18, 14),
+          new THREE.MeshLambertMaterial({ color: palette[node.type] })
+        );
+        group.add(sphere);
+        if (shouldLabel(node)) {
+          const label = new SpriteText(node.title);
+          label.color = palette.text;
+          label.textHeight = node.type === 'cluster' ? 4 : 2.7;
+          label.position.y = radius + 2.2;
+          label.material.depthWrite = false;
+          group.add(label);
+        }
+        return group;
+      };
+      const linkColor = link => {
+        if (link.kind === 'integration') return palette.assembly;
+        if (link.kind === 'knowledge-structure' || link.kind === 'knowledge-learning') return palette.anatomy;
+        return palette.neutral;
+      };
+      const linkWidth = link => {
+        if (link.kind === 'hierarchy') return 1.05;
+        if (link.kind === 'integration') return 0.9;
+        if (link.kind === 'knowledge-structure') return 0.7;
+        return 0.35;
+      };
+
+      const graph = ForceGraph3D({ controlType: 'orbit' })(stage)
+        .graphData({ nodes, links })
+        .backgroundColor('rgba(0,0,0,0)')
+        .showNavInfo(false)
+        .nodeLabel(node => `${typeLabels[node.type]}: ${node.title}`)
+        .nodeThreeObject(makeNodeObject)
+        .linkColor(linkColor)
+        .linkOpacity(0.3)
+        .linkWidth(linkWidth)
+        .onNodeClick(node => {
+          showDetail(node);
+          const distance = 90;
+          const length = Math.hypot(node.x || 0, node.y || 0, node.z || 0) || 1;
+          const ratio = 1 + distance / length;
+          graph.cameraPosition(
+            { x: (node.x || 0) * ratio, y: (node.y || 0) * ratio, z: (node.z || 0) * ratio },
+            node,
+            650
+          );
+        });
+
+      graph.d3Force('charge').strength(-95);
+      graph.d3Force('link').distance(link => link.kind === 'knowledge-learning' ? 46 : 34);
+
+      const resize = () => {
+        graph.width(stage.clientWidth);
+        graph.height(stage.clientHeight);
+      };
+      resize();
+      const observer = new ResizeObserver(resize);
+      observer.observe(stage);
+      setTimeout(() => graph.zoomToFit(700, 38), 450);
+
+      const themeObserver = new MutationObserver(() => {
+        refreshPalette();
+        graph.nodeThreeObject(makeNodeObject).linkColor(linkColor);
+      });
+      themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'style', 'data-theme'] });
+    })();
+  </script>
+</div>

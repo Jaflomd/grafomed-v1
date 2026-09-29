@@ -1,0 +1,113 @@
+locale: es
+meta:
+  candidate_snapshot_label: Proyección candidata de Grafo Med
+  canonical_snapshot_label: Proyección canónica de Grafo Med
+  empty_snapshot_label: Grafo canónico de Grafo Med vacío
+  candidate_notice_template: "Proyección de {promoted_count} objetos revisados o promovidos y {candidate_count} objetos candidatos."
+  empty_notice: Aún no existen objetos canónicos en Grafo Med.
+
+nodes:
+  gm-clinical-finding-anogenital-ulcer:
+    label: Presentación con úlcera anogenital
+    summary: Lesión de continuidad en la piel o mucosa genital, anal o perianal que puede presentarse como úlcera, erosión, vesícula o llaga, con o sin dolor.
+  gm-condition-genital-herpes:
+    label: Herpes genital
+    summary: Infección anogenital por VHS que puede causar enfermedad vesicular, ulcerativa, dolorosa, recurrente, atípica o clínicamente inadvertida.
+  gm-condition-primary-syphilis:
+    label: Sífilis primaria
+    summary: Etapa temprana de la sífilis adquirida en la que puede aparecer una lesión en el sitio de inoculación antes de que las pruebas serológicas se vuelvan reactivas.
+    learning_contract:
+      objective: Priorizar la sífilis primaria dentro del diagnóstico diferencial de una úlcera anogenital utilizando la presentación, la exposición y la cronología, sin eliminar la incertidumbre diagnóstica.
+      expected_performance: El estudiante reconoce presentaciones clásicas y atípicas, considera la morfología como orientadora pero no definitiva y mantiene como posible una infección muy temprana pese a una serología inicial no reactiva. El nodo se limita a la rama de úlcera genital durante la primera consulta; no incluye estadificación ni tratamiento definitivo.
+      mastery_evidence: Ante una viñeta de primera consulta, el estudiante coloca la sífilis primaria en una prioridad diferencial apropiada y evita confirmarla o descartarla únicamente por la morfología clásica o por una serología temprana no reactiva.
+  gm-test-syphilis-evaluation-in-gud:
+    label: Evaluación de sífilis ante úlcera anogenital
+    summary: Uso contextual de serología treponémica y no treponémica, además de pruebas directas de la lesión cuando estén disponibles, sin excluir falsamente una infección muy temprana.
+    learning_contract:
+      objective: Formular un plan inicial de evaluación de sífilis para una persona con úlcera anogenital que integre la cronología, el tratamiento previo, los métodos disponibles y la incertidumbre residual.
+      expected_performance: El estudiante selecciona la evaluación serológica treponémica y no treponémica apropiada, considera pruebas directas de la lesión cuando están disponibles e interpreta los resultados según la exposición y el tiempo de evolución. El nodo excluye la estadificación completa y el seguimiento serológico posterior al tratamiento.
+      mastery_evidence: Ante un caso de primera consulta y una oferta concreta de pruebas, el estudiante propone una evaluación apropiada, interpreta un resultado temprano no reactivo sin cerrar la rama de sífilis y define la repetición de pruebas o el seguimiento requerido.
+  gm-test-hsv-lesion-naat-or-culture:
+    label: NAAT o cultivo de lesión para VHS
+    summary: Prueba virológica directa de una lesión anogenital activa, preferentemente mediante NAAT con tipificación cuando esté disponible o mediante cultivo cuando corresponda.
+  gm-test-hiv-screening-in-gud:
+    label: Tamizaje de VIH ante úlcera anogenital
+    summary: Oferta de prueba de VIH como parte de la evaluación inicial de una persona con úlcera anogenital cuando la infección no es conocida.
+  gm-decision-gud-diagnosis-confirmation:
+    label: D — Seleccionar el estudio diagnóstico inicial
+    summary: Elegir el primer conjunto de evaluaciones capaz de distinguir etiologías y modificar el manejo del mismo día, sin convertir la morfología en diagnóstico.
+  gm-decision-gud-actionable-context:
+    label: E — Clasificar el contexto que cambia la conducta
+    summary: Clasificar únicamente los estados clínicos y de recursos que modifican la conducta inicial.
+  gm-decision-gud-same-day-treatment:
+    label: T — Decidir el manejo inmediato
+    summary: Seleccionar el estado inicial de manejo etiológico, sindrómico, presuntivo o de escalamiento según el contexto accionable.
+  gm-decision-gud-complication-escalation:
+    label: C — Identificar complicaciones y escalamiento
+    summary: Determinar qué complicaciones, factores del huésped y causas alternativas requieren acción durante o después de la primera consulta.
+  gm-decision-gud-follow-up:
+    label: S — Definir seguimiento y criterios de falla
+    summary: Definir cuándo y cómo los resultados diferidos, la persistencia, la respuesta, la recurrencia y las acciones sobre parejas modificarán el plan.
+  gm-decision-gud-prognosis-communication:
+    label: P — Comunicar pronóstico e incertidumbre
+    summary: Decidir qué información sobre pronóstico, prevención, incertidumbre, confidencialidad y parejas debe comunicarse en la primera consulta.
+  gm-differential-set-anogenital-ulcer:
+    label: Diferencial inicial de la úlcera anogenital
+    summary: Diferencial acotado para la primera consulta que separa infecciones frecuentes o de alto impacto de alternativas infecciosas y no infecciosas dependientes del contexto.
+  gm-illness-script-genital-herpes:
+    label: Guion de enfermedad — herpes genital
+    summary: Proyección centrada en la enfermedad para reconocer y discriminar herpes genital; termina antes del manejo definitivo.
+  gm-detcsp-gud-initial-management:
+    label: Mini-DETcSp — manejo inicial de la úlcera anogenital
+    summary: Ensamblaje acotado que transforma el reconocimiento mediante guiones de enfermedad en seis compromisos observables de manejo durante la primera consulta.
+  gm-mastery-gud-evaluation:
+    label: Evaluar y priorizar una úlcera anogenital
+    summary: Ante un caso de primera consulta, reconocer el síndrome, priorizar el diferencial, seleccionar las pruebas iniciales y expresar la incertidumbre residual.
+  gm-mastery-gud-initial-management:
+    label: Decidir y comunicar el manejo inicial
+    summary: Según el estudio y el contexto local, seleccionar el manejo inmediato y definir el seguimiento y la comunicación de incertidumbre.
+  gm-assessment-gud-v0:
+    label: Evaluación experimental — úlcera anogenital v0
+    summary: Cinco preguntas originales de mejor respuesta, una rama de remediación y un caso de transferencia vinculados con los dos átomos de dominio.
+
+routes:
+  gm-route-gud-generated-v0:
+    label: Ruta generada — manejo inicial de la úlcera anogenital
+    goal: Evaluar una úlcera anogenital y comprometerse con un estado inicial de manejo respaldado por evidencia y ajustado al contexto.
+    step_reasons:
+      gm-clinical-finding-anogenital-ulcer: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-condition-genital-herpes: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-illness-script-genital-herpes: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-condition-primary-syphilis: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-differential-set-anogenital-ulcer: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-test-syphilis-evaluation-in-gud: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-test-hsv-lesion-naat-or-culture: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-test-hiv-screening-in-gud: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-decision-gud-diagnosis-confirmation: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-decision-gud-actionable-context: "Evidencia necesaria para evaluar y priorizar una úlcera anogenital; estimación actual del fixture: 0,35."
+      gm-decision-gud-same-day-treatment: "Evidencia necesaria para decidir y comunicar el manejo inicial; estimación actual del fixture: 0,20."
+      gm-decision-gud-complication-escalation: "Evidencia necesaria para decidir y comunicar el manejo inicial; estimación actual del fixture: 0,20."
+      gm-decision-gud-follow-up: "Evidencia necesaria para decidir y comunicar el manejo inicial; estimación actual del fixture: 0,20."
+      gm-decision-gud-prognosis-communication: "Evidencia necesaria para decidir y comunicar el manejo inicial; estimación actual del fixture: 0,20."
+      gm-detcsp-gud-initial-management: "Evidencia necesaria para decidir y comunicar el manejo inicial; estimación actual del fixture: 0,20."
+      gm-assessment-gud-v0: Recoger evidencia observable de ambos átomos de dominio y elegir la siguiente acción de éxito, remediación o transferencia.
+  gm-route-gud-gold-v0:
+    label: Ruta gold manual — manejo inicial de la úlcera anogenital
+    goal: Evaluar una úlcera anogenital y comprometerse con un estado inicial de manejo respaldado por evidencia y ajustado al contexto.
+    step_reasons:
+      gm-clinical-finding-anogenital-ulcer: Anclar la ruta en el hallazgo de presentación sin asignar etiología.
+      gm-condition-genital-herpes: Establecer uno de los dos contrastes etiológicos principales.
+      gm-illness-script-genital-herpes: Organizar condiciones facilitadoras, mecanismo, consecuencias y discriminadores sin duplicar el manejo.
+      gm-condition-primary-syphilis: Establecer la causa competidora de alto impacto y la salvedad de la serología temprana.
+      gm-differential-set-anogenital-ulcer: Priorizar VHS y sífilis manteniendo alternativas infecciosas raras y no infecciosas.
+      gm-test-syphilis-evaluation-in-gud: Elegir e interpretar las pruebas de sífilis sin una exclusión temprana falsa.
+      gm-test-hsv-lesion-naat-or-culture: Usar pruebas directas de la lesión para reemplazar la certeza basada solo en morfología.
+      gm-test-hiv-screening-in-gud: Incluir la prueba necesaria de huésped y prevención sin confundirla con la etiología de la úlcera.
+      gm-decision-gud-diagnosis-confirmation: Comprometerse con el estudio inicial y declarar la incertidumbre residual.
+      gm-decision-gud-actionable-context: Clasificar los estados de pruebas inmediatas, capacidad limitada o escalamiento que cambian la conducta.
+      gm-decision-gud-same-day-treatment: Elegir manejo etiológico, sindrómico, presuntivo o de escalamiento según el protocolo aplicable.
+      gm-decision-gud-complication-escalation: Actuar ante alternativas graves, poblaciones especiales, persistencia o causas no infecciosas.
+      gm-decision-gud-follow-up: Definir revisión de resultados, reevaluación, falla y circuitos de referencia.
+      gm-decision-gud-prognosis-communication: Comunicar pronóstico, prevención, privacidad, acciones sobre parejas e incertidumbre.
+      gm-detcsp-gud-initial-management: Integrar D-E-T-C-S-P como un desempeño coherente y acotado.
+      gm-assessment-gud-v0: Recoger evidencia y derivar hacia transferencia o remediación dirigida.

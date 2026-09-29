@@ -1,0 +1,98 @@
+schema: grafomed-relation-registry.v1
+version: 0.3.0
+status: executable_candidate
+rules:
+  part_of:
+    family: structural
+    direction: component_anatomical_entity_to_containing_anatomical_entity
+    domain: [anatomical_entity]
+    range: [anatomical_entity]
+    inverse_policy: derived_contains_view_only
+    cycles: prohibited
+    note: >-
+      Encodes anatomical containment or membership. It does not imply a subtype
+      relation and does not create a learner-facing objective for either entity.
+  anatomical_subtype_of:
+    family: structural
+    direction: specific_anatomical_entity_to_general_anatomical_entity
+    domain: [anatomical_entity]
+    range: [anatomical_entity]
+    inverse_policy: derived_specialization_view_only
+    cycles: prohibited
+    note: >-
+      Encodes a reusable anatomical specialization or morphotype. It does not
+      imply that every individual level or anatomical feature requires a node.
+  supports_hypothesis:
+    family: clinical_reasoning
+    direction: evidence_object_to_condition
+    domain: [clinical_finding, test, context]
+    range: [condition]
+    inverse_policy: no_automatic_inverse
+    cycles: allowed_with_distinct_assertions
+  discriminates_from:
+    family: clinical_reasoning
+    direction: condition_to_condition
+    domain: [condition]
+    range: [condition]
+    inverse_policy: no_automatic_inverse
+    cycles: allowed_when_rationales_differ
+  feeds_decision:
+    family: clinical_reasoning
+    direction: input_object_to_decision
+    domain: [clinical_finding, condition, test, context, decision_atom]
+    range: [decision_atom]
+    inverse_policy: none
+    cycles: prohibited_in_v0_1_slice
+  changes_management_state:
+    family: clinical_reasoning
+    direction: upstream_decision_to_downstream_decision
+    domain: [decision_atom]
+    range: [decision_atom]
+    inverse_policy: none
+    cycles: allowed_only_for_explicit_monitoring_loops
+  enables_mastery_of:
+    family: learning
+    direction: graph_object_to_mastery_atom
+    domain:
+      - anatomical_entity
+      - biological_process
+      - developmental_event
+      - condition
+      - clinical_finding
+      - mechanism
+      - test
+      - intervention
+      - risk
+      - context
+      - decision_atom
+      - decision_pattern
+      - clinical_chain
+      - illness_script
+      - detcsp_pathway
+      - differential_set
+      - professional_activity
+    range: [mastery_atom]
+    inverse_policy: none
+    cycles: prohibited
+  requires:
+    family: learning
+    direction: downstream_mastery_to_upstream_mastery
+    domain: [mastery_atom]
+    range: [mastery_atom]
+    inverse_policy: none
+    cycles: prohibited
+  assessed_by:
+    family: learning
+    direction: mastery_atom_to_assessment
+    domain: [mastery_atom]
+    range: [assessment]
+    inverse_policy: none
+    cycles: prohibited
+  assembled_into:
+    family: assembly_composition
+    direction: reusable_object_to_assembly
+    domain: [condition, clinical_finding, test, context, decision_atom, differential_set]
+    range: [illness_script, detcsp_pathway, differential_set, clinical_chain, professional_activity]
+    inverse_policy: derived_membership_view_only
+    cycles: prohibited
+    note: Composition metadata only; it does not assert medical causality.

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>USAMEDIC · Laboratorio de Juegos Clínicos (ENAM · Residentado · USMLE)</title>
+  <link rel="stylesheet" href="games-lab.css?v=20260925_08">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body class="games-lab-body">
+  <header class="lab-header">
+    <div class="lab-header-left">
+      <span class="lab-logo-pill">USAMEDIC</span>
+      <div class="lab-titles">
+        <h1>USAMEDIC · Laboratorio de Juegos Clínicos</h1>
+        <p>Entrenamiento interactivo de alto rendimiento para ENAM, Residentado Médico & USMLE</p>
+      </div>
+    </div>
+    <div class="lab-header-right">
+      <!-- Player Gamification HUD -->
+      <div class="player-hud-card" id="player-hud-card">
+        <div class="player-level-badge" id="player-level-badge">
+          <span>⭐</span>
+          <span id="player-rank-title">Nivel 2 · Residente Junior</span>
+        </div>
+        <div class="player-xp-track-wrap">
+          <div class="player-xp-labels">
+            <span class="player-xp-count" id="player-xp-count">⚡ 850 XP</span>
+            <span id="player-xp-next">1000 XP</span>
+          </div>
+          <div class="player-xp-bar-bg">
+            <div class="player-xp-bar-fill" id="player-xp-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+        <div class="player-streak-badge" id="player-streak-badge" title="Racha global de aciertos">
+          <span id="player-streak-text">🔥 x1</span>
+        </div>
+      </div>
+
+      <div class="lab-progress-badge">
+        <span class="badge-label">Catálogo</span>
+        <strong id="games-completed-count">12 / 20</strong>
+      </div>
+
+      <button class="lab-btn secondary" id="btn-toggle-sound" title="Sonido On/Off">
+        <span id="sound-icon">🔊</span>
+      </button>
+
+      <button class="lab-btn secondary" id="btn-open-badges" title="Ver Logros Clínicos">
+        <span>🏆</span>
+        <span id="badges-count-text">6/9</span>
+      </button>
+
+      <a href="/index.html" class="lab-btn secondary">USAMEDIC App</a>
+    </div>
+  </header>
+
+  <!-- Canvas de Confetti Global -->
+  <canvas id="lab-confetti-canvas" style="position:fixed; inset:0; pointer-events:none; z-index:9999;"></canvas>
+
+  <!-- Modal de Logros Clínicos -->
+  <div class="achievement-modal-overlay" id="achievement-modal">
+    <div class="achievement-modal-card">
+      <div class="achievement-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:20px;">🏆</span>
+          <h3 style="font-size:16px; font-weight:800; color:#fff;">Sala de Trofeos y Logros Clínicos</h3>
+        </div>
+        <button class="lab-btn secondary" id="btn-close-badges" style="padding:4px 10px; font-size:12px;">✕ Cerrar</button>
+      </div>
+
+      <div class="achievement-grid" id="achievement-grid">
+        <!-- Renderizado dinámico de trofeos -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de Selección de Juegos (1 al 20) -->
+  <nav class="games-nav-bar" aria-label="Selector de prototipos de juegos">
+    <div class="games-pill-strip" id="games-pill-strip">
+      <!-- Se generarán dinámicamente los 20 botones de juegos -->
+    </div>
+  </nav>
+
+  <!-- Contenedor Principal del Juego Activo -->
+  <main class="lab-stage" id="lab-stage">
+    <!-- El juego activo se monta aquí -->
+  </main>
+
+  <footer class="lab-footer">
+    <div class="footer-info">
+      <span><strong>Propósito de la unidad:</strong> <span id="game-purpose-text">Causalidad fisiopatológica y diseño de mapas conceptuales</span></span>
+      <span class="separator">·</span>
+      <span><strong>Formato de evaluación:</strong> <span id="game-format-text">Red causal interactiva con validación en tiempo real</span></span>
+    </div>
+    <div class="footer-actions">
+      <span class="status-indicator active"></span>
+      <span class="status-label">Prototipo 02 Activo</span>
+    </div>
+  </footer>
+
+  <script src="games-lab.js?v=20260925_07"></script>
+</body>
+</html>

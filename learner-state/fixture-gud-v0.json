@@ -1,0 +1,93 @@
+{
+  "schema": "grafomed-learner-state.v1",
+  "id": "gm-learner-state-gud-fixture-v0",
+  "fixture": true,
+  "pseudonymous_learner_id": "fixture-builder-001",
+  "current_goal": "Evaluate an anogenital ulcer and select the first management state in context.",
+  "target_object_refs": [
+    "gm-mastery-gud-evaluation",
+    "gm-mastery-gud-initial-management"
+  ],
+  "graph_snapshot_id": "gm-snap-5210a95a8ec45899",
+  "route_version": "0.1.0",
+  "states": {
+    "before": {
+      "mastery": {
+        "gm-mastery-gud-evaluation": {
+          "estimate": 0.35,
+          "confidence": 0.30,
+          "attempt_summary": "Synthetic low-prior state; no direct assessment evidence.",
+          "last_practiced": null,
+          "review_due": true,
+          "error_patterns": ["morphology_as_diagnosis"]
+        },
+        "gm-mastery-gud-initial-management": {
+          "estimate": 0.20,
+          "confidence": 0.25,
+          "attempt_summary": "Synthetic low-prior state; jurisdiction and resource context not yet demonstrated.",
+          "last_practiced": null,
+          "review_due": true,
+          "error_patterns": ["jurisdiction_collapse"]
+        }
+      },
+      "evidence_refs": ["synthetic-prior-v0"],
+      "next_action": "Run the full generated route beginning with syndrome recognition."
+    },
+    "after_success": {
+      "mastery": {
+        "gm-mastery-gud-evaluation": {
+          "estimate": 0.80,
+          "confidence": 0.65,
+          "attempt_summary": "Correctly solved MCQ-GUD-01 through MCQ-GUD-03 with written uncertainty rationale.",
+          "last_practiced": "2026-08-26",
+          "review_due": false,
+          "error_patterns": []
+        },
+        "gm-mastery-gud-initial-management": {
+          "estimate": 0.76,
+          "confidence": 0.60,
+          "attempt_summary": "Correctly solved MCQ-GUD-03 through MCQ-GUD-05 and justified the Peru versus WHO context branch.",
+          "last_practiced": "2026-08-26",
+          "review_due": false,
+          "error_patterns": []
+        }
+      },
+      "evidence_refs": ["gm-assessment-gud-v0#MCQ-GUD-01", "gm-assessment-gud-v0#MCQ-GUD-05"],
+      "next_action": "Attempt CASE-GUD-TRANSFER-01, then schedule spaced review."
+    },
+    "after_failure": {
+      "mastery": {
+        "gm-mastery-gud-evaluation": {
+          "estimate": 0.42,
+          "confidence": 0.55,
+          "attempt_summary": "Selected etiology from morphology and treated early negative serology as exclusion.",
+          "last_practiced": "2026-08-26",
+          "review_due": true,
+          "error_patterns": ["morphology_as_diagnosis", "early_negative_test_closure"]
+        },
+        "gm-mastery-gud-initial-management": {
+          "estimate": 0.18,
+          "confidence": 0.45,
+          "attempt_summary": "Applied one treatment rule across jurisdictions and laboratory contexts.",
+          "last_practiced": "2026-08-26",
+          "review_due": true,
+          "error_patterns": ["jurisdiction_collapse", "resource_context_ignored"]
+        }
+      },
+      "evidence_refs": ["gm-assessment-gud-v0#failed-attempt-fixture"],
+      "next_action": "Run REM-GUD-PATTERN-ONLY-01 before repeating MCQ-GUD-01 through MCQ-GUD-03."
+    }
+  },
+  "constraints": {
+    "available_time_minutes": 45,
+    "deadline": null,
+    "fatigue": "not_provided",
+    "modality": "case_based_text"
+  },
+  "privacy": {
+    "contains_phi": false,
+    "synthetic": true,
+    "export_by_default": false
+  },
+  "epistemic_note": "All estimates and the 0.75 routing threshold are synthetic fixture assumptions, not validated mastery claims."
+}
